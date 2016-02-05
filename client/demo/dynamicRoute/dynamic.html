@@ -1,0 +1,9 @@
+<template name= "dynamicDemo">
+	{{#each templateList}}
+		<div class="row">
+			<main class="col-md-12 main-content">	
+				{{> UI.dynamic template = this.templateName}}
+			</main>
+		</div>
+	{{/each}}
+</template>
