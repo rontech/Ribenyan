@@ -1,2 +1,2 @@
-Meteor.subscribe("test");
+Meteor.subscribe("severPublicName","tom");
 Meteor.subscribe("News");
