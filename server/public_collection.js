@@ -11,3 +11,7 @@ Meteor.publish("News",function(){
 	//新闻列表
 	return News.find();
 });
+
+Meteor.publish("layout",function(){
+	return layout.find();
+});
