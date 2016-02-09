@@ -1,9 +1,9 @@
 <template name="showDataRouter">
 	{{#each dbData}}	
 		<div>
-	      <h3><a href="{{url}}">{{name}}</a><span>{{domain}}</span></h3>
+	      <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
 	 		<!-- 路由方式跳转其它页面 -->
-	      <a href="{{pathFor 'showDetail'}}" class="discuss btn btn-default" >详情</a>
+	      <a href="{{ pathFor 'showDetail'}}" class="discuss btn btn-default" >详情</a>
 	      
 	      <button class="submit">Submit</button>
 

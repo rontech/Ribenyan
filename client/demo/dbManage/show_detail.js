@@ -30,13 +30,16 @@ Template.showDetail.helpers({
 		this.title = "测试标题";
 
 		return this.title;
+	},
+	layout : function(){
+		return layout.findOne({type_id : "1"});
 	}
 });
+
 
 //接收传递的参数
 Template.showDetail.rendered = function(){	
 	console.log("D");
 	console.log(this.data);
-	//this.data = Posts.findOne({_id:"EJ2dQydQTpLMPMxTc"});
 };
 

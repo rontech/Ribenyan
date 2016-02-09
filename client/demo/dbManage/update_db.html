@@ -1,0 +1,16 @@
+<template name="updateDB">
+	<div>
+		<h2>新闻:数据更新</h2>
+		<form name="">
+
+			{{#with newsInfo}}
+				<p>标题:<input value="{{title}}" name="name" id="nameUpdate"></p>
+				<p>作者:<input value="{{author_name}}" name="author_name" id="authorUpdate"></p>
+				<p>简介:<input value="{{over_content}}" name="over_content" id="overUpdate"></p>
+				<button class="submit" id="update" value="{{_id}}">更新</button>
+			{{/with}}
+
+		</form>
+		
+	</div>
+</template>
