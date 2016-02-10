@@ -15,3 +15,8 @@ Meteor.publish("News",function(){
 Meteor.publish("layout",function(){
 	return layout.find();
 });
+
+//导航信息
+Meteor.publish("header",function(){
+	return HeaderInfo.find({state:true});
+});

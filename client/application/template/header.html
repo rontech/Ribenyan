@@ -12,22 +12,23 @@
           <a style="color:white;font-size:18px;font-weight:bold;" class="navbar-brand" href="#">焦点新闻</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+
           <ul class="nav_bar_ul nav navbar-nav">
-            <li class="active"><a href="#">推荐</a></li>
-            <li><a href="">社会</a></li>
-            <li><a href="">体育</a></li>
-            <li><a href="">军事</a></li>
-            <li><a href="">金融</a></li>
-            <li><a href="">教育</a></li>
-            <li><a href="">旅游</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多 <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"></a></li>
-                <li><a href="#">Another action</a></li>
-              </ul>
-            </li>
+            <!-- <li class="active"><a href="#">推荐</a></li> -->
+            {{#each firstNode}}
+                <li><a href="{{pathFor this.clickShowLayout }}">{{showName}}</a></li>
+            {{/each}}
+            <!-- 更多 -->
+              <li style="display:{{isShowMore}};"  class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  {{#each MoreNode}}
+                      <li><a href="{{typeID}}">{{showName}}</a></li>
+                  {{/each}}
+                </ul>
+              </li>
           </ul>
+
           <ul class="nav_bar_ul nav navbar-nav navbar-right">
             <li class="active">
               <a href="">登录/注册 
@@ -35,6 +36,8 @@
               </a>
             </li>
           </ul>
+
+          
 
         </div><!--/.nav-collapse -->
       </div>
