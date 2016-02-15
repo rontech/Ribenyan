@@ -7,8 +7,8 @@
 	{{/each}}
 
   <!-- 加载更多 -->
-  {{#if nextPath}}
-      <a class="load-more" href="{{nextPath}}">Load more</a>
+  {{#if hasMore}}
+      <a class="load-more" href="{{pathFor 'second' typeID=typeID limit=newLimit}}">加载更多</a>
   {{/if}}
   
 </template>

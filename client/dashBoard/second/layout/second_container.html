@@ -3,14 +3,7 @@
 	<div class="container">
 
         <div class="content_left" >
-        	<!-- {{>　secondLeftList typeID=typeID newsLimit=newsLimit}} -->
-        	{{#each newsList}}
-				{{> newsListCell}}
-			{{/each}}
-			<!-- 加载更多 -->
-  			{{#if nextPath}}
-      			<a class="load-more" href="{{nextPath}}">加载更多</a>
-  			{{/if}}
+        	{{>　secondLeftList typeID=typeID limit=limit}}
 		</div>
 
 		<div class="content_right">
