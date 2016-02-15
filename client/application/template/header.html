@@ -16,7 +16,7 @@
           <ul class="nav_bar_ul nav navbar-nav">
             <!-- <li class="active"><a href="#">推荐</a></li> -->
             {{#each firstNode}}
-                <li><a href="{{pathFor this.clickShowLayout }}">{{showName}}</a></li>
+                <li><a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}</a></li>
             {{/each}}
             <!-- 更多 -->
               <li style="display:{{isShowMore}};"  class="dropdown">

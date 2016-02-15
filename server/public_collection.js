@@ -7,9 +7,25 @@ Meteor.publish("severPublicName",function(authorParam){
 	return Posts.find({author:authorParam});
 });
 
-Meteor.publish("News",function(){
+//发布新闻列表
+Meteor.publish("News",function(typeID,sort,limit){
+	// check(typeID,String);
+	// check(sort,Object);
+	// check(limit,Number);
+	
 	//新闻列表
-	return News.find();
+	return News.find(
+					{
+						typeObj:{
+							$elemMatch:{
+								typeID: new Meteor.Collection.ObjectID(typeID)
+							}
+						}
+					},
+					{
+						sort: sort, limit: limit
+					}
+					);
 });
 
 Meteor.publish("layout",function(){

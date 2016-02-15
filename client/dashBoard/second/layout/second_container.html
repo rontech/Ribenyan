@@ -1,9 +1,18 @@
 <!-- 二级画面布局文件 -->
 <template name="secondContainer">
 	<div class="container">
+
         <div class="content_left" >
-        	{{>　secondLeftList typeID=typeID}}
+        	<!-- {{>　secondLeftList typeID=typeID newsLimit=newsLimit}} -->
+        	{{#each newsList}}
+				{{> newsListCell}}
+			{{/each}}
+			<!-- 加载更多 -->
+  			{{#if nextPath}}
+      			<a class="load-more" href="{{nextPath}}">加载更多</a>
+  			{{/if}}
 		</div>
+
 		<div class="content_right">
 			
 		</div>
