@@ -33,3 +33,8 @@ function getListDataNews(){
 						}
 					);
 }
+
+//广告数据
+function getListAdverInfo(){
+	
+}
