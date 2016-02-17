@@ -9,14 +9,30 @@ Template.newsGridTemplate3.onCreated(function(){
 Template.newsGridTemplate3.helpers({
 	listNews :function(){//新闻列表
 		//解析默认数据
-		var data = this.dataObj.data;
-		var num = defaultNum - data.length;
+		var dataObj = this.dataObj;
+		var listNews = [];
+		var num = defaultNum - dataObj.length;
+		// 首页以存在新闻ＩＤ
+		var arrayID = [];
+		for (var i = 0;i<dataObj.length;i++){
+			arrayID[i] = dataObj[i].data._id;
+			listNews[i] =  dataObj[i].data;
+		}
+
 		if (num > 0){
 			console.log(this.typeID._str);
-			//查询填充数据 
+			//查询填充数据 （去除不存在新闻）
 			fillData = News.find(
 								{
-									typeID:Meteor.Collection.ObjectID(this.typeID._str)
+									typeObj:{
+											$elemMatch:{
+												typeID: new Meteor.Collection.ObjectID(this.typeID._str)
+											}
+										},
+									_id : {
+										$nin:arrayID
+									}
+
 								},
 								{
 									sort:{},
@@ -25,8 +41,8 @@ Template.newsGridTemplate3.helpers({
 								);
 			//合并数据
 			console.log(fillData.fetch());
-			data = data.concat(fillData.fetch());
+			listNews = listNews.concat(fillData.fetch());
 		}
-		return data;
+		return listNews;
 	}
 });
