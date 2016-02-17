@@ -17,7 +17,7 @@ Template.secondLeftList.helpers({
 
 //查询数据
 function getListDataNews(){
-	return News.find(
+	return NewsCol.find(
 						{
 							typeObj:{
 								$elemMatch:{

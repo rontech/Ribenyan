@@ -3,7 +3,7 @@ Template.indexContainer.helpers({
 
 	},
 	typeNewsList : function(){//新闻及广告
-		return IndexLayout.find(
+		return IndexLayoutCol.find(
 								{
 									showType:{$ne:1}
 								},

@@ -20,9 +20,8 @@ Template.newsGridTemplate3.helpers({
 		}
 
 		if (num > 0){
-			console.log(this.typeID._str);
 			//查询填充数据 （去除不存在新闻）
-			fillData = News.find(
+			fillData = NewsCol.find(
 								{
 									typeObj:{
 											$elemMatch:{
@@ -40,7 +39,6 @@ Template.newsGridTemplate3.helpers({
 								}
 								);
 			//合并数据
-			console.log(fillData.fetch());
 			listNews = listNews.concat(fillData.fetch());
 		}
 		return listNews;
