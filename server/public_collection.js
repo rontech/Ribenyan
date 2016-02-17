@@ -36,3 +36,4 @@ Meteor.publish("layout",function(){
 Meteor.publish("header",function(){
 	return HeaderInfo.find({state:true});
 });
+
