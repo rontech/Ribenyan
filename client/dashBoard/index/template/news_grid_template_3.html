@@ -1,0 +1,45 @@
+<!-- 新闻页签形式显示，每行显示３个 -->
+<template name="newsGridTemplate3">
+	<!-- 标题ｄｉｖ -->
+	<div class="title_div">
+        <span class="title">{{typeShowName}}</span>
+        <a href="{{pathFor 'second' typeID=this.typeID._str}}">更多</a>
+	</div>
+	<!-- 新闻内容列表 -->
+	<div class="well well-lg">
+        <div class="row">
+        {{#each listNews}}
+        	{{>newsGridInforCell3}}
+        {{/each}}
+        </div>
+    </div>
+</template>
+
+<!-- 新闻页签 -->
+<template name="newsGridInforCell3">
+	<!-- 卡片布局 -->
+  	<div class="col-sm-6 col-md-4">
+        <!-- 新闻卡片 -->
+        <div class="news_card">
+          	<a href="">
+              <!-- 新闻图片 -->
+              <div class="img" style="background-image:url(https://contents.newspicks.com/images/news/1366280);"></div>
+              <!-- 新闻标题 -->
+              <div class="title">{{title}}</div>
+            </a>
+          	<!-- 新闻简介 -->
+            <div class="content">
+            	<p>{{introduce}}</p>
+            </div>
+
+          	<!-- 新闻标注 -->
+          	<div class="meta">
+              {{#each tagObj}}
+            	   <span>{{tagName}}</span>
+              {{/each}}
+          	
+            </div>
+        </div>
+    </div>
+    <!-- 卡片布局 end-->
+</template>

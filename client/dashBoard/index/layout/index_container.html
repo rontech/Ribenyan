@@ -1,6 +1,11 @@
 <template name="indexContainer">
 	 <!-- 主体 start-->
     <div class="container">
+    	<!-- 顶部数据 -->
     	{{> banner}}
+		<!-- 新闻类型列表 -->
+		{{#each typeNewsList}}
+			{{> UI.dynamic template = this.containerTemplate}}
+		{{/each}}
     </div>
 </template> 

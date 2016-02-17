@@ -16,6 +16,7 @@ Meteor.publish("News",function(typeID,sort,limit){
 	//新闻列表
 	return News.find(
 					{
+						isVaild:1,
 						typeObj:{
 							$elemMatch:{
 								typeID: new Meteor.Collection.ObjectID(typeID)
@@ -34,5 +35,10 @@ Meteor.publish("layout",function(){
 
 //导航信息
 Meteor.publish("header",function(){
-	return HeaderInfo.find({state:true});
+	return HeaderInfo.find({isVaild:1});
+});
+
+// 发布首页排版信息表
+Meteor.publish("indexLayout",function(){
+	return IndexLayout.find({isVaild:1});
 });
