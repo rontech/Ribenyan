@@ -2,7 +2,9 @@
 	 <!-- 主体 start-->
     <div class="container">
     	<!-- 顶部数据 -->
-    	{{> banner}}
+    	{{#with bannerData}}
+    		{{> UI.dynamic template = this.containerTemplate}}
+    	{{/with}}
 		<!-- 新闻类型列表 -->
 		{{#each typeNewsList}}
 			{{> UI.dynamic template = this.containerTemplate}}

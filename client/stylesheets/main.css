@@ -116,16 +116,15 @@ a , a:focus,a:hover{
   margin-bottom: 20px;
 }
 /*图片广告*/
-.img_advert {
+.advert_index_image {
   height: 200px;
   -webkit-background-size:cover;
   background-size: cover;
   background-position: center;
 }
 
-/*图文混合*/
-.text_img_advert {
-  color: 
+.advert_index_image_a {
+  height: 100%;
 }
 
 /*加载更多*/

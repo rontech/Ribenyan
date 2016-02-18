@@ -44,3 +44,4 @@ Template.newsGridTemplate3.helpers({
 		return listNews;
 	}
 });
+

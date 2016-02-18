@@ -9,37 +9,9 @@
 	<div class="well well-lg">
         <div class="row">
         {{#each listNews}}
-        	{{>newsGridInforCell3}}
+        	{{>newsGridCell3}}
         {{/each}}
         </div>
     </div>
 </template>
 
-<!-- 新闻页签 -->
-<template name="newsGridInforCell3">
-	<!-- 卡片布局 -->
-  	<div class="col-sm-6 col-md-4">
-        <!-- 新闻卡片 -->
-        <div class="news_card">
-          	<a href="">
-              <!-- 新闻图片 -->
-              <div class="img" style="background-image:url(https://contents.newspicks.com/images/news/1366280);">{{getImagObjByID "56c42bd6845339d6637d6e1b" "111111"}}</div>
-              <!-- 新闻标题 -->
-              <div class="title">{{title}}</div>
-            </a>
-          	<!-- 新闻简介 -->
-            <div class="content">
-            	<p>{{introduce}}</p>
-            </div>
-
-          	<!-- 新闻标注 -->
-          	<div class="meta">
-              {{#each tagObj}}
-            	   <span>{{tagName}}</span>
-              {{/each}}
-          	
-            </div>
-        </div>
-    </div>
-    <!-- 卡片布局 end-->
-</template>
