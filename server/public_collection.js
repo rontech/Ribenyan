@@ -37,3 +37,9 @@ Meteor.publish("header",function(){
 	return HeaderInfo.find({state:true});
 });
 
+
+//用户信息
+Meteor.publish("user_info",function(){
+	return UserInfo.find();
+});
+

@@ -4,9 +4,10 @@ Template.login.events({
         var username = t.find('#login-username').value;
         var password = t.find('#login-password').value;
         console.log(username);
+        console.log(password);
         
-        
-        var user = users2.find({"_id":username,"password":password});
+        var user = UserInfo.find({"id":username,"password":password});
+        console.log(user.fetch());
         if(user.count()==0){
             console.log("xxxxxx");
         }else{
