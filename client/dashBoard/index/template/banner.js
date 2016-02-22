@@ -14,6 +14,7 @@ Template.banner.helpers({
 	},
 	isFirstOne : function(index){
 		if (index == 0){
+			this.cellClass = "one";
 			return true;
 		}else{
 			return false;
