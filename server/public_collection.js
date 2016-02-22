@@ -47,3 +47,8 @@ Meteor.publish("indexLayout",function(){
 Meteor.publish("ImageInfoCol",function(){
 	return ImageInfoCol.find({});
 });
+
+//发布二级列表页面排版信息
+Meteor.publish("SecondRightLayout",function(){
+	return SecondRightLayout.find({isVaild:1},{sort:{showRule:1}});
+});

@@ -15,8 +15,8 @@ Template.newsGridTemplate3.helpers({
 		// 首页以存在新闻ＩＤ
 		var arrayID = [];
 		for (var i = 0;i<dataObj.length;i++){
-			arrayID[i] = dataObj[i].data._id;
-			listNews[i] =  dataObj[i].data;
+			arrayID[i] = dataObj[i]._id;
+			listNews[i] =  dataObj[i];
 		}
 
 		if (num > 0){

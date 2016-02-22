@@ -1,0 +1,16 @@
+<template name="recommendRightContainer">
+	 <!-- 推荐阅读 -->
+    <div class="box_moder hot_article">
+      <h3>
+        <b>{{name}}</b>
+      </h3>
+      <span class="span_mark"></span>
+      <!-- 推荐文章列表 -->
+      <ul>
+         {{#each dataObj}}
+         	{{> recommendRightListCell }}
+         {{/each}}
+      </ul>
+    </div>
+    <!-- 广告位 -->
+</template>
