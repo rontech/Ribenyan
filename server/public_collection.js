@@ -43,3 +43,8 @@ Meteor.publish("user_info",function(){
 	return UserInfo.find();
 });
 
+//新闻信息
+Meteor.publish("bus_news_info",function(){
+	return NewsInfo.find();
+});
+
