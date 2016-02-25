@@ -12,7 +12,7 @@ Meteor.publish("News",function(typeID,sort,limit){
 	// check(typeID,String);
 	// check(sort,Object);
 	// check(limit,Number);
-	
+
 	//新闻列表
 	return News.find(
 					{
@@ -48,3 +48,7 @@ Meteor.publish("bus_news_info",function(){
 	return NewsInfo.find();
 });
 
+//广告信息
+Meteor.publish("bus_advertisement_info",function(){
+	return AdInfo.find();
+});
