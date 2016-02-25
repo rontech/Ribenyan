@@ -18,7 +18,7 @@ Meteor.publish("News",function(typeID,sort,limit){
 					{
 						isVaild:1,
 						typeObj:{
-							$elemMatch:{
+							$elemMatch:{	
 								typeID: new Meteor.Collection.ObjectID(typeID)
 							}
 						}

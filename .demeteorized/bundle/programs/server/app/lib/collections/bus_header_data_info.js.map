@@ -1,0 +1,1 @@
+{"version":3,"sources":["meteor://💻app/lib/collections/bus_header_data_info.js"],"names":[],"mappings":";;;;;;;;AAAA,aAAa,GAAG,IAAI,KAAK,CAAC,UAAU,CAAC,sBAAsB,EAAC,EAAC,YAAY,EAAC,OAAO,EAAC,CAAC,C","file":"/lib/collections/bus_header_data_info.js","sourcesContent":["HeaderInfoCol = new Mongo.Collection(\"bus_header_data_info\",{idGeneration:\"MONGO\"});\n\n"]}

@@ -16,7 +16,10 @@
           <ul class="nav_bar_ul nav navbar-nav">
             <!-- <li class="active"><a href="#">推荐</a></li> -->
             {{#each firstNode}}
-                <li><a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}</a></li>
+                <li>
+                  <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
+                  </a>
+                </li>
             {{/each}}
             <!-- 更多 -->
               <li style="display:{{isShowMore}};"  class="dropdown">
@@ -28,17 +31,26 @@
                 </ul>
               </li>
           </ul>
-
-          <ul class="nav_bar_ul nav navbar-nav navbar-right">
-            <li class="active">
-              <a href="">登录/注册 
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-          </ul>
-
           
-
+          <ul class="nav_bar_ul nav navbar-nav navbar-right">
+            {{#if currentUser}}
+            <li>
+              <a href="{{pathFor 'login'}}">
+                  {{#with currentUser}}{{name}}{{/with}}
+              </a>
+              </li>
+              <li>
+               <a class="logout" href="#">退出
+               </a>
+            </li>
+            {{else}} 
+              <li> 
+                <a href="{{pathFor 'login'}}">登录/注册 
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            {{/if}}
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>

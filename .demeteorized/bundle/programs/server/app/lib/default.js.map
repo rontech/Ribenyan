@@ -1,0 +1,1 @@
+{"version":3,"sources":["meteor://💻app/lib/default.js"],"names":[],"mappings":";;;;;;;;;;;AAGA,SAAS,GAAG,CAAC,CAAC;;;AAGd,aAAa,GAAG,sBAAsB,CAAC,oC","file":"/lib/default.js","sourcesContent":["//系统全局公开全局变量定义变量\n\n// 每页加载数量\nINCREMENT = 3;\n\n//默认图片地址\nIMAGE_DEFAULT = \"./images/default.jpg\";\n"]}
