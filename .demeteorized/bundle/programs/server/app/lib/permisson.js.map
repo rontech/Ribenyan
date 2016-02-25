@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lib/permisson.js"],"names":[],"mappings":";;;;;;;;;;;AAGA,iBAAiB,GAAG,UAAS,IAAI,EAAC;AACjC,QAAO,IAAI,CAAC;CACZ,wE","file":"/lib/permisson.js","sourcesContent":["//在此文件中天加数据操作的限制方法\n\n//新闻编辑权限\neditNewsPermisson　= function(news){\n\treturn true;\n}"]}

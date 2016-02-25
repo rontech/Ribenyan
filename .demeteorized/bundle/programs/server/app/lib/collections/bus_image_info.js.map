@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lib/collections/bus_image_info.js"],"names":[],"mappings":";;;;;;;;AAAA,YAAY,GAAG,IAAI,KAAK,CAAC,UAAU,CAAC,gBAAgB,EAAC,EAAC,YAAY,EAAC,OAAO,EAAC,CAAC,C","file":"/lib/collections/bus_image_info.js","sourcesContent":["ImageInfoCol = new Mongo.Collection(\"bus_image_info\",{idGeneration:\"MONGO\"});"]}

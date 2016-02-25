@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lib/collections/post.js"],"names":[],"mappings":";;;;;;;;;AACA,KAAK,GAAG,IAAI,KAAK,CAAC,UAAU,CAAC,OAAO,CAAC,CAAC;;AAEtC,MAAM,GAAG,IAAI,KAAK,CAAC,UAAU,CAAC,QAAQ,CAAC,CAAC,mC","file":"/lib/collections/post.js","sourcesContent":["\nPosts = new Mongo.Collection(\"posts\");\n\nlayout = new Mongo.Collection(\"layout\");"]}
