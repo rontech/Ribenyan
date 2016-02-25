@@ -15,6 +15,6 @@
             			"introduce":introduce,
         				"content":content,
         				"cstId":cstId,
-        				});
+        				}),function(){alert("已保存");};
     },
 });

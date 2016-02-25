@@ -40,7 +40,7 @@
         				"author":author,
         				"newsID":newsID,
         				"imageObj":imageObj
-        				});
+        				},function(){alert("已保存");});
 
     },
     'click #save' : function(e,t){
@@ -72,7 +72,7 @@
                         "tagObj":tagObj,
                         "typeObj":typeObj,
                         "keyWord":keyWord,
-                        "isVaild":3,
+                        "isVaild":2,
                         "showRule":showRule,
                         "language":language,
                         "originURL":originURL,
@@ -80,7 +80,7 @@
                         "author":author,
                         "newsID":newsID,
                         "imageObj":imageObj
-                });
+                }),function(){alert("已保存");};
         }
     },
 });

@@ -1,11 +1,15 @@
-
- Template.newsInfoAdd.rendered = function() {
+ Template.newsView.rendered = function() {
    $('#content').ckeditor();
- };
+  }
 
- Template.newsInfoAdd.events({
-    'submit #news_info_add' : function(e,t){
+ Template.registerHelper('selected', function(key, value){
+ 	return key == value ? {selected:'selected'}: '';
+});
+
+ Template.newsView.events({
+    'submit #news_info_update' : function(e,t){
         e.preventDefault();
+        var _id    = t.find('#_id').value;
         var sourceID    = t.find('#sourceID').value;
         var title       = t.find('#title').value;
         var secondTitle = t.find('#secondTitle').value;
@@ -23,7 +27,7 @@
         var newsID      = t.find('#newsID').value;
         var imageObj    = t.find('#imageObj').value;
 
-        NewsInfo.insert({
+        NewsInfo.update({_id:new Meteor.Collection.ObjectID(_id)},{
         				"sourceID":sourceID,
         				"title":title,
         				"secondTitle":secondTitle,
@@ -40,8 +44,7 @@
         				"author":author,
         				"newsID":newsID,
         				"imageObj":imageObj
-        				});
-
+        				},function(){alert("已保存");});
     },
     'click #save' : function(e,t){
         e.preventDefault();
@@ -61,9 +64,9 @@
         var newsID      = t.find('#newsID').value;
         var imageObj    = t.find('#imageObj').value;
 
-        var msg = window.confirm('该条信息状态将变更为“3.未发布”，并保存。')
+        var msg = window.confirm('该条信息状将变更为发布状态！')
 	    if(msg==true){
-                NewsInfo.insert({
+                NewsInfo.update({
                         "sourceID":sourceID,
                         "title":title,
                         "secondTitle":secondTitle,
@@ -72,7 +75,7 @@
                         "tagObj":tagObj,
                         "typeObj":typeObj,
                         "keyWord":keyWord,
-                        "isVaild":3,
+                        "isVaild":1,
                         "showRule":showRule,
                         "language":language,
                         "originURL":originURL,
@@ -84,5 +87,3 @@
         }
     },
 });
-
-
