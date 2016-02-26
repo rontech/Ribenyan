@@ -1,0 +1,73 @@
+<template name="popupUserLoginRegister">
+
+		<div class="login-box">
+	        <div class="ordinary-login">
+	            <ul class="tab-box">
+	                <li class="active" data-type="login">登录</li>
+	                <li data-type="register">注册</li>
+	            </ul>
+	            <div class="login-form-box">
+	                <div class="login">
+	                    <!--登录-->
+	                    <div class="form-group">
+	                        <input id="lgn_username" class="login-input" placeholder="邮箱">
+	                    </div>
+	                    <div class="form-group">
+	                        <input id="lgn_pwd" type="password" class="login-input" placeholder="密码">
+	                    </div>
+	                    <div class="error-msg hide">请输入邮箱或密码</div>
+	                    <div class="form-group">
+	                        <button type="button" class="btn-login js-moder-lgnbtn js-ga-login" data-login="zhengchang">登录</button>
+	                    </div>
+	                    <div class="form-group auxiliary-box">
+	                        <ul>
+	                            <li class="">
+	                                <label>
+	                                    <input id="autologin" type="checkbox">
+	                                    <span class="label-span"></span>
+	                                </label>
+	                            </li>
+	                            <li class=""><a href="{{pathFor 'forgotpassword'}}" target="_blank">忘记密码？</a></li>
+	                        </ul>
+	                    </div>
+	                </div>
+	                <div class="register hide">
+	                    <input type="hidden" name="hx_auth_token" id="hx_auth_token" value="">
+	                    <div class="form-group gt_guide-box">
+	                        <div class="form-group clearfix">
+	                        </div>
+	                    </div>
+	                    <!--注册-->
+	                    <div class="form-group">
+	                        <input id="reg_email" class="login-input regphone" type="email" name="regphone" placeholder="邮箱">
+	                    </div>
+	                    <div class="form-group">
+	                        <input  id="reg_username" class="login-input" placeholder="昵称（您评论时显示的名字）">
+	                    </div>
+	                    <div class="form-group">
+	                        <input id="reg_paw" class="login-input"  type="password" placeholder="密码">
+	                    </div>
+	                    <div class="form-group">
+	                        <input id="reg_conpaw" class="login-input" type="password" placeholder="确认密码">
+	                    </div>
+	                    <div id="reg_error" class="error-msg hide">请输入用户名或密码</div>
+	                    <div class="form-group">
+	                        <button type="button" class="btn-login js-register-submit">注册</button>
+	                    </div>
+	                    <div class="form-group auxiliary-box">
+	                        <ul>
+	                            <li class="">
+	                                <label>
+	                                    <input id="autologin" type="checkbox">
+	                                    <span class="label-span"></span>
+	                                </label>
+	                            </li>
+	                            <li class=""><a href="{{pathFor 'forgotpassword'}}" target="_blank">忘记密码？</a></li>
+	                        </ul>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+</template>

@@ -1,0 +1,30 @@
+<template name="discuss">
+	<!-- 点赞 -->
+	<div class="Qr-code">
+        <div class="praise-box transition js-like-article center-box " data-type="like">
+            <div class="praise-box-add">
+            	<i class="icon icon-article-zan-add"></i>
+            	<span>+1</span>
+            </div>
+            <i class="icon icon-article-zan"></i>
+            <span class="num">3</span>
+        </div>
+    </div>
+    <div class="pl-wrap" id="pl-wrap-article" name="pl-wrap-article">
+
+    	
+		<!-- 评论 -->
+		<div class="pl-form-wrap">
+         	<span class="span-mark-author active">发表评论</span>
+	        <div class="pl-form-box pl-article-wrap">
+		        <div class="no-login-box {{#if isLogin}}hide{{/if}}">
+		            <a  href="" class="moder-lgn-box">登录</a>后参与评论
+		        </div>
+		    <!--     <textarea class="form-control {{#unless isLogin}}hide{{/unless}}" placeholder="客官，8个字起评，不讲价哟" style="resize: none;display: block;overflow-y: hidden;position: absolute;top: 0px;left: -9999px; height: 180px; width: 100%; line-height: 20px;text-decoration: none;letter-spacing: 0px;" tabindex="-1"></textarea> -->
+		        <textarea class="form-control {{#unless isLogin}}hide{{/unless}}" id="saytext" name="saytext" placeholder="客官，8个字起评，不讲价哟" style="resize: none;overflow-y: hidden;"></textarea>
+		        <button class="btn btn-article moder-lgn-box transition ">发表</button>
+	        </div>
+        </div>
+		<!--  评论列表 -->
+	</div>
+</template>

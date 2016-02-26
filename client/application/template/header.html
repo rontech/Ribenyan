@@ -35,11 +35,12 @@
           <ul class="nav_bar_ul nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li>
-              <a href="{{pathFor 'login'}}">
+              <!-- <a href="{{pathFor 'login'}}"> -->
+              <a href="">
                   {{#with currentUser}}{{name}}{{/with}}
               </a>
-              </li>
-              <li>
+            </li>
+          　 <li>
                <a class="logout" href="#">退出
                </a>
             </li>

@@ -29,6 +29,11 @@ Meteor.publish("News",function(typeID,sort,limit){
 				);
 });
 
+//新闻详情
+Meteor.publish("detailNews",function(newsID){
+	return NewsCol.find({_id:new Meteor.Collection.ObjectID(newsID)});
+});
+
 Meteor.publish("layout",function(){
 	return layout.find();
 });

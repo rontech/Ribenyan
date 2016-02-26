@@ -1,4 +1,4 @@
-var data = [
+	var data = [
 	{
 		type : "1",
 		modeType : "1",
@@ -25,3 +25,12 @@ var data = [
 Template.dynamicDemo.helpers({
 		templateList : data
 	});
+
+Template.dynamicDemo.onRendered(function(){
+	$('#example').dataTable();
+$('.datatable').dataTable({"sPaginationType": "bs_normal"});
+$('.datatable').dataTable({"sPaginationType": "bs_two_button"});
+$('.datatable').dataTable({"sPaginationType": "bs_four_button"});
+$('.datatable').dataTable({"sPaginationType": "bs_full"});
+
+});
