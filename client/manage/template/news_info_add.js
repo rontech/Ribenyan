@@ -40,7 +40,10 @@
         				"author":author,
         				"newsID":newsID,
         				"imageObj":imageObj
-        				},function(){alert("已保存");});
+        				},function(){
+        					alert("已发布");
+        					Router.go("/manage/newslist");
+        				});
 
     },
     'click #save' : function(e,t){
@@ -80,7 +83,9 @@
                         "author":author,
                         "newsID":newsID,
                         "imageObj":imageObj
-                }),function(){alert("已保存");};
+                },function(){
+                	Router.go("/manage/newslist");
+                });
         }
     },
 });

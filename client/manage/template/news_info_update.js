@@ -9,6 +9,7 @@
  Template.newsView.events({
     'submit #news_info_update' : function(e,t){
         e.preventDefault();
+        
         var _id    = t.find('#_id').value;
         var sourceID    = t.find('#sourceID').value;
         var title       = t.find('#title').value;
@@ -44,10 +45,16 @@
         				"author":author,
         				"newsID":newsID,
         				"imageObj":imageObj
-        				},function(){alert("已保存");});
+        				},function(){
+        						alert("已更新");
+        						Router.go("/manage/newslist");
+        					}
+        				);
     },
     'click #save' : function(e,t){
         e.preventDefault();
+        
+        var _id    = t.find('#_id').value;
         var sourceID    = t.find('#sourceID').value;
         var title       = t.find('#title').value;
         var secondTitle = t.find('#secondTitle').value;
@@ -66,24 +73,41 @@
 
         var msg = window.confirm('该条信息状将变更为发布状态！')
 	    if(msg==true){
-                NewsInfo.update({
-                        "sourceID":sourceID,
-                        "title":title,
-                        "secondTitle":secondTitle,
-                        "introduce":introduce,
-                        "content":content,
-                        "tagObj":tagObj,
-                        "typeObj":typeObj,
-                        "keyWord":keyWord,
-                        "isVaild":1,
-                        "showRule":showRule,
-                        "language":language,
-                        "originURL":originURL,
-                        "copyright":copyright,
-                        "author":author,
-                        "newsID":newsID,
-                        "imageObj":imageObj
-                });
+            NewsInfo.update({_id:new Meteor.Collection.ObjectID(_id)},{
+                    "sourceID":sourceID,
+                    "title":title,
+                    "secondTitle":secondTitle,
+                    "introduce":introduce,
+                    "content":content,
+                    "tagObj":tagObj,
+                    "typeObj":typeObj,
+                    "keyWord":keyWord,
+                    "isVaild":1,
+                    "showRule":showRule,
+                    "language":language,
+                    "originURL":originURL,
+                    "copyright":copyright,
+                    "author":author,
+                    "newsID":newsID,
+                    "imageObj":imageObj
+            },function(){
+        					Router.go("/manage/newslist");
+        				}
+            );
+        }
+    },
+    
+    'click #delete' : function(e,t){
+        e.preventDefault();
+        
+        var _id    = t.find('#_id').value;
+        var msg = window.confirm('该条信息删除！')
+	    if(msg==true){
+            NewsInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
+            			function(){
+        					Router.go("/manage/newslist");
+        				}
+            );
         }
     },
 });
