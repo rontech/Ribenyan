@@ -3,7 +3,7 @@
 //$('.datatable').dataTable({"sPaginationType": "bs_two_button"});
 //$('.datatable').dataTable({"sPaginationType": "bs_four_button"});
 //$('.datatable').dataTable({"sPaginationType": "bs_full"});
-
+//i18n.setLanguage('zh');
 
 var checkOrX = function (value) {
     var html;
@@ -20,7 +20,7 @@ var checkOrX = function (value) {
     }
     return new Spacebars.SafeString(html);
   };
-  
+
 
   Template.featureComparison.helpers({
     tables : function () {
@@ -29,9 +29,9 @@ var checkOrX = function (value) {
 
     tableSettings : function () {
       return {
-        rowsPerPage: 5,
+        rowsPerPage: 10,
         showNavigation: 'auto',
-        showColumnToggles: true,
+        showColumnToggles: false,
         fields: [
           {
             key: 'title',
@@ -51,7 +51,7 @@ var checkOrX = function (value) {
 //        { key: 'keyboard', label: 'Keyboard navigation', fn: checkOrX, hidden: true },
 //        { key: 'plugins', label: 'Plugins', fn: checkOrX, hidden: true },
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
-          { key: 'secondTitle', label: '副标题', fn: checkOrX }
+          { key: 'secondTitle', label: '副标题', fn: checkOrX}
         ]
       };
     }

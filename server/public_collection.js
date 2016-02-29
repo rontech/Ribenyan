@@ -61,3 +61,8 @@ Meteor.publish("bus_news_evaluation_info",function(){
 Meteor.publish("bus_advertisement_info",function(){
 	return AdInfo.find();
 });
+
+//类型信息
+Meteor.publish("bus_type_info",function(){
+	return TypeInfo.find();
+});
