@@ -7,4 +7,7 @@ Template.discuss.events({
 	// 	$(e.target).css({'background-color': 'white'});
 	// 	$(".icon-article-zan").css({'background-color': 'white'});
 	// }
+	"click a.moder-lgn-box" : function(e){//登录按钮　弹出登陆框
+		Modal.show("popupUserLoginRegister");
+	}
 });

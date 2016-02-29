@@ -29,6 +29,14 @@ Template.loginRegister.events({
 			Meteor.loginWithPassword(username,paw,
 				function(error){
 					if(error){
+						var rea = error.reason;
+						if(rea == LOGIGN_USER_NOT_FOUND_ACCOUNT){
+							$(".error-msg").text(LOGIGN_USER_NOT_FOUND);
+							$(".error-msg").removeClass("hide");
+						}else if(rea == LOGIGN_INCORRECT_PASSWORD_ACCOUNT){
+							$(".error-msg").text(LOGIGN_INCORRECT_PASSWORD);
+							$(".error-msg").removeClass("hide");
+						}
 						console.log("登录失败");
 					}else{
 						Router.go("index");
