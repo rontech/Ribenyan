@@ -4,7 +4,13 @@
  };
 
 function saveData(e,t,type,msg) {
-    var Obj = new Array();
+        var date;
+        if(type==1) {
+            date = new Date().Format("yyyy/MM/dd");
+        }else{
+            date = "";
+        }
+        var Obj = new Array();
         var index = 0;
         $("input[name='checkbox']:checkbox:checked").each(function(){
             var data = $(this).val().split(",");
@@ -15,14 +21,22 @@ function saveData(e,t,type,msg) {
             index++;
         });
 
+        var Tag = new Array();
+        var tagIndex = 0;
+        $("input[name='tag']:checkbox:checked").each(function(){
+            var tagData = $(this).val().split(",");
+            var tagObj =  new  Object();
+            tagObj["tagID"] = new Meteor.Collection.ObjectID(tagData[0]);
+            tagObj["tagName"] = tagData[1];
+            Tag[tagIndex] = tagObj;
+            tagIndex++;
+        });
 
         e.preventDefault();
-        var sourceID    = t.find('#sourceID').value;
         var title       = t.find('#title').value;
         var secondTitle = t.find('#secondTitle').value;
         var introduce   = t.find('#introduce').value;
         var content     = t.find('#content').value;
-        var tagObj      = t.find('#tagObj').value;
         var keyWord     = t.find('#keyWord').value;
         var showRule    = t.find('#showRule').value;
         var language    = t.find('#language').value;
@@ -33,12 +47,12 @@ function saveData(e,t,type,msg) {
         var imageObj    = t.find('#imageObj').value;
 
         NewsInfo.insert({
-                        "sourceID":sourceID,
+                        "sourceID":[],
                         "title":title,
                         "secondTitle":secondTitle,
                         "introduce":introduce,
                         "content":content,
-                        "tagObj":tagObj,
+                        "tagObj":Tag,
                         "typeObj":Obj,
                         "keyWord":keyWord,
                         "isVaild":type,
@@ -47,6 +61,7 @@ function saveData(e,t,type,msg) {
                         "originURL":originURL,
                         "copyright":copyright,
                         "author":author,
+                        "publishTime":date,
                         "newsID":newsID,
                         "imageObj":imageObj
                         },function(){

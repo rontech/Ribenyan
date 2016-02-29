@@ -20,7 +20,7 @@
 									Your form validation is successful!
 								</div>
 
-								<div class="control-group">
+								<!-- <div class="control-group">
 									<label class="control-label">新闻来源</label>
 									<div class="controls form-inline">
 										<select class="form-control" id="sourceID" name="sourceID">
@@ -28,7 +28,7 @@
 											<option value="sourceID 2">2.抓取</option>
 										</select>
 									</div>
-								</div>
+								</div> -->
 								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>标题</label>
 									<div class="controls">
@@ -61,10 +61,11 @@
 								<div class="control-group">
 									<label class="control-label">标签</label>
 									<div class="controls form-inline">
-										<select class="span2 form-control" id="tagObj" name="tagObj">
+										{{> tagList}}
+										<!-- <select class="span2 form-control" id="tagObj" name="tagObj">
 											<option value="Category 1">1.系统</option>
 											<option value="Category 2">2.抓取</option>
-										</select>
+										</select> -->
 									</div>
 								</div>
 
@@ -91,8 +92,8 @@
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="isVaild" name="isVaild">
 											<option value="Category 1">1. 正常</option>
-											<option value="Category 2">2. 删除</option>
-											<option value="Category 3">3. 未发表</option>
+											<option value="Category 2">2. 未发表</option>
+											<option value="Category 0">0. 删除</option>
 										</select>
 									</div>
 								</div>
@@ -101,10 +102,10 @@
 									<label class="control-label">排序规则</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="showRule" name="showRule">
-											<option value="Category 1">1. 正常</option>
-											<option value="Category 2">2. 置顶</option>
-											<option value="Category 3">3. 不显示</option>
-											<option value="Category 4">4. 推荐</option>
+											<option value="1">1. 正常</option>
+											<option value="2">2. 置顶</option>
+											<option value="3">3. 不显示</option>
+											<option value="4">4. 推荐</option>
 										</select>
 									</div>
 								</div>
@@ -113,8 +114,8 @@
 									<label class="control-label">语言</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="language" name="language">
-											<option value="Category 1">0：日文</option>
-											<option value="Category 2">1：中文</option>
+											<option value="0">0：日文</option>
+											<option value="1">1：中文</option>
 										</select>
 									</div>
 								</div>
@@ -128,8 +129,8 @@
 									<label class="control-label">版权</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="copyright" name="copyright">
-											<option value="Category 1">0：系统</option>
-											<option value="Category 2">1:复制</option>
+											<option value="1">1：系统</option>
+											<option value="2">2:复制</option>
 										</select>
 									</div>
 								</div>

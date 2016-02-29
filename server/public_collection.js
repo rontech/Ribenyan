@@ -66,3 +66,8 @@ Meteor.publish("bus_advertisement_info",function(){
 Meteor.publish("bus_type_info",function(){
 	return TypeInfo.find();
 });
+
+//标签信息
+Meteor.publish("bus_tag_info",function(){
+	return TagInfo.find();
+});
