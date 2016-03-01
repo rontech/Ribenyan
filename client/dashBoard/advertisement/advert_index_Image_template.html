@@ -1,0 +1,14 @@
+<template name="advertIndexImageTemplate">
+	 <!-- 图片广告 -->
+	 {{#with dataObj}}
+      <div class="advert advert_index_image">
+          <a href="{{clickUrl}}" target="_blank">
+            <div class="advert_index_image_a" style="background-image:url({{getImagePathByID imageID._str}});">
+            	<p align="center">{{title}}</p>
+            	<p>{{introduce}}</p>
+            </div>
+          </a>
+      </div>
+      {{/with}}
+      <!-- 广告 end-->
+</template>

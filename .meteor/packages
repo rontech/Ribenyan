@@ -17,13 +17,15 @@ es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 insecure                # Allow all DB writes from clients (for prototyping)
-twbs:bootstrap
 underscore
 iron:router
-ian:accounts-ui-bootstrap-3
-accounts-password
 check
 ejson
 lc3t35:datatables-bootstrap3
 aslagle:reactive-table
 anti:i18n
+ian:accounts-ui-bootstrap-3
+accounts-password
+twbs:bootstrap
+email
+peppelg:bootstrap-3-modal

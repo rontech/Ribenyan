@@ -2,6 +2,7 @@
 	
 	 <!-- banner start -->
       <div class="banner">
+       
         <!-- 轮播图 -->
         <div class="banner-left">
             <!--首页幻灯-->
@@ -9,48 +10,13 @@
                 <div id="pic">
                     <div class="tempWrap" style="overflow:hidden; position:relative; width:650px">
                         <ul style=" position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-                            <li style="display: none;">
-                                <a href="#" target="_blank">
-                                    <img src="./images/1453895745533.jpg" alt="神盾快运倒闭！创始人想和你聊聊三千万“买”来的教训" title="神盾快运倒闭！创始人想和你聊聊三千万“买”来的教训">
-                                    <div class="text">
-                                        <div class="title">神盾快运倒闭！创始人想和你聊聊三千万“买”来的...</div>
-                                        <span class="autor">作者：
-                                          <span>汪晨</span>
-                                          <span class="num">
-                                            (<span class="pageState"><span>3</span>/3</span>)
-                                          </span>
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li style="display: none;">
-                                <a href="#" target="_blank">
-                                    <img src="./images/1453894879238.jpg" alt="平均每天12起投资！一篇文章看懂2015年风投数据" title="平均每天12起投资！一篇文章看懂2015年风投数据">
-                                    <div class="text">
-                                        <div class="title">平均每天12起投资！一篇文章看懂2015年风投数据</div>
-                                        <span class="autor">作者：
-                                          <span>文飞翔</span>
-                                          <span class="num">
-                                              (<span class="pageState"><span>3</span>/3</span>)
-                                          </span>
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li style="display: list-item;">
-                                <a href="#" target="_blank">
-                                    <img src="./images/1453856586518.jpg" alt="申音：镜相是一个可以做十年的事儿" title="申音：镜相是一个可以做十年的事儿">
-                                    <div class="text">
-                                        <div class="title">申音：镜相是一个可以做十年的事儿</div>
-                                        <span class="autor">作者：
-                                          <span>麻策</span>
-                                          <span class="num">
-                                              (<span class="pageState"><span>3</span>/3</span>)
-                                          </span>
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
+                          {{#each slideData}}
+                            {{#if isAdver type}}
+                               {{>bannerSlideCell}}
+                            {{else}}
+                              aaaaaa
+                            {{/if}}
+                          {{/each}}
                         </ul>
                     </div>
                 </div>
@@ -68,14 +34,15 @@
         <!-- 左侧图片 -->
         <div class="banner-right">
           <!--请复制以下部分-->
-            <a href="#" alt="还在为如何接受记者采访烦恼？这些技巧你都用了吗？" title="还在为如何接受记者采访烦恼？这些技巧你都用了吗？" target="_blank">
-            <img src="./images/1453962336503.jpg" alt="还在为如何接受记者采访烦恼？这些技巧你都用了吗？" title="还在为如何接受记者采访烦恼？这些技巧你都用了吗？" class="one">
-            </a>
-
-            <a href="#" title="从脸萌到Faceu，这位过气网红再次出发，孤独感更强了" target="_blank">
-                <img src="./images/1453962302111.jpg" alt="从脸萌到Faceu，这位过气网红再次出发，孤独感更强了" title="从脸萌到Faceu，这位过气网红再次出发，孤独感更强了">
-            </a>
+            {{#each rightData}}
+              {{#if isFirstOne @index }}
+                  {{>bannerRightCell }}
+              {{else}}
+                  {{>bannerRightCell}}
+              {{/if}}
+           　{{/each}}
         </div>
+
       </div>
       <!--  banner end-->
 

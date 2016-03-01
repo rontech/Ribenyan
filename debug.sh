@@ -1,1 +1,1 @@
-MONGO_URL=mongodb://127.0.0.1:27017/meteor  meteor debug
+MONGO_URL=mongodb://40.115.250.137:27017/meteor meteor debug

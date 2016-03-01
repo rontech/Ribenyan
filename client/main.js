@@ -12,3 +12,8 @@ Meteor.subscribe("bus_tag_info");
 // 每页加载数量
 INCREMENT = 3;
 //
+
+Meteor.subscribe("indexLayout");
+Meteor.subscribe("ImageInfoCol");
+Meteor.subscribe("SecondRightLayout");
+

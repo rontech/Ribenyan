@@ -1,0 +1,17 @@
+<!-- 新闻页签形式显示，每行显示３个 -->
+<template name="newsGridTemplate3">
+	<!-- 标题ｄｉｖ -->
+	<div class="title_div">
+        <span class="title">{{typeShowName}}</span>
+        <a href="{{pathFor 'second' typeID=this.typeID._str}}">更多</a>
+	</div>
+	<!-- 新闻内容列表 -->
+	<div class="well well-lg">
+        <div class="row">
+        {{#each listNews}}
+        	{{>newsGridCell3}}
+        {{/each}}
+        </div>
+    </div>
+</template>
+

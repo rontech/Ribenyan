@@ -1,0 +1,3 @@
+Template.newsDetail.helpers({
+	
+});
