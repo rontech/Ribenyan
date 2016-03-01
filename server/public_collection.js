@@ -12,13 +12,13 @@ Meteor.publish("News",function(typeID,sort,limit){
 	// check(typeID,String);
 	// check(sort,Object);
 	// check(limit,Number);
-
+	
 	//新闻列表
 	return NewsCol.find(
 					{
 						isVaild:1,
 						typeObj:{
-							$elemMatch:{
+							$elemMatch:{	
 								typeID: new Meteor.Collection.ObjectID(typeID)
 							}
 						}
@@ -48,7 +48,7 @@ Meteor.publish("indexLayout",function(){
 	return IndexLayoutCol.find({isVaild:1});
 });
 
-//发布图片信息表
+//发布图片信息表 
 Meteor.publish("ImageInfoCol",function(){
 	return ImageInfoCol.find({});
 });
