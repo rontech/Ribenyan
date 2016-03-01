@@ -1,8 +1,0 @@
-<template name="typeList">
-	<div>
-		{{#each typelists}}
-			<input type="hidden" name="_id"  id="_id" value="{{_id}}"/>
-			<input id="{{_id}}" name="checkbox" type="checkbox" value="{{_id._str}},{{name}}" />{{name}} &nbsp;&nbsp;
-		{{/each}}
-	</div>
-</template>
