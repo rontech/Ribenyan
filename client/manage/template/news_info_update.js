@@ -9,7 +9,7 @@
  Template.newsView.events({
     'submit #news_info_update' : function(e,t){
         e.preventDefault();
-        
+
         var _id    = t.find('#_id').value;
         var sourceID    = t.find('#sourceID').value;
         var title       = t.find('#title').value;
@@ -53,7 +53,7 @@
     },
     'click #save' : function(e,t){
         e.preventDefault();
-        
+
         var _id    = t.find('#_id').value;
         var sourceID    = t.find('#sourceID').value;
         var title       = t.find('#title').value;
@@ -96,10 +96,10 @@
             );
         }
     },
-    
+
     'click #delete' : function(e,t){
         e.preventDefault();
-        
+
         var _id    = t.find('#_id').value;
         var msg = window.confirm('该条信息删除！')
 	    if(msg==true){

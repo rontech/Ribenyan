@@ -20,7 +20,7 @@
 									Your form validation is successful!
 								</div>
 								<input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
-								<div class="control-group">
+								<!-- <div class="control-group">
 									<label class="control-label">新闻来源</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="sourceID" name="sourceID">
@@ -28,7 +28,7 @@
 											<option value="2" {{selected sourceID 2}}>2.抓取</option>
 										</select>
 									</div>
-								</div>
+								</div> -->
 								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>标题</label>
 									<div class="controls">
@@ -61,20 +61,22 @@
 								<div class="control-group">
 									<label class="control-label">标签</label>
 									<div class="controls form-inline">
-										<select class="span2 form-control" id="tagObj" name="tagObj">
+										{{> tagList}}
+										<!-- <select class="span2 form-control" id="tagObj" name="tagObj">
 											<option value="1" {{selected tagObj 1}}>系统</option>
 											<option value="2" {{selected tagObj 2}}>抓取</option>
-										</select>
+										</select> -->
 									</div>
 								</div>
 
 								<div class="control-group">
 									<label class="control-label">类型</label>
 									<div class="controls form-inline">
-										<select class="span2 form-control" id="typeObj" name="typeObj">
+										{{> typeList}}
+										<!-- <select class="span2 form-control" id="typeObj" name="typeObj">
 											<option value="1" {{selected typeObj 1}}>系统</option>
 											<option value="2" {{selected typeObj 2}}>抓取</option>
-										</select>
+										</select> -->
 									</div>
 								</div>
 
