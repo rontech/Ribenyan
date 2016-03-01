@@ -21,11 +21,9 @@ underscore
 iron:router
 check
 ejson
-lc3t35:datatables-bootstrap3
-aslagle:reactive-table
-anti:i18n
 ian:accounts-ui-bootstrap-3
 accounts-password
 twbs:bootstrap
 email
+lc3t35:datatables-bootstrap3
 peppelg:bootstrap-3-modal

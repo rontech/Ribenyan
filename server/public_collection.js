@@ -12,13 +12,13 @@ Meteor.publish("News",function(typeID,sort,limit){
 	// check(typeID,String);
 	// check(sort,Object);
 	// check(limit,Number);
-
+	
 	//新闻列表
 	return NewsCol.find(
 					{
 						isVaild:1,
 						typeObj:{
-							$elemMatch:{
+							$elemMatch:{	
 								typeID: new Meteor.Collection.ObjectID(typeID)
 							}
 						}
@@ -48,7 +48,7 @@ Meteor.publish("indexLayout",function(){
 	return IndexLayoutCol.find({isVaild:1});
 });
 
-//发布图片信息表
+//发布图片信息表 
 Meteor.publish("ImageInfoCol",function(){
 	return ImageInfoCol.find({});
 });
@@ -56,38 +56,4 @@ Meteor.publish("ImageInfoCol",function(){
 //发布二级列表页面排版信息
 Meteor.publish("SecondRightLayout",function(){
 	return SecondRightLayout.find({isVaild:1},{sort:{showRule:1}});
-});
-
-//用户信息
-Meteor.publish("user_info",function(){
-	return UserInfo.find();
-});
-
-//新闻信息
-Meteor.publish("bus_news_info",function(){
-	return NewsInfo.find();
-});
-//二级列表排版
-Meteor.publish("bus_second_layout_data_info",function(){
-	return SecondLayoutDataInfo.find();
-});
-
-//新闻整合评论表
-Meteor.publish("bus_news_evaluation_info",function(){
-	return BusNewsEvaluationInfo.find();
-});
-
-//广告信息
-Meteor.publish("bus_advertisement_info",function(){
-	return AdInfo.find();
-});
-
-//类型信息
-Meteor.publish("bus_type_info",function(){
-	return TypeInfo.find();
-});
-
-//标签信息
-Meteor.publish("bus_tag_info",function(){
-	return TagInfo.find();
 });
