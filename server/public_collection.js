@@ -67,6 +67,7 @@ Meteor.publish("user_info",function(){
 Meteor.publish("bus_news_info",function(){
 	return NewsInfo.find();
 });
+
 //二级列表排版
 Meteor.publish("bus_second_layout_data_info",function(){
 	return SecondLayoutDataInfo.find();
