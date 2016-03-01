@@ -14,10 +14,11 @@ Meteor.publish("News",function(typeID,sort,limit){
 	// check(limit,Number);
 	
 	//新闻列表
-	return News.find(
+	return NewsCol.find(
 					{
+						isVaild:1,
 						typeObj:{
-							$elemMatch:{
+							$elemMatch:{	
 								typeID: new Meteor.Collection.ObjectID(typeID)
 							}
 						}
@@ -25,7 +26,12 @@ Meteor.publish("News",function(typeID,sort,limit){
 					{
 						sort: sort, limit: limit
 					}
-					);
+				);
+});
+
+//新闻详情
+Meteor.publish("detailNews",function(newsID){
+	return NewsCol.find({_id:new Meteor.Collection.ObjectID(newsID)});
 });
 
 Meteor.publish("layout",function(){
@@ -34,5 +40,20 @@ Meteor.publish("layout",function(){
 
 //导航信息
 Meteor.publish("header",function(){
-	return HeaderInfo.find({state:true});
+	return HeaderInfoCol.find({isVaild:1});
+});
+
+// 发布首页排版信息表
+Meteor.publish("indexLayout",function(){
+	return IndexLayoutCol.find({isVaild:1});
+});
+
+//发布图片信息表 
+Meteor.publish("ImageInfoCol",function(){
+	return ImageInfoCol.find({});
+});
+
+//发布二级列表页面排版信息
+Meteor.publish("SecondRightLayout",function(){
+	return SecondRightLayout.find({isVaild:1},{sort:{showRule:1}});
 });

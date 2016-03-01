@@ -1,20 +1,3 @@
-<!-- 新闻列表 -->
-<template name="secondLeftList">
-	<!-- 列表 -->
-	<p>新闻列表</p>
-	{{#each newsList}}
-		{{> newsListCell}}
-	{{/each}}
-
-  <!-- 加载更多 -->
-  {{#if hasMore}}
-    <a class="load_more" href="{{pathFor 'second' typeID=typeID limit=newLimit}}">
-      加载更多
-    </a>
-  {{/if}}
-  
-</template>
-
 <template name="newsListCell">
 
 	<!-- 文章cell -->
@@ -22,7 +5,7 @@
        <div class="row">
         <!-- 文章图片 -->
         <div class="mod_cell_pic col-md-3 col-sm-3 col-xs-3">
-            <a href="#">
+            <a href="{{pathFor 'newsDetail' id=this._id._str}}">
               <img src="http://images.huxiu.com/article/cover/201601/29/112445349185.jpg">
             </a>
         </div>
@@ -33,7 +16,7 @@
             <div class="desc">{{introduce}}</div>
             <div class="all">基本信息/分享/标签</div>
         </div>
-
+        
       </div>
     </div>
    	<!-- 文章cell end-->
