@@ -1,0 +1,1105 @@
+<template name="manageIndex">
+	
+<form action="/webinsource/staff/index" name="frmSearch" class="well form-horizontal" id="UserIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0c2fed1a987998330650c800074e4df8fad3653d" id="Token649457142"/></div><div>
+<h3><span><i class="fa fa-search fa-fw"></i>利用者検索</span></h3>
+
+<div class="row">
+		<div class="col-xs-12 col-md-5">
+										<div class="form-group">
+					<label for="UsersText">お客様名</label>
+					<div class="input-group">
+						<input name="company_id" id="company_id" type="hidden" value="1" />
+						<input name="company_name" class="form-control" type="text"  value="会社名_1" readonly/>
+						<span class="input-group-btn">
+						<input type="button" value="選択" class="btn btn-select" onClick="doSearch();" />
+						</span>
+					</div>
+					</div>
+										
+					<div class="form-group">
+					    <label for="UsersText">部署名</label>
+						 <div>
+							<select name="division_id" class="form-control" id="UserDivisionId">
+<option value=""></option>
+<option value="19294">システム管理</option>
+<option value="19308">不明</option>
+<option value="1">部門名_1</option>
+<option value="10585">部門名_10585</option>
+<option value="10699">部門名_10699</option>
+<option value="10725">部門名_10725</option>
+<option value="10944">部門名_10944</option>
+<option value="11605">部門名_11605</option>
+<option value="11810">部門名_11810</option>
+<option value="11829">部門名_11829</option>
+<option value="11988">部門名_11988</option>
+<option value="12304">部門名_12304</option>
+<option value="12413">部門名_12413</option>
+<option value="12414">部門名_12414</option>
+<option value="12415">部門名_12415</option>
+<option value="12416">部門名_12416</option>
+<option value="12417">部門名_12417</option>
+<option value="12418">部門名_12418</option>
+<option value="12419">部門名_12419</option>
+<option value="12420">部門名_12420</option>
+<option value="12421">部門名_12421</option>
+<option value="12422">部門名_12422</option>
+<option value="12423">部門名_12423</option>
+<option value="12424">部門名_12424</option>
+<option value="12425">部門名_12425</option>
+<option value="12426">部門名_12426</option>
+<option value="12427">部門名_12427</option>
+<option value="12428">部門名_12428</option>
+<option value="12429">部門名_12429</option>
+<option value="12430">部門名_12430</option>
+<option value="12431">部門名_12431</option>
+<option value="12432">部門名_12432</option>
+<option value="12433">部門名_12433</option>
+<option value="12434">部門名_12434</option>
+<option value="12435">部門名_12435</option>
+<option value="12436">部門名_12436</option>
+<option value="12437">部門名_12437</option>
+<option value="12438">部門名_12438</option>
+<option value="12439">部門名_12439</option>
+<option value="12440">部門名_12440</option>
+<option value="12441">部門名_12441</option>
+<option value="12442">部門名_12442</option>
+<option value="12443">部門名_12443</option>
+<option value="12444">部門名_12444</option>
+<option value="12445">部門名_12445</option>
+<option value="12446">部門名_12446</option>
+<option value="12447">部門名_12447</option>
+<option value="12448">部門名_12448</option>
+<option value="12449">部門名_12449</option>
+<option value="12450">部門名_12450</option>
+<option value="12451">部門名_12451</option>
+<option value="12452">部門名_12452</option>
+<option value="12453">部門名_12453</option>
+<option value="12454">部門名_12454</option>
+<option value="12455">部門名_12455</option>
+<option value="12456">部門名_12456</option>
+<option value="12457">部門名_12457</option>
+<option value="12458">部門名_12458</option>
+<option value="12459">部門名_12459</option>
+<option value="12460">部門名_12460</option>
+<option value="12461">部門名_12461</option>
+<option value="12462">部門名_12462</option>
+<option value="12463">部門名_12463</option>
+<option value="12464">部門名_12464</option>
+<option value="12465">部門名_12465</option>
+<option value="12466">部門名_12466</option>
+<option value="12467">部門名_12467</option>
+<option value="12468">部門名_12468</option>
+<option value="12469">部門名_12469</option>
+<option value="12470">部門名_12470</option>
+<option value="12471">部門名_12471</option>
+<option value="12472">部門名_12472</option>
+<option value="12473">部門名_12473</option>
+<option value="12474">部門名_12474</option>
+<option value="12475">部門名_12475</option>
+<option value="12476">部門名_12476</option>
+<option value="12477">部門名_12477</option>
+<option value="12478">部門名_12478</option>
+<option value="12479">部門名_12479</option>
+<option value="12480">部門名_12480</option>
+<option value="12481">部門名_12481</option>
+<option value="12482">部門名_12482</option>
+<option value="12483">部門名_12483</option>
+<option value="12484">部門名_12484</option>
+<option value="12485">部門名_12485</option>
+<option value="12486">部門名_12486</option>
+<option value="12487">部門名_12487</option>
+<option value="12488">部門名_12488</option>
+<option value="12489">部門名_12489</option>
+<option value="12490">部門名_12490</option>
+<option value="12491">部門名_12491</option>
+<option value="12492">部門名_12492</option>
+<option value="12493">部門名_12493</option>
+<option value="12494">部門名_12494</option>
+<option value="12495">部門名_12495</option>
+<option value="12496">部門名_12496</option>
+<option value="12497">部門名_12497</option>
+<option value="12498">部門名_12498</option>
+<option value="12499">部門名_12499</option>
+<option value="12500">部門名_12500</option>
+<option value="12501">部門名_12501</option>
+<option value="12502">部門名_12502</option>
+<option value="12503">部門名_12503</option>
+<option value="12504">部門名_12504</option>
+<option value="12505">部門名_12505</option>
+<option value="12506">部門名_12506</option>
+<option value="12507">部門名_12507</option>
+<option value="12508">部門名_12508</option>
+<option value="12509">部門名_12509</option>
+<option value="12510">部門名_12510</option>
+<option value="12511">部門名_12511</option>
+<option value="12512">部門名_12512</option>
+<option value="12513">部門名_12513</option>
+<option value="12514">部門名_12514</option>
+<option value="12515">部門名_12515</option>
+<option value="12516">部門名_12516</option>
+<option value="12517">部門名_12517</option>
+<option value="12518">部門名_12518</option>
+<option value="12519">部門名_12519</option>
+<option value="12520">部門名_12520</option>
+<option value="12521">部門名_12521</option>
+<option value="12522">部門名_12522</option>
+<option value="12523">部門名_12523</option>
+<option value="12524">部門名_12524</option>
+<option value="12525">部門名_12525</option>
+<option value="12526">部門名_12526</option>
+<option value="12527">部門名_12527</option>
+<option value="12528">部門名_12528</option>
+<option value="12529">部門名_12529</option>
+<option value="12530">部門名_12530</option>
+<option value="12531">部門名_12531</option>
+<option value="12532">部門名_12532</option>
+<option value="12533">部門名_12533</option>
+<option value="12534">部門名_12534</option>
+<option value="12535">部門名_12535</option>
+<option value="12536">部門名_12536</option>
+<option value="12537">部門名_12537</option>
+<option value="12538">部門名_12538</option>
+<option value="12539">部門名_12539</option>
+<option value="12540">部門名_12540</option>
+<option value="12541">部門名_12541</option>
+<option value="12542">部門名_12542</option>
+<option value="12543">部門名_12543</option>
+<option value="12544">部門名_12544</option>
+<option value="12545">部門名_12545</option>
+<option value="12546">部門名_12546</option>
+<option value="12547">部門名_12547</option>
+<option value="12548">部門名_12548</option>
+<option value="12549">部門名_12549</option>
+<option value="12550">部門名_12550</option>
+<option value="12551">部門名_12551</option>
+<option value="12552">部門名_12552</option>
+<option value="12553">部門名_12553</option>
+<option value="12554">部門名_12554</option>
+<option value="12555">部門名_12555</option>
+<option value="12556">部門名_12556</option>
+<option value="12557">部門名_12557</option>
+<option value="12558">部門名_12558</option>
+<option value="12559">部門名_12559</option>
+<option value="12560">部門名_12560</option>
+<option value="12561">部門名_12561</option>
+<option value="12562">部門名_12562</option>
+<option value="12563">部門名_12563</option>
+<option value="12564">部門名_12564</option>
+<option value="12565">部門名_12565</option>
+<option value="12566">部門名_12566</option>
+<option value="12567">部門名_12567</option>
+<option value="12568">部門名_12568</option>
+<option value="12569">部門名_12569</option>
+<option value="12570">部門名_12570</option>
+<option value="12571">部門名_12571</option>
+<option value="12572">部門名_12572</option>
+<option value="12573">部門名_12573</option>
+<option value="12574">部門名_12574</option>
+<option value="12575">部門名_12575</option>
+<option value="12576">部門名_12576</option>
+<option value="12577">部門名_12577</option>
+<option value="12578">部門名_12578</option>
+<option value="12579">部門名_12579</option>
+<option value="12580">部門名_12580</option>
+<option value="12581">部門名_12581</option>
+<option value="12582">部門名_12582</option>
+<option value="12583">部門名_12583</option>
+<option value="12584">部門名_12584</option>
+<option value="12585">部門名_12585</option>
+<option value="12586">部門名_12586</option>
+<option value="12587">部門名_12587</option>
+<option value="12588">部門名_12588</option>
+<option value="12589">部門名_12589</option>
+<option value="12590">部門名_12590</option>
+<option value="12591">部門名_12591</option>
+<option value="12592">部門名_12592</option>
+<option value="12593">部門名_12593</option>
+<option value="12594">部門名_12594</option>
+<option value="12595">部門名_12595</option>
+<option value="12596">部門名_12596</option>
+<option value="12597">部門名_12597</option>
+<option value="12598">部門名_12598</option>
+<option value="12599">部門名_12599</option>
+<option value="12600">部門名_12600</option>
+<option value="12601">部門名_12601</option>
+<option value="12602">部門名_12602</option>
+<option value="12603">部門名_12603</option>
+<option value="12604">部門名_12604</option>
+<option value="12605">部門名_12605</option>
+<option value="12606">部門名_12606</option>
+<option value="12607">部門名_12607</option>
+<option value="12608">部門名_12608</option>
+<option value="12609">部門名_12609</option>
+<option value="12610">部門名_12610</option>
+<option value="12611">部門名_12611</option>
+<option value="12612">部門名_12612</option>
+<option value="12613">部門名_12613</option>
+<option value="12614">部門名_12614</option>
+<option value="12615">部門名_12615</option>
+<option value="12616">部門名_12616</option>
+<option value="12617">部門名_12617</option>
+<option value="12618">部門名_12618</option>
+<option value="12619">部門名_12619</option>
+<option value="12620">部門名_12620</option>
+<option value="12621">部門名_12621</option>
+<option value="12622">部門名_12622</option>
+<option value="12623">部門名_12623</option>
+<option value="12624">部門名_12624</option>
+<option value="12625">部門名_12625</option>
+<option value="12626">部門名_12626</option>
+<option value="12627">部門名_12627</option>
+<option value="12628">部門名_12628</option>
+<option value="12629">部門名_12629</option>
+<option value="12630">部門名_12630</option>
+<option value="12631">部門名_12631</option>
+<option value="12632">部門名_12632</option>
+<option value="12633">部門名_12633</option>
+<option value="12634">部門名_12634</option>
+<option value="12635">部門名_12635</option>
+<option value="12636">部門名_12636</option>
+<option value="12637">部門名_12637</option>
+<option value="12638">部門名_12638</option>
+<option value="12639">部門名_12639</option>
+<option value="12640">部門名_12640</option>
+<option value="12641">部門名_12641</option>
+<option value="12642">部門名_12642</option>
+<option value="12643">部門名_12643</option>
+<option value="12644">部門名_12644</option>
+<option value="12645">部門名_12645</option>
+<option value="12646">部門名_12646</option>
+<option value="12647">部門名_12647</option>
+<option value="12648">部門名_12648</option>
+<option value="12649">部門名_12649</option>
+<option value="12650">部門名_12650</option>
+<option value="12651">部門名_12651</option>
+<option value="12652">部門名_12652</option>
+<option value="12653">部門名_12653</option>
+<option value="12654">部門名_12654</option>
+<option value="12655">部門名_12655</option>
+<option value="12656">部門名_12656</option>
+<option value="12657">部門名_12657</option>
+<option value="12658">部門名_12658</option>
+<option value="12659">部門名_12659</option>
+<option value="12660">部門名_12660</option>
+<option value="12661">部門名_12661</option>
+<option value="12662">部門名_12662</option>
+<option value="12663">部門名_12663</option>
+<option value="12664">部門名_12664</option>
+<option value="12665">部門名_12665</option>
+<option value="12666">部門名_12666</option>
+<option value="12667">部門名_12667</option>
+<option value="12668">部門名_12668</option>
+<option value="12669">部門名_12669</option>
+<option value="12670">部門名_12670</option>
+<option value="12671">部門名_12671</option>
+<option value="12672">部門名_12672</option>
+<option value="12673">部門名_12673</option>
+<option value="12674">部門名_12674</option>
+<option value="12675">部門名_12675</option>
+<option value="12676">部門名_12676</option>
+<option value="12677">部門名_12677</option>
+<option value="12678">部門名_12678</option>
+<option value="12679">部門名_12679</option>
+<option value="12680">部門名_12680</option>
+<option value="12681">部門名_12681</option>
+<option value="12682">部門名_12682</option>
+<option value="12683">部門名_12683</option>
+<option value="12684">部門名_12684</option>
+<option value="12685">部門名_12685</option>
+<option value="12686">部門名_12686</option>
+<option value="12687">部門名_12687</option>
+<option value="12688">部門名_12688</option>
+<option value="12689">部門名_12689</option>
+<option value="12690">部門名_12690</option>
+<option value="12691">部門名_12691</option>
+<option value="12692">部門名_12692</option>
+<option value="12693">部門名_12693</option>
+<option value="12694">部門名_12694</option>
+<option value="12695">部門名_12695</option>
+<option value="12696">部門名_12696</option>
+<option value="12697">部門名_12697</option>
+<option value="12698">部門名_12698</option>
+<option value="12699">部門名_12699</option>
+<option value="12700">部門名_12700</option>
+<option value="12701">部門名_12701</option>
+<option value="12702">部門名_12702</option>
+<option value="12703">部門名_12703</option>
+<option value="12704">部門名_12704</option>
+<option value="12705">部門名_12705</option>
+<option value="12706">部門名_12706</option>
+<option value="12707">部門名_12707</option>
+<option value="12708">部門名_12708</option>
+<option value="12709">部門名_12709</option>
+<option value="12710">部門名_12710</option>
+<option value="12711">部門名_12711</option>
+<option value="12712">部門名_12712</option>
+<option value="12713">部門名_12713</option>
+<option value="12714">部門名_12714</option>
+<option value="12715">部門名_12715</option>
+<option value="12716">部門名_12716</option>
+<option value="12717">部門名_12717</option>
+<option value="12718">部門名_12718</option>
+<option value="12719">部門名_12719</option>
+<option value="12720">部門名_12720</option>
+<option value="12721">部門名_12721</option>
+<option value="12722">部門名_12722</option>
+<option value="12723">部門名_12723</option>
+<option value="12724">部門名_12724</option>
+<option value="12725">部門名_12725</option>
+<option value="12726">部門名_12726</option>
+<option value="12727">部門名_12727</option>
+<option value="12728">部門名_12728</option>
+<option value="12729">部門名_12729</option>
+<option value="12730">部門名_12730</option>
+<option value="12731">部門名_12731</option>
+<option value="12732">部門名_12732</option>
+<option value="12733">部門名_12733</option>
+<option value="12734">部門名_12734</option>
+<option value="12735">部門名_12735</option>
+<option value="12736">部門名_12736</option>
+<option value="12737">部門名_12737</option>
+<option value="12738">部門名_12738</option>
+<option value="12739">部門名_12739</option>
+<option value="12740">部門名_12740</option>
+<option value="12741">部門名_12741</option>
+<option value="12742">部門名_12742</option>
+<option value="12743">部門名_12743</option>
+<option value="12744">部門名_12744</option>
+<option value="12745">部門名_12745</option>
+<option value="12746">部門名_12746</option>
+<option value="12747">部門名_12747</option>
+<option value="12748">部門名_12748</option>
+<option value="12749">部門名_12749</option>
+<option value="12750">部門名_12750</option>
+<option value="12751">部門名_12751</option>
+<option value="12752">部門名_12752</option>
+<option value="12753">部門名_12753</option>
+<option value="12754">部門名_12754</option>
+<option value="12755">部門名_12755</option>
+<option value="12756">部門名_12756</option>
+<option value="12757">部門名_12757</option>
+<option value="12758">部門名_12758</option>
+<option value="12759">部門名_12759</option>
+<option value="12760">部門名_12760</option>
+<option value="12761">部門名_12761</option>
+<option value="12762">部門名_12762</option>
+<option value="12763">部門名_12763</option>
+<option value="12764">部門名_12764</option>
+<option value="12765">部門名_12765</option>
+<option value="12766">部門名_12766</option>
+<option value="12767">部門名_12767</option>
+<option value="12768">部門名_12768</option>
+<option value="12769">部門名_12769</option>
+<option value="12770">部門名_12770</option>
+<option value="12771">部門名_12771</option>
+<option value="12772">部門名_12772</option>
+<option value="12773">部門名_12773</option>
+<option value="12774">部門名_12774</option>
+<option value="12775">部門名_12775</option>
+<option value="12776">部門名_12776</option>
+<option value="12777">部門名_12777</option>
+<option value="12778">部門名_12778</option>
+<option value="12779">部門名_12779</option>
+<option value="12780">部門名_12780</option>
+<option value="12781">部門名_12781</option>
+<option value="12782">部門名_12782</option>
+<option value="12783">部門名_12783</option>
+<option value="12784">部門名_12784</option>
+<option value="12785">部門名_12785</option>
+<option value="12786">部門名_12786</option>
+<option value="12787">部門名_12787</option>
+<option value="12788">部門名_12788</option>
+<option value="12789">部門名_12789</option>
+<option value="12790">部門名_12790</option>
+<option value="12791">部門名_12791</option>
+<option value="12792">部門名_12792</option>
+<option value="12793">部門名_12793</option>
+<option value="12794">部門名_12794</option>
+<option value="12795">部門名_12795</option>
+<option value="12796">部門名_12796</option>
+<option value="12797">部門名_12797</option>
+<option value="12798">部門名_12798</option>
+<option value="12799">部門名_12799</option>
+<option value="12800">部門名_12800</option>
+<option value="12801">部門名_12801</option>
+<option value="12802">部門名_12802</option>
+<option value="12803">部門名_12803</option>
+<option value="12804">部門名_12804</option>
+<option value="12805">部門名_12805</option>
+<option value="12806">部門名_12806</option>
+<option value="12807">部門名_12807</option>
+<option value="12808">部門名_12808</option>
+<option value="12809">部門名_12809</option>
+<option value="12810">部門名_12810</option>
+<option value="12811">部門名_12811</option>
+<option value="12812">部門名_12812</option>
+<option value="12813">部門名_12813</option>
+<option value="12814">部門名_12814</option>
+<option value="12815">部門名_12815</option>
+<option value="12816">部門名_12816</option>
+<option value="12817">部門名_12817</option>
+<option value="12818">部門名_12818</option>
+<option value="12819">部門名_12819</option>
+<option value="12820">部門名_12820</option>
+<option value="12821">部門名_12821</option>
+<option value="12822">部門名_12822</option>
+<option value="12823">部門名_12823</option>
+<option value="12824">部門名_12824</option>
+<option value="12825">部門名_12825</option>
+<option value="12826">部門名_12826</option>
+<option value="12827">部門名_12827</option>
+<option value="12828">部門名_12828</option>
+<option value="12829">部門名_12829</option>
+<option value="12830">部門名_12830</option>
+<option value="12831">部門名_12831</option>
+<option value="12832">部門名_12832</option>
+<option value="12833">部門名_12833</option>
+<option value="12834">部門名_12834</option>
+<option value="12835">部門名_12835</option>
+<option value="12836">部門名_12836</option>
+<option value="12837">部門名_12837</option>
+<option value="12838">部門名_12838</option>
+<option value="12839">部門名_12839</option>
+<option value="12840">部門名_12840</option>
+<option value="12841">部門名_12841</option>
+<option value="12842">部門名_12842</option>
+<option value="12843">部門名_12843</option>
+<option value="12844">部門名_12844</option>
+<option value="12845">部門名_12845</option>
+<option value="12846">部門名_12846</option>
+<option value="12847">部門名_12847</option>
+<option value="12848">部門名_12848</option>
+<option value="12849">部門名_12849</option>
+<option value="12850">部門名_12850</option>
+<option value="12851">部門名_12851</option>
+<option value="12852">部門名_12852</option>
+<option value="12853">部門名_12853</option>
+<option value="12854">部門名_12854</option>
+<option value="12855">部門名_12855</option>
+<option value="12856">部門名_12856</option>
+<option value="12857">部門名_12857</option>
+<option value="12858">部門名_12858</option>
+<option value="12859">部門名_12859</option>
+<option value="12860">部門名_12860</option>
+<option value="12861">部門名_12861</option>
+<option value="12862">部門名_12862</option>
+<option value="12863">部門名_12863</option>
+<option value="12864">部門名_12864</option>
+<option value="12865">部門名_12865</option>
+<option value="12866">部門名_12866</option>
+<option value="12867">部門名_12867</option>
+<option value="12868">部門名_12868</option>
+<option value="12869">部門名_12869</option>
+<option value="12870">部門名_12870</option>
+<option value="12871">部門名_12871</option>
+<option value="12872">部門名_12872</option>
+<option value="12873">部門名_12873</option>
+<option value="12874">部門名_12874</option>
+<option value="12875">部門名_12875</option>
+<option value="12876">部門名_12876</option>
+<option value="12877">部門名_12877</option>
+<option value="12878">部門名_12878</option>
+<option value="12879">部門名_12879</option>
+<option value="12880">部門名_12880</option>
+<option value="12881">部門名_12881</option>
+<option value="12882">部門名_12882</option>
+<option value="12883">部門名_12883</option>
+<option value="12884">部門名_12884</option>
+<option value="12885">部門名_12885</option>
+<option value="12886">部門名_12886</option>
+<option value="12887">部門名_12887</option>
+<option value="12888">部門名_12888</option>
+<option value="12889">部門名_12889</option>
+<option value="12890">部門名_12890</option>
+<option value="12891">部門名_12891</option>
+<option value="12892">部門名_12892</option>
+<option value="12893">部門名_12893</option>
+<option value="12894">部門名_12894</option>
+<option value="12895">部門名_12895</option>
+<option value="12896">部門名_12896</option>
+<option value="12897">部門名_12897</option>
+<option value="12898">部門名_12898</option>
+<option value="12899">部門名_12899</option>
+<option value="12900">部門名_12900</option>
+<option value="12901">部門名_12901</option>
+<option value="12902">部門名_12902</option>
+<option value="12903">部門名_12903</option>
+<option value="12904">部門名_12904</option>
+<option value="12905">部門名_12905</option>
+<option value="12906">部門名_12906</option>
+<option value="12907">部門名_12907</option>
+<option value="12908">部門名_12908</option>
+<option value="12909">部門名_12909</option>
+<option value="12910">部門名_12910</option>
+<option value="12911">部門名_12911</option>
+<option value="12912">部門名_12912</option>
+<option value="12913">部門名_12913</option>
+<option value="12914">部門名_12914</option>
+<option value="12915">部門名_12915</option>
+<option value="12916">部門名_12916</option>
+<option value="12917">部門名_12917</option>
+<option value="12918">部門名_12918</option>
+<option value="12919">部門名_12919</option>
+<option value="12920">部門名_12920</option>
+<option value="12921">部門名_12921</option>
+<option value="12922">部門名_12922</option>
+<option value="12923">部門名_12923</option>
+<option value="12924">部門名_12924</option>
+<option value="12925">部門名_12925</option>
+<option value="12926">部門名_12926</option>
+<option value="12927">部門名_12927</option>
+<option value="12928">部門名_12928</option>
+<option value="12929">部門名_12929</option>
+<option value="12930">部門名_12930</option>
+<option value="12931">部門名_12931</option>
+<option value="12932">部門名_12932</option>
+<option value="12933">部門名_12933</option>
+<option value="12934">部門名_12934</option>
+<option value="12935">部門名_12935</option>
+<option value="12936">部門名_12936</option>
+<option value="12937">部門名_12937</option>
+<option value="12938">部門名_12938</option>
+<option value="12939">部門名_12939</option>
+<option value="12940">部門名_12940</option>
+<option value="12941">部門名_12941</option>
+<option value="12942">部門名_12942</option>
+<option value="12943">部門名_12943</option>
+<option value="12944">部門名_12944</option>
+<option value="12945">部門名_12945</option>
+<option value="12946">部門名_12946</option>
+<option value="12947">部門名_12947</option>
+<option value="12948">部門名_12948</option>
+<option value="12949">部門名_12949</option>
+<option value="12950">部門名_12950</option>
+<option value="12951">部門名_12951</option>
+<option value="12952">部門名_12952</option>
+<option value="12953">部門名_12953</option>
+<option value="12954">部門名_12954</option>
+<option value="12955">部門名_12955</option>
+<option value="12956">部門名_12956</option>
+<option value="12957">部門名_12957</option>
+<option value="12958">部門名_12958</option>
+<option value="12959">部門名_12959</option>
+<option value="12960">部門名_12960</option>
+<option value="12961">部門名_12961</option>
+<option value="12962">部門名_12962</option>
+<option value="12963">部門名_12963</option>
+<option value="12964">部門名_12964</option>
+<option value="12965">部門名_12965</option>
+<option value="12966">部門名_12966</option>
+<option value="12967">部門名_12967</option>
+<option value="12968">部門名_12968</option>
+<option value="12969">部門名_12969</option>
+<option value="12970">部門名_12970</option>
+<option value="12971">部門名_12971</option>
+<option value="12972">部門名_12972</option>
+<option value="12973">部門名_12973</option>
+<option value="12974">部門名_12974</option>
+<option value="12975">部門名_12975</option>
+<option value="12976">部門名_12976</option>
+<option value="12977">部門名_12977</option>
+<option value="12978">部門名_12978</option>
+<option value="12979">部門名_12979</option>
+<option value="12980">部門名_12980</option>
+<option value="12981">部門名_12981</option>
+<option value="12982">部門名_12982</option>
+<option value="12983">部門名_12983</option>
+<option value="12984">部門名_12984</option>
+<option value="12985">部門名_12985</option>
+<option value="12986">部門名_12986</option>
+<option value="12987">部門名_12987</option>
+<option value="12988">部門名_12988</option>
+<option value="12989">部門名_12989</option>
+<option value="12990">部門名_12990</option>
+<option value="12991">部門名_12991</option>
+<option value="12992">部門名_12992</option>
+<option value="12993">部門名_12993</option>
+<option value="12994">部門名_12994</option>
+<option value="12995">部門名_12995</option>
+<option value="12996">部門名_12996</option>
+<option value="12997">部門名_12997</option>
+<option value="12998">部門名_12998</option>
+<option value="12999">部門名_12999</option>
+<option value="13000">部門名_13000</option>
+<option value="13001">部門名_13001</option>
+<option value="13002">部門名_13002</option>
+<option value="13003">部門名_13003</option>
+<option value="13004">部門名_13004</option>
+<option value="13005">部門名_13005</option>
+<option value="13006">部門名_13006</option>
+<option value="13007">部門名_13007</option>
+<option value="13008">部門名_13008</option>
+<option value="13009">部門名_13009</option>
+<option value="13010">部門名_13010</option>
+<option value="13011">部門名_13011</option>
+<option value="13012">部門名_13012</option>
+<option value="13013">部門名_13013</option>
+<option value="13014">部門名_13014</option>
+<option value="13015">部門名_13015</option>
+<option value="13016">部門名_13016</option>
+<option value="13017">部門名_13017</option>
+<option value="13018">部門名_13018</option>
+<option value="13019">部門名_13019</option>
+<option value="13020">部門名_13020</option>
+<option value="13021">部門名_13021</option>
+<option value="13022">部門名_13022</option>
+<option value="13023">部門名_13023</option>
+<option value="13024">部門名_13024</option>
+<option value="13025">部門名_13025</option>
+<option value="13026">部門名_13026</option>
+<option value="13027">部門名_13027</option>
+<option value="13028">部門名_13028</option>
+<option value="13029">部門名_13029</option>
+<option value="13030">部門名_13030</option>
+<option value="13031">部門名_13031</option>
+<option value="13032">部門名_13032</option>
+<option value="13033">部門名_13033</option>
+<option value="13034">部門名_13034</option>
+<option value="13035">部門名_13035</option>
+<option value="13036">部門名_13036</option>
+<option value="13037">部門名_13037</option>
+<option value="13038">部門名_13038</option>
+<option value="13039">部門名_13039</option>
+<option value="13040">部門名_13040</option>
+<option value="13041">部門名_13041</option>
+<option value="13042">部門名_13042</option>
+<option value="13043">部門名_13043</option>
+<option value="13044">部門名_13044</option>
+<option value="13045">部門名_13045</option>
+<option value="13046">部門名_13046</option>
+<option value="13047">部門名_13047</option>
+<option value="13048">部門名_13048</option>
+<option value="13049">部門名_13049</option>
+<option value="13050">部門名_13050</option>
+<option value="13051">部門名_13051</option>
+<option value="13052">部門名_13052</option>
+<option value="13053">部門名_13053</option>
+<option value="13054">部門名_13054</option>
+<option value="13055">部門名_13055</option>
+<option value="13056">部門名_13056</option>
+<option value="13057">部門名_13057</option>
+<option value="13058">部門名_13058</option>
+<option value="13059">部門名_13059</option>
+<option value="13060">部門名_13060</option>
+<option value="13061">部門名_13061</option>
+<option value="13062">部門名_13062</option>
+<option value="13063">部門名_13063</option>
+<option value="13064">部門名_13064</option>
+<option value="13065">部門名_13065</option>
+<option value="13066">部門名_13066</option>
+<option value="13067">部門名_13067</option>
+<option value="13068">部門名_13068</option>
+<option value="13069">部門名_13069</option>
+<option value="13070">部門名_13070</option>
+<option value="13071">部門名_13071</option>
+<option value="13072">部門名_13072</option>
+<option value="13073">部門名_13073</option>
+<option value="13074">部門名_13074</option>
+<option value="13075">部門名_13075</option>
+<option value="13076">部門名_13076</option>
+<option value="13077">部門名_13077</option>
+<option value="13078">部門名_13078</option>
+<option value="13079">部門名_13079</option>
+<option value="13080">部門名_13080</option>
+<option value="13081">部門名_13081</option>
+<option value="13082">部門名_13082</option>
+<option value="13083">部門名_13083</option>
+<option value="13084">部門名_13084</option>
+<option value="13085">部門名_13085</option>
+<option value="13086">部門名_13086</option>
+<option value="13087">部門名_13087</option>
+<option value="13088">部門名_13088</option>
+<option value="13089">部門名_13089</option>
+<option value="13090">部門名_13090</option>
+<option value="13091">部門名_13091</option>
+<option value="13092">部門名_13092</option>
+<option value="13093">部門名_13093</option>
+<option value="13094">部門名_13094</option>
+<option value="13095">部門名_13095</option>
+<option value="13096">部門名_13096</option>
+<option value="13097">部門名_13097</option>
+<option value="13098">部門名_13098</option>
+<option value="13934">部門名_13934</option>
+<option value="13965">部門名_13965</option>
+<option value="14613">部門名_14613</option>
+<option value="14854">部門名_14854</option>
+<option value="15280">部門名_15280</option>
+<option value="17987">部門名_17987</option>
+<option value="18425">部門名_18425</option>
+<option value="18764">部門名_18764</option>
+<option value="2">部門名_2</option>
+<option value="3878">部門名_3878</option>
+<option value="1098">部門名_3878 部門名_1098</option>
+<option value="8100">部門名_8100</option>
+<option value="847">部門名_847</option>
+<option value="8846">部門名_8846</option>
+<option value="8997">部門名_8997</option>
+<option value="8998">部門名_8998</option>
+<option value="8999">部門名_8999</option>
+</select>						</div>
+					</div>
+					
+					<div class="form-group">
+					    <label for="UsersText">役職</label>
+						 <div>
+							<input name="post" type="text" class="form-control" value=""/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+					  
+					    <label for="UsersText">氏　名</label>
+						 <div class="row">
+						 	<div class="col-md-6">
+									<input name="user_name1" type="text" class="form-control" value=""/>
+							</div>
+							<div class="col-md-1 hidden-xs"></div>
+							<div class="col-md-6">
+									<input name="user_name2" class="form-control" type="text" value=""/>
+							</div>
+						</div>
+					</div>
+		</div>
+		
+		<div class="hidden-xs col-md-1"></div>
+		
+		<div class="col-xs-12 col-md-6">
+					<div class="form-group">
+					    <label for="UsersText">入社年月</label>
+						 <div class="row">
+						 		<div class="col-md-5">
+									<input name="initiation_from" type="text" class="form-control" value="" />
+								</div>
+								<div class="col-md-2">
+									&nbsp;～&nbsp;
+								</div>
+								<div class="col-md-5">
+									<input class="form-control" name="initiation_to" type="text" value=""/>
+								</div>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+					    <label for="UsersText">利用者コード</label>
+						 <div>
+							<input name="member_cd" type="text" class="form-control" value=""/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+					    <label for="UsersText">メモ</label>
+						 <div>
+							<input name="memo" type="text" class="form-control" value=""/>
+						</div>
+					</div>
+					
+					<p class="help-block">検索結果には、すべての条件を満たすものが表示されます。</p>
+					<button class="btn btn-search" VALUE="submit" alt="検索"  name="btn0" id="btnSearch" onClick="setBtnVal('btn1', '検索');">
+						<i class="fa fa-search fa-fw"></i>検索
+					</button>
+					<input type="hidden" name="btn1" id="btn1"/><!-- IE7対応 2010.11.18 -->
+					<button class="btn btn-default"  VALUE="submit" alt="検索解除" border="0" name="btn0" id="btnReset" onClick="setBtnVal('btn1', '検索解除');">検索解除</button>
+					</div>
+		</div>
+</div><!--search_box-->
+<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="2753fadfbaee094d89e4940d8ae87be67e75417b%3A" id="TokenFields1756775698"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked43462734"/></div></form>
+<div  class="text-right">
+
+<a href="/webinsource/staff/add/1" class="btn btn-add"><i class="fa fa-plus fa-fw"></i>新規追加</a>&nbsp;<a href="/webinsource/staff/csv_add" class="btn btn-add"><i class="fa fa-list-alt fa-fw"></i>一括登録／更新</a>
+</div>
+
+<div class="text-center">
+				<ul class="pagination">
+            <li class="disabled"><a>&lt;</a></li><li class="active"><a>1</a></li><li><a href="/webinsource/staff/index/page:2">2</a></li><li class="next"><a href="/webinsource/staff/index/page:2" currentClass="disabled" rel="next">&gt;</a></li><li><a href="/webinsource/staff/index/page:2" currentClass="disabled" rel="last">&gt;&gt;</a></li>		</ul>
+			    <div class="text-right">
+	        全22件	    </div>
+	</div>
+	<!--pageNate-->
+
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed">
+  <thead>
+  	<tr>
+	<th scope="col"><a href="/webinsource/staff/index/sort:Company.company_name/direction:asc">お客様名</a></th><th scope="col" >お客様番号</th>	<th scope="col"><a href="/webinsource/staff/index/sort:User.login_id/direction:asc">ログインID</a></th>
+	<th scope="col">部署名</th>
+	<th scope="col"><a href="/webinsource/staff/index/sort:User.post/direction:asc">役職</a></th>
+	<th scope="col"><a href="/webinsource/staff/index/sort:User.lastname_kana/direction:asc">氏名</a></th>
+	<th scope="col"><a href="/webinsource/staff/index/sort:User.initiation_year_month/direction:asc">入社年月</a></th>
+    <th scope="col" class="col-xs-2"><a href="/webinsource/staff/index/sort:User.member_cd/direction:asc">利用者</a><br/>コード</th>
+    <th scope="col"><a href="/webinsource/staff/index/sort:User.memo/direction:asc">メモ</a></th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">inssystem01</td>
+		<td>部門名_1</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/1">名_1 姓_1</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_1</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/1" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_2</td>
+		<td>部門名_1</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/2">名_2 姓_2</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_2</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/2" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_3147</td>
+		<td>部門名_847</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/3147">名_3147 姓_3147</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_3147</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/3147" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_5626</td>
+		<td>部門名_3878 部門名_1098</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/5626">名_5626 姓_5626</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_5626</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/5626" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_5975</td>
+		<td>部門名_2</td>
+		<td>マネージャー</td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/5975">名_5975 姓_5975</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_5975</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/5975" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_10193</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/10193">名_10193 姓_10193</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_10193</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/10193" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_11091</td>
+		<td>部門名_847</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/11091">名_11091 姓_11091</a>			</span>
+		</td>
+		<td>2007年06月</td>
+		<td class="packNumber"></td>
+		<td>メモ_11091</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/11091" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_39569</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/39569">名_39569 姓_39569</a>			</span>
+		</td>
+		<td>2013年11月</td>
+		<td class="packNumber"></td>
+		<td>メモ_39569</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/39569" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_42883</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/42883">名_42883 姓_42883</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_42883</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/42883" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_42894</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/42894">名_42894 姓_42894</a>			</span>
+		</td>
+		<td>2014年04月</td>
+		<td class="packNumber"></td>
+		<td>メモ_42894</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/42894" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_50746</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/50746">名_50746 姓_50746</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_50746</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/50746" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_51581</td>
+		<td>部門名_8100</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/51581">名_51581 姓_51581</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_51581</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/51581" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_87697</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/87697">名_87697 姓_87697</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_87697</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/87697" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_87698</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/87698">名_87698 姓_87698</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_87698</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/87698" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_87699</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/87699">名_87699 姓_87699</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_87699</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/87699" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_89689</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/89689">名_89689 姓_89689</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_89689</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/89689" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_90790</td>
+		<td>部門名_11988</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/90790">名_90790 姓_90790</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_90790</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/90790" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_94448</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/94448">名_94448 姓_94448</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_94448</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/94448" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr>
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_101299</td>
+		<td>部門名_2</td>
+		<td></td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/101299">名_101299 姓_101299</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_101299</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/101299" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+			<tr class="backGround">
+		<td class="string"><label>会社名_1</label></td><td class="string"><label>00000010</label></td>		<td class="imgTd">user_103914</td>
+		<td>部門名_2</td>
+		<td>常務取締役</td>
+		<td><span class="imgTd">
+			<a href="/webinsource/staff/view/103914">名_103914 姓_103914</a>			</span>
+		</td>
+		<td></td>
+		<td class="packNumber"></td>
+		<td>メモ_103914</td>
+		<td class="imgTd">
+			<a href="/webinsource/staff/edit/103914" class="btn btn-xs btn-move"><i class="fa fa-refresh fa-fw"></i>変更</a>								</td>
+	</tr>
+		</tbody>
+</table>
+</div>
+
+<div class="text-center">
+				<ul class="pagination">
+            <li class="disabled"><a>&lt;</a></li><li class="active"><a>1</a></li><li><a href="/webinsource/staff/index/page:2">2</a></li><li class="next"><a href="/webinsource/staff/index/page:2" currentClass="disabled" rel="next">&gt;</a></li><li><a href="/webinsource/staff/index/page:2" currentClass="disabled" rel="last">&gt;&gt;</a></li>		</ul>
+			    <div class="text-right">
+	        全22件	    </div>
+	</div>
+</template>

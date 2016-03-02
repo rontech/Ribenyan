@@ -1,0 +1,59 @@
+<head>
+	<script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
+
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="assets/styles.css" rel="stylesheet" media="screen">
+    <link href="assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/scripts.js"></script>
+    <script src="assets/DT_bootstrap.js"></script>
+
+</head>
+
+<template name="manageLayout">
+		{{> admin_header}}
+		<div class="leftnav col-xs-2">
+			<div class="row block badge-important">
+				<a href="/manage/newslist">
+					<div class="hidden-xs col-md-10 leftnav-li">
+						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻情报</h5>
+					</div>
+				</a>
+			</div>
+
+			<div class="row block badge-important">
+				<a href="http://127.0.0.1:3000/manage/adinfoadd">
+					<div class="hidden-xs col-md-10 leftnav-li">
+						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>广告情報</h5>
+					</div>
+				</a>
+			</div>
+
+			<div class="row block badge-important">
+				<a href="#">
+					<div class="hidden-xs col-md-10 leftnav-li">
+						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>お客様情報</h5>
+					</div>
+				</a>
+			</div>
+
+			<div class="row block badge-important">
+				<a href="#">
+					<div class="hidden-xs col-md-10 leftnav-li">
+						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>お客様情報</h5>
+					</div>
+				</a>
+			</div>
+		</div><!--left_cont-->
+
+		<div class="col-xs-10 rightcont">
+			{{> yield}}
+		</div>
+		{{> goTop}}
+
+</template>
+
+
