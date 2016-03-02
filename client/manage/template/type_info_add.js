@@ -3,7 +3,7 @@ Template.typeInfoAdd.events({
         e.preventDefault();
         var parentID = t.find('#parentID').value;
         var name     = t.find('#name').value;
-        var isVaild  = t.find('#isVaild').value;
+        var isVaild  = parseInt(t.find('#isVaild').value);
         var remark   = t.find('#remark').value;
 
         TypeInfo.insert({

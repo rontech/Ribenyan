@@ -3,7 +3,7 @@ Template.tagInfoAdd.events({
         e.preventDefault();
         var type    = t.find('#type').value;
         var name    = t.find('#name').value;
-        var isVaild = t.find('#isVaild').value;
+        var isVaild = parseInt(t.find('#isVaild').value);
         var note    = t.find('#note').value;
         var tagIcon = t.find('#tagIcon').value;
         console.log(type,name,isVaild,note,tagIcon);
