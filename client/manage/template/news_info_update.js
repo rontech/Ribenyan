@@ -52,24 +52,24 @@
         var author      = t.find('#author').value;
         var newsID      = t.find('#newsID').value;
         var imageObj    = t.find('#imageObj').value;
-        alert("*************");
-        NewsInfo.save({_id:new Meteor.Collection.ObjectID(_id)},{//{$set:{
-        				"title":title,
-        				"secondTitle":secondTitle,
-            			"introduce":introduce,
-        				"content":content,
-        				"tagObj":Tag,
-        				"typeObj":Obj,
-        				"keyWord":keyWord,
-        				"isVaild":isVaild,
-        				"showRule":showRule,
-        				"language":language,
-        				"originURL":originURL,
-        				"copyright":copyright,
-        				"author":author,
-        				"newsID":newsID,
-        				"imageObj":imageObj
-        				},function(){
+        NewsInfo.update(new Meteor.Collection.ObjectID(_id),{$set:{
+                    "title":title,
+                    "secondTitle":secondTitle,
+                    "introduce":introduce,
+                    "content":content,
+                    "tagObj":Tag,
+                    "typeObj":Obj,
+                    "keyWord":keyWord,
+                    "isVaild":1,
+                    "showRule":showRule,
+                    "language":language,
+                    "originURL":originURL,
+                    "copyright":copyright,
+                    "author":author,
+                    "publishTime":date,
+                    "newsID":newsID,
+                    "imageObj":imageObj
+            }},function(){
         						alert("已更新");
         						Router.go("/manage/newslist");
         					}
@@ -94,7 +94,7 @@
         alert("**1111***********");
         var msg = window.confirm('该条信息状将变更为发布状态！')
 	    if(msg==true){
-            NewsInfo.update({_id:new Meteor.Collection.ObjectID(_id)},{
+            NewsInfo.update(new Meteor.Collection.ObjectID(_id),{$set:{
                     "title":title,
                     "secondTitle":secondTitle,
                     "introduce":introduce,
@@ -111,7 +111,7 @@
                     "publishTime":date,
                     "newsID":newsID,
                     "imageObj":imageObj
-            },function(){
+            }},function(){
         					Router.go("/manage/newslist");
         				}
             );
