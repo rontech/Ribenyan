@@ -4,3 +4,14 @@ Template.typeList.helpers({
     },
 });
 
+Template.typeList.helpers({
+  checked: function() {
+  	var types = Session.get("news_info").typeObj
+  	for(var i = 0;i<types.length;i++){
+		if(this._id._str === types[i].typeID._str) {
+			return "checked";
+		}
+  	}
+    return "";
+  }
+});
