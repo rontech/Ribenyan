@@ -71,8 +71,8 @@ function updateData(e,t,type,msg) {
             );
         }else{
             if(type==2){
-                var msg = window.confirm('该条信息状将变更为发布状态！')
-                 if(msg==true){
+                var msgck = window.confirm('该条信息状将变更为发布状态！')
+                 if(msgck==true){
                      NewsInfo.update(new Meteor.Collection.ObjectID(_id),{$set:{
                         "title":title,
                         "secondTitle":secondTitle,
