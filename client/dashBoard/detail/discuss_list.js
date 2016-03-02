@@ -37,6 +37,23 @@ Template.discussList.events({
 			$(e.target).text("展开");
 		}
 	},
+	"click div.js-show-hide-dp-box" :function(e){
+
+		// 点评用户
+		var listUser = $(e.target).parent().prev();
+
+		//　点评
+		var listContent = $(e.target).parent();
+
+		// 展开　按钮
+		var btnZK = $(listUser).prev();
+		
+		$(listUser).toggle("slow");
+		$(listContent).toggle("slow");
+
+		$(btnZK).data().show　= true;
+		$(e.target).text("展开");
+	},
 	"click span.author-content q" :function(e){//　＠点评＠内容展开
 
 		if($(e.target).hasClass("js-open")){//关闭　－inline-block
