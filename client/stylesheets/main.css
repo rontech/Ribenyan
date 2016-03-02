@@ -14,6 +14,10 @@ ul{
   list-style-type: none;  
 }
 
+h1,h2,h3,h4,h5,p{
+  word-break:break-word;
+}
+
 a , a:focus,a:hover{
   text-decoration: none;
 }
@@ -74,6 +78,7 @@ a , a:focus,a:hover{
   background-color:#fff;
   border:1px solid #ddd;
   border-radius:4px;
+  height: 276px;
   -webkit-transition:border .2s ease-in-out;-o-transition:border .2s ease-in-out;transition:border .2s ease-in-out
 }
 .news_card>a, 
@@ -100,6 +105,7 @@ a , a:focus,a:hover{
 
 /*新闻简介*/
 .news_card .content{
+  height: 40px;
   margin: 0 10px 5px 10px;
   font-size: 14px;
   color: gray;
