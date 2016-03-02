@@ -21,10 +21,8 @@ underscore
 iron:router
 check
 ejson
-ian:accounts-ui-bootstrap-3
 accounts-password
 twbs:bootstrap
 email
-lc3t35:datatables-bootstrap3
 peppelg:bootstrap-3-modal
 aslagle:reactive-table
