@@ -29,12 +29,12 @@ Template.discussList.events({
 			$(listUser).toggle("slow");
 			$(listContent).toggle("slow");
 			$(e.target).data().show　= false;
-			$(e.target).text("收起");
+			$(e.target).text("展开");
 		}else{//收起
 			$(listUser).toggle("slow");
 			$(listContent).toggle("slow");
 			$(e.target).data().show　= true;
-			$(e.target).text("展开");
+			$(e.target).text("收起");
 		}
 	},
 	"click div.js-show-hide-dp-box" :function(e){
@@ -47,12 +47,12 @@ Template.discussList.events({
 
 		// 展开　按钮
 		var btnZK = $(listUser).prev();
-		
+
 		$(listUser).toggle("slow");
 		$(listContent).toggle("slow");
 
 		$(btnZK).data().show　= true;
-		$(e.target).text("展开");
+		$(btnZK).text("展开");
 	},
 	"click span.author-content q" :function(e){//　＠点评＠内容展开
 
