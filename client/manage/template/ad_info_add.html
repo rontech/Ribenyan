@@ -1,0 +1,79 @@
+<template name="adInfoAdd">
+		<!-- validation -->
+		<div class="row-fluid">
+			<!-- block -->
+			<div class="block">
+				<div class="navbar navbar-inner block-header">
+					<div class="muted pull-left">广告信息登入</div>
+				</div>
+				<div class="block-content collapse in">
+					<div class="span12">
+						<!-- BEGIN FORM-->
+						<form action="#" id="ad_info_add" class="form-horizontal">
+							<fieldset>
+								<div class="alert alert-error hide">
+									<button class="close" data-dismiss="alert"></button>
+									You have some form errors. Please check below.
+								</div>
+								<div class="alert alert-success hide">
+									<button class="close" data-dismiss="alert"></button>
+									Your form validation is successful!
+								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>标题</label>
+									<div class="controls">
+										<input type="text" id="title" name="title" data-required="1" class="span6 m-wrap " />
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">上传文件</label>
+									<div class="controls">
+	                                    <div id="uniform-fileInput">
+	                                    	<input class="input-file uniform_on" id="upload" type="file">
+	                                    </div>
+	                                </div>
+	                            </div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>简介</label>
+									<div class="controls">
+										<input type="text" id="introduce" name="introduce" data-required="1" class="span6 m-wrap" />
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>内容</label>
+									<div class="controls row-fluid">
+			                            <div class="span10 block-content collapse in">
+			                               <textarea name="content" id="content" class="span6 m-wrap"></textarea>
+			                            </div>
+				                    </div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>客户ID</label>
+									<div class="controls">
+										<input type="text" id="cstId" name="cstId" data-required="1" class="span6 m-wrap" />
+									</div>
+								</div>
+
+								<div class="control-group">
+									<div class="controls">
+										<button type="submit" class="btn btn-success">发布</button>
+										&nbsp;
+										<button type="reset" class="btn">重置</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+						<!-- END FORM-->
+					</div>
+				</div>
+			</div>
+			<!-- /block -->
+		</div>
+		<!-- /validation -->
+
+</template>
