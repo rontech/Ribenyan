@@ -1,10 +1,3 @@
-//$('#example').dataTable();
-//$('.datatable').dataTable({"sPaginationType": "bs_normal"});
-//$('.datatable').dataTable({"sPaginationType": "bs_two_button"});
-//$('.datatable').dataTable({"sPaginationType": "bs_four_button"});
-//$('.datatable').dataTable({"sPaginationType": "bs_full"});
-//i18n.setLanguage('zh');
-
 //通用显示
 var Common = function (value) {
   var html;
@@ -22,44 +15,21 @@ var Common = function (value) {
   return new Spacebars.SafeString(html);
 };
 
-//显示状态
-var delField = function (value) {
-  var html;
-  if (value === null || value === undefined) {
-    html = '<span style="color: orange; font-weight: bold"></span>';
-  } else {
-      switch (value){
-        case 1:
-            value = "正常";
-            break;
-        case 2:
-            value = "未发表";
-            break;
-        case 0:
-            value = "已删除";
-            break;
-      }
-      html = '<span style="color: ">' + value + '</span>';
-  }
-  return new Spacebars.SafeString(html);
-};
-
-Template.featureComparison.helpers({
-  tables : function () {
-    return NewsInfo.find();
+Template.adListTable.helpers({
+  adTables : function () {
+    return AdInfo.find();
   },
-
   tableSettings : function () {
     return {
-      rowsPerPage: 10,
+      rowsPerPage: 5,
       showNavigation: 'auto',
       showColumnToggles: false,
       fields: [
         {
           key: 'title',
-          label: '标题',
+          label: '名称',
           fn: function (name,object) {
-           var html = '<a href="/manage/newslist/' + object._id + '">' + name + '</a>';
+           var html = '<a href="/manage/adlist/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);
           }
         },
@@ -73,9 +43,8 @@ Template.featureComparison.helpers({
 //        { key: 'keyboard', label: 'Keyboard navigation', fn: checkOrX, hidden: true },
 //        { key: 'plugins', label: 'Plugins', fn: checkOrX, hidden: true },
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
-        { key: 'secondTitle', label: '副标题', fn: Common},
-        { key: 'introduce', label: '简介', fn: Common},
-        { key: 'isVaild', label: '状态', fn: delField}
+          { key: 'introduce', label: '简介', fn: Common},
+          { key: 'content', label: '内容', fn: Common}
       ]
     };
   }
