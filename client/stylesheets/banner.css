@@ -128,12 +128,12 @@
     }
 
     /*ipad*/
-    @media (min-width: 768px) and (max-width: 992px) {
+    @media screen and (min-width: 768px) and (max-width: 992px) {
         .banner {
             margin: 0;
         }
         .banner-left {
-            float: none;
+            display: none;
             width: 100%;
         }
         .banner-right {
@@ -163,12 +163,12 @@
     }
 
     /*mobile*/
-    @media only screen and (max-width: 767px) {
+    @media screen and (max-width: 767px) {
         .banner {
             margin: 0;
         }
         .banner-left {
-            float: none;
+            display: none;
             width: 100%;
         }
         .banner-right {

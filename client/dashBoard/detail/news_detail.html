@@ -1,10 +1,10 @@
 <template name="newsDetail">
 	<!-- 新闻详情 -->
     <div class="mod_list">
-    	<!-- 显示新闻结构 -->
+    	<!-- 显示新闻结构 使用三层大括号显示-->
         {{{content}}}
 
-        {{> discuss}}
+        {{> discuss　newsID=_id._str}}
 
     </div>
 

@@ -75,7 +75,7 @@ Meteor.publish("bus_second_layout_data_info",function(){
 
 //新闻整合评论表
 Meteor.publish("bus_news_evaluation_info",function(){
-	return BusNewsEvaluationInfo.find();
+	return NewsEvaluationCol.find();
 });
 
 //广告信息
@@ -92,3 +92,4 @@ Meteor.publish("bus_type_info",function(){
 Meteor.publish("bus_tag_info",function(){
 	return TagInfo.find();
 });
+

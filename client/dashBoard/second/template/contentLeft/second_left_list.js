@@ -27,7 +27,7 @@ function getListDataNews(){
 						},
 						{
 							sort: {
-									submitted: -1
+									_id: -1
 								}, 
 							limit: Template.currentData().limit
 						}
