@@ -1,10 +1,10 @@
-Template.typeList.helpers({
+Template.typeShow.helpers({
     typelists: function() {
       return TypeInfo.find({isVaild:1}).fetch();
     },
 });
 
-Template.typeList.helpers({
+Template.typeShow.helpers({
   checked: function() {
   	var types = Session.get("news_info").typeObj
   	for(var i = 0;i<types.length;i++){
