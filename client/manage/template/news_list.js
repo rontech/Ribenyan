@@ -5,7 +5,8 @@
 //$('.datatable').dataTable({"sPaginationType": "bs_full"});
 //i18n.setLanguage('zh');
 
-var checkOrX = function (value) {
+//通用显示
+var Common = function (value) {
   var html;
   // first, normalize the value to a canonical interpretation
   if (typeof value === 'boolean')
@@ -16,11 +17,32 @@ var checkOrX = function (value) {
   if (value === null || value === undefined) {
     html = '<span style="color: orange; font-weight: bold">?</span>';
   } else {
-    html = '<span style="color: lightblue">' + value + '</span>';
+    html = '<span>' + value + '</span>';
   }
   return new Spacebars.SafeString(html);
 };
 
+//显示状态
+var delField = function (value) {
+  var html;
+  if (value === null || value === undefined) {
+    html = '<span style="color: orange; font-weight: bold"></span>';
+  } else {
+      switch (value){
+        case 1:
+            value = "正常";
+            break;
+        case 2:
+            value = "未发表";
+            break;
+        case 0:
+            value = "已删除";
+            break;
+      }
+      html = '<span style="color: ">' + value + '</span>';
+  }
+  return new Spacebars.SafeString(html);
+};
 
 Template.featureComparison.helpers({
   tables : function () {
@@ -37,7 +59,7 @@ Template.featureComparison.helpers({
           key: 'title',
           label: '标题',
           fn: function (name,object) {
-           var html = '<a href="/manage/newslist/' + object._id + '">' + name + '</a>';
+           var html = '<a href="/manage/taglist/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);
           }
         },
@@ -51,7 +73,9 @@ Template.featureComparison.helpers({
 //        { key: 'keyboard', label: 'Keyboard navigation', fn: checkOrX, hidden: true },
 //        { key: 'plugins', label: 'Plugins', fn: checkOrX, hidden: true },
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
-        { key: 'secondTitle', label: '副标题', fn: checkOrX}
+        { key: 'secondTitle', label: '副标题', fn: Common},
+        { key: 'introduce', label: '简介', fn: Common},
+        { key: 'isVaild', label: '状态', fn: delField}
       ]
     };
   }

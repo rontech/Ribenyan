@@ -1,11 +1,10 @@
- Template.newsView.rendered = function() {
+Template.newsView.rendered = function() {
    $('#content').ckeditor();
-  }
+}
 
- Template.registerHelper('selected', function(key, value){
- 	return key == value ? {selected:'selected'}: '';
+Template.registerHelper('selected', function(key, value){
+    return key == value ? {selected:'selected'}: '';
 });
-
 
 function updateData(e,t,type,msg) {
         var date;
@@ -98,7 +97,7 @@ function updateData(e,t,type,msg) {
 }
 
 
- Template.newsView.events({
+Template.newsView.events({
     'submit #news_info_update' : function(e,t){
         updateData(e,t,1,"已更新");
     },
