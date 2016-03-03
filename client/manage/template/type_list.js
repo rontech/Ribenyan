@@ -55,7 +55,7 @@ Template.typeListTable.helpers({
           key: 'name',
           label: '名称',
           fn: function (name,object) {
-           var html = '<a href="/manage/taglist/' + object._id + '">' + name + '</a>';
+           var html = '<a href="/manage/typelist/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);
           }
         },
