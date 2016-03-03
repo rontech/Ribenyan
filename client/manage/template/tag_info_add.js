@@ -6,7 +6,7 @@ Template.tagInfoAdd.events({
         var isVaild = parseInt(t.find('#isVaild').value);
         var note    = t.find('#note').value;
         var tagIcon = t.find('#tagIcon').value;
-        console.log(type,name,isVaild,note,tagIcon);
+        // console.log(type,name,isVaild,note,tagIcon);
         TagInfo.insert({
         				"type":type,
             			"name":name,
