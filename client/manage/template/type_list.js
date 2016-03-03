@@ -1,11 +1,6 @@
+//显示备注
 var noteField = function (value) {
   var html;
-  // first, normalize the value to a canonical interpretation
-  // if (typeof value === 'boolean')
-  //   value = {
-  //     support: value
-  //   };
-
   if (value === null || value === undefined) {
     html = '<span style="color: orange; font-weight: bold"></span>';
   } else {
@@ -14,27 +9,18 @@ var noteField = function (value) {
   return new Spacebars.SafeString(html);
 };
 
-var typeField = function (value) {
+//显示类型
+var parentIDField = function (value) {
   var html;
   if (value === null || value === undefined) {
     html = '<span style="color: orange; font-weight: bold"></span>';
   } else {
-      switch (value){
-        case "1":
-            value = "新闻";
-            break;
-        case "2":
-            value = "用户";
-            break;
-        case "3": 
-            value = "评论";
-            break;
-      }
       html = '<span style="color: ">' + value + '</span>';
   }
   return new Spacebars.SafeString(html);
 };
 
+//显示状态
 var delField = function (value) {
   var html;
   if (value === null || value === undefined) {
@@ -53,9 +39,10 @@ var delField = function (value) {
   return new Spacebars.SafeString(html);
 };
 
-Template.tagListTable.helpers({
-  tagTables : function () {
-    return TagInfo.find();
+
+Template.typeListTable.helpers({
+  typeTables : function () {
+    return TypeInfo.find();
   },
 
   tableSettings : function () {
@@ -82,9 +69,9 @@ Template.tagListTable.helpers({
 //        { key: 'keyboard', label: 'Keyboard navigation', fn: checkOrX, hidden: true },
 //        { key: 'plugins', label: 'Plugins', fn: checkOrX, hidden: true },
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
-          { key: 'type', label: '类型', fn: typeField},
+          { key: 'parentID', label: '父ID', fn: parentIDField},
           { key: 'isVaild', label: '状态', fn: delField},
-          { key: 'note', label: '备注', fn: noteField}
+          { key: 'remark', label: '备注', fn: noteField}
       ]
     };
   }
