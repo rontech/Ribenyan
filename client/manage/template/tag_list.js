@@ -1,3 +1,11 @@
+Template.tagListTable.rendered = function() {   
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
+}
+
 var noteField = function (value) {
   var html;
   // first, normalize the value to a canonical interpretation

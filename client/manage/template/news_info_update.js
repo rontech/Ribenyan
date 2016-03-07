@@ -1,6 +1,12 @@
-Template.newsView.rendered = function() {
+Template.adListTable.rendered = function() {   
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
    $('#content').ckeditor();
 }
+
 
 Template.registerHelper('selected', function(key, value){
     return key == value ? {selected:'selected'}: '';

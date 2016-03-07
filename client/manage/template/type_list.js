@@ -1,3 +1,11 @@
+Template.typeListTable.rendered = function() {   
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
+}
+
 //显示备注
 var noteField = function (value) {
   var html;

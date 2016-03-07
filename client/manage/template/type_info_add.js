@@ -1,3 +1,11 @@
+Template.typeInfoAdd.rendered = function() {   
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
+}
+
 Template.typeInfoAdd.events({
     'submit #type_info_add' : function(e,t){
         e.preventDefault();

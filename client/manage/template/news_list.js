@@ -1,9 +1,11 @@
-//$('#example').dataTable();
-//$('.datatable').dataTable({"sPaginationType": "bs_normal"});
-//$('.datatable').dataTable({"sPaginationType": "bs_two_button"});
-//$('.datatable').dataTable({"sPaginationType": "bs_four_button"});
-//$('.datatable').dataTable({"sPaginationType": "bs_full"});
 //i18n.setLanguage('zh');
+Template.newsList.rendered = function() {
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
+}
 
 //通用显示
 var Common = function (value) {

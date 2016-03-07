@@ -1,3 +1,11 @@
+Template.typeShow.rendered = function() {   
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
+}
+
 Template.typeShow.helpers({
     typelists: function() {
       return TypeInfo.find({isVaild:1}).fetch();

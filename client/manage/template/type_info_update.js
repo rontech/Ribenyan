@@ -1,3 +1,11 @@
+Template.typeUpdate.rendered = function() {   
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
+}
+
 Template.typeUpdate.events({
     'submit #type_info_update' : function(e,t){
         e.preventDefault();
