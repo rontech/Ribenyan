@@ -1,7 +1,7 @@
 //新闻整合评论表
 Meteor.publish("bus_news_evaluation_info",function(newsid){
 	var newsID = new Mongo.Collection.ObjectID(newsid);
-	return NewsEvaluationCol.find({newsID:newsID});
+	return NewsEvaluationCol.find({isVaild:1,newsID:newsID});
 });
 
 //评论作者

@@ -85,5 +85,4 @@ Template.discuss.helpers({
 			return 0;
 		}
 	},
-
 });

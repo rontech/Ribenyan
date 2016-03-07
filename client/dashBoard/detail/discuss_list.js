@@ -16,6 +16,11 @@ Template.discussList.onCreated(function(){
 	
 });
 
+// 点评模板加载
+Template.plDplist.onCreated(function(){
+
+});
+
 //点击事件
 Template.discussList.events({
 	"click div.js-add-dp-box" : function(e){//点击＠我要点评＠
@@ -103,13 +108,46 @@ Template.discussList.helpers({
 });
 
 
-// 共同方法
-getNewsPL = function(newsid){
-	var newsID = new Mongo.Collection.ObjectID(newsid);
+// 点评列表
+Template.plDplist.helpers({
+	"isHaveDp" : function(){//是否有点评
+		var list = gePlDp(Template.currentData().plID);
+		if(list.count() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	},
+	"dpList" : function(){//点评列表
+		return gePlDp(Template.currentData().plID);
+	}
+});
+
+//评论点评 form
+Template.plDpForm.helpers({
+	"pariseNum" : function(){
+		if(this.parise){
+			return this.parise;
+		}else{
+			return 0;
+		}
+	},
+	"noPariseNum" : function(){
+		if(this.noParise){
+			return this.noParise;
+		}else{
+			return 0;
+		}
+	}
+});
+
+
+// 共同方法 - 获取文章评论
+getNewsPL = function(id){
+	var newsID = new Mongo.Collection.ObjectID(id);
 
 	var plList = NewsEvaluationCol.find(
 											{
-												isVaild:1,
 												newsID:newsID,
 												evaType:"1"
 											},
@@ -118,4 +156,20 @@ getNewsPL = function(newsid){
 											}
 										);
 	return plList;
+}
+
+// 获取评论的点评列表
+gePlDp = function(id){
+	var plID = new Mongo.Collection.ObjectID(id);
+	var dpList = NewsEvaluationCol.find(
+											{
+												evaluationID :plID,
+												evaType:"2"
+											},
+											{
+												sort:{creatDate:-1}
+											}
+
+									);
+	return dpList;
 }
