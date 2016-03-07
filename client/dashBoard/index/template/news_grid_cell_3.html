@@ -4,14 +4,14 @@
   	<div class="col-sm-6 col-md-4">
         <!-- 新闻卡片 -->
         <div class="news_card">
-          	<a href="">
+          	<a href="{{pathFor 'newsDetail' id=this._id._str}}">
               <!-- 新闻图片 -->
                 <div class="img" style="background-image:url({{getImaegByLayoutInfo this}});"></div>
               <!-- 新闻标题 -->
               <div class="title">{{title}}</div>
             </a>
           	<!-- 新闻简介 -->
-            <div class="content">
+            <div class="content text_overflow">
             	<p>{{introduce}}</p>
             </div>
 

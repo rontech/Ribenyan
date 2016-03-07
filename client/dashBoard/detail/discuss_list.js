@@ -1,3 +1,22 @@
+/*
+* 新闻评论　模板
+* author ysj
+*/
+
+// 模板加载
+Template.discussList.onCreated(function(){
+	var self = this;
+
+	 self.autorun(function() {
+		var list = getNewsPL(Template.currentData().newsID);
+		var userIDs = list.map(function(doc) { return doc.userID; });
+		console.log(userIDs);
+		self.subscribe("userData",userIDs);
+	 });
+	
+});
+
+//点击事件
 Template.discussList.events({
 	"click div.js-add-dp-box" : function(e){//点击＠我要点评＠
 		var dbbox = $(e.currentTarget).next();
@@ -37,7 +56,7 @@ Template.discussList.events({
 			$(e.currentTarget).text("收起");
 		}
 	},
-	"click div.js-show-hide-dp-box" :function(e){
+	"click div.close-dp-list-box" :function(e){//　＠收起＠　
 
 		// 点评用户
 		var listUser = $(e.currentTarget).parent().prev();
@@ -54,7 +73,7 @@ Template.discussList.events({
 		$(btnZK).data().show　= true;
 		$(btnZK).text("展开");
 	},
-	"click span.author-content q" :function(e){//　＠点评＠内容展开
+	"click span.author-content q" :function(e){//　＠点评＠ 内容展开
 
 		if($(e.currentTarget).hasClass("js-open")){//关闭　－inline-block
 			$(e.currentTarget).css({"display": "inline-block","color": "#FFFFFF","background":  "#0479C4"});
@@ -66,7 +85,37 @@ Template.discussList.events({
 	}	
 });
 
-//评论列表
-Template.discussList.events({
 
+
+//评论列表
+Template.discussList.helpers({
+	"isHavePl" : function(){//是否有评论
+		var list = getNewsPL(Template.currentData().newsID);
+		if(list.count() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	},
+	"plList" : function(){//评论　ｌｉｓｔ
+		return getNewsPL(Template.currentData().newsID);
+	}
 });
+
+
+// 共同方法
+getNewsPL = function(newsid){
+	var newsID = new Mongo.Collection.ObjectID(newsid);
+
+	var plList = NewsEvaluationCol.find(
+											{
+												isVaild:1,
+												newsID:newsID,
+												evaType:"1"
+											},
+											{
+												sort:{creatDate:-1}
+											}
+										);
+	return plList;
+}

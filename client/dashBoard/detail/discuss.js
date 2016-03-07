@@ -3,6 +3,13 @@
 *author ysj
 */
 
+//
+Template.discuss.onCreated(function(){
+	var self = this;
+	self.autorun(function(){
+		self.subscribe("bus_news_evaluation_info",Template.currentData().newsID);
+	});
+});
 // 页面事件
 Template.discuss.events({
 	// "mouseenter div.praise-box":function(e){
@@ -69,7 +76,7 @@ Template.discuss.events({
 
 // 页面数据
 Template.discuss.helpers({
-	praiseNum : function(){//点在数量
+	"praiseNum" : function(){//点在数量
 		var id = new Meteor.Collection.ObjectID(Template.currentData().newsID);		 
 		var newsObj = NewsCol.findOne({_id:id});
 		if(newsObj.praise){

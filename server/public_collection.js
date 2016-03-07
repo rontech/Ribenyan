@@ -74,9 +74,9 @@ Meteor.publish("bus_second_layout_data_info",function(){
 });
 
 //新闻整合评论表
-Meteor.publish("bus_news_evaluation_info",function(){
-	return NewsEvaluationCol.find();
-});
+// Meteor.publish("bus_news_evaluation_info",function(){
+// 	return NewsEvaluationCol.find();
+// });
 
 //广告信息
 Meteor.publish("bus_advertisement_info",function(){

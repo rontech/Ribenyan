@@ -81,6 +81,11 @@ a , a:focus,a:hover{
   height: 276px;
   -webkit-transition:border .2s ease-in-out;-o-transition:border .2s ease-in-out;transition:border .2s ease-in-out
 }
+.text_overflow{
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+}
 .news_card>a, 
 .news_card>a:focus, 
 .news_card>a:hover,{
