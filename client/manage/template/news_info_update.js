@@ -50,7 +50,7 @@ function updateData(e,t,type,msg) {
         var originURL   = t.find('#originURL').value;
         var copyright   = t.find('#copyright').value;
         var author      = t.find('#author').value;
-        var newsID      = t.find('#newsID').value;
+        // var newsID      = t.find('#newsID').value;
         var imageObj    = t.find('#imageObj').value;
         var isVaild     = t.find('#isVaild').value;
 
@@ -70,7 +70,7 @@ function updateData(e,t,type,msg) {
                     "originURL":originURL,
                     "copyright":copyright,
                     "author":author,
-                    "newsID":newsID,
+                    // "newsID":newsID,
                     "imageObj":imageObj
                 }},function(){alert(msg);Router.go("/manage/newslist");}
             );
@@ -93,7 +93,7 @@ function updateData(e,t,type,msg) {
                         "copyright":copyright,
                         "author":author,
                         "publishTime":date,
-                        "newsID":newsID,
+                        // "newsID":newsID,
                         "imageObj":imageObj
                     }},function(){alert(msg);Router.go("/manage/newslist");}
                     );

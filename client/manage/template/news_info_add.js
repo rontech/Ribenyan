@@ -47,7 +47,7 @@ function saveData(e,t,type,msg) {
         var originURL   = t.find('#originURL').value;
         var copyright   = t.find('#copyright').value;
         var author      = t.find('#author').value;
-        var newsID      = t.find('#newsID').value;
+        // var newsID      = t.find('#newsID').value;
         var imageObj    = t.find('#imageObj').value;
 
         NewsInfo.insert({
@@ -66,7 +66,7 @@ function saveData(e,t,type,msg) {
                         "copyright":copyright,
                         "author":author,
                         "publishTime":date,
-                        "newsID":newsID,
+                        // "newsID":newsID,
                         "imageObj":imageObj
                         },function(){
                             alert(msg);
