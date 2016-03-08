@@ -1,10 +1,11 @@
-Template.adListTable.rendered = function() {   
+Template.newsView.rendered = function() {   
+   $('#content').ckeditor();
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);
    if(tmp==null){
       Router.go("/managelogin");
    }
-   $('#content').ckeditor();
+   
 }
 
 
@@ -52,7 +53,7 @@ function updateData(e,t,type,msg) {
         var author      = t.find('#author').value;
         // var newsID      = t.find('#newsID').value;
         var imageObj    = t.find('#imageObj').value;
-        var isVaild     = t.find('#isVaild').value;
+        var isVaild     =  parseInt(t.find('#isVaild').value);
 
         if(type==1){
             NewsInfo.update(
@@ -113,12 +114,10 @@ Template.newsView.events({
     'click #delete' : function(e,t){
         e.preventDefault();
         var _id    = t.find('#_id').value;
-        var msg = window.confirm('该条信息删除！')
-	    if(msg==true){
+        var del = window.confirm('该条信息删除！')
+	    if(del==true){
             NewsInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
-            			function(){
-        					Router.go("/manage/newslist");
-        				}
+			function(){Router.go("/manage/newslist");}
             );
         }
     },
