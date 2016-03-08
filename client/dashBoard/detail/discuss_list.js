@@ -87,9 +87,162 @@ Template.discussList.events({
 			$(e.currentTarget).css({"display": "inline","color": "#555555","background":"transparent"});
 			$(e.currentTarget).addClass("js-open");
 		}
-	}	
+	},
 });
 
+//点评ｆｏｒｍ
+Template.plDpForm.events({
+	"click button.js-article-dp" : function(e){// ＠我要点评＠　发表按钮
+		var　eventObj = $(e.currentTarget);
+		var textObj = eventObj.prev();
+		var text = textObj.val();
+		if(isEmpty(text)){
+			alert(PL_CONTENT_IS_NULL);
+			return false;
+		}else if(text.length < 8){
+			alert(TEXTERA_PLACEHOLDER);
+			return false;
+		}else{
+			//提交
+			var data = {
+				"newsID":this.newsID._str,
+				"evaID" : this._id._str,
+				"userID":Meteor.userId(),
+				"content":text,
+				"evaType":"2"
+			};
+
+			Meteor.call("submitNewsDpOrReply",data,function(error,result){
+				if(error){//评论失败
+					alert(DP_SUBMIT_ERROR);
+				}else{
+					if(result.result){//成功
+						console.log("点评成功");
+						//　清空评论框内容
+						textObj.val("");
+					}else{
+						alert(result.reason);
+					}
+				}
+			});
+		}
+	},
+	"click li.js-icon-like" : function(e){// 评论点赞
+		//　动画
+		var aniObj = $(e.currentTarget).parent().prev().prev();
+		aniObj.animate({"margin-top": "-13px","opacity":"1"}, "slow");
+		aniObj.animate({"opacity":"0"}, "fast");
+		if(!Meteor.user()){
+			alert(SYS_OPERATION_NEED_LOGIN);
+			return false;
+		}
+		// 是否已点过赞
+		var isPraise = $(e.currentTarget).data().click;
+		if(isPraise){//点赞
+			
+			
+			//提交点赞
+			var praiseData = {
+				"evaID" : this._id._str,
+				"userID" : Meteor.userId(),
+				"evaType" :"5",
+			};
+
+			Meteor.call("submitEvaParise",praiseData,function(error,result){
+				if(error){//评论失败
+					alert(PRAISE_SUBMIT_ERROR);
+				}else{
+					if(result.result){//成功
+						console.log("点赞成功");
+						//　动画
+					}else{
+						alert(result.reason);
+					}
+				}
+			});
+		}else{
+			alert(PRAISE_HAS_SUBMIT);
+		}
+	},
+	"click li.js-no-icon-like" : function(e){　// 评论踩
+		//　动画
+		var aniObj = $(e.currentTarget).parent().prev();
+		aniObj.animate({"margin-top": "-13px","opacity":"1"}, "slow");
+		aniObj.animate({"opacity":"0"}, "fast");
+
+		if(!Meteor.user()){
+			alert(SYS_OPERATION_NEED_LOGIN);
+			return false;
+		}
+		// 是否已点过赞
+		var isPraise = $(e.currentTarget).data().click;
+		if(isPraise){//点赞
+			//　提交点赞
+			//提交点赞
+			var praiseData = {
+				"evaID" : this._id._str,
+				"userID" : Meteor.userId(),
+				"evaType" :"6",
+			};
+
+			Meteor.call("submitEvaParise",praiseData,function(error,result){
+				if(error){//评论失败
+					alert(NO_PRAISE_SUBMIT_ERROR);
+				}else{
+					if(result.result){//成功
+						console.log("踩成功");
+						//　动画
+					}else{
+						alert(result.reason);
+					}
+				}
+			});
+
+		}else{
+			alert(PRAISE_HAS_SUBMIT);
+		}
+	}
+});
+
+//点评列表　点击事件
+Template.plDplist.events({
+	"click button.js-article-hf" : function(e){// ＠回复＠　发表按钮
+		var　eventObj = $(e.currentTarget);
+		var textObj = eventObj.prev();
+		var text = textObj.val();
+		if(isEmpty(text)){
+			alert(PL_CONTENT_IS_NULL);
+			return false;
+		}else if(text.length < 8){
+			alert(TEXTERA_PLACEHOLDER);
+			return false;
+		}else{
+			//提交
+			var data = {
+				"newsID":this.newsID._str,
+				"evaID" : Template.currentData().plID,
+				"replyID":this._id._str,//点评ＩＤ
+				"userID":Meteor.userId(),
+				"content":text,
+				"evaType":"3"
+			};
+
+			Meteor.call("submitNewsDpOrReply",data,function(error,result){
+				if(error){//评论失败
+					alert(REP_SUBMIT_ERROR);
+				}else{
+					if(result.result){//成功
+						console.log("回复成功");
+						//　清空评论框内容
+						textObj.val("");
+					}else{
+						alert(result.reason);
+					}
+				}
+			});
+		}
+	},
+});
 
 
 //评论列表
@@ -120,21 +273,28 @@ Template.plDplist.helpers({
 	},
 	"dpList" : function(){//点评列表
 		return gePlDp(Template.currentData().plID);
+	},
+	"isDp" : function(type){
+		if(type == "2"){
+			return true;
+		}else if(type=="3"){
+			return false;
+		}
 	}
 });
 
 //评论点评 form
 Template.plDpForm.helpers({
 	"pariseNum" : function(){
-		if(this.parise){
-			return this.parise;
+		if(this.praise){
+			return this.praise;
 		}else{
 			return 0;
 		}
 	},
 	"noPariseNum" : function(){
-		if(this.noParise){
-			return this.noParise;
+		if(this.noPraise){
+			return this.noPraise;
 		}else{
 			return 0;
 		}
@@ -164,7 +324,7 @@ gePlDp = function(id){
 	var dpList = NewsEvaluationCol.find(
 											{
 												evaluationID :plID,
-												evaType:"2"
+												evaType:{$in:["2","3"]}
 											},
 											{
 												sort:{creatDate:-1}

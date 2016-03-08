@@ -6,6 +6,5 @@ Meteor.publish("bus_news_evaluation_info",function(newsid){
 
 //评论作者
 Meteor.publish("userData",function(userID){
-	console.log(userID);
 	return Meteor.users.find({_id:{$in:userID}}, {fields: {'username': 1}});
 });

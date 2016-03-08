@@ -26,19 +26,14 @@
 
         	            <div class="pl-content">{{content}}
         	            </div>
-
                         <!-- 点评内容 -->
         	            {{> plDplist plID=_id._str}}
-
                     </div>
-
                     <!-- 点评　form -->
         	        {{> plDpForm }}
-
             	</div>
             	<!-- 评论内容　ｃｅｌｌ end-->
             {{/each}}
-
         {{/if}}
 	</div>
      {{#if Template.subscriptionsReady}}
@@ -85,18 +80,29 @@
                     </ul>
                     <div class="one-pl-content">
                         <div class="pull-right time">{{formartDate this.creatDate}}</div>
+
                         <p class="content">
-                           <!--  <span class="name">下雨天</span>: -->
-                            <span class="author-content">
-                                回复 <a href="" target="_blank">@周萌萌Betty</a> ：点评内容<br>{{content}}
-                            </span>
+                            {{#if isDp this.evaType}}
+                                <!-- 点评 -->
+                                <span class="author-content">{{content}}</span>
+                            {{else}}
+                                <!-- 点评回复 -->
+                                <span class="author-content">
+                                    回复 <a href="" target="_blank">
+                                    {{ getUserName this.replyToUserID }}</a>
+                                    点评内容<br>{{content}}
+                                    <!-- 原始评价 -->
+                                       <q class="" style="display: inline-block; color: rgb(255, 255, 255); background: rgb(4, 121, 196);">// @{{ getUserName this.replyToUserID }} ：{{replyToContent}}</q> 
+                                   </span>
+                            {{/if}} 
                         </p>
+                        <!-- 回复录入框 -->
                         <div class="js-hf-article-pl">
                             <span>回复</span>
                         </div>
                         <div class="hu-pl-box" style="display: none;">
                                     <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟" id="" name=""></textarea>
-                                    <button class="btn btn-article js-article-dp" data-type="hf">发表</button>
+                                    <button class="btn btn-article js-article-hf" data-type="hf" data-plid="{{this.plID}}">发表</button>
                         </div>
                     </div>
                 </div>
@@ -111,6 +117,7 @@
     {{/if}}
 </template>
 
+
 <!-- 点评输入框 -->
 <template name="plDpForm">
     <div class="pl-box-btm">
@@ -122,8 +129,8 @@
                 <i class="icon icon-no-like active"></i><span class="c1">+1</span>
             </div>
             <ul>
-                <li class="js-icon-like" data-type="like"><i class="icon icon-like "></i><span class="like">{{pariseNum}}</span></li>
-                <li class="js-no-icon-like" data-type="no-like"><i class="icon icon-no-like "></i><span class="like">{{noPariseNum}}</span></li>
+                <li class="js-icon-like" data-type="like" data-click="true"><i class="icon icon-like "></i><span class="like">{{pariseNum}}</span></li>
+                <li class="js-no-icon-like" data-type="no-like" data-click="true"><i class="icon icon-no-like "></i><span class="like">{{noPariseNum}}</span></li>
             </ul>
         </div>
         <div class="btn-dp transition js-add-dp-box">
@@ -131,7 +138,7 @@
         </div>
         <div class="pl-form-box dp-article-box">
             <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟"></textarea>
-            <button class="btn btn-article js-article-dp">发表</button>
+            <button class="btn btn-article js-article-dp" data-plid="{{_id._str}}">发表</button>
         </div>
     </div>
 </template>

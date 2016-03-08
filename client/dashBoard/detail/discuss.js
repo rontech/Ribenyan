@@ -12,14 +12,6 @@ Template.discuss.onCreated(function(){
 });
 // 页面事件
 Template.discuss.events({
-	// "mouseenter div.praise-box":function(e){
-	// 	$(e.target).css({'background-color': '#F63756'});
-	// 	$(".icon-article-zan").css({'background-color': '#F63756'});
-	// },
-	// "mouseleave div.praise-box":function(e){
-	// 	$(e.target).css({'background-color': 'white'});
-	// 	$(".icon-article-zan").css({'background-color': 'white'});
-	// }
 	"click div.js-like-article" : function(e){//新闻点赞
 
 		if(!Meteor.user()){
@@ -36,29 +28,25 @@ Template.discuss.events({
 				"newsID" : Template.currentData().newsID,
 				"userID" : Meteor.userId()
 			};
+			//点赞动画
+			var aniObj = $(e.currentTarget).children("div");
+			aniObj.animate({"margin-top": "-40px","opacity":"1"}, "slow");
+			aniObj.animate({"opacity":"0"}, "fast");
 
 			Meteor.call("newsPraise",praiseData,function(error,result){
 				if(error){//点赞失败
 					console.log("点赞失败");
 					var nowNum = parseInt(praiseObj.text()) - 1;
 					praiseObj.text(nowNum); 
+					alert(PRAISE_SUBMIT_ERROR);
 				}else{
 					if(result.result){//成功
-						//模拟添加点赞后期，存储延迟处理
-						// var praiseObj = $(e.currentTarget).children("span");
-						// var nowNum = parseInt(praiseObj.text()) + 1;
-						// praiseObj.text(nowNum); 
-
-						//点赞动画
-						var aniObj = $(e.currentTarget).children("div");
-						aniObj.animate({"margin-top": "-40px","opacity":"1"}, "slow");
-						aniObj.animate({"opacity":"0"}, "fast");
+						
 					}else{
 						alert(result.reason);
 					}
 				}
 			});
-
 		}else{
 			alert(PRAISE_HAS_SUBMIT);
 		}
@@ -69,8 +57,35 @@ Template.discuss.events({
 	"click button.js-pl-submit" : function(e){//评论"发表按钮"
 		console.log("点击评论　发表　按钮");
 		//验证评论内容
-
-		//提交评论
+		var evntObj = $(e.currentTarget);
+		var plText = $("#saytext").val();
+		if( isEmpty(plText) ){
+			alert(PL_CONTENT_IS_NULL);
+			return false;
+		}else if ( plText.length < 8 ){
+			alert(TEXTERA_PLACEHOLDER);
+		}else{
+			var plData = {
+				"newsID": Template.currentData().newsID,
+				"userID" : Meteor.userId(),
+				"content" : plText
+			};
+			//提交评论
+			Meteor.call("submitNewsEvaluation",plData,function(error,result){
+				if(error){//评论失败
+					alert(PL_SUBMIT_ERROR);
+				}else{
+					if(result.result){//成功
+						console.log("评论成功");
+						//　清空评论框内容
+						$("#saytext").val("");
+					}else{
+						alert(result.reason);
+					}
+				}
+			});
+		}
+		
 	}
 });
 
