@@ -31,8 +31,8 @@ Template.discussList.events({
 		}
 		$(dbbox).toggle("slow");
 	},
-	"click div.js-hf-article-pl span":function(e){//点击评论＠回复＠
-		var hfbox = $(e.currentTarget).parent().next();
+	"click div.js-hf-article-pl":function(e){//点击评论＠回复＠
+		var hfbox = $(e.currentTarget).next();
 
 		if(!$(hfbox).is(':visible')){
 			//关闭所有＠回复框＠
