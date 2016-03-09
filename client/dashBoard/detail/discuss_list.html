@@ -21,7 +21,7 @@
         	                <span class="author-name">
         	                	<a href="#">{{getUserName this.userID}}</a>
         	                </span>
-        	                <span class="time">{{formartDate this.creatDate}}</span>
+        	                <span class="time">{{analysisTime this.creatDate}}</span>
         	            </div>
 
         	            <div class="pl-content">{{content}}
@@ -79,7 +79,7 @@
                         </li>
                     </ul>
                     <div class="one-pl-content">
-                        <div class="pull-right time">{{formartDate this.creatDate}}</div>
+                        <div class="pull-right time">{{analysisTime this.creatDate}}</div>
 
                         <p class="content">
                             {{#if isDp this.evaType}}
