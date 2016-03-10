@@ -1,0 +1,64 @@
+<!-- 首页banner 排版 -->
+<template name="indexLayoutBannerManage">
+
+	<div class="row-fluid">
+		<!-- block -->
+		<div class="block">
+			<div class="navbar navbar-inner block-header">
+				<div class="muted pull-left">banner管理</div>
+			</div>
+			<!-- 内容 -->
+			<div class="block-content collapse in">	
+				<!-- 预览 -->
+		
+				<!-- 列表模块 -->
+				<div class="well well-lg">
+					<div class="cell-box" >
+				        <!-- 标题　简介　start -->
+				        <div class="cell-brief"  style="display: block;">
+				            <div class="number">
+				            	<p>1</p>
+				            </div>
+				            <div class="title">
+				            	<p>
+				            		<span>标题:</span>
+				            		slfsjldfjsldjflsdjflsjdklfjlskd
+				            	</p>
+				            </div>
+				            <div class="but">
+				            	<button type="button" class="btn btn-success js-edit">编辑</button>
+				            	<button type="button" class="btn btn-danger">删除</button>
+				            </div>
+				        </div>
+				        <!-- 标题　简介　end -->
+
+				        <!-- 详情 start -->
+				        <div class="cell-detail" style="display: none;">
+				        	<header>
+		                    	<p>１标题</p>
+		                    </header>
+		                    <!-- 详细内容 -->
+			                <form class="content　form-horizontal">
+			                	<fieldset>
+			                		<div class="control-group">
+										<label class="control-label"><span class="required">* </span>标题</label>
+										<div class="controls">
+											<input type="text" id="title" name="title" data-required="1" class="span6 m-wrap " />
+										</div>
+									</div>
+			                	</fieldset>	
+			                </form>
+				        
+				            <div class="close-detail-cell js-show-hide-box" data-buttom="true">收起
+				            </div>
+
+				        </div>
+				        <!-- 详情 end -->
+
+				    </div>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+</template>
