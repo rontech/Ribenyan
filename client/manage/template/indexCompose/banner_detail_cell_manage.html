@@ -1,0 +1,75 @@
+<!--　banner 详情 cell-->
+<template name="bannerDetailCellManage">
+	<fieldset id="detail_{{_id._str}}_box">
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>类型	
+			</label>
+
+			<div class="controls">
+				<!-- <input type="hidden" name="type" id="news" value="1"/> -->
+				<input id="news" checked="checked" name="type" type="radio" value="1" />　新闻　
+				<!-- <input type="hidden" name="type"  id="eva" value="2"/> -->
+				<input id="eva" name="type" type="radio" value="2" />　站外　
+			</div>	
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>详情页位置
+			</label>
+
+			<div class="controls">
+				<!-- <input type="hidden" name="site" id="sitein" value="1"/> -->
+				<input id="sitein" checked="checked" name="site" type="radio" value="1" />　站内　
+				<!-- <input type="hidden" name="site"  id="siteout" value="2"/> -->
+				<input id="siteout" name="site" type="radio" value="2" />　站外　
+			</div>		
+		</div>
+
+		<div class="control-group" style="display:none;">
+			<label class="control-label">
+				<span class="required">* </span>详情页站外链接
+			</label>
+			<div class="controls">
+				<input type="text" id="title" name="siteoutlink" data-required="1" class="span6 m-wrap " />
+				<a target="_blank" class="btn btn-success js-request">访问</a>
+			</div>
+			<label class="control-label">
+				
+			</label>
+			<div class="controls">
+				<span class="care">(网址必须包含"http://")</span>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>详情页站内选择
+			</label>
+			<div class="controls">
+				 <input type="text" id="title" name="siteinlink" data-required="1" class="span6 m-wrap " />
+				<button  class="btn btn-success js-select">选择
+				</button>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>标题
+			</label>
+			<div class="controls">
+				<input type="text" id="title" name="title" data-required="1" class="span6 m-wrap " />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>简介
+			</label>
+			<div class="controls">
+				<input type="text" id="content" name="content" data-required="1" class="span6 m-wrap " />
+			</div>
+		</div>
+	</fieldset>	
+</template>

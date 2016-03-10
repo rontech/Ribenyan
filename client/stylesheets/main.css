@@ -22,6 +22,12 @@ a , a:focus,a:hover{
   text-decoration: none;
 }
 
+.care{
+  color: #e02222;
+  font-size: 12px;
+  padding-left: 2px;
+}
+
 /*顶部导航栏*/
 .nav_header {
   background-color: #3a5795;

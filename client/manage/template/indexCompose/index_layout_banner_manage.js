@@ -17,3 +17,13 @@ Template.indexLayoutBannerManage.events({
 		detailObj.toggle();
 	}
 });
+
+Template.indexLayoutBannerManage.helpers({
+	"testData" : function(){
+		var data =　{
+			_id : new Meteor.Collection.ObjectID(),
+			title : "测试数据"
+		};
+		return data;
+	}
+});
