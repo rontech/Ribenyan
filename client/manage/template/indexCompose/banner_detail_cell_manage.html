@@ -1,6 +1,6 @@
 <!--　banner 详情 cell-->
 <template name="bannerDetailCellManage">
-	<fieldset id="detail_{{_id._str}}_box">
+	<fieldset id="detail_{{_id._str}}_box" data-id="{{_id._str}}">
 		<div class="control-group">
 			<label class="control-label ">
 				<span class="required">* </span>类型	
@@ -29,10 +29,10 @@
 
 		<div class="control-group" style="display:none;">
 			<label class="control-label">
-				<span class="required">* </span>详情页站外链接
+				<span class="required">* </span>详情页链接
 			</label>
 			<div class="controls">
-				<input type="text" id="title" name="siteoutlink" data-required="1" class="span6 m-wrap " />
+				<input type="text" id="siteoutlink" name="siteoutlink" data-required="1" class="span6 m-wrap " />
 				<a target="_blank" class="btn btn-success js-request">访问</a>
 			</div>
 			<label class="control-label">
@@ -45,10 +45,10 @@
 
 		<div class="control-group">
 			<label class="control-label ">
-				<span class="required">* </span>详情页站内选择
+				<span class="required">* </span>详情页链接
 			</label>
 			<div class="controls">
-				 <input type="text" id="title" name="siteinlink" data-required="1" class="span6 m-wrap " />
+				 <input type="text" id="siteinlink" name="siteinlink" data-required="1" class="span6 m-wrap " readonly />
 				<button  class="btn btn-success js-select">选择
 				</button>
 			</div>
@@ -68,7 +68,28 @@
 				<span class="required">* </span>简介
 			</label>
 			<div class="controls">
-				<input type="text" id="content" name="content" data-required="1" class="span6 m-wrap " />
+				<input type="text" id="introduce" name="introduce" data-required="1" class="span6 m-wrap " />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>图片
+			</label>
+
+			<div class="controls">
+				<input type="text" id="image" name="image" data-required="1" class="span6 m-wrap " />
+			</div>
+		</div>
+
+		<input type="hidden" name="newsid" value="">
+		<input type="hidden" name="evaid" value=""> 
+
+		<div class="control-group">
+			<div class="controls">
+				<button class="btn btn-success js-banner-update">保存</button>
+				&nbsp;
+				<button type="reset" class="btn btn-danger">重置</button>
 			</div>
 		</div>
 	</fieldset>	

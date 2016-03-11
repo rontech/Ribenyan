@@ -96,6 +96,11 @@ Template.plDpForm.events({
 		var　eventObj = $(e.currentTarget);
 		var textObj = eventObj.prev();
 		var text = textObj.val();
+
+		if(!Meteor.user()){
+			alert(SYS_OPERATION_NEED_LOGIN);
+			return false;
+		}
 		if(isEmpty(text)){
 			alert(PL_CONTENT_IS_NULL);
 			return false;
@@ -210,6 +215,12 @@ Template.plDplist.events({
 		var　eventObj = $(e.currentTarget);
 		var textObj = eventObj.prev();
 		var text = textObj.val();
+
+		if(!Meteor.user()){
+			alert(SYS_OPERATION_NEED_LOGIN);
+			return false;
+		}
+		
 		if(isEmpty(text)){
 			alert(PL_CONTENT_IS_NULL);
 			return false;
