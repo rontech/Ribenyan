@@ -16,4 +16,5 @@ INCREMENT = 3;
 Meteor.subscribe("indexLayout");
 Meteor.subscribe("ImageInfoCol");
 Meteor.subscribe("SecondRightLayout");
+Meteor.subscribe("files");
 

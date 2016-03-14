@@ -1,10 +1,15 @@
 Template.newsView.rendered = function() {   
-   $('#content').ckeditor();
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+	$('#content').ckeditor();
+   	var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   	console.log(tmp);
+   	if(tmp==null){
+      	Router.go("/managelogin");
+   	}	
+   
+   	var imageObj = Session.get("news_info").imageObj;
+   	for(var i=0;i<imageObj.length;i++){
+   		addRow(imageObj[i]);
+	}
    
 }
 
@@ -52,7 +57,7 @@ function updateData(e,t,type,msg) {
         var copyright   = t.find('#copyright').value;
         var author      = t.find('#author').value;
         // var newsID      = t.find('#newsID').value;
-        var imageObj    = t.find('#imageObj').value;
+        var imageObj    = getFileIds();
         var isVaild     =  parseInt(t.find('#isVaild').value);
 
         if(type==1){

@@ -1,0 +1,29 @@
+<template name="uploadForm">
+	<div class="control-group">
+		<label class="control-label">图片</label>
+		<div class="controls">
+            <div id="uniform-fileInput">
+            	<button name="upload" type="button">上传</button>
+            </div>
+        </div>
+    </div>    
+    {{>file}}
+        
+</template>
+
+<template name="file">
+    <table id="t_file_upload" class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>文件名</th>
+                <th>类型</th>
+                <th>扩展名</th>
+                <th>大小</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="filelist">            
+        </tbody>
+    </table>
+</template>
