@@ -6,6 +6,12 @@
    if(tmp==null){
       Router.go("/managelogin");
    }
+   
+   	var imageObj = Session.get("ad_info").imageObj;
+   	console.log(Session.get("ad_info"));
+   	for(var i=0;i<imageObj.length;i++){
+   		addRow(imageObj[i]);
+	}
  };
 
 function updateData(e,t,type,msg) {
@@ -18,6 +24,7 @@ function updateData(e,t,type,msg) {
         var introduce   = t.find('#introduce').value;
         var content     = t.find('#content').value;
         var cstId       = t.find('#cstId').value;
+        var imageObj = getFileIds();
 
         AdInfo.update(
             new Meteor.Collection.ObjectID(_id),{$set:{
@@ -25,6 +32,7 @@ function updateData(e,t,type,msg) {
                 "introduce":introduce,
                 "content":content,
                 "cstId":cstId,
+                "imageObj":imageObj
 
             }},function(){alert(msg);Router.go("/manage/adlist");}
         );

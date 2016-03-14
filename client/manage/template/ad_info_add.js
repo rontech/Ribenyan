@@ -15,12 +15,17 @@
         var introduce = t.find('#introduce').value;
         var content   = t.find('#content').value;
         var cstId     = t.find('#cstId').value;
+        var imageObj = getFileIds();
         console.log(title,introduce,content,cstId);
         AdInfo.insert({
         				"title":title,
             			"introduce":introduce,
         				"content":content,
         				"cstId":cstId,
-        				},function(){alert("已保存");});
+        				"imageObj":imageObj
+        				},function(){
+        					alert("已保存");
+        					Router.go("/manage/adlist");
+        				});
     },
 });
