@@ -4,7 +4,7 @@
 
 Meteor.methods({
 	/*
-	*更新或插入首页banner排版信息
+	*更新或插入首页banner轮播图排版信息
 	*/
 	"upSetIndextBannerSlideDate" : function(data){
 		var num = 0;
@@ -164,5 +164,98 @@ Meteor.methods({
 			"result" : true
 		};
  		return result;
-	}
+	},
+	/*
+	*更新banner右侧排版信息
+	*/
+	"updateIndextBannerRightDate" : function(data){
+		var num = 0;
+		var bannerInfo = IndexLayoutCol.findOne({"showType":1,"isVaild":1});
+		var updateById = bannerInfo._id;
+		/******解析数据******/
+		var id = "";
+
+		if(data.type == "1"){
+			id = new Meteor.Collection.ObjectID(data.newsID);
+		}else if(data.type == "2"){
+			id = new Meteor.Collection.ObjectID(data.evaID);
+		}
+		//图片ID
+		var imageID = new Meteor.Collection.ObjectID(data.imageID);
+
+		if(data.updateID != data.newsID && data.siteType == "1"){
+			//检查内容是否存在
+			var checkObj = IndexLayoutCol.find(
+										{
+											"_id":updateById,
+											"dataObj.rightData":{
+												$elemMatch:{
+													"_id":id,
+													"type":data.type
+												}
+											}	
+										}
+									);
+
+			if(checkObj.count()> 0){
+				var result = {
+					"result" : false,
+					"reason" : BANNER_INFO_ISSETTING
+				};
+				return result;
+			} 
+		}
+		
+		//更新
+			var oldID = new Meteor.Collection.ObjectID(data.updateID);
+			num = IndexLayoutCol.update(
+							{
+								"_id":updateById,
+								"dataObj.rightData":{
+									$elemMatch:{
+										"_id":oldID
+									}
+								}	
+							},{ 
+								$set:{
+										"dataObj.rightData.$._id":id,
+										"dataObj.rightData.$.type":data.type,
+										"dataObj.rightData.$.siteType":data.siteType,
+										"dataObj.rightData.$.title":data.title,
+										"dataObj.rightData.$.introduce":data.introduce,
+										"dataObj.rightData.$.link":data.link,
+										"dataObj.rightData.$.imageID": imageID,
+										"dataObj.rightData.$.sort":0
+									}
+							},function(error,result){
+								if(error){
+									var result ={
+										"result" : false,
+										"reason" : BANNER_INFO_ISSETTING
+									};
+									return result;
+								}else{
+									var result ={
+										"result" : true
+									};
+									return result;
+								}
+							}
+						);
+
+		
+		if(num > 0){
+			var result ={
+				"result" : true
+			};
+			return result;
+		}else{
+			var result ={
+				"result" : true,
+				"reason" : BANNER_INFO_ISSETTING
+			};
+			return result;
+		}
+	},
+
 });

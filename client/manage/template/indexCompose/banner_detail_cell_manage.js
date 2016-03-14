@@ -121,7 +121,7 @@ Template.bannerDetailCellManage.events({
 			return false;
 		}
 
-		if(checkTextNum(title,50)){
+		if(checkTextNum(title,BANNER_INFO_TITLE_NUM)){
 			alert(BANNER_TEXT_OUT_NUMBER);
 			return false;
 		}
@@ -131,7 +131,7 @@ Template.bannerDetailCellManage.events({
 			return false;
 		}
 
-		if(checkTextNum(introduce,50)){
+		if(checkTextNum(introduce,BANNER_INFO_INTRODUCE_NUM)){
 			alert(BANNER_TEXT_OUT_NUMBER);
 			return false;
 		}
@@ -168,8 +168,16 @@ Template.bannerDetailCellManage.events({
 						imageID:"56c42bd6845339d6637d6e1b"
 					};
 
+		var methodName = "";
+		var pagetype = boxObj.parent().data().pagetype;
+		//判断 轮播图还是右侧信息
+		if(pagetype== "right"){//右侧详情
+			methodName = "updateIndextBannerRightDate";
+		}else if(pagetype == "slide") {//轮播图
+			methodName = "upSetIndextBannerSlideDate";
+		}
 		//提交修改
-		Meteor.call("upSetIndextBannerSlideDate",data,function(error,result){
+		Meteor.call(methodName,data,function(error,result){
 			if(error){
 				alert(BANNER_UPDATE_ERROR);
 			}else{

@@ -91,7 +91,7 @@ Template.bannerAddCellMange.events({
 			return false;
 		}
 
-		if(checkTextNum(title,50)){
+		if(checkTextNum(title,BANNER_INFO_TITLE_NUM)){
 			alert(BANNER_TEXT_OUT_NUMBER);
 			return false;
 		}
@@ -101,7 +101,7 @@ Template.bannerAddCellMange.events({
 			return false;
 		}
 
-		if(checkTextNum(introduce,200)){
+		if(checkTextNum(introduce,BANNER_INFO_INTRODUCE_NUM)){
 			alert(BANNER_TEXT_OUT_NUMBER);
 			return false;
 		}

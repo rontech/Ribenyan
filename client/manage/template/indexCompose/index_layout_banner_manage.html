@@ -45,7 +45,7 @@
 		                
 		                    </header>
 		                    <!-- 详细内容 -->
-			                <form class="form-horizontal" style="margin-top:10px;">
+			                <form data-pagetype="slide" class="form-horizontal" style="margin-top:10px;">
 			                	
 			                	{{> bannerDetailCellManage }}
 			                	
@@ -68,21 +68,21 @@
 				<div class="well well-lg">
 					
 					<span>右侧列表</span>
+					{{#each rightData}}
 					<div class="cell-box" >
 				        <!-- 标题　简介　start -->
 				        <div class="cell-brief"  style="display: block;">
 				            <div class="number">
-				            	<p>1</p>
+				            	<p>{{indexAddOne @index}}</p>
 				            </div>
 				            <div class="title">
 				            	<p>
 				            		<span>标题:</span>
-				            		slfsjldfjsldjflsdjflsjdklfjlskd
+				            		{{title}}
 				            	</p>
 				            </div>
 				            <div class="but">
 				            	<button type="button" class="btn btn-success js-edit">编辑</button>
-				            	<button type="button" class="btn btn-danger">删除</button>
 				            </div>
 				        </div>
 				        <!-- 标题　简介　end -->
@@ -90,13 +90,14 @@
 				        <!-- 详情 start -->
 				        <div class="cell-detail" style="display: none;">
 				        	<header>
-		                    	<p>１标题</p>
+		                    	<p><span>{{indexAddOne @index}}:</span>{{title}}</p>
+		                
 		                    </header>
 		                    <!-- 详细内容 -->
-			                <form class="form-horizontal" style="margin-top:10px;">
-			                	{{#with testData}}
-			                		{{> bannerDetailCellManage }}
-			                	{{/with}}
+			                <form data-pagetype="right" class="form-horizontal" style="margin-top:10px;">
+			                	
+			                	{{> bannerDetailCellManage }}
+			                	
 			                </form>
 				        
 				            <div class="close-detail-cell js-show-hide-box" data-buttom="true">收起
@@ -105,7 +106,7 @@
 				        </div>
 				        <!-- 详情 end -->
 				    </div>
-
+				    {{/each}}
 				</div>		
 
 			</div>
