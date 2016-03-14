@@ -1,8 +1,6 @@
 //　新闻弹出层选择
 Template.popupViewNewsModal.events({
 	"hide.bs.modal #newsModal" : function(e){//弹出框关闭
-		console.log("弹出矿关闭");
-
 		var boxID = Session.get("boxID");
 		var selectNewsID = Session.get("selectNewsID");
 
@@ -14,12 +12,10 @@ Template.popupViewNewsModal.events({
 			Session.set("selectNewsID",null);
 
 		}else{
-			console.log("未选择日期");
 		}
 	},
 	'shown.bs.modal #newsModal': function(e){//关闭
     	/* ... */
-		console.log("弹出矿打开");
 		var boxID = Session.get("boxID");
 		var boxObj = $("#"+boxID);
 		
@@ -30,7 +26,6 @@ Template.popupViewNewsModal.events({
   		if(selectNewsID){
   			//　存储session 
   			Session.set("selectNewsID",selectNewsID);
-  			console.log("手动关闭弹出框");
   			
   			//关闭
   			Modal.hide("popupViewNewsModal");
@@ -50,6 +45,7 @@ var setNewsBoxValue = function(boxID,selectNewsID){
 	// 标题
 	var titleInput = boxObj.find("input[name=title]");
 	titleInput.val(newsObj.title);
+
 	//简介
 	var introduceInput = boxObj.find("input[name=introduce]");
 	introduceInput.val(newsObj.introduce);
@@ -58,6 +54,12 @@ var setNewsBoxValue = function(boxID,selectNewsID){
 	// 新闻ＩＤ
 	var newsidInput = boxObj.find("input[name=newsid]");
 	newsidInput.val(selectNewsID);
+
+	//link
+	var newsLink = Meteor.absoluteUrl('news/detail/' + selectNewsID);
+	var newslinkInput = boxObj.find("input[name=siteinlink]");
+
+	newslinkInput.val(newsLink);
 
 }
 
@@ -83,19 +85,16 @@ Template.popupNewsList.helpers({
         		}
         	},{
 		    	key: 'title',
-		        label: '标题',
-		        fn: function (name,object) {
-		         var html = '<a href="/manage/newslist/' + object._id + '">' + name + '</a>';
-		          return new Spacebars.SafeString(html);
-		        }
+		        label: '标题'
 		    },{ 
 	          	key: 'typeObj', 
 	          	label: '类型',
 	          	fn:function(value,object,key){
-	          		console.log(value);
-	          		console.log(object);
-	          		console.log(key);
-	          		return key;
+	          		var typeName = "";
+	          		for(var i = 0; i < value.length;i++){
+	          			typeName += value[i].typeName + "," ;
+	          		}
+	          		return typeName;
           	}
       	  }
         ]

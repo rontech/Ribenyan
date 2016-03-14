@@ -1,55 +1,25 @@
 /*
-* banner 管理详情页
+*  banner 添加 模板
 */
-
-// 数据
-Template.bannerDetailCellManage.helpers({
-	"isNews" : function(){
-		if(this.type == "1"){
-			return "checked";
-		}else {
-			return "";
-		}
+// 页面初始数据
+Template.bannerAddCellMange.helpers({
+	"index" :function(){//序号
+		var boxObj = $("div.js-slidediv");
+		var index = boxObj.children("div.cell-box").length;
+		return index + ":";
 	},
-	"isEva" : function(){
-		if(this.type == "2"){
-			return "checked";
-		}else {
-			return "";
-		}
-	},
-	"siteIn" : function(){
-		if(this.siteType == "1"){
-			return "checked";
-		}else {
-			return "";
-		}
-	},
-	"siteOut" : function(){
-		if(this.siteType == "2"){
-			return "checked";
-		}else {
-			return "";
-		}
-	},
-	"isSiteIn" : function(){
-		if(this.siteType == "1"){
-			return "display";
-		}else {
-			return "none";
-		}
-	},
-	"isSiteOut" : function(){
-		if(this.siteType == "2"){
-			return "display";
-		}else {
-			return "none";
-		}
+	"_id" : function(){//唯一ID
+		var id = new Meteor.Collection.ObjectID();
+		return id;
 	}
 });
 
 // 点击事件
-Template.bannerDetailCellManage.events({
+Template.bannerAddCellMange.events({
+	"click div.js-cancel-save-box":function(e){
+		$("div.js-add-banner-box").toggle();
+		return false;
+	},
 	"change input[name=site]" :function(e) {//选择　跳转位置
 		var eveObj = $(e.currentTarget);
 		var val = eveObj.val();
@@ -85,7 +55,8 @@ Template.bannerDetailCellManage.events({
 		}else if(type=="2"){
 			//弹出广告选窗口
 			alert("暂未对应");
-		}
+		}	
+		
 		return false;
 	},
 	"click button.js-banner-update" : function(e){// banner 信息保存
@@ -113,7 +84,6 @@ Template.bannerDetailCellManage.events({
 		}else{//站外
 			link = boxObj.find("input[name=siteoutlink]").val();
 		}
-		
 
 		//数据验证
 		if(isEmpty(title)){
@@ -131,7 +101,7 @@ Template.bannerDetailCellManage.events({
 			return false;
 		}
 
-		if(checkTextNum(introduce,50)){
+		if(checkTextNum(introduce,200)){
 			alert(BANNER_TEXT_OUT_NUMBER);
 			return false;
 		}
@@ -157,7 +127,7 @@ Template.bannerDetailCellManage.events({
 
 		// 数据
 		var data = {
-						updateID:boxID,
+						updateID:"add",
 						type:type,
 						siteType:siteType,
 						title:title,
@@ -171,8 +141,16 @@ Template.bannerDetailCellManage.events({
 		//提交修改
 		Meteor.call("upSetIndextBannerSlideDate",data,function(error,result){
 			if(error){
-				alert(BANNER_UPDATE_ERROR);
+				alert(BANNER_ADD_ERROR);
 			}else{
+				
+				// 清空数据
+				$("div.js-add-banner-box").find("input[type=text]").val("");
+				$("div.js-add-banner-box").find("input[type=hidden]").val("");
+
+				//关闭添加窗口
+				$("div.js-add-banner-box").toggle();
+
 				if(result.result){
 					alert("保存成功");
 				}else{
@@ -182,6 +160,5 @@ Template.bannerDetailCellManage.events({
 		});
 
 		return false;
-	},
-
+	}
 });
