@@ -1,4 +1,5 @@
 <template name="adView">
+   <input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
         <div class="section">
           <div class="container">
             <div class="row">
@@ -36,49 +37,9 @@
     		  </a>
                 </div>
               </div>
-              <div class="col-md-6">
-                <h1>大崎ウエストシティタワーズ</h1>
-           <!--               /////////////////////// -->
-                <div class="doc">
-                  <div class="nameWrapper">
-                    <div class="name">
-                      <ul>
-                        <li id="s_summaryPrice" class="price">価格   <strong>8,280万円</strong></li>
-                        <li id="s_summaryMadori" class="floor">間取り <strong>2ＬＤＫ</strong></li>
-                      </ul>
-                    </div><!--/.name-->
-                  </div><!--/.nameWrapper-->
-                  <p id="prComment" class="caption">住友不動産(株)他旧分譲のタワー型マンション</p>
-                  <div class="table-responsive  ">
-                    <table class="table table-bordered table-striped ">
-                        <tbody><tr>
-                          <th>所在地</th>
-                          <td>東京都品川区大崎２丁目</td>
-                        </tr>
-                        <tr>
-                          <th>交通</th>
-                          <td id="s_summaryTransfer">山手線「大崎」駅より徒歩3  分<br>埼京線「大崎」駅より徒歩3  分<br>東京臨海高速鉄道「大崎」駅より徒歩3  分</td>
-                        </tr>
-                        <tr>
-                          <th>専有面積</th>
-                          <td>64.77m<sup>2</sup>(壁芯)</td>
-                        </tr>
-                        <tr id="s_summaryFloor">
-                          <th>所在階・構造</th>
-                          <td>25階部分／地上39階地下3階建て・ＳＲＣ造</td>
-                        </tr>
-                        <tr>
-                          <th>築年月</th>
-                          <td>2009年09月</td>
-                        </tr>
-                        <tr>
-                          <th>联系电话</th>
-                          <td>231321321313</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+              <div class="col-md-6" id="inner">
+             {{ introduce }}
+
     <!--               /////////////////////// -->
               </div>
             </div>
@@ -86,91 +47,8 @@
         </div>
         <br>
         <div class="section">
-          <div class="container">
-            <div class="row">
-              <div style="background:#eee;border:1px solid #ccc;padding:5px 10px;">
-                <h2>
-                  <em>物件概要 &nbsp; &nbsp;
-                    <strong>内容</strong>
-                  </em>
-                </h2>
-              </div>
-              <div class="table-responsive  ">
-                <table cellpadding="0" cellspacing="0" class="table table-bordered table-striped ">
-                  <tbody>
-                    <tr>
-                      <th>物件名</th>
-                      <td colspan="3">
-                        <strong>大崎ウエストシティタワーズ</strong>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>所在地</th>
-                      <td colspan="3">東京都品川区大崎二丁目　
-                        <a href="/premier/osaki-west-ctw/map/" target="_blank">(周辺地図を見る）</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>交通</th>
-                      <td colspan="3">
-                        <ul>
-                          <li>JR山手線・埼京線・湘南新宿ライン、東京臨海高速鉄道りんかい線「大崎駅」徒歩３分</li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>敷地面積</th>
-                      <td>１４，２８９．５１ｍ2</td>
-                      <th>建ぺい率</th>
-                      <td>６０％</td>
-                    </tr>
-                    <tr>
-                      <th>容積率</th>
-                      <td>６５０％</td>
-                      <th>用途地域</th>
-                      <td>近隣商業地域、準工業地域</td>
-                    </tr>
-                    <tr>
-                      <th>構造・規模</th>
-                      <td>鉄筋コンクリート造、一部鉄骨造・鉄骨鉄筋コンクリート造　地上３９階建て地下２階建て（２棟）</td>
-                      <th>総戸数</th>
-                      <td>１，０８４戸（ほかに店舗５区画、貢献施設、事務所あり）</td>
-                    </tr>
-                    <tr>
-                      <th>築年月</th>
-                      <td>平成２１年７月</td>
-                      <th>権利形態</th>
-                      <td>土地は共有、建物は区分所有</td>
-                    </tr>
-                    <tr>
-                      <th>駐車場</th>
-                      <td>５２２台</td>
-                      <th>サイクルポート</th>
-                      <td>１，１８９台</td>
-                    </tr>
-                    <tr>
-                      <th>バイク置場</th>
-                      <td>１０７台</td>
-                      <th>新築分譲時売主</th>
-                      <td>住友不動産株式会社、住友商事株式会社、東急不動産株式会社、株式会社NIPPOコーポレーション</td>
-                    </tr>
-                    <tr>
-                      <th>設計・監理</th>
-                      <td>株式会社UG都市建築</td>
-                      <th>施工</th>
-                      <td>清水・フジタ建設共同企業体</td>
-                    </tr>
-                    <tr>
-                      <th>管理会社</th>
-                      <td>住友不動産建物サービス株式会社</td>
-                      <th>管理体制</th>
-                      <td>２４時間常駐管理</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p>※上記マンション情報は分譲時のパンフレットを基に記載しており、現状とは異なる場合があります。</p>
-            </div>
+          <div class="container" id="contentview">
+            {{ content }}
           </div>
         </div>
       
