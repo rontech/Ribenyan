@@ -50,8 +50,8 @@ Template.adListTable.helpers({
 //        { key: 'keyboard', label: 'Keyboard navigation', fn: checkOrX, hidden: true },
 //        { key: 'plugins', label: 'Plugins', fn: checkOrX, hidden: true },
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
-          { key: 'introduce', label: '简介', fn: Common},
-          { key: 'content', label: '内容', fn: Common}
+          // { key: 'introduce', label: '简介', fn: Common},
+          // { key: 'content', label: '内容', fn: Common}
       ]
     };
   }
