@@ -27,7 +27,7 @@ function getListDataNews(){
 						},
 						{
 							sort: {
-									submitted: -1
+									publishTime: -1
 								}, 
 							limit: Template.currentData().limit
 						}

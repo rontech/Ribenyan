@@ -1,0 +1,96 @@
+<!--　banner 详情 cell-->
+<template name="bannerDetailCellManage">
+	<fieldset id="detail_{{_id._str}}_box" data-id="{{_id._str}}">
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>类型	
+			</label>
+
+			<div class="controls">
+				<!-- <input type="hidden" name="type" id="news" value="1"/> -->
+				<input id="news" {{isNews}} name="type" type="radio" value="1" />　新闻　
+				<!-- <input type="hidden" name="type"  id="eva" value="2"/> -->
+				<input id="eva" {{isEva}} name="type" type="radio" value="2" />　广告
+			</div>	
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>详情页位置
+			</label>
+
+			<div class="controls">
+				<!-- <input type="hidden" name="site" id="sitein" value="1"/> -->
+				<input id="sitein" {{siteIn}} name="site" type="radio" value="1"/>　站内　
+				<!-- <input type="hidden" name="site"  id="siteout" value="2"/> -->
+				<input id="siteout" {{siteOut}} name="site" type="radio" value="2" />　站外　
+			</div>		
+		</div>
+		<div class="control-group" style="display:{{isSiteOut}};">
+
+			<label class="control-label">
+				<span class="required">* </span>详情页链接
+			</label>
+			<div class="controls">
+				<input type="text" id="siteoutlink" value="{{link}}" name="siteoutlink" data-required="1" class="span6 m-wrap " />
+				<a target="_blank" class="btn btn-success js-request">访问</a>
+			</div>
+			<label class="control-label">
+				
+			</label>
+			<div class="controls">
+				<span class="care">(网址必须包含"http://")</span>
+			</div>
+		</div>
+
+		<div class="control-group" style="display:{{isSiteIn}};">
+			<label class="control-label ">
+				<span class="required">* </span>详情页链接
+			</label>
+			<div class="controls">
+				 <input type="text" id="siteinlink" name="siteinlink" data-required="1" class="span6 m-wrap " value="{{link}}" readonly />
+				<button  class="btn btn-success js-select">选择
+				</button>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>标题
+			</label>
+			<div class="controls">
+				<input type="text" id="title" name="title" value="{{title}}" data-required="1" class="span6 m-wrap " />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>简介
+			</label>
+			<div class="controls">
+				<input type="text" id="introduce" value="{{introduce}}" name="introduce" data-required="1" class="span6 m-wrap " />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label ">
+				<span class="required">* </span>图片
+			</label>
+
+			<div class="controls">
+				<input type="text" id="image" name="image" data-required="1" class="span6 m-wrap " />
+			</div>
+		</div>
+
+		<input type="hidden" name="newsid" value="{{_id._str}}">
+		<input type="hidden" name="evaid" value="{{_id._str}}"> 
+
+		<div class="control-group">
+			<div class="controls">
+				<button class="btn btn-success js-banner-update" >保存</button>
+				&nbsp;
+				<!-- <button type="reset" class="btn btn-danger ">重置</button> -->
+			</div>
+		</div>
+	</fieldset>	
+</template>

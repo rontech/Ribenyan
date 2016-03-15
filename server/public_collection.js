@@ -65,7 +65,7 @@ Meteor.publish("user_info",function(){
 
 //新闻信息
 Meteor.publish("bus_news_info",function(){
-	return NewsInfo.find();
+	return NewsInfo.find({isVaild:1});
 });
 
 //二级列表排版
@@ -74,9 +74,9 @@ Meteor.publish("bus_second_layout_data_info",function(){
 });
 
 //新闻整合评论表
-Meteor.publish("bus_news_evaluation_info",function(){
-	return BusNewsEvaluationInfo.find();
-});
+// Meteor.publish("bus_news_evaluation_info",function(){
+// 	return NewsEvaluationCol.find();
+// });
 
 //广告信息
 Meteor.publish("bus_advertisement_info",function(){
@@ -92,3 +92,4 @@ Meteor.publish("bus_type_info",function(){
 Meteor.publish("bus_tag_info",function(){
 	return TagInfo.find();
 });
+

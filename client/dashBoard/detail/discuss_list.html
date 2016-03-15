@@ -1,180 +1,144 @@
 <template name="discussList">
 	<div class="pl-wrap"></div>
+
 	<!--  评论列表 -->
 	<div class="pl-list-wrap">
 		<!-- 缓冲标示 -->
 		<div class="pl-loading hide">
             <img src="/static_2015/img/pl-loading.gif">
         </div>
-       <span class="span-mark-author active" data-type="agree">最新评论</span>
+       {{#if isHavePl }}
+           <span class="span-mark-author active" data-type="agree">最新评论</span>
+            {{#each plList}}
+                <!-- 评论内容　ｃｅｌｌ start-->
+                <div class="pl-box-wrap  " data-pid="558013" id="g_pid558013">
+                    <div class="pl-box-top">
+        	            <div class="author-info">
+        	                <!-- <div class="author-face">
+        	                	<img src="http://images.huxiu.com/auth/data/avatar/2.jpg!150x150?imageMogr2/strip/interlace/1/quality/85/format/jpg!150x150">
+        	                </div> -->
+                            <!-- 用户名 -->
+        	                <span class="author-name">
+        	                	<a href="#">{{getUserName this.userID}}</a>
+        	                </span>
+        	                <span class="time">{{analysisTime this.creatDate}}</span>
+        	            </div>
 
-        <!-- 评论内容　ｃｅｌｌ start-->
-
-        <div class="pl-box-wrap  " data-pid="558013" id="g_pid558013">
-            <div class="pl-box-top">
-	            <div class="author-info">
-	                <!-- <div class="author-face">
-	                	<img src="http://images.huxiu.com/auth/data/avatar/2.jpg!150x150?imageMogr2/strip/interlace/1/quality/85/format/jpg!150x150">
-	                </div> -->
-	                <span class="author-name">
-	                	<a href="#">走着！活着！</a>
-	                </span>
-	                <span class="time">1天前</span>
-	            </div>
-
-	            <div class="pl-content">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容
-	            </div>
-
-	            <!-- 点评 start-->
-	            <div class="dp-box">
-                    <span class="span-mark-author">点评</span>
-
-                    <span class="span-mark-article-pl js-show-hide-dp-box db-show" data-show="false">展开</span>
-                    
-                    <div class="dl-user dl-user-list js-show-hide-dp-box " data-type="dl-user" style="display: block;">
-                       	<ul>
-                          	<li class="del-pl67771">
-                          		<a href="#" target="_blank">
-                          			<!-- 名称 -->
-                          			评论者名称
-                          		</a>
-                          	</li>
-                            <li class="del-pl67402">
-                            	<a href="/member/1360766.html" target="_blank">
-                            		评论用户名
-                            	</a>
-                           	</li>
-                        </ul>
+        	            <div class="pl-content">{{content}}
+        	            </div>
+                        <!-- 点评内容 -->
+        	            {{> plDplist plID=_id._str}}
                     </div>
-
-                    <!-- 点评详情 start -->
-                    <div class="dp-list-box" style="display: none;">
-                       	<div class="dl-user del-pl67771">
-                            <ul>
-                             	<li>
-                             		<a href="/member/259031.html" target="_blank">
-                             			<span >名称</span>
-                             		</a>
-                             	</li>
-                            </ul>
-                            <div class="one-pl-content">
-                                <div class="pull-right time">2015-06-24</div>
-                            	<p class="content">
-	                                <span class="name">下雨天</span>:
-	                                <span class="author-content">
-	                                	回复 <a href="" target="_blank">@周萌萌Betty</a> ：点评内容<br>回复内容<br>回复内容回复内容<br>回复内容回复内容<br>回复内容回复内容 <br>回复内容回复内容<br>
-	                                	<!-- 原始评价 -->
-	                                	<q class="" style="display: inline-block; color: rgb(255, 255, 255); background: rgb(4, 121, 196);">// @周萌萌Betty ：点评内容点评内容点评内容点评内容点评内容点评内容点评内容点评内容</q> 
-	                                </span>
-                                </p>
-                                <div class="js-hf-article-pl">
-                                	<span>回复</span>
-                                </div>
-                                <div class="hu-pl-box" style="display: none;">
-                                            <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟" id="" name=""></textarea>
-                                            <button class="btn btn-article js-article-dp" data-type="hf">发表</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dl-user del-pl67402">
-                            <ul>
-                                <li>
-                                	<a href="/member/1360766.html" target="_blank">
-                                		名称
-                                	</a>
-                            	</li>
-                            </ul>
-                	        <div class="one-pl-content">
-                                <div class="pull-right time">2015-06-15</div>
-	                            <p class="content">
-                            		<span class="name">周萌萌Betty</span>:
-                            	    <span class="author-content">点评内容点评内容点评内容点评内容点评内容点评内容点评内容点评内容</span>
-                                </p>
-                                <div class="js-hf-article-pl">
-                                	<span>回复</span>
-                               	</div>
-                                <div class="hu-pl-box" style="display: none; position: relative; right: 0px;">
-                                        <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟" id="" name="" style="background-color: rgb(255, 255, 255);"></textarea>
-                                        <button class="btn btn-article js-article-dp" data-type="hf">发表</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="close-dp-list-box js-show-hide-dp-box" data-buttom="true">收起
-                        </div>
-                    </div>
-                    <!-- 点评详情　end -->
-                </div>
-	            <!-- 点评 end -->
-
-            </div>
-
-	        <div class="pl-box-btm">
-	            <div class="article-type pull-right">
-	                <div class="icon-like-prompt">
-	                    <i class="icon icon-like active"></i><span class="c1">+1</span>
-	                </div>
-	                <div class="icon-no-like-prompt">
-	                    <i class="icon icon-no-like active"></i><span class="c1">+1</span>
-	                </div>
-	                <ul>
-	                    <li class="js-icon-like" data-type="like"><i class="icon icon-like "></i><span class="like">1</span></li>
-	                    <li class="js-no-icon-like" data-type="no-like"><i class="icon icon-no-like "></i><span class="like">0</span></li>
-	                </ul>
-	            </div>
-	            <div class="btn-dp transition js-add-dp-box">
-	            	<i class="icon icon-dp"></i>我要点评
-	            </div>
-	            <div class="pl-form-box dp-article-box">
-	                <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟"></textarea>
-	                <button class="btn btn-article js-article-dp">发表</button>
-	            </div>
-	        </div>
-
-    	</div>
-    	<!-- 评论内容　ｃｅｌｌ end-->
-
-    	<!-- 评论内容　ｃｅｌｌ start-->
-
-        <div class="pl-box-wrap  " data-pid="558013" id="g_pid558013">
-            <div class="pl-box-top">
-	            <div class="author-info">
-	                <!-- <div class="author-face">
-	                	<img src="http://images.huxiu.com/auth/data/avatar/2.jpg!150x150?imageMogr2/strip/interlace/1/quality/85/format/jpg!150x150">
-	                </div> -->
-	                <span class="author-name">
-	                	<a href="#">走着！活着！</a>
-	                </span>
-	                <span class="time">1天前</span>
-	            </div>
-
-	            <div class="pl-content">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容
-	            </div>
-            </div>
-
-	        <div class="pl-box-btm">
-	            <div class="article-type pull-right">
-	                <div class="icon-like-prompt">
-	                    <i class="icon icon-like active"></i><span class="c1">+1</span>
-	                </div>
-	                <div class="icon-no-like-prompt">
-	                    <i class="icon icon-no-like active"></i><span class="c1">+1</span>
-	                </div>
-	                <ul>
-	                    <li class="js-icon-like" data-type="like"><i class="icon icon-like "></i><span class="like">1</span></li>
-	                    <li class="js-no-icon-like" data-type="no-like"><i class="icon icon-no-like "></i><span class="like">0</span></li>
-	                </ul>
-	            </div>
-	            <div class="btn-dp transition js-add-dp-box">
-	            	<i class="icon icon-dp"></i>我要点评
-	            </div>
-	            <div class="pl-form-box dp-article-box">
-	                <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟"></textarea>
-	                <button class="btn btn-article js-article-dp">发表</button>
-	            </div>
-	        </div>
-
-    	</div>
-    	<!-- 评论内容　ｃｅｌｌ end-->
-
+                    <!-- 点评　form -->
+        	        {{> plDpForm }}
+            	</div>
+            	<!-- 评论内容　ｃｅｌｌ end-->
+            {{/each}}
+        {{/if}}
 	</div>
+     {{#if Template.subscriptionsReady}}
+     {{else}}
+     {{/if}}
+</template>
+
+
+<!-- 评论的点评列表 -->
+<template name="plDplist">
+    {{#if isHaveDp}}
+    <!-- 点评 start-->
+    <div class="dp-box">
+        <span class="span-mark-author">点评</span>
+
+        <span class="span-mark-article-pl js-show-hide-dp-box db-show" data-show="false">展开</span>
+        
+        <!-- 点评列表－－用户缩略图　ｓｔａｒｔ -->
+        <div class="dl-user dl-user-list js-show-hide-dp-box " data-type="dl-user" style="display: block;">
+            <ul>
+            {{#each dpList}}
+                <li class="del-pl67771">
+                    <a href="#" target="_blank">
+                        <!-- 名称 -->
+                        {{ getUserName this.userID }}
+                    </a>
+                </li>
+            {{/each}}
+            </ul>
+        </div>
+        <!-- 点评列表－－用户缩略图　end -->
+
+        <!-- 点评列表－－　详情 start -->
+        <div class="dp-list-box" style="display: none;">
+            {{#each dpList}}
+                <!-- 点评内容－－cell start-->
+                <div class="dl-user del-pl67771">
+                    <ul>
+                        <li>
+                            <a href="/member/259031.html" target="_blank">
+                                <span >{{ getUserName this.userID }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="one-pl-content">
+                        <div class="pull-right time">{{analysisTime this.creatDate}}</div>
+
+                        <p class="content">
+                            {{#if isDp this.evaType}}
+                                <!-- 点评 -->
+                                <span class="author-content">{{content}}</span>
+                            {{else}}
+                                <!-- 点评回复 -->
+                                <span class="author-content">
+                                    回复 <a href="" target="_blank">
+                                    {{ getUserName this.replyToUserID }}</a>
+                                    点评内容<br>{{content}}
+                                    <!-- 原始评价 -->
+                                       <q class="" style="display: inline-block; color: rgb(255, 255, 255); background: rgb(4, 121, 196);">// @{{ getUserName this.replyToUserID }} ：{{replyToContent}}</q> 
+                                   </span>
+                            {{/if}} 
+                        </p>
+                        <!-- 回复录入框 -->
+                        <div class="js-hf-article-pl">
+                            <span>回复</span>
+                        </div>
+                        <div class="hu-pl-box" style="display: none;">
+                                    <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟" id="" name=""></textarea>
+                                    <button class="btn btn-article js-article-hf" data-type="hf" data-plid="{{this.plID}}">发表</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 点评内容　－－　cell end-->
+            {{/each}}
+            <div class="close-dp-list-box js-show-hide-dp-box" data-buttom="true">收起
+            </div>
+        </div>
+        <!-- 点评列表－－　详情　end -->
+    </div>
+    <!-- 点评 end -->
+    {{/if}}
+</template>
+
+
+<!-- 点评输入框 -->
+<template name="plDpForm">
+    <div class="pl-box-btm">
+        <div class="article-type pull-right">
+            <div class="icon-like-prompt">
+                <i class="icon icon-like active"></i><span class="c1">+1</span>
+            </div>
+            <div class="icon-no-like-prompt">
+                <i class="icon icon-no-like active"></i><span class="c1">+1</span>
+            </div>
+            <ul>
+                <li class="js-icon-like" data-type="like" data-click="true"><i class="icon icon-like "></i><span class="like">{{pariseNum}}</span></li>
+                <li class="js-no-icon-like" data-type="no-like" data-click="true"><i class="icon icon-no-like "></i><span class="like">{{noPariseNum}}</span></li>
+            </ul>
+        </div>
+        <div class="btn-dp transition js-add-dp-box">
+            <i class="icon icon-dp"></i>我要点评
+        </div>
+        <div class="pl-form-box dp-article-box">
+            <textarea class="form-control" placeholder="客官，8个字起评，不讲价哟"></textarea>
+            <button class="btn btn-article js-article-dp" data-plid="{{_id._str}}">发表</button>
+        </div>
+    </div>
 </template>

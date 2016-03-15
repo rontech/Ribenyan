@@ -5,18 +5,12 @@ Template.banner.helpers({
 	rightData : function(){
 		return this.dataObj.rightData;
 	},
-	isAdver : function(type){
-		var result = true;
-		if (type == 2 ){
-			result = false; 
-		}
-		return result;
-	},
 	isFirstOne : function(index){
 		if (index == 0){
-			this.cellClass = "one";
+			this.cellClass = "rightdiv one1";
 			return true;
 		}else{
+			this.cellClass = "rightdiv two1"
 			return false;
 		}
 	}

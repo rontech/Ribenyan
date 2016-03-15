@@ -34,7 +34,9 @@ Template.newsGridTemplate3.helpers({
 
 								},
 								{
-									sort:{},
+									sort:{
+											publishTime: -1
+										},
 									limit:num
 								}
 								);

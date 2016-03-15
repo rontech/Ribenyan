@@ -11,11 +11,7 @@
                     <div class="tempWrap" style="overflow:hidden; position:relative; width:650px">
                         <ul style=" position: relative; overflow: hidden; padding: 0px; margin: 0px;">
                           {{#each slideData}}
-                            {{#if isAdver type}}
-                               {{>bannerSlideCell}}
-                            {{else}}
-                              aaaaaa
-                            {{/if}}
+                              {{>bannerSlideCell}}
                           {{/each}}
                         </ul>
                     </div>
@@ -38,7 +34,7 @@
               {{#if isFirstOne @index }}
                   {{>bannerRightCell }}
               {{else}}
-                  {{>bannerRightCell}}
+                  {{>bannerRightCell }}
               {{/if}}
            　{{/each}}
         </div>

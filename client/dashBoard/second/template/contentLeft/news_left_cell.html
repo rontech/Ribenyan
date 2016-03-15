@@ -12,9 +12,13 @@
         
         <!-- 文章信息 -->
         <div class="col-md-9 col-sm-9 col-xs-9">
-            <a href="#" class="subtitle" alt="文章标题">{{title}}</a>
+            <a href="{{pathFor 'newsDetail' id=this._id._str}}" class="subtitle" alt="文章标题">{{title}}</a>
             <div class="desc">{{introduce}}</div>
-            <div class="all">基本信息/分享/标签</div>
+            <div class="all">
+              {{#each tagObj}}
+                 <span>{{tagName}}</span>
+              {{/each}}
+              </div>
         </div>
         
       </div>

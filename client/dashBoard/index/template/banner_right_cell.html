@@ -1,5 +1,8 @@
 <template name="bannerRightCell">
-    <a href="#" alt="{{title}}" title="{{title}}" target="_blank">
-      <img src="{{getImaegByLayoutInfo this}}" alt="{{introduce}}">
+    <a href="{{link}}" alt="{{title}}" title="{{title}}" target="_blank">
+      <img src="{{getImagePathByID imageID._str}}" alt="{{introduce}}">
+      <div class="{{cellClass}}">
+  			<div class="title">{{title}}</div>
+      </div>
     </a>
 </template>

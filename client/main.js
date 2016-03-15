@@ -17,3 +17,4 @@ Meteor.subscribe("indexLayout");
 Meteor.subscribe("ImageInfoCol");
 Meteor.subscribe("SecondRightLayout");
 
+

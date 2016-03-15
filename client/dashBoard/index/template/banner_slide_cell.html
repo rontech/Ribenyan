@@ -1,15 +1,15 @@
 <template name="bannerSlideCell">
 	<li style="display: none;">
-	    <a href="#" target="_blank">
-	        <img src="{{getImaegByLayoutInfo this}}" alt="{{introduce}}" title="{{title}}">
+	    <a href="{{link}}" target="_blank">
+	        <img src="{{getImagePathByID imageID._str}}" alt="{{introduce}}" title="{{title}}">
 	        <div class="text">
 	            <div class="title">{{title}}</div>
-	            <span class="autor">作者：
-	              <span>{{author}}</span>
+	            <div class="autor" style="max-height:24px;line-height:24px;">
+	              <p style="width: 90%;float: left;max-height:20px;white-space: nowrap;overflow:hidden;">{{introduce}}</p>
 	              <span class="num">
 	                (<span class="pageState"><span>3</span>/3</span>)
 	              </span>
-	            </span>
+	            </div>
 	        </div>
 	    </a>
     </li>

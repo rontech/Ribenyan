@@ -1,3 +1,6 @@
+//URL
+//ABSOLUTEURL = "";
+
 //程序启动配置
 Meteor.startup( function() {
   process.env.MAIL_URL = 
