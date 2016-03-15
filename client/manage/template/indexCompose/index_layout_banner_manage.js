@@ -1,4 +1,13 @@
 // 首页banner 排版
+
+Template.indexLayoutBannerManage.rendered = function() {
+   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   console.log(tmp);
+   if(tmp==null){
+      Router.go("/managelogin");
+   }
+ };
+
 Template.indexLayoutBannerManage.events({
 	"click button.js-edit" : function(e){// ＠编辑＠　按钮
 		var eventObj = $(e.currentTarget);
