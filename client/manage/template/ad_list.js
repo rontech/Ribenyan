@@ -36,10 +36,18 @@ Template.adListTable.helpers({
           key: 'title',
           label: '名称',
           fn: function (name,object) {
-           var html = '<a href="/manage/adlist/' + object._id + '">' + name + '</a>';
+           var html = '<a href="/manage/adview/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);
           }
         },
+        {
+          key: '',
+          label: '',
+          fn: function (name,object) {
+           var html = '<div class="text-right"><a class="btn btn-primary" href="/manage/adlist/' + object._id + '">编辑</a></div>';
+            return new Spacebars.SafeString(html);
+          }
+        }
 //        { key: 'multisort', label: 'Multi-column sorting', fn: checkOrX },
 //        { key: 'pages', label: 'Pagination', fn: checkOrX },
 //        { key: 'filter', label: 'Filtering/Search', fn: checkOrX },
