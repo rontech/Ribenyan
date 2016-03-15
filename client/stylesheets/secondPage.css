@@ -18,12 +18,33 @@
 
 .mod_list {
 	/*display: inline-block;*/
+	margin-top: 20px;
+}
+
+.news-t-h1{
+    font-size: 28px;
+    margin: 0;
+    position: inherit;
+    line-height: 1.5;
+    color: #333;
+    word-wrap: break-word;
+    word-break: normal;
+}
+.text-remarks {
+    color: #999;
+    line-height: 30px;
+}
+
+.article-author{
+	color: #bbb;
+    font-size: 16px;
+    margin: 20px 0 27px;
 }
 
 .mod_cell {
 	padding: 20px 0;
 	border-bottom: 1px solid #f0f0f0;
-	width: 750px;
+	width: 650px;
 }
 .mod_cell .row{
 	margin:0;

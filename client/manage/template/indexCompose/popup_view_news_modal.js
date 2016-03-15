@@ -46,11 +46,18 @@ var setNewsBoxValue = function(boxID,selectNewsID){
 	var titleInput = boxObj.find("input[name=title]");
 	titleInput.val(newsObj.title);
 
-	//简介
+	//二级标题
 	var introduceInput = boxObj.find("input[name=introduce]");
-	introduceInput.val(newsObj.introduce);
+	introduceInput.val(newsObj.secondTitle);
 	// 图片
-	
+	// 默认为第一个
+	var imageid = newsObj.imageObj[0];
+
+	var imageUrl = getImagePathByID(imageid);
+
+	var imageObj = boxObj.find("img.js-selectImage");
+	imageObj.data("imageid",imageid);
+	imageObj.attr("src",imageUrl)
 	// 新闻ＩＤ
 	var newsidInput = boxObj.find("input[name=newsid]");
 	newsidInput.val(selectNewsID);

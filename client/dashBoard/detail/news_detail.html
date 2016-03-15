@@ -1,11 +1,38 @@
 <template name="newsDetail">
+
+	<!-- 新闻标题 -->
+	<h1 class="news-t-h1">{{title}}</h1>
+	<!-- 作者信息 -->
+	<div class="article-author">
+        <span class="author-name">
+            日本眼
+        </span>
+        <i class="icon icon-line"></i>
+        <span class="article-time">2016-03-15 07:10</span>
+        <span class="article-pl">评论{{discussNum}}</span>
+        <span class="article-pl">赞{{praiseNum}}</span>
+    </div>
+	<!-- 新闻图片 -->
+	{{#if isHaveImage}}
+	<div class="article-img-box">
+        <img src="{{getImaegPathByObj this.imageObj}}" alt="{{title}}">
+    </div>
+    {{/if}}
+    <!-- 简介 -->
+
 	<!-- 新闻详情 -->
     <div class="mod_list">
     	<!-- 显示新闻结构 使用三层大括号显示-->
+    	<p>
+    		<span class="text-remarks" label="备注">{{introduce}}
+    		</span>
+    	</p>
+
+    	<p></p>
+        
         {{{content}}}
-
+        <!-- 评论 -->
         {{> discuss　newsID=_id._str}}
-
     </div>
 
 </template>

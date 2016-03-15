@@ -156,7 +156,9 @@ a , a:focus,a:hover{
     background-repeat: no-repeat;
     vertical-align: text-bottom;
 }
-
+.icon-line {
+    background-position: -145px -1px;
+}
 .icon-dp {
   background-position: -170px -173px
 }

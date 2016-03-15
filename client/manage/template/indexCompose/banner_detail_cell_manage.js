@@ -113,7 +113,8 @@ Template.bannerDetailCellManage.events({
 		}else{//站外
 			link = boxObj.find("input[name=siteoutlink]").val();
 		}
-		
+
+		var imageID = boxObj.find("img.js-selectImage").data().imageid;
 
 		//数据验证
 		if(isEmpty(title)){
@@ -155,6 +156,11 @@ Template.bannerDetailCellManage.events({
 			}
 		}
 
+		if(isEmpty(imageID)){
+			alert(BANNER_IMAGE_NOT_NULL);
+			return false;
+		}
+
 		// 数据
 		var data = {
 						updateID:boxID,
@@ -165,7 +171,7 @@ Template.bannerDetailCellManage.events({
 						link:link,
 						newsID:newsID,
 						evaID :evaID,
-						imageID:"56c42bd6845339d6637d6e1b"
+						imageID:imageID
 					};
 
 		var methodName = "";

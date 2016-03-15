@@ -84,7 +84,7 @@ Template.bannerAddCellMange.events({
 		}else{//站外
 			link = boxObj.find("input[name=siteoutlink]").val();
 		}
-
+		var imageID = boxObj.find("img.js-selectImage").data().imageid;
 		//数据验证
 		if(isEmpty(title)){
 			alert(BANNER_TITLE_NOT_NULL);

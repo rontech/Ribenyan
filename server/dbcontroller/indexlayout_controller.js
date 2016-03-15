@@ -19,7 +19,7 @@ Meteor.methods({
 			id = new Meteor.Collection.ObjectID(data.evaID);
 		}
 		//图片ID
-		var imageID = new Meteor.Collection.ObjectID(data.imageID);
+		var imageID = data.imageID;
 
 		if(data.updateID != data.newsID && data.siteType == "1"){
 			//检查内容是否存在
@@ -181,7 +181,7 @@ Meteor.methods({
 			id = new Meteor.Collection.ObjectID(data.evaID);
 		}
 		//图片ID
-		var imageID = new Meteor.Collection.ObjectID(data.imageID);
+		var imageID =data.imageID;
 
 		if(data.updateID != data.newsID && data.siteType == "1"){
 			//检查内容是否存在

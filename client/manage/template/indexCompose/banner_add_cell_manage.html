@@ -88,8 +88,12 @@
 						</label>
 
 						<div class="controls">
-							<input type="text" id="image" name="image" data-required="1" class="span6 m-wrap " />
+							<img class="js-selectImage" data-imageid="" src="">
 						</div>
+					</div>
+
+					<div class="control-group">
+						{{> uploadForm}}
 					</div>
 
 					<input type="hidden" name="newsid" value="">
