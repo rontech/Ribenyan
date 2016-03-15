@@ -1,0 +1,78 @@
+<template name="typeUpdate">
+		<!-- validation -->
+		<div class="row-fluid">
+			<!-- block -->
+			<div class="block">
+				<div class="navbar navbar-inner block-header">
+					<div class="muted pull-left">新闻类型登入</div>
+				</div>
+				<div class="block-content collapse in">
+					<div class="span12">
+						<!-- BEGIN FORM-->
+						<form action="#" id="type_info_update" class="form-horizontal" method="post">
+							<fieldset>
+								<div class="alert alert-error hide">
+									<button class="close" data-dismiss="alert"></button>
+									You have some form errors. Please check below.
+								</div>
+								<div class="alert alert-success hide">
+									<button class="close" data-dismiss="alert"></button>
+									Your form validation is successful!
+								</div>
+								<input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
+								<div class="control-group">
+									<label class="control-label">父ID</label>
+									<div class="controls form-inline">
+										<select class="span2 form-control" id="parentID" name="parentID" disabled>
+											<option value="0" {{selected parentID 0}}>一级:0</option>
+											<option value="1" {{selected parentID 1}}>二级:ID</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>名称</label>
+									<div class="controls">
+										<input type="text" id="name" name="name" data-required="1" class="span6 m-wrap " value="{{name}}" required/>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">状态</label>
+									<div class="controls form-inline">
+										<select class="span2 form-control" id="isVaild" name="isVaild">
+											<option value="1" {{selected isVaild 1}}>1. 正常</option>
+											<option value="0" {{selected isVaild 0}}>0. 删除</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">备注</label>
+									<div class="controls row-fluid">
+			                            <div class="span10 block-content collapse in">
+			                               <textarea name="remark" id="remark" value="{{remark}}" class="span6 m-wrap"></textarea>
+			                            </div>
+				                    </div>
+								</div>
+
+
+
+								<div class="control-group">
+									<div class="controls">
+										<button type="submit" class="btn btn-success">发布</button>
+										&nbsp;
+										<button type="reset" class="btn">重置</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+						<!-- END FORM-->
+					</div>
+				</div>
+			</div>
+			<!-- /block -->
+		</div>
+		<!-- /validation -->
+
+</template>

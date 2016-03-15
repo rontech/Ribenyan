@@ -93,3 +93,13 @@ Meteor.publish("bus_tag_info",function(){
 	return TagInfo.find();
 });
 
+//后台登陆信息
+Meteor.publish("bus_manage_user_info",function(){
+	return AdminInfo.find();
+});
+
+//文件
+Meteor.publish("files",function(){
+	return Files.find();
+});
+

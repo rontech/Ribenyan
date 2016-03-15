@@ -1,5 +1,4 @@
-//i18n.setLanguage('zh');
-Template.newsList.rendered = function() {
+Template.typeListTable.rendered = function() {   
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);
    if(tmp==null){
@@ -7,19 +6,24 @@ Template.newsList.rendered = function() {
    }
 }
 
-//通用显示
-var Common = function (value) {
+//显示备注
+var noteField = function (value) {
   var html;
-  // first, normalize the value to a canonical interpretation
-  if (typeof value === 'boolean')
-    value = {
-      support: value
-    };
-
   if (value === null || value === undefined) {
-    html = '<span style="color: orange; font-weight: bold">?</span>';
+    html = '<span style="color: orange; font-weight: bold"></span>';
   } else {
-    html = '<span>' + value + '</span>';
+    html = '<span style="color: lightblue">' + value + '</span>';
+  }
+  return new Spacebars.SafeString(html);
+};
+
+//显示类型
+var parentIDField = function (value) {
+  var html;
+  if (value === null || value === undefined) {
+    html = '<span style="color: orange; font-weight: bold"></span>';
+  } else {
+      html = '<span style="color: ">' + value + '</span>';
   }
   return new Spacebars.SafeString(html);
 };
@@ -34,9 +38,6 @@ var delField = function (value) {
         case 1:
             value = "正常";
             break;
-        case 2:
-            value = "未发表";
-            break;
         case 0:
             value = "已删除";
             break;
@@ -46,22 +47,23 @@ var delField = function (value) {
   return new Spacebars.SafeString(html);
 };
 
-Template.featureComparison.helpers({
-  tables : function () {
-    return NewsInfo.find();
+
+Template.typeListTable.helpers({
+  typeTables : function () {
+    return TypeInfo.find();
   },
 
   tableSettings : function () {
     return {
-      rowsPerPage: 10,
+      rowsPerPage: 5,
       showNavigation: 'auto',
       showColumnToggles: false,
       fields: [
         {
-          key: 'title',
-          label: '标题',
+          key: 'name',
+          label: '名称',
           fn: function (name,object) {
-           var html = '<a href="/manage/newslist/' + object._id + '">' + name + '</a>';
+           var html = '<a href="/manage/typelist/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);
           }
         },
@@ -75,10 +77,11 @@ Template.featureComparison.helpers({
 //        { key: 'keyboard', label: 'Keyboard navigation', fn: checkOrX, hidden: true },
 //        { key: 'plugins', label: 'Plugins', fn: checkOrX, hidden: true },
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
-        { key: 'secondTitle', label: '副标题', fn: Common},
-        { key: 'introduce', label: '简介', fn: Common},
-        { key: 'isVaild', label: '状态', fn: delField}
+          { key: 'parentID', label: '父ID', fn: parentIDField},
+          { key: 'isVaild', label: '状态', fn: delField},
+          { key: 'remark', label: '备注', fn: noteField}
       ]
     };
   }
 });
+

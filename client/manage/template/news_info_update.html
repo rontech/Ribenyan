@@ -9,7 +9,7 @@
 				<div class="block-content collapse in">
 					<div class="span12">
 						<!-- BEGIN FORM-->
-						<form action="#" id="news_info_update" class="form-horizontal">
+						<form action="#" id="news_info_update" class="form-horizontal" method="post">
 							<fieldset>
 								<div class="alert alert-error hide">
 									<button class="close" data-dismiss="alert"></button>
@@ -20,7 +20,7 @@
 									Your form validation is successful!
 								</div>
 								<input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
-								<div class="control-group">
+								<!-- <div class="control-group">
 									<label class="control-label">新闻来源</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="sourceID" name="sourceID">
@@ -28,7 +28,7 @@
 											<option value="2" {{selected sourceID 2}}>2.抓取</option>
 										</select>
 									</div>
-								</div>
+								</div> -->
 								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>标题</label>
 									<div class="controls">
@@ -61,20 +61,22 @@
 								<div class="control-group">
 									<label class="control-label">标签</label>
 									<div class="controls form-inline">
-										<select class="span2 form-control" id="tagObj" name="tagObj">
+										{{> tagShow}}
+										<!-- <select class="span2 form-control" id="tagObj" name="tagObj">
 											<option value="1" {{selected tagObj 1}}>系统</option>
 											<option value="2" {{selected tagObj 2}}>抓取</option>
-										</select>
+										</select> -->
 									</div>
 								</div>
 
 								<div class="control-group">
 									<label class="control-label">类型</label>
 									<div class="controls form-inline">
-										<select class="span2 form-control" id="typeObj" name="typeObj">
+										{{> typeShow}}
+										<!-- <select class="span2 form-control" id="typeObj" name="typeObj">
 											<option value="1" {{selected typeObj 1}}>系统</option>
 											<option value="2" {{selected typeObj 2}}>抓取</option>
-										</select>
+										</select> -->
 									</div>
 								</div>
 
@@ -89,9 +91,9 @@
 									<label class="control-label">状态</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="isVaild" name="isVaild">
-											<option value="1" {{selected isVaild 1}}>正常</option>
-											<option value="2" {{selected isVaild 0}}>删除</option>
-											<option value="3" {{selected isVaild 2}}>未发表</option>
+											<option value="1" {{selected isVaild 1}}>1: 正常</option>
+											<option value="0" {{selected isVaild 0}}>0: 删除</option>
+											<option value="2" {{selected isVaild 2}}>2: 未发表</option>
 										</select>
 									</div>
 								</div>
@@ -100,10 +102,10 @@
 									<label class="control-label">排序规则</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="showRule" name="showRule">
-											<option value="1" {{selected showRule 1}}>正常</option>
-											<option value="2" {{selected showRule 2}}>置顶</option>
-											<option value="3" {{selected showRule 3}}>不显示</option>
-											<option value="4" {{selected showRule 4}}>推荐</option>
+											<option value="1" {{selected showRule 1}}>1: 正常</option>
+											<option value="2" {{selected showRule 2}}>2: 置顶</option>
+											<option value="3" {{selected showRule 3}}>3: 不显示</option>
+											<option value="4" {{selected showRule 4}}>4: 推荐</option>
 										</select>
 									</div>
 								</div>
@@ -112,8 +114,8 @@
 									<label class="control-label">语言</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="language" name="language">
-											<option value="1" {{selected language 0}}>日文</option>
-											<option value="2" {{selected language 1}}>中文</option>
+											<option value="0" {{selected language 0}}>0: 日文</option>
+											<option value="1" {{selected language 1}}>1: 中文</option>
 										</select>
 									</div>
 								</div>
@@ -127,8 +129,8 @@
 									<label class="control-label">版权</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="copyright" name="copyright">
-											<option value="1" {{selected copyright 0}}>系统</option>
-											<option value="2" {{selected copyright 1}}>复制</option>
+											<option value="1" {{selected copyright 1}}>1: 系统</option>
+											<option value="2" {{selected copyright 2}}>2: 复制</option>
 										</select>
 									</div>
 								</div>
@@ -139,21 +141,25 @@
 									</div>
 								</div>
 
-								<div class="control-group">
+<!-- 								<div class="control-group">
 									<label class="control-label">新闻主表ID</label>
 									<div class="controls">
 										<input type="text" id="newsID" value="{{newsID}}" name="newsID" data-required="1" class="span6 m-wrap " />
 									</div>
-								</div>
+								</div> -->
 
-								<div class="control-group">
+								<!--<div class="control-group">
 									<label class="control-label">上传图片</label>
 									<div class="controls">
 	                                    <div id="uniform-fileInput">
 	                                    	<input class="input-file uniform_on" id="imageObj" type="file">
 	                                    </div>
 	                                </div>
-	                            </div>
+	                            </div>-->
+	                            
+	                            <div class="control-group">
+	                            	{{> uploadForm}}
+								</div>
 
 
 								<div class="control-group">

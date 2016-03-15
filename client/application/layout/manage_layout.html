@@ -1,11 +1,9 @@
 <head>
 	<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
-
 </head>
 
 <template name="manageLayout">
-
 	<script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	
 
@@ -18,38 +16,35 @@
     <script src="/assets/scripts.js"></script>
     <script src="/assets/DT_bootstrap.js"></script>
 
-    
-
 		{{> admin_header}}
 		<div class="leftnav col-xs-2">
-			<div class="row block badge-important">
-				<a href="/manage/newslist">
+			<a href="/manage/newslist">
+				<div class="row block badge-important">
 					<div class="hidden-xs col-md-10 leftnav-li">
 						<h5 class="text-center" ><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻情报</h5>
 					</div>
-				</a>
-			</div>
-
-			<div class="row block badge-important">
-				<a href="http://127.0.0.1:3000/manage/adinfoadd">
+				</div>
+			</a>
+			<a href="/manage/adlist">
+				<div class="row block badge-important">
 					<div class="hidden-xs col-md-10 leftnav-li">
 						<h5 class="text-center" ><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>广告情報</h5>
 					</div>
-				</a>
-			</div>
+				</div>
+			</a>
 
-			<div class="row block badge-important">
-				<a href="#">
+			<a href="/manage/typelist">
+				<div class="row block badge-important">
 					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>お客様情報</h5>
+						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻类型</h5>
 					</div>
-				</a>
-			</div>
+				</div>
+			</a>
 
-			<div class="row block badge-important">
-				<a href="#">
+			<a href="/manage/taglist">
+				<div class="row block badge-important">
 					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>お客様情報</h5>
+						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻标签</h5>
 					</div>
 				</a>
 			</div>
@@ -61,7 +56,6 @@
 					</div>
 				</a>
 			</div>
-
 
 		</div><!--left_cont-->
 

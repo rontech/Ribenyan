@@ -1,112 +1,128 @@
- Template.newsView.rendered = function() {
-   $('#content').ckeditor();
-  }
+Template.newsView.rendered = function() {   
+	$('#content').ckeditor();
+   	var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
+   	console.log(tmp);
+   	if(tmp==null){
+      	Router.go("/managelogin");
+   	}	
+   
+   	var imageObj = Session.get("news_info").imageObj;
+   	for(var i=0;i<imageObj.length;i++){
+   		addRow(imageObj[i]);
+	}
+   
+}
 
- Template.registerHelper('selected', function(key, value){
- 	return key == value ? {selected:'selected'}: '';
+
+Template.registerHelper('selected', function(key, value){
+    return key == value ? {selected:'selected'}: '';
 });
 
- Template.newsView.events({
-    'submit #news_info_update' : function(e,t){
-        e.preventDefault();
-        
-        var _id    = t.find('#_id').value;
-        var sourceID    = t.find('#sourceID').value;
-        var title       = t.find('#title').value;
-        var secondTitle = t.find('#secondTitle').value;
-        var introduce   = t.find('#introduce').value;
-        var content     = t.find('#content').value;
-        var tagObj      = t.find('#tagObj').value;
-        var typeObj     = t.find('#typeObj').value;
-        var keyWord     = t.find('#keyWord').value;
-        var isVaild     = t.find('#isVaild').value;
-        var showRule    = t.find('#showRule').value;
-        var language    = t.find('#language').value;
-        var originURL   = t.find('#originURL').value;
-        var copyright   = t.find('#copyright').value;
-        var author      = t.find('#author').value;
-        var newsID      = t.find('#newsID').value;
-        var imageObj    = t.find('#imageObj').value;
+function updateData(e,t,type,msg) {
+        var date;
+        date = new Date().Format("yyyy/MM/dd");
 
-        NewsInfo.update({_id:new Meteor.Collection.ObjectID(_id)},{
-        				"sourceID":sourceID,
-        				"title":title,
-        				"secondTitle":secondTitle,
-            			"introduce":introduce,
-        				"content":content,
-        				"tagObj":tagObj,
-        				"typeObj":typeObj,
-        				"keyWord":keyWord,
-        				"isVaild":isVaild,
-        				"showRule":showRule,
-        				"language":language,
-        				"originURL":originURL,
-        				"copyright":copyright,
-        				"author":author,
-        				"newsID":newsID,
-        				"imageObj":imageObj
-        				},function(){
-        						alert("已更新");
-        						Router.go("/manage/newslist");
-        					}
-        				);
-    },
-    'click #save' : function(e,t){
+        var Obj = new Array();
+        var index = 0;
+        $("input[name='checkbox']:checkbox:checked").each(function(){
+            var data = $(this).val().split(",");
+            var typeObj =  new  Object();
+            typeObj["typeID"] = new Meteor.Collection.ObjectID(data[0]);
+            typeObj["typeName"] = data[1];
+            Obj[index] = typeObj;
+            index++;
+        });
+
+        var Tag = new Array();
+        var tagIndex = 0;
+        $("input[name='tag']:checkbox:checked").each(function(){
+            var tagData = $(this).val().split(",");
+            var tagObj =  new  Object();
+            tagObj["tagID"] = new Meteor.Collection.ObjectID(tagData[0]);
+            tagObj["tagName"] = tagData[1];
+            Tag[tagIndex] = tagObj;
+            tagIndex++;
+        });
+
         e.preventDefault();
-        
-        var _id    = t.find('#_id').value;
-        var sourceID    = t.find('#sourceID').value;
+        var _id         = t.find('#_id').value;
         var title       = t.find('#title').value;
         var secondTitle = t.find('#secondTitle').value;
         var introduce   = t.find('#introduce').value;
         var content     = t.find('#content').value;
-        var tagObj      = t.find('#tagObj').value;
-        var typeObj     = t.find('#typeObj').value;
         var keyWord     = t.find('#keyWord').value;
         var showRule    = t.find('#showRule').value;
         var language    = t.find('#language').value;
         var originURL   = t.find('#originURL').value;
         var copyright   = t.find('#copyright').value;
         var author      = t.find('#author').value;
-        var newsID      = t.find('#newsID').value;
-        var imageObj    = t.find('#imageObj').value;
+        // var newsID      = t.find('#newsID').value;
+        var imageObj    = getFileIds();
+        var isVaild     =  parseInt(t.find('#isVaild').value);
 
-        var msg = window.confirm('该条信息状将变更为发布状态！')
-	    if(msg==true){
-            NewsInfo.update({_id:new Meteor.Collection.ObjectID(_id)},{
-                    "sourceID":sourceID,
+        if(type==1){
+            NewsInfo.update(
+                new Meteor.Collection.ObjectID(_id),{$set:{
                     "title":title,
                     "secondTitle":secondTitle,
                     "introduce":introduce,
                     "content":content,
-                    "tagObj":tagObj,
-                    "typeObj":typeObj,
+                    "tagObj":Tag,
+                    "typeObj":Obj,
                     "keyWord":keyWord,
-                    "isVaild":1,
+                    "isVaild":isVaild,
                     "showRule":showRule,
                     "language":language,
                     "originURL":originURL,
                     "copyright":copyright,
                     "author":author,
-                    "newsID":newsID,
+                    // "newsID":newsID,
                     "imageObj":imageObj
-            },function(){
-        					Router.go("/manage/newslist");
-        				}
+                }},function(){alert(msg);Router.go("/manage/newslist");}
             );
+        }else{
+            if(type==2){
+                var msgck = window.confirm('该条信息状将变更为发布状态！')
+                 if(msgck==true){
+                     NewsInfo.update(new Meteor.Collection.ObjectID(_id),{$set:{
+                        "title":title,
+                        "secondTitle":secondTitle,
+                        "introduce":introduce,
+                        "content":content,
+                        "tagObj":Tag,
+                        "typeObj":Obj,
+                        "keyWord":keyWord,
+                        "isVaild":1,
+                        "showRule":showRule,
+                        "language":language,
+                        "originURL":originURL,
+                        "copyright":copyright,
+                        "author":author,
+                        "publishTime":date,
+                        // "newsID":newsID,
+                        "imageObj":imageObj
+                    }},function(){alert(msg);Router.go("/manage/newslist");}
+                    );
+                }
+            }
         }
+}
+
+
+Template.newsView.events({
+    'submit #news_info_update' : function(e,t){
+        updateData(e,t,1,"已更新");
     },
-    
+    'click #save' : function(e,t){
+        updateData(e,t,2,"已发布");
+    },
     'click #delete' : function(e,t){
         e.preventDefault();
-        
         var _id    = t.find('#_id').value;
-        var msg = window.confirm('该条信息删除！')
-	    if(msg==true){
+        var del = window.confirm('该条信息删除！')
+	    if(del==true){
             NewsInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
-            			function(){
-        					Router.go("/manage/newslist");
-        				}
+			function(){Router.go("/manage/newslist");}
             );
         }
     },
