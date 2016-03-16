@@ -257,5 +257,68 @@ Meteor.methods({
 			return result;
 		}
 	},
+	/*
+	* 更新模块排版信息
+	*/
+	"updateIndexModalDate" : function(data){
+		// 更新ＩＤ
+		var updateID = new Meteor.Collection.ObjectID(data.id);	
+		var moretypeID = "";
+		// 验证数据
+		//名称
+		if(isHaveObjIndexLayout("typeShowName",data.typeshowname)){
+			var result = {
+				"result" : false,
+				"reason" : MODAL_NAME_IS_HAVE
+			};
+			return result;
+		}
+		
 
+		//更多类型
+		if(data.isshowmore == "1"){
+			
+			moretypeID = new Meteor.Collection.ObjectID(data.moretype);
+
+			if(isHaveObjIndexLayout("typeID",data.moretype)){
+				var result = {
+					"result" : false,
+					"reason" : MODAL_TYPE_IS_HAVE
+				};
+				return result;
+			}
+		}
+
+		//更新数据
+		IndexLayoutCol.update(
+							{
+								"_id":updateID	
+							},{ 
+								$set:{
+										"containerTemplate" : data.tempname,
+										"isShowMore" : data.isshowmore,
+										"typeID" : moretypeID,
+										"typeShowName" : data.typeshowname
+									}
+							},function(error,result){
+								if(error){
+									var result ={
+										"result" : false,
+										"reason" : BANNER_INFO_ISSETTING
+									};
+									return result;
+								}else{
+									var result ={
+										"result" : true
+									};
+									return result;
+								}
+							}
+						);
+
+		var result ={
+					"result" : true
+			};
+		return result;
+	}
 });

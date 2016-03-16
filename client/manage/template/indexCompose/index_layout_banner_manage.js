@@ -1,5 +1,6 @@
 // 首页banner 排版
 
+// 
 Template.indexLayoutBannerManage.rendered = function() {
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);
@@ -61,13 +62,6 @@ Template.indexLayoutBannerManage.events({
 });
 
 Template.indexLayoutBannerManage.helpers({
-	"testData" : function(){
-		var data =　{
-			_id : new Meteor.Collection.ObjectID(),
-			title : "测试数据"
-		};
-		return data;
-	},
 	"slideData" : function(){
 		var topInfo = getTopData();
 		if(topInfo){

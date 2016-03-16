@@ -1,0 +1,18 @@
+<!-- 首页新闻模块管理 -->
+<template name="indexModalManage">
+	<div class="row-fluid">
+		<!-- block -->
+		<div class="block" style="min-height:400px;">
+			<div class="navbar navbar-inner block-header">
+				<div class="muted pull-left">首页模块管理</div>
+			</div>
+			<!-- 内容 -->
+			<div class="block-content collapse in">	
+			{{#each listData}}
+				{{>indexModalManageCell}}
+			{{/each}}
+			</div>
+			<!-- 内容end -->
+		</div>
+	</div>
+</template>

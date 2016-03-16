@@ -2,7 +2,17 @@
 *　后台管理css
 * author ysj
 */
-
+.i-icom, .icom {
+    display: inline-block;
+    background-image: url(../images/icon.png);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    vertical-align: text-bottom;
+}
+.icom-line {
+    background-position: -145px -1px;
+}
 /*排版*/
 .cell-box{
 	background-color: white;
@@ -31,7 +41,7 @@
 }
 
 .cell-brief .title{
-	width: 73%;
+	width: 66%;
 	height: 100%;
 	float: left;
 }
@@ -46,10 +56,10 @@
 	color: #999;
 }
 .cell-brief .but{
-	width: 23%;
+	width: 30%;
 	height: 100%;
-	float: left;
-	text-align: center;
+	float: right;
+	text-align: right;
 }
 .cell-brief .but button{
 	margin-top: 5px;
@@ -85,4 +95,21 @@
     line-height: 60px;
     border: 1px solid #f0f0f0;
     border-radius: 6px;
+}
+
+/*模板*/
+.modal-box{
+	background-color:#fff;
+	color: #bbb;
+	border:1px solid #f0f0f0;
+	border-radius: 6px;
+	margin-top: 10px;
+    padding: 10px;
+}
+.modal-box header{
+	height: 35px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.modal-box .detail{
+	margin-top: 10px;
 }
