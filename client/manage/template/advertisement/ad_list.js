@@ -28,7 +28,7 @@ Template.adListTable.helpers({
   },
   tableSettings : function () {
     return {
-      rowsPerPage: 5,
+      rowsPerPage: 10,
       showNavigation: 'auto',
       showColumnToggles: false,
       fields: [

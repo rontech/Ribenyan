@@ -23,6 +23,7 @@ function updateData(e,t,type,msg) {
         var title       = t.find('#title').value;
         var introduce   = t.find('#introduce').value;
         var content     = t.find('#content').value;
+        var showRule     = t.find('#showRule').value;
         var cstId       = t.find('#cstId').value;
         var imageObj = getFileIds();
 
@@ -31,6 +32,7 @@ function updateData(e,t,type,msg) {
                 "title":title,
                 "introduce":introduce,
                 "content":content,
+                "showRule":showRule,
                 "cstId":cstId,
                 "imageObj":imageObj
 

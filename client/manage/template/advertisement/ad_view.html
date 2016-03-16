@@ -1,43 +1,71 @@
 <template name="adView">
    <input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
-        <div class="section">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                       <!-- Indicators -->
-                        <ol class="carousel-indicators" id="imgnum">
+    {{#if leagueIs "1"}}
+        {{>adtemplate1}}
+    {{/if}}
+    {{#if leagueIs "2"}}
+        {{>adtemplate2}}
+    {{/if}}
+</template>
 
-                        </ol>
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox" id="imgshow">
-                          
-                        </div>
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-              </div>
-              <div class="col-md-6" id="inner">
-             {{ introduce }}
+<!--买卖模板-->
+<template name="adtemplate1">
+   <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+               <!-- Indicators -->
+                <ol class="carousel-indicators" id="imgnum"></ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox" id="imgshow"></div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div>
+          </div>
+          <div class="col-md-6" id="inner">
+            {{ introduce }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="section">
+      <div class="container" id="contentview">
+        {{ content }}
+      </div>
+    </div>
+</template>
 
-    <!--               /////////////////////// -->
-              </div>
+<!--租赁模板-->
+<template name="adtemplate2">
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div style="background:#eee;border:1px solid #ccc;padding:5px 10px;">
+              <h2>
+                <em>{{title}}</em>
+              </h2>
             </div>
           </div>
         </div>
-        <br>
-        <div class="section">
-          <div class="container" id="contentview">
-            {{ content }}
+        <div class="row">
+          <div class="col-md-3" id="imgshow"></div>
+          <div class="col-md-9">
+            <div id="inner">
+              {{ introduce }}
+              {{ content }}
+            </div>
           </div>
         </div>
-      
+      </div>
+    </div>
 </template>
-

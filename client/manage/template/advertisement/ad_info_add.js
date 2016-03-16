@@ -15,12 +15,14 @@
         var introduce = t.find('#introduce').value;
         var content   = t.find('#content').value;
         var cstId     = t.find('#cstId').value;
+        var showRule     = t.find('#showRule').value;
         var imageObj = getFileIds();
         console.log(title,introduce,content,cstId);
         AdInfo.insert({
         				"title":title,
             			"introduce":introduce,
         				"content":content,
+                "showRule":showRule,
         				"cstId":cstId,
         				"imageObj":imageObj
         				},function(){
