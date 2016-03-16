@@ -6,6 +6,9 @@
     {{#if leagueIs "2"}}
         {{>adtemplate2}}
     {{/if}}
+    {{#if leagueIs "3"}}
+        {{>adtemplate3}}
+    {{/if}}
 </template>
 
 <!--买卖模板-->
@@ -68,4 +71,20 @@
         </div>
       </div>
     </div>
+</template>
+<!--自定义模板-->
+<template name="adtemplate3">
+  <div class="container" id="inner">
+  <div>
+    <h2>
+      <em>{{title}}</em>
+    </h2>
+  </div>
+  <div class="row">
+    {{ introduce }}
+  </div>
+  <div class="row">
+    {{ content }}
+  </div>
+  </div>
 </template>

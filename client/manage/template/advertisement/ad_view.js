@@ -34,3 +34,7 @@ Template.adtemplate2.rendered = function() {
                             );
    }
 }
+
+Template.adtemplate3.rendered = function() {
+  unhtml("inner");
+}
