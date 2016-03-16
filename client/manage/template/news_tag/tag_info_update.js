@@ -28,7 +28,7 @@ Template.tagUpdate.events({
         var del = window.confirm('该条信息删除！')
       if(del==true){
             TagInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
-      function(){Router.go("/manage/taglist");}
+      function(){alert("已删除");Router.go("/manage/taglist");}
             );
         }
     },
