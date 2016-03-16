@@ -49,7 +49,7 @@ function updateData(e,t,type,msg) {
         var _id    = t.find('#_id').value;
         var del = window.confirm('该条信息删除！')
 	    if(del==true){
-            NewsInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
+            AdInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
 			function(){Router.go("/manage/adlist");}
             );
         }
