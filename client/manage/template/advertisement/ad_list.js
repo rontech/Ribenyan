@@ -45,6 +45,8 @@ Template.adListTable.helpers({
         {
           key: '',
           label: '',
+          sortable: false,
+          headerClass: 'span1',
           fn: function (name,object) {
            var html = '<div class="text-right"><a class="btn btn-info" href="/manage/adlist/' + object._id + '">编辑</a></div>';
             return new Spacebars.SafeString(html);
