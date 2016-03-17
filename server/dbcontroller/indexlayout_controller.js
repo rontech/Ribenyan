@@ -258,7 +258,7 @@ Meteor.methods({
 		}
 	},
 	/*
-	* 更新模块排版信息
+	* 更新模块排版基本信息
 	*/
 	"updateIndexModalDate" : function(data){
 		// 更新ＩＤ
@@ -320,5 +320,151 @@ Meteor.methods({
 					"result" : true
 			};
 		return result;
+	},
+	/*
+	* 更新模块排版显示信息
+	*/
+	"upSetIndexModalShowData" : function(data){
+
+		// 更新ID
+		var updateID = new Meteor.Collection.ObjectID(data.updateID); 
+		// 内嵌表ID
+		var id = "";
+		if(data.type == "1"){
+			id = new Meteor.Collection.ObjectID(data.newsID);
+		}else if(data.type == "2"){
+			id = new Meteor.Collection.ObjectID(data.evaID);
+		}
+
+		if(data.siteType == "2"){//站外
+			id = new Meteor.Collection.ObjectID();
+		}
+
+		// 检查在首页此新闻是否存在
+		if(data.dataID != id._str && data.siteType == "1" ){
+			if(checkNewISSetting(id,1)){
+				var result = {
+					"result" : false,
+					"reason" : NEWS_IN_INDEX_HASE_SETING
+				}
+				return result;
+			}
+		}
+		
+		if(data.dataID == "add"){//增加
+			var newdata = {
+				_id:id,
+				type:data.type,
+				siteType:data.siteType,
+				title:data.title,
+				introduce:data.introduce,
+				link:data.link,
+				imageID: data.imageID,
+				sort:0
+			};
+
+			IndexLayoutCol.update(
+								{
+									"_id":updateID
+								},
+							    {
+							    	$addToSet:{
+							    			"dataObj":newdata
+							    		}
+							    }
+			);
+
+		}else{//更新
+			var dataID = new Meteor.Collection.ObjectID(data.dataID);
+			//更新数据
+			IndexLayoutCol.update(
+								{
+									"_id" : updateID,
+									"dataObj" : {
+										$elemMatch :{
+											"_id" : dataID
+										}
+									}
+								},
+								{
+									$set : {
+										"dataObj.$._id" : id,
+										"dataObj.$.type":data.type,
+										"dataObj.$.siteType":data.siteType,
+										"dataObj.$.title":data.title,
+										"dataObj.$.introduce":data.introduce,
+										"dataObj.$.link":data.link,
+										"dataObj.$.imageID": data.imageID,
+										"dataObj.$.sort":0
+									}
+								}
+			);
+
+		}
+
+		var result = {
+			"result" : true
+		};
+		return result;
+
 	}
 });
+
+
+/*
+* 检测新闻或广告是否被设置
+* id : 唯一标示
+* type : 1 : insert ; 2 : update
+*/
+function checkNewISSetting(id,type){
+
+	var checkData =  IndexLayoutCol.find(
+											{
+												"isVaild" : 1,
+												$or:
+													[
+														{
+															"dataObj" :
+																		{
+																			$elemMatch:{
+																				"_id":id,
+																				"siteType" : "1"
+																				}
+																		}
+														},
+														{
+															"dataObj.slideData" :
+																		{
+																			$elemMatch:{
+																				"_id":id,
+																				"siteType" : "1"
+																				}
+																		}
+														},
+														{
+															"dataObj.rightData" :
+																		{
+																			$elemMatch:{
+																				"_id":id,
+																				"siteType" : "1"
+																				}
+																		}
+														},
+													]
+												
+											}
+										);
+	if(type == 1){
+		if(checkData.count() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}else{
+		if(checkData.coutn() > 1){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+}

@@ -1,0 +1,16 @@
+<!-- 首页模块管理-新闻列表 -->
+<template name="indexModalManageNewsList">
+	<!-- 新闻列表 -->
+	<div class="modal-box js-modal-list" style="display:none;">
+		<header>
+			<span>内容列表</span>
+			<div style="float:right !important;">
+				<button type="button" class="btn btn-success js-add-banner-box">添加</button>
+			</div>
+		</header>
+		{{#each listData}}
+			{{> indexModalManageNewsListCell}}
+		{{/each}}
+	</div>
+
+</template>

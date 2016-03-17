@@ -34,9 +34,9 @@ Template.indexModalManageCell.helpers({
 	},
 	"isShowMoreDiv" : function(){
 		if(this.isShowMore == "1"){
-			return false;
-		}else{
 			return true;
+		}else{
+			return false;
 		}
 	}
 });

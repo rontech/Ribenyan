@@ -1,13 +1,13 @@
 <!-- 模块模板 -->
 <template name="indexModalManageCell">
-	
+
 	<div class="well well-lg js-slidediv">
 		<!-- 模块信息 -->
 		<div class="cell-box">
 			<!-- 模板信息 -->
 			<div class="cell-brief"  style="display: block;">
 	            <div class="number">
-	            	
+
 	            </div>
 	            <div class="title">
 	            	<p>
@@ -33,11 +33,8 @@
 		<!-- 模块信息 -->
 		<div class="modal-box js-modal-info" style="display:none;">
 			<header>
-            	<span>模块信息</span>
-<!--             	<div style="float:right !important;">
-					<button type="button" class="btn btn-success js-add-banner-box">添加</button>
-				</div> -->
-            </header>
+          		<span>模块信息</span>
+      		</header>
 
 			<!-- 模块详情 -->
 			<form class="form-horizontal detail">
@@ -66,15 +63,20 @@
 						</div>
 					</div>
 
-					<div class="control-group" 
-					style="{{#if isShowMoreDiv}}display:none;{{else}}display:block;{{/if}}">
+					<div class="control-group"
+					style="{{#if isShowMoreDiv}}display:block;{{else}}display:none;{{/if}}">
 						<label class="control-label ">
 							<span class="required">* </span>更多类型
 						</label>
 						<div class="controls">
 							<select class="span4 form-control" name="moretype">
 								<option value="0">未选择</option>
-								{{>sysTypeListSelectOption selectval=this.typeID}}
+								{{#if isShowMoreDiv}}
+									{{>sysTypeListSelectOption selectval=this.typeID._str}}
+								{{else}}
+									{{>sysTypeListSelectOption }}
+								{{/if}}
+
 							</select>
 						</div>
 					</div>
@@ -91,8 +93,6 @@
 					<div class="control-group">
 						<div class="controls">
 							<button class="btn btn-success js-modal-info-save-bt" >保存</button>
-							&nbsp;
-							<!-- <button type="reset" class="btn btn-danger ">重置</button> -->
 						</div>
 					</div>
 				</fieldset>
@@ -100,54 +100,8 @@
 		</div>
 
 		<!-- 新闻列表 -->
-		<div class="modal-box js-modal-list" style="display:none;">	
-			<header>
-				<span>新闻列表</span>
-				<div style="float:right !important;">
-					<button type="button" class="btn btn-success js-add-banner-box">添加</button>
-				</div>
-			</header>
-			{{#each dataObj}}
-			<div class="cell-box">
-		        <!-- 标题　简介　start -->
-		        <div class="cell-brief"  style="display: block;">
-		            <div class="number">
-		            	<p>{{indexAddOne @index}}</p>
-		            </div>
-		            <div class="title">
-		            	<p>
-		            		<span>标题:</span>
-		            		{{title}}
-		            	</p>
-		            </div>
-		            <div class="but">
-		            	<button type="button" class="btn btn-success js-edit">编辑</button>
-		            	<button type="button" data-id="{{_id._str}}" class="btn btn-danger js-delete">删除</button>
-		            </div>
-		        </div>
-		        <!-- 标题　简介　end -->
+		{{> indexModalManageNewsList}}
 
-		        <!-- 详情 start -->
-		        <div class="cell-detail" style="display: none;">
-		        	<header>
-	                	<p><span>{{indexAddOne @index}}:</span>{{title}}</p>
-	            
-	                </header>
-	                <!-- 详细内容 -->
-	                <form data-pagetype="slide" class="form-horizontal" style="margin-top:10px;">
-	                	
-	                	{{> bannerDetailCellManage }}
-	                	
-	                </form>
-		        
-		            <div class="close-detail-cell js-show-hide-box" data-buttom="true">收起
-		            </div>
-
-		        </div>
-		        <!-- 详情 end -->
-		    </div>
-		    {{/each}}
-		</div>
 	    <!-- 添加内容框 -->
 	    {{> bannerAddCellMange}}
 

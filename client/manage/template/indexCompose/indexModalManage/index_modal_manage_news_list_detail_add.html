@@ -1,9 +1,9 @@
-<!--　banner 详情 cell-->
-<template name="bannerDetailCellManage">
+<!--　模块新闻管理 - 新闻详情-->
+<template name="indexModalManageNewsListDetailAdd">
 	<fieldset id="detail_{{_id._str}}_box" data-id="{{_id._str}}">
 		<div class="control-group">
 			<label class="control-label ">
-				<span class="required">* </span>类型	
+				<span class="required">* </span>类型
 			</label>
 
 			<div class="controls">
@@ -11,7 +11,7 @@
 				<input id="news" {{isNews}} name="type" type="radio" value="1" />　新闻　
 				<!-- <input type="hidden" name="type"  id="eva" value="2"/> -->
 				<input id="eva" {{isEva}} name="type" type="radio" value="2" />　广告
-			</div>	
+			</div>
 		</div>
 
 		<div class="control-group">
@@ -24,10 +24,8 @@
 				<input id="sitein" {{siteIn}} name="site" type="radio" value="1"/>　站内　
 				<!-- <input type="hidden" name="site"  id="siteout" value="2"/> -->
 				<input id="siteout" {{siteOut}} name="site" type="radio" value="2" />　站外　
-			</div>		
+			</div>
 		</div>
-
-		
 		<div class="control-group" style="display:{{isSiteOut}};">
 
 			<label class="control-label">
@@ -38,7 +36,7 @@
 				<a target="_blank" class="btn btn-success js-request">访问</a>
 			</div>
 			<label class="control-label">
-				
+
 			</label>
 			<div class="controls">
 				<span class="care">(网址必须包含"http://")</span>
@@ -85,7 +83,7 @@
 		</div>
 
 		<input type="hidden" name="newsid" value="{{_id._str}}">
-		<input type="hidden" name="evaid" value="{{_id._str}}"> 
+		<input type="hidden" name="evaid" value="{{_id._str}}">
 
 		<div class="control-group">
 			<div class="controls">
@@ -94,5 +92,5 @@
 				<!-- <button type="reset" class="btn btn-danger ">重置</button> -->
 			</div>
 		</div>
-	</fieldset>	
+	</fieldset>
 </template>

@@ -1,14 +1,18 @@
 Template.sysTypeListSelectOption.helpers({
 	"typeList" : function(){
 		var listData = TypeInfo.find({"isVaild":1});
-		console.log(Template.currentData().selectval);
 		return listData;
 	},
 	"isSelectd" : function(id){
-		if(id = Template.currentData().selectval){
+		var selectID = Template.parentData(1).selectval;
+		if(!selectID){
+			return "";
+		}
+		if(id == selectID){
 			return "selected";
 		}else{
 			return "";
 		}
 	}
+	
 });

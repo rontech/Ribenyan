@@ -100,10 +100,11 @@
 /*模板*/
 .modal-box{
 	background-color:#fff;
-	color: #bbb;
 	border:1px solid #f0f0f0;
 	border-radius: 6px;
 	margin-top: 10px;
+	margin-left: 10px;
+    margin-right: 10px;
     padding: 10px;
 }
 .modal-box header{
