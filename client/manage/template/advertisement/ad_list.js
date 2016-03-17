@@ -35,6 +35,8 @@ Template.adListTable.helpers({
         {
           key: 'title',
           label: '名称',
+          headerClass: '',
+          cellClass:'',
           fn: function (name,object) {
            var html = '<a href="/manage/adview/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);

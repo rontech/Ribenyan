@@ -60,6 +60,8 @@ Template.featureComparison.helpers({
         {
           key: 'title',
           label: '标题',
+          headerClass: '',
+          cellClass:'',
           fn: function (name,object) {
            var html = '<a href="/manage/newslist/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);
@@ -77,7 +79,8 @@ Template.featureComparison.helpers({
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
         { key: 'secondTitle', label: '副标题', fn: Common},
         { key: 'introduce', label: '简介', fn: Common},
-        { key: 'isVaild', label: '状态', fn: delField}
+        { key: 'isVaild', label: '状态',headerClass: '',
+          headerClass:'text-nowrap', fn: delField}
       ]
     };
   }
