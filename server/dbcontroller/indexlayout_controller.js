@@ -258,68 +258,120 @@ Meteor.methods({
 		}
 	},
 	/*
-	* 更新模块排版基本信息
+	* 更新或插入模块排版基本信息
 	*/
-	"updateIndexModalDate" : function(data){
+	"upSetIndexModalDate" : function(data){
 		// 更新ＩＤ
-		var updateID = new Meteor.Collection.ObjectID(data.id);	
+		
 		var moretypeID = "";
 		// 验证数据
-		//名称
-		if(isHaveObjIndexLayout("typeShowName",data.typeshowname)){
-			var result = {
-				"result" : false,
-				"reason" : MODAL_NAME_IS_HAVE
-			};
-			return result;
-		}
-		
 
-		//更多类型
-		if(data.isshowmore == "1"){
-			
-			moretypeID = new Meteor.Collection.ObjectID(data.moretype);
-
-			if(isHaveObjIndexLayout("typeID",data.moretype)){
+		if(data.id == "add"){//增加
+			//名称
+			if(isHaveObjIndexLayout("typeShowName",data.typeshowname)){
 				var result = {
 					"result" : false,
-					"reason" : MODAL_TYPE_IS_HAVE
+					"reason" : MODAL_NAME_IS_HAVE
 				};
 				return result;
 			}
-		}
 
-		//更新数据
-		IndexLayoutCol.update(
-							{
-								"_id":updateID	
-							},{ 
-								$set:{
-										"containerTemplate" : data.tempname,
-										"isShowMore" : data.isshowmore,
-										"typeID" : moretypeID,
-										"typeShowName" : data.typeshowname
+			//更多类型
+			if(data.isshowmore == "1"){
+				
+				moretypeID = new Meteor.Collection.ObjectID(data.moretype);
+
+				if(isHaveObjIndexLayout("typeID",data.moretype)){
+					var result = {
+						"result" : false,
+						"reason" : MODAL_TYPE_IS_HAVE
+					};
+					return result;
+				}
+			}
+			var insertData = {
+						"containerTemplate" : data.tempname,
+						"isShowMore" : data.isshowmore,
+						"typeID" : moretypeID,
+						"typeShowName" : data.typeshowname,
+						"dataObj" : new Array(),
+						"showRule" : 10,
+						"showType" : 2,
+						"isVaild" : 1
+			}
+			IndexLayoutCol.insert(insertData);
+
+		}else{//更新
+
+			var updateID = new Meteor.Collection.ObjectID(data.id);	
+
+			//名称
+			if(isHaveObjIndexLayout("typeShowName",data.typeshowname,data.id)){
+				var result = {
+					"result" : false,
+					"reason" : MODAL_NAME_IS_HAVE
+				};
+				return result;
+			}
+
+			//更多类型
+			if(data.isshowmore == "1"){
+				
+				moretypeID = new Meteor.Collection.ObjectID(data.moretype);
+
+				if(isHaveObjIndexLayout("typeID",data.moretype,data.id)){
+					var result = {
+						"result" : false,
+						"reason" : MODAL_TYPE_IS_HAVE
+					};
+					return result;
+				}
+			}
+
+			//更新数据
+			IndexLayoutCol.update(
+								{
+									"_id":updateID	
+								},{ 
+									$set:{
+											"containerTemplate" : data.tempname,
+											"isShowMore" : data.isshowmore,
+											"typeID" : moretypeID,
+											"typeShowName" : data.typeshowname
+										}
+								},function(error,result){
+									if(error){
+										var result ={
+											"result" : false,
+											"reason" : BANNER_INFO_ISSETTING
+										};
+										return result;
+									}else{
+										var result ={
+											"result" : true
+										};
+										return result;
 									}
-							},function(error,result){
-								if(error){
-									var result ={
-										"result" : false,
-										"reason" : BANNER_INFO_ISSETTING
-									};
-									return result;
-								}else{
-									var result ={
-										"result" : true
-									};
-									return result;
 								}
-							}
-						);
+							);
+			}
+		
 
 		var result ={
 					"result" : true
 			};
 		return result;
+	},
+	/*
+	* 删除模块排版基本信息
+	*/
+	"deleteIndexModalDate" : function(deleteID){
+		var id = new Meteor.Collection.ObjectID(deleteID);
+		IndexLayoutCol.remove(id);
+		var result = {
+			"result" : true
+		};
+ 		return result;  
 	},
 	/*
 	* 更新模块排版显示信息
@@ -406,8 +458,31 @@ Meteor.methods({
 			"result" : true
 		};
 		return result;
+	},
+	/*
+	* 删除模块排版显示信息
+	*/
+	"deleteIndexModalShowData" :function(data){
 
-	}
+		//解析数据
+		var updateById = new Meteor.Collection.ObjectID(data.updateID);
+		var deleteID   = new Meteor.Collection.ObjectID(data.dataID);
+		var num = IndexLayoutCol.update( 
+								{
+									"_id":updateById
+							   	},
+							   	{
+							   		$pull :{"dataObj":{"_id":deleteID}}
+							   	},function(error,result){
+
+							   	}
+							);
+		// 技术遗留
+		var result = {
+			"result" : true
+		};
+ 		return result;
+	},
 });
 
 

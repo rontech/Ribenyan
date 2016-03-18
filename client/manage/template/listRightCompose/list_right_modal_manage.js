@@ -1,18 +1,18 @@
 /*
-* 首页 模块新闻管理
+* 二级列表右侧 模块新闻管理
 */
-Template.indexModalManage.helpers({
+Template.listRightModalManage.helpers({
 	"listData" : function(){//模块list
-		var list = IndexLayoutCol.find({"showType":{$ne:1},isVaild:1},{sort:{"showRule":1}});
+		var list = SecondRightLayout.find({isVaild:1},{sort:{"showRule":1}});
 		 return _.map(list.fetch(),function(p,index) {
             p.index = index;
-            p.parentTempType = "indexmodal";//标识 列表更新的表结构
+            p.parentTempType = "secondlistmodal";//标识 列表更新的表结构
             return p;
         });
 	},
 });
 
-Template.indexModalManage.events({
+Template.listRightModalManage.events({
 	"click button.js-add-modal-info-bt" : function(e){
 		var boxObj = $(e.currentTarget).parent().parent().parent();
 		var addBoxObj = boxObj.children().last();

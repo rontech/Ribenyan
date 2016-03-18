@@ -1,7 +1,7 @@
 <!-- 首页模块管理-新闻列表 -->
-<template name="indexModalManageNewsList">
+<template name="modalManageNewsList">
 	<!-- 新闻列表 -->
-	<div class="modal-box js-modal-list" style="display:none;">
+	<div id="{{this._id._str}}" class="modal-box js-modal-list" style="display:none;">
 		<header>
 			<span>内容列表</span>
 			<div style="float:right !important;">
@@ -9,8 +9,11 @@
 			</div>
 		</header>
 		{{#each listData}}
-			{{> indexModalManageNewsListCell}}
+			{{> modalManageNewsListCell}}
 		{{/each}}
+
+		 <!-- 添加内容框 -->
+	    {{> modalNewsAddTemplate modalID=this._id parentTempType=this.parentTempType }}
 	</div>
 
 </template>

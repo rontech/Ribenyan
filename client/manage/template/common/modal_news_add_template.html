@@ -1,0 +1,120 @@
+<!-- 模块管理 信息添加模板 -->
+<template name="modalNewsAddTemplate">
+	<div class="cell-box js-add-news-box" style="display:none;">
+        <!-- 详情 start -->
+        <div class="cell-detail" style="display: block;">
+        	<header>
+            	<p><span class="js-index">1:</span>新添加</p>
+            </header>
+            <!-- 详细内容 -->
+            <form class="form-horizontal" style="margin-top:10px;">
+            	
+            	<fieldset id="detail_{{_id._str}}_box" data-temptype="{{parentTempType}}" data-modalid="{{modalID._str}}" data-id="add">
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>类型	
+						</label>
+
+						<div class="controls">
+							<!-- <input type="hidden" name="type" id="news" value="1"/> -->
+							<input id="news" checked name="type" type="radio" value="1" />　新闻　
+							<!-- <input type="hidden" name="type"  id="eva" value="2"/> -->
+							<input id="eva" name="type" type="radio" value="2"/>　广告
+						</div>	
+					</div>
+
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>详情页位置
+						</label>
+
+						<div class="controls">
+							<!-- <input type="hidden" name="site" id="sitein" value="1"/> -->
+							<input id="sitein" checked name="site" type="radio" value="1" />　站内　
+							<!-- <input type="hidden" name="site"  id="siteout" value="2"/> -->
+							<input id="siteout" name="site" type="radio" value="2"/>　站外　
+						</div>		
+					</div>
+
+					<div class="control-group" style="display:none;">
+
+						<label class="control-label">
+							<span class="required">* </span>详情页链接
+						</label>
+						<div class="controls">
+							<input type="text" id="siteoutlink" name="siteoutlink" data-required="1" class="span6 m-wrap " />
+							<a target="_blank" class="btn btn-success js-request">访问</a>
+						</div>
+						<label class="control-label">
+							
+						</label>
+						<div class="controls">
+							<span class="care">(网址必须包含"http://")</span>
+						</div>
+					</div>
+
+					<div class="control-group" >
+						<label class="control-label ">
+							<span class="required">* </span>详情页链接
+						</label>
+						<div class="controls">
+							 <input type="text" id="siteinlink" name="siteinlink" data-required="1" class="span6 m-wrap " readonly />
+							<button  class="btn btn-success js-select">选择
+							</button>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>标题
+						</label>
+						<div class="controls">
+							<input type="text" id="title" name="title"  data-required="1" class="span6 m-wrap " />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>简介
+						</label>
+						<div class="controls">
+							<input type="text" id="introduce"  name="introduce" data-required="1" class="span6 m-wrap " />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>图片
+						</label>
+
+						<div class="controls">
+							<img class="js-selectImage" data-imageid="" src="">
+						</div>
+					</div>
+
+					<div class="control-group">
+						{{> uploadForm}}
+					</div>
+
+					<input type="hidden" name="newsid" value="">
+					<input type="hidden" name="evaid" value=""> 
+
+					<div class="control-group">
+						<div class="controls">
+							<button class="btn btn-success js-news-save">保存</button>
+							&nbsp;
+							<!-- <button type="reset" class="btn btn-danger">重置</button> -->
+						</div>
+					</div>
+
+				</fieldset>	
+            	
+            </form>
+        
+            <div class="close-detail-cell js-cancel-save-box" data-buttom="true">取消
+            </div>
+
+        </div>
+        <!-- 详情 end -->
+    </div>
+</template>

@@ -1,98 +1,26 @@
 /*
-* 首页模块管理-新闻列表
-* author ysj
+* 模块 添加新闻 
+* data : {
+			modalID : 数据更新ID；
+			parentTempType : 外部引用类型
+		  }
 */
-Template.indexModalManageNewsListCell.helpers({
-	"isNews" : function(){
-		if(this.type == "1"){
-			return "checked";
-		}else {
-			return "";
-		}
+Template.modalNewsAddTemplate.helpers({
+	"_id" : function(){//唯一ID
+		var id = new Meteor.Collection.ObjectID();
+		return id;
 	},
-	"isEva" : function(){
-		if(this.type == "2"){
-			return "checked";
-		}else {
-			return "";
-		}
+	"modalID":function(){//更新ID
+		return Template.currentData().modalID;
 	},
-	"siteIn" : function(){
-		if(isEmpty(this.siteType)){
-			return "checked";
-		}
-		if(this.siteType == "1"){
-			return "checked";
-		}else {
-			return "";
-		}
-	},
-	"siteOut" : function(){
-		if(this.siteType == "2"){
-			return "checked";
-		}else {
-			return "";
-		}
-	},
-	"isSiteIn" : function(){
-		if(isEmpty(this.siteType)){
-			return "display";
-		}
-		if(this.siteType == "1"){
-			return "display";
-		}else {
-			return "none";
-		}
-	},
-	"isSiteOut" : function(){
-
-		if(this.siteType == "2"){
-			return "display";
-		}else {
-			return "none";
-		}
+	"parentTempType" : function(){//网布引用类型
+		return Template.currentData().parentTempType;
 	}
 });
 
-//点击事件
-Template.indexModalManageNewsListCell.events({
-  "click button.js-edit" : function(e){// ＠编辑＠　按钮
-		var eventObj = $(e.currentTarget);
-		var briefObj = eventObj.parent().parent();
-		var detailObj = briefObj.next();
-
-		briefObj.toggle();
-		detailObj.toggle();
-		return false;
-	},
-	"click div.js-show-hide-box " : function(e){// ＠收起＠　div
-		var eventObj = $(e.currentTarget);
-		var detailObj = eventObj.parent();
-		var briefObj = detailObj.prev();
-
-		briefObj.toggle();
-		detailObj.toggle();
-		return false;
-	},
-	"click button.js-delete" : function(e){ // @删除@ 按钮
-		var eventObj = $(e.currentTarget);
-		var boxObj = $("div.js-slidediv");
-		var index = boxObj.children("div.cell-box").length - 1 ;
-		if(index == 1){
-			alert(BANNER_DELETE_LAST_ONE);
-			return false;
-		}else{
-			var deleteID = eventObj.data().id;
-			//提交Id
-			Meteor.call("deleteIndexBannerSlideDate",deleteID,function(error,result){
-				if(error){
-					alert(BANNER_DELETE_ERROR);
-				}else{
-					// 待调整
-					alert(BANNER_DELETE_SUCCESS);
-				}
-			});
-		}
+Template.modalNewsAddTemplate.events({
+	"click div.js-cancel-save-box":function(e){
+		$(e.currentTarget).parent().parent().toggle();
 		return false;
 	},
 	"change input[name=site]" :function(e) {//选择　跳转位置
@@ -133,7 +61,7 @@ Template.indexModalManageNewsListCell.events({
 		}
 		return false;
 	},
-	"click button.js-news-info-update" :function(e){ // @保存@ 按钮
+	"click button.js-news-save" :function(e){ // @保存@ 按钮
 		var eventObj = $(e.currentTarget);
 		var boxObj = eventObj.parent().parent().parent();
 
@@ -257,6 +185,9 @@ Template.indexModalManageNewsListCell.events({
 						return false;
 					}
 					alert(UPDATE_SUCCESS);
+					//关闭窗口
+					var box = boxObj.parent().parent().parent();
+					box.toggle();
 					return false;
 				}
 			});
@@ -265,5 +196,4 @@ Template.indexModalManageNewsListCell.events({
 		}
 		return false;
 	}
-
 });

@@ -1,11 +1,11 @@
 /*
 * 新闻模块cell
 */ 
-Template.indexModalManageCell.helpers({
+Template.listRightModalManageCell.helpers({
 	
 });
 
-Template.indexModalManageCell.events({
+Template.listRightModalManageCell.events({
 	"click button.js-modal-info-bt" : function(e){// @基本信息@ 按钮
 		var eveObj = $(e.currentTarget);
 		//模块信息
