@@ -1,15 +1,16 @@
  Template.newsInfoAdd.rendered = function() {
    $('#content').ckeditor();
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
+   //console.log(tmp);
    if(tmp==null){
       Router.go("/managelogin");
    }
  };
 
 function saveData(e,t,type,msg) {
-	console.log(e);
+	    //console.log(e);
         var date;
+        var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
         if(type==1) {
             date = new Date().Format("yyyy/MM/dd");
         }else{
@@ -67,6 +68,7 @@ function saveData(e,t,type,msg) {
                         "copyright":copyright,
                         "author":author,
                         "publishTime":date,
+                        "createTime":createtime,
                         // "newsID":newsID,
                         "imageObj":imageObj
                         },function(){

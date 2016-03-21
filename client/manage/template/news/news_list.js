@@ -79,8 +79,8 @@ Template.featureComparison.helpers({
 //        { key: 'meteor', label: 'Meteor Integration', fn: checkOrX, hidden: true },
         { key: 'secondTitle', label: '副标题', fn: Common},
         { key: 'introduce', label: '简介', fn: Common},
-        { key: 'isVaild', label: '状态',headerClass: '',
-          headerClass:'text-nowrap', fn: delField}
+        { key: 'createTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true},
+        { key: 'isVaild', label: '状态',headerClass: '',headerClass:'text-nowrap', fn: delField}
       ]
     };
   }
