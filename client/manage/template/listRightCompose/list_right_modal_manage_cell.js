@@ -27,7 +27,8 @@ Template.listRightModalManageCell.events({
 		var eveObj = $(e.currentTarget);
 		// id
 		var deleteID = eveObj.data().id;
-		Meteor.call("deleteIndexModalDate",deleteID,function(error,result){
+		
+		Meteor.call("deleteSecondRightModalData",deleteID,function(error,result){
 			if(error){
 				alert(DELETE_ERROR);
 			}else{

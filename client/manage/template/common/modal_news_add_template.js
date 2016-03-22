@@ -168,7 +168,7 @@ Template.modalNewsAddTemplate.events({
 				methodName = "upSetIndexModalShowData";
 				break;
 			case "secondlistmodal"://二级列表右侧模块
-				methodName = "";
+				methodName = "upSetSecondRightModalShowData";
 				break;
 			default :
 			    methodName = false;

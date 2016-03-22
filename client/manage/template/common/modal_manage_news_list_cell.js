@@ -94,12 +94,13 @@ Template.modalManageNewsListCell.events({
 				methodName = "deleteIndexModalShowData";
 				break;
 			case "secondlistmodal"://二级列表右侧模块
-				methodName = "";
+				methodName = "deleteSecondRightModalShowData";
 				break;
 			default :
 			    methodName = false;
 			    break;
 		}
+
 		//提交Id
 		Meteor.call(methodName,data,function(error,result){
 			if(error){
@@ -257,7 +258,7 @@ Template.modalManageNewsListCell.events({
 				methodName = "upSetIndexModalShowData";
 				break;
 			case "secondlistmodal"://二级列表右侧模块
-				methodName = "";
+				methodName = "upSetSecondRightModalShowData";
 				break;
 			default :
 			    methodName = false;

@@ -1,5 +1,5 @@
 /*
-* 首页模块管理-新闻列表
+* 模块管理-新闻列表
 * author ysj
 */
 Template.modalManageNewsList.helpers({

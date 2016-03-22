@@ -2,7 +2,7 @@
 *模块基本信息修改
 */
 Template.modalInfoEditTemplate.helpers({
-	"isIndexManage" : function(){
+	"isIndexManage" : function(){//判断是否是首页模板信息管理，
 		if(this.parentTempType == "indexmodal"){//
 			return true;
 		}else{
@@ -47,7 +47,7 @@ Template.modalInfoEditTemplate.helpers({
 });
 
 Template.modalInfoEditTemplate.events({
-	"change input[name=isshowmore]" : function(e){// ＠是否显示更多＠切换
+	"change input[name=isshowmore]" : function(e){// ＠是否显示更多＠ 切换
 		var eveObj = $(e.currentTarget);
 		var typeObj = eveObj.parent().parent().next();
 		typeObj.toggle();
@@ -64,36 +64,50 @@ Template.modalInfoEditTemplate.events({
 		var isshowmore = boxObj.find("input[name=isshowmore]:checked").val();
 		var moretype = boxObj.find("select[name=moretype]").val();
 		var typeshowname = boxObj.find("input[name=typeshowname]").val();
+
+		// 操作类型
+		var temptype = boxObj.data().temptype;
+
 		//数据校验
 		if("0" == tempname){
 			alert(MODAL_TEMP_NOT_NULL);
 			return false;
 		}
-		
-		if(isEmpty(isshowmore)){
-			alert(MODAL_ISSHOWMORE_NOT_NULL);
-			return false;
-		}
 
-		if("1" == isshowmore){//显示
-			if("0" == moretype){
-				alert(MODAL_MORE_TYPE);
+		if(temptype == "indexmodal"){//首页模块信息 更改
+			if(isEmpty(isshowmore)){
+				alert(MODAL_ISSHOWMORE_NOT_NULL);
 				return false;
-			}else{
-				if(isHaveObjIndexLayout("typeID",moretype,modalID)){
-					alert(MODAL_TYPE_IS_HAVE);
+			}
+
+			if("1" == isshowmore){//显示
+				if("0" == moretype){
+					alert(MODAL_MORE_TYPE);
 					return false;
+				}else{
+					if(isHaveObjIndexLayout("typeID",moretype,modalID)){
+						alert(MODAL_TYPE_IS_HAVE);
+						return false;
+					}
 				}
 			}
 		}
+		
 
 		if(isEmpty(typeshowname)){
 			alert(MODAL_TITLE_NAME);
 			return false;
 		}else{
-			if(isHaveObjIndexLayout("typeShowName",typeshowname,modalID)){
-				alert(MODAL_NAME_IS_HAVE);
-				return false;
+			if(temptype == "indexmodal"){//首页模块信息 更改
+				if(isHaveObjIndexLayout("typeShowName",typeshowname,modalID)){
+					alert(MODAL_NAME_IS_HAVE);
+					return false;
+				}
+			}else{
+				if(isHaveObjSecondListRightLayout("typeShowName",typeshowname,modalID)){
+					alert(MODAL_NAME_IS_HAVE);
+					return false;
+				}
 			}
 		}
 
@@ -105,9 +119,23 @@ Template.modalInfoEditTemplate.events({
 				"moretype" : moretype,
 				"typeshowname" : typeshowname
 		};
+		
+		var methodName = "";
+
+		switch (temptype){
+			case "indexmodal"://首页 模块新闻
+				methodName = "upSetIndexModalDate";
+				break;
+			case "secondlistmodal"://二级列表右侧模块
+				methodName = "upSetSecondRightModalData";
+				break;
+			default :
+			    methodName = false;
+			    break;
+		}
 
 		// 提交数据
-		Meteor.call("upSetIndexModalDate",data,function(error,result){
+		Meteor.call(methodName,data,function(error,result){
 			if(error){
 				alert(MODAL_UPDATE_ERROR);
 			}else{
