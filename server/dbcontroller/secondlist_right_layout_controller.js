@@ -6,10 +6,9 @@ Meteor.methods({
 	*/ 
 	"upSetSecondRightModalData" : function(data){
 		// 更新ＩＤ
-		
 		var moretypeID = "";
-		// 验证数据
 
+		// 验证数据
 		if(data.id == "add"){//增加
 			//名称
 			if(isHaveObjSecondListRightLayout("typeShowName",data.typeshowname)){
@@ -19,14 +18,19 @@ Meteor.methods({
 				};
 				return result;
 			}
-
+			//获取最后一位排序
+			var lastInfo = SecondRightLayout.findOne({"isVaild":1},{sort:{"showRule":-1}});
+			var sortNum = 1;
+			if(lastInfo){
+				sortNum = lastInfo.showRule + 1;
+			}
 			var insertData = {
 						"containerTemplate" : data.tempname,
 						"isShowMore" : "1",
 						"typeID" : "1",
 						"typeShowName" : data.typeshowname,
 						"dataObj" : new Array(),
-						"showRule" : 10,
+						"showRule" : sortNum,
 						"isVaild" : 1
 			}
 
@@ -75,6 +79,82 @@ Meteor.methods({
 		var result ={
 					"result" : true
 			};
+		return result;
+	},
+	/*
+	* 排序
+	* updateid : 更新对象
+	* sort : 当前排位
+	* type : 1:上升；0：下降
+	*/ 
+	"upDownSecondRightModalData" : function(updateid,sort,type){
+		sort = parseInt(sort);
+		var sortRule = "";
+		var findRule = "";
+		var reason = "";
+		if(type == 1){
+			findRule = {
+						"isVaild" : 1,
+						"showRule"  : {
+							$lt : sort
+							}
+					};
+			sortRule = {
+				"showRule" : -1
+			};
+			reason = SORT_IS_FIRST;
+		}else if(type == 0){
+			findRule = {
+						"isVaild" : 1,
+						"showRule" : {
+							$gt : sort
+						}
+					};
+			sortRule = {
+				"showRule" : 1
+			};
+			reason = SORT_IS_LAST;
+		}
+		var sortInfo = SecondRightLayout.findOne(findRule,{sort:sortRule}); 
+		// 验证数据
+		if(!sortInfo){
+			var result = {
+				"result" : false,
+				"reason" : reason
+			};
+			return result;
+		}
+	
+		var updateID = new Meteor.Collection.ObjectID(updateid);
+		//更新
+		SecondRightLayout.update({
+									"_id":updateID
+								},{
+									$set :{
+										"showRule" : sortInfo.showRule
+									}
+								},function(error,result){
+									if(error){
+										console.log("更新失败");
+									}else{
+										
+									}
+								}
+		);
+
+		//更新附近ID
+		SecondRightLayout.update({
+									"_id":sortInfo._id
+								 },{
+								 	$set :{
+								 		"showRule" : sort
+								 	}
+								 }
+		);
+		var result = {
+			"result" : true
+		};
+
 		return result;
 	},
 	/*

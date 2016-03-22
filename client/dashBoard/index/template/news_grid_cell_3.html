@@ -6,7 +6,7 @@
         <div class="news_card">
           	<a href="{{pathFor 'newsDetail' id=this._id._str}}">
               <!-- 新闻图片 -->
-                <div class="img" style="background-image:url({{getImaegPathByObj this.imageObj}});"></div>
+                <div class="img" style="background-image:url({{getImagePathByID imageid}});"></div>
               <!-- 新闻标题 -->
               <div class="title">{{title}}</div>
             </a>

@@ -103,7 +103,7 @@ Template.modalInfoEditTemplate.events({
 					alert(MODAL_NAME_IS_HAVE);
 					return false;
 				}
-			}else{
+			}else if(temptype == "secondlistmodal"){// 二级列表右侧模板
 				if(isHaveObjSecondListRightLayout("typeShowName",typeshowname,modalID)){
 					alert(MODAL_NAME_IS_HAVE);
 					return false;

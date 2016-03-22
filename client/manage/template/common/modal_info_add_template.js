@@ -41,6 +41,7 @@ Template.modalInfoAddTemplate.events({
 		var typeshowname = boxObj.find("input[name=typeshowname]").val();
 		var temptype = boxObj.data().temptype;
 
+
 		//数据校验
 		if("0" == tempname){
 			alert(MODAL_TEMP_NOT_NULL);

@@ -48,15 +48,20 @@ Template.indexLayoutBannerManage.events({
 			return false;
 		}else{
 			var deleteID = eventObj.data().id;
-			//提交Id
-			Meteor.call("deleteIndexBannerSlideDate",deleteID,function(error,result){
-				if(error){
-					alert(BANNER_DELETE_ERROR);
-				}else{
-					// 待调整 
-					alert(BANNER_DELETE_SUCCESS);
-				}
-			});
+			if(window.confirm("确认要删除吗？")==true){
+				//提交Id
+				Meteor.call("deleteIndexBannerSlideDate",deleteID,function(error,result){
+					if(error){
+						alert(BANNER_DELETE_ERROR);
+					}else{
+						// 待调整 
+						alert(BANNER_DELETE_SUCCESS);
+					}
+				});
+				return false;
+			}else{
+				return false;
+			}
 		}
 	}
 });
