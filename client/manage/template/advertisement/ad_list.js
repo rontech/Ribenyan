@@ -1,3 +1,4 @@
+i18n.setLanguage('zh');
 Template.adListTable.rendered = function() {
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);
@@ -51,7 +52,8 @@ Template.adListTable.helpers({
            var html = '<div class="text-right"><a class="btn btn-info" href="/manage/adlist/' + object._id + '">编辑</a></div>';
             return new Spacebars.SafeString(html);
           }
-        }
+        },
+        { key: 'createTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true}
 //        { key: 'multisort', label: 'Multi-column sorting', fn: checkOrX },
 //        { key: 'pages', label: 'Pagination', fn: checkOrX },
 //        { key: 'filter', label: 'Filtering/Search', fn: checkOrX },

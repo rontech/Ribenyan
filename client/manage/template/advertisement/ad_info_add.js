@@ -10,6 +10,7 @@
 
  Template.adInfoAdd.events({
     'submit #ad_info_add' : function(e,t){
+        var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
         e.preventDefault();
         var title     = t.find('#title').value;
         var introduce = t.find('#introduce').value;
@@ -24,6 +25,8 @@
         				"content":content,
                 "showRule":showRule,
         				"cstId":cstId,
+                "createTime":createtime,
+                "updateTime":createtime,
         				"imageObj":imageObj
         				},function(){
         					alert("已保存");

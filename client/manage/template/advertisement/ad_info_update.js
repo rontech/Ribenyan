@@ -17,7 +17,7 @@
 function updateData(e,t,type,msg) {
         var date;
         date = new Date().Format("yyyy/MM/dd");
-
+        var updatetime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
         e.preventDefault();
         var _id         = t.find('#_id').value;
         var title       = t.find('#title').value;
@@ -34,6 +34,7 @@ function updateData(e,t,type,msg) {
                 "content":content,
                 "showRule":showRule,
                 "cstId":cstId,
+                "updateTime":updatetime,
                 "imageObj":imageObj
 
             }},function(){alert(msg);Router.go("/manage/adlist");}

@@ -1,4 +1,4 @@
-//i18n.setLanguage('zh');
+i18n.setLanguage('zh');
 Template.newsList.rendered = function() {
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);

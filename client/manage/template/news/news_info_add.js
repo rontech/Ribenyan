@@ -69,6 +69,7 @@ function saveData(e,t,type,msg) {
                         "author":author,
                         "publishTime":date,
                         "createTime":createtime,
+                        "updateTime":createtime,
                         // "newsID":newsID,
                         "imageObj":imageObj
                         },function(){
