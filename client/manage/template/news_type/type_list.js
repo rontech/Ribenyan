@@ -1,3 +1,4 @@
+i18n.setLanguage('zh');
 Template.typeListTable.rendered = function() {   
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);

@@ -2,7 +2,6 @@
    $('#content').ckeditor();
    $('#introduce').ckeditor();
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
    if(tmp==null){
       Router.go("/managelogin");
    }
@@ -17,12 +16,13 @@
 function updateData(e,t,type,msg) {
         var date;
         date = new Date().Format("yyyy/MM/dd");
-
+        var updatetime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
         e.preventDefault();
         var _id         = t.find('#_id').value;
         var title       = t.find('#title').value;
         var introduce   = t.find('#introduce').value;
         var content     = t.find('#content').value;
+        var showRule     = t.find('#showRule').value;
         var cstId       = t.find('#cstId').value;
         var imageObj = getFileIds();
 
@@ -31,7 +31,9 @@ function updateData(e,t,type,msg) {
                 "title":title,
                 "introduce":introduce,
                 "content":content,
+                "showRule":showRule,
                 "cstId":cstId,
+                "updateTime":updatetime,
                 "imageObj":imageObj
 
             }},function(){alert(msg);Router.go("/manage/adlist");}
@@ -47,7 +49,7 @@ function updateData(e,t,type,msg) {
         var _id    = t.find('#_id').value;
         var del = window.confirm('该条信息删除！')
 	    if(del==true){
-            NewsInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
+            AdInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
 			function(){Router.go("/manage/adlist");}
             );
         }

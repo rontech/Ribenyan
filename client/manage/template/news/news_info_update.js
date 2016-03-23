@@ -21,6 +21,7 @@ Template.registerHelper('selected', function(key, value){
 function updateData(e,t,type,msg) {
         var date;
         date = new Date().Format("yyyy/MM/dd");
+        var updatetime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
 
         var Obj = new Array();
         var index = 0;
@@ -76,6 +77,7 @@ function updateData(e,t,type,msg) {
                     "originURL":originURL,
                     "copyright":copyright,
                     "author":author,
+                    "updateTime":updatetime,
                     // "newsID":newsID,
                     "imageObj":imageObj
                 }},function(){alert(msg);Router.go("/manage/newslist");}
@@ -99,6 +101,7 @@ function updateData(e,t,type,msg) {
                         "copyright":copyright,
                         "author":author,
                         "publishTime":date,
+                        "updateTime":updatetime,
                         // "newsID":newsID,
                         "imageObj":imageObj
                     }},function(){alert(msg);Router.go("/manage/newslist");}

@@ -1,3 +1,4 @@
+i18n.setLanguage('zh');
 Template.tagListTable.rendered = function() {   
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);
