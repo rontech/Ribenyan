@@ -63,7 +63,7 @@ Template.featureComparison.helpers({
           headerClass: '',
           cellClass:'',
           fn: function (name,object) {
-           var html = '<a href="/manage/newslist/' + object._id + '">' + name + '</a>';
+           var html = '<a href="/news/detail/' + object._id + '">' + name + '</a>';
             return new Spacebars.SafeString(html);
           }
         },
@@ -80,7 +80,17 @@ Template.featureComparison.helpers({
         { key: 'secondTitle', label: '副标题', fn: Common},
         { key: 'introduce', label: '简介', fn: Common},
         { key: 'updateTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true},
-        { key: 'isVaild', label: '状态',headerClass: '',headerClass:'text-nowrap', fn: delField}
+        { key: 'isVaild', label: '状态',headerClass: '',headerClass:'text-nowrap', fn: delField},
+        {
+          key: '',
+          label: '',
+          sortable: false,
+          headerClass: 'span1',
+          fn: function (name,object) {
+           var html = '<div class="text-right"><a class="btn btn-info" href="/manage/newslist/' + object._id + '">编辑</a></div>';
+            return new Spacebars.SafeString(html);
+          }
+        }
       ]
     };
   }
