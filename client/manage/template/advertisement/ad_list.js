@@ -53,7 +53,7 @@ Template.adListTable.helpers({
             return new Spacebars.SafeString(html);
           }
         },
-        { key: 'createTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true}
+        { key: 'updateTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true}
 //        { key: 'multisort', label: 'Multi-column sorting', fn: checkOrX },
 //        { key: 'pages', label: 'Pagination', fn: checkOrX },
 //        { key: 'filter', label: 'Filtering/Search', fn: checkOrX },
