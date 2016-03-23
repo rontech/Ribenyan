@@ -62,7 +62,7 @@ var setNewsBoxValue = function(boxID,selectNewsID){
 	//按钮
 	var imageButObj = boxObj.find("button.js-select-old-image");
 	imageButObj.data("imageid",imageid);
-	imageButObj.CSS("display","inline");
+	imageButObj.css("display","inline");
 
 	// 新闻ＩＤ
 	var newsidInput = boxObj.find("input[name=newsid]");
