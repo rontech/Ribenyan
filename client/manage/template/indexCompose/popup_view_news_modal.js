@@ -35,7 +35,7 @@ Template.popupViewNewsModal.events({
   	}
 });
 
-//设置banner详情　数据
+//设置新闻详情　数据
 var setNewsBoxValue = function(boxID,selectNewsID){
 	var boxObj = $("#"+boxID);
 	var id = new Meteor.Collection.ObjectID(selectNewsID);
@@ -52,12 +52,18 @@ var setNewsBoxValue = function(boxID,selectNewsID){
 	// 图片
 	// 默认为第一个
 	var imageid = newsObj.imageObj[0];
-
 	var imageUrl = getImagePathByID(imageid);
 
+	//图片显示
 	var imageObj = boxObj.find("img.js-selectImage");
 	imageObj.data("imageid",imageid);
-	imageObj.attr("src",imageUrl)
+	imageObj.attr("src",imageUrl);
+
+	//按钮
+	var imageButObj = boxObj.find("button.js-select-old-image");
+	imageButObj.data("imageid",imageid);
+	imageButObj.CSS("display","inline");
+
 	// 新闻ＩＤ
 	var newsidInput = boxObj.find("input[name=newsid]");
 	newsidInput.val(selectNewsID);

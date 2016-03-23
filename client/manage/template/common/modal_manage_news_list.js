@@ -25,6 +25,10 @@ Template.modalManageNewsList.events({
 		var index = boxObj.children("div.cell-box").length + ":"; 
 
 		obj.find("span.js-index").text(index);
+		
+		//初始化
+		initData_modalNewsAddTemplate(obj);
+
 		obj.toggle();
 	},
 });

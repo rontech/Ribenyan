@@ -36,7 +36,9 @@ Template.indexLayoutBannerManage.events({
 		var index = boxObj.children("div.cell-box").length;
 
 		obj.find("span.js-index").text(index);
-
+		//清空数据
+		initData_bannerAddCellMange(obj);
+		
 		obj.toggle();
 	},
 	"click button.js-delete" : function(e){ // @删除@ 按钮

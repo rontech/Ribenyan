@@ -88,6 +88,34 @@ Template.bannerDetailCellManage.events({
 		}
 		return false;
 	},
+	"click button.js-upload-image" : function(e){// @上传@ 按钮
+		var eveObj = $(e.currentTarget);
+		var boxObj = eveObj.parent().parent().parent();
+		var boxID = boxObj.attr("id");
+
+		Session.set("boxID",boxID);
+
+		//弹出新闻窗口
+		Modal.show("popupViewUploadImage");
+
+		return false;
+	},
+	"click button.js-select-old-image" : function(e){//返回原图
+		var eveObj = $(e.currentTarget);
+		var boxObj = eveObj.parent().parent().parent();
+		var imageObj = boxObj.find("img.js-selectImage");
+		// 图片信息
+		var imageID = eveObj.data().imageid;
+		if(imageID){
+			var imageUrl = getImagePathByID(imageID);
+			//设置
+			imageObj.data("imageid",imageID);
+			imageObj.attr("src",imageUrl);
+		}else{
+
+		}
+		return false;
+	},
 	"click button.js-banner-update" : function(e){// banner 信息保存
 		var eveObj = $(e.currentTarget);
 		var boxObj = eveObj.parent().parent().parent();

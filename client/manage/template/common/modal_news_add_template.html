@@ -88,13 +88,22 @@
 						</label>
 
 						<div class="controls">
-							<img class="js-selectImage" data-imageid="" src="">
+							<button  data-imageid=""
+							  class="btn btn-success js-upload-image">上传
+							</button>
+							<button style="display:none;" data-imageid=""
+							  class="btn btn-success js-select-old-image">原图
+							</button>
 						</div>
 					</div>
 
 					<div class="control-group">
-						{{> uploadForm}}
+
+						<div class="controls">
+							<img class="js-selectImage" data-imageid="" src="">
+						</div>
 					</div>
+
 
 					<input type="hidden" name="newsid" value="">
 					<input type="hidden" name="evaid" value=""> 
