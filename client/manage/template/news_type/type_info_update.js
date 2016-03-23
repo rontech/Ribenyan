@@ -23,4 +23,14 @@ Template.typeUpdate.events({
                 },function(){alert("已更新");Router.go("/manage/typelist");}
             );
     },
+    'click #delete' : function(e,t){
+        e.preventDefault();
+        var _id    = t.find('#_id').value;
+        var del = window.confirm('该条信息删除！')
+      if(del==true){
+            TypeInfo.remove({_id:new Meteor.Collection.ObjectID(_id)},
+      function(){alert("已删除");Router.go("/manage/typelist");}
+            );
+        }
+    },
 });

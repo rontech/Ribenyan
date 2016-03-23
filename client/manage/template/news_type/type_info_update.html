@@ -1,15 +1,15 @@
-<template name="tagUpdate">
+<template name="typeUpdate">
 		<!-- validation -->
 		<div class="row-fluid">
 			<!-- block -->
 			<div class="block">
 				<div class="navbar navbar-inner block-header">
-					<div class="muted pull-left">新闻标签登入</div>
+					<div class="muted pull-left">新闻类型登入</div>
 				</div>
 				<div class="block-content collapse in">
 					<div class="span12">
 						<!-- BEGIN FORM-->
-						<form action="#" id="tag_info_update" class="form-horizontal" method="post">
+						<form action="#" id="type_info_update" class="form-horizontal" method="post">
 							<fieldset>
 								<div class="alert alert-error hide">
 									<button class="close" data-dismiss="alert"></button>
@@ -21,12 +21,11 @@
 								</div>
 								<input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
 								<div class="control-group">
-									<label class="control-label">类型</label>
+									<label class="control-label">父ID</label>
 									<div class="controls form-inline">
-										<select class="span2 form-control" id="type" name="type">
-											<option value="1" {{selected type 1}}>1: 新闻</option>
-											<option value="2" {{selected type 2}}>2: 用户</option>
-											<option value="3" {{selected type 3}}>3: 评论</option>
+										<select class="span2 form-control" id="parentID" name="parentID" disabled>
+											<option value="0" {{selected parentID 0}}>一级:0</option>
+											<option value="1" {{selected parentID 1}}>二级:ID</option>
 										</select>
 									</div>
 								</div>
@@ -52,19 +51,10 @@
 									<label class="control-label">备注</label>
 									<div class="controls row-fluid">
 			                            <div class="span10 block-content collapse in">
-			                               <textarea name="note" id="note" class="span6 m-wrap" value="{{note}}"></textarea>
+			                               <textarea name="remark" id="remark" value="{{remark}}" class="span6 m-wrap"></textarea>
 			                            </div>
 				                    </div>
 								</div>
-
-								<div class="control-group">
-									<label class="control-label">图片</label>
-									<div class="controls">
-	                                    <div id="uniform-fileInput">
-	                                    	<input class="input-file uniform_on" id="tagIcon" type="file">
-	                                    </div>
-	                                </div>
-	                            </div>
 
 
 
@@ -73,6 +63,8 @@
 										<button type="submit" class="btn btn-success">发布</button>
 										&nbsp;
 										<button type="reset" class="btn">重置</button>
+										&nbsp;
+										<button type="submit" id="delete" class="btn btn-danger">删除</button>
 									</div>
 								</div>
 							</fieldset>

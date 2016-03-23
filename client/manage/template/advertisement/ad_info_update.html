@@ -53,6 +53,17 @@
 								</div>
 
 								<div class="control-group">
+									<label class="control-label">显示规则</label>
+									<div class="controls form-inline">
+										<select class="span2 form-control" id="showRule" name="showRule">
+											<option value="1" {{selected showRule 1}}>1: 买卖房屋</option>
+											<option value="2" {{selected showRule 2}}>2: 租赁房屋</option>
+											<option value="3" {{selected showRule 3}}>3: 自定义</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>客户ID</label>
 									<div class="controls">
 										<input type="text" id="cstId" name="cstId" value="{{cstId}}" data-required="1" class="span6 m-wrap" />
@@ -68,6 +79,8 @@
 										<button type="submit" class="btn btn-success">更新</button>
 										&nbsp;
 										<button type="reset" class="btn">重置</button>
+										&nbsp;
+										<button type="submit" id="delete" class="btn btn-danger">删除</button>
 									</div>
 								</div>
 							</fieldset>

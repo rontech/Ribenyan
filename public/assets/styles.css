@@ -12,7 +12,9 @@ body {
     }
 }
 
-
+body {
+    font: 14px/24px Microsoft YaHei,Helvetica,Tahoma !important;
+}
 /** Login Page **/
 #login {
     padding-top: 40px;
@@ -211,4 +213,61 @@ body {
   color: #e02222;
   font-size: 12px;
   padding-left: 2px;
+}
+.job_profile .job_name {
+  line-height: 36px !important;
+  display: inline-block !important;
+  font-size: 25px !important;
+  color: #f85659 !important;
+}
+.job_profile .job_line {
+  color: #e7e7e7 !important;
+  margin: 0 10px !important;
+}
+.job_profile .job_require {
+  margin: 15px 0 25px !important;
+  font-size: 16px !important;
+  width: 510px !important;
+  line-height: 1.6 !important;
+  overflow: hidden !important;
+}
+.clear:after{content: "" !important;display:block !important;height:0 !important;clear:both !important;visibility: hidden !important;}
+.job_fit_tags li{
+  display: inline-block!important;
+  margin: 0 10px 10px 0 !important;
+  width:90px !important;
+  height: 28px !important;
+  text-align: center !important;
+  line-height: 28px !important;
+  float: left !important;
+  background: #eef7fd !important;
+  color:#7b929f !important;
+}
+.job_profile .job_price {
+  font-weight: bold !important;
+  color: #f7484b !important;
+}
+.job_profile .updatetime {
+  padding: 15px 0 10px 0 !important;
+  color: #999999 !important;
+}
+.job_profile {
+  position: relative !important;
+  background: #fff !important;
+}
+.jpadding {
+  padding: 20px 30px 8px !important;
+}
+.job_intro {
+  background: #fff !important;
+  line-height: 36px !important;
+}
+.job-detail-l h3 {
+  padding-bottom: 18px !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #777777 !important;
+}
+.job_intro_tag {
+  color: #999999 !important;
 }
