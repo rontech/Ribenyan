@@ -49,7 +49,7 @@ Template.adListTable.helpers({
           sortable: false,
           headerClass: 'span1',
           fn: function (name,object) {
-           var html = '<div class="text-right"><a class="btn btn-info" href="/manage/adlist/' + object._id + '">编辑</a></div>';
+           var html = '<div class="text-right"><a class="btn btn-info" href="/manage/adlist/' + object._id + '">编辑</a><a class="btn btn-danger" href="/manage/addel/' + object._id + '">删除</a></div>';
             return new Spacebars.SafeString(html);
           }
         },
