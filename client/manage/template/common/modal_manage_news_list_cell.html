@@ -1,0 +1,143 @@
+<!-- 模块管理-新闻列表 -->
+<template name="modalManageNewsListCell">
+
+	<!-- 新闻列表 -->
+		<div class="cell-box">
+			<!-- 标题　简介　start -->
+			<div class="cell-brief"  style="display: block;">
+				<div class="number">
+					<p>{{indexAddOne index}}</p>
+				</div>
+				<div class="title">
+					<p>
+						<span>标题:</span>
+						{{title}}
+					</p>
+				</div>
+				<div class="but">
+					<button type="button" class="btn btn-success js-edit">编辑</button>
+					<button type="button" data-modalid="{{this.parent._id._str}}" data-id="{{_id._str}}" data-temptype="{{this.parentTempType}}"  class="btn btn-danger js-delete">删除</button>
+				</div>
+			</div>
+			<!-- 标题　简介　end -->
+
+			<!-- 详情 start -->
+			<div class="cell-detail" style="display: none;">
+				<header>
+					<p><span>{{indexAddOne index}}:</span>{{title}}</p>
+				</header>
+				<!-- 详细内容 -->
+				<form data-pagetype="slide" class="form-horizontal" style="margin-top:10px;">
+					<fieldset id="detail_{{_id._str}}_box" data-modalid="{{this.parent._id._str}}" data-temptype="{{this.parentTempType}}" data-id="{{_id._str}}">
+
+						<div class="control-group">
+							<label class="control-label ">
+								<span class="required">* </span>类型
+							</label>
+
+							<div class="controls">
+								<!-- <input type="hidden" name="type" id="news" value="1"/> -->
+								<input id="news" {{isNews}} name="type" type="radio" value="1" />　新闻　
+								<!-- <input type="hidden" name="type"  id="eva" value="2"/> -->
+								<input id="eva" {{isEva}} name="type" type="radio" value="2" />　广告
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label ">
+								<span class="required">* </span>详情页位置
+							</label>
+
+							<div class="controls">
+								<!-- <input type="hidden" name="site" id="sitein" value="1"/> -->
+								<input id="sitein" {{siteIn}} name="site" type="radio" value="1"/>　站内　
+								<!-- <input type="hidden" name="site"  id="siteout" value="2"/> -->
+								<input id="siteout" {{siteOut}} name="site" type="radio" value="2" />　站外　
+							</div>
+						</div>
+						<div class="control-group" style="display:{{isSiteOut}};">
+
+							<label class="control-label">
+								<span class="required">* </span>详情页链接
+							</label>
+							<div class="controls">
+								<input type="text" id="siteoutlink" value="{{link}}" name="siteoutlink" data-required="1" class="span6 m-wrap " />
+								<a target="_blank" class="btn btn-success js-request">访问</a>
+							</div>
+							<label class="control-label">
+
+							</label>
+							<div class="controls">
+								<span class="care">(网址必须包含"http://")</span>
+							</div>
+						</div>
+
+						<div class="control-group" style="display:{{isSiteIn}};">
+							<label class="control-label ">
+								<span class="required">* </span>详情页链接
+							</label>
+							<div class="controls">
+								 <input type="text" id="siteinlink" name="siteinlink" data-required="1" class="span6 m-wrap " value="{{link}}" readonly />
+								<button  class="btn btn-success js-select">选择
+								</button>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label ">
+								<span class="required">* </span>标题
+							</label>
+							<div class="controls">
+								<input type="text" id="title" name="title" value="{{title}}" data-required="1" class="span6 m-wrap " />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label ">
+								<span class="required">* </span>简介
+							</label>
+							<div class="controls">
+								<input type="text" id="introduce" value="{{introduce}}" name="introduce" data-required="1" class="span6 m-wrap " />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label ">
+								<span class="required">* </span>图片
+							</label>
+
+							<div class="controls">
+								<button  data-imageid=""
+								  class="btn btn-success js-upload-image">上传
+								</button>
+								<button data-imageid="{{imageID}}"
+								  class="btn btn-success js-select-old-image">原图
+								</button>
+							</div>
+						</div>
+
+						<div class="control-group">
+
+							<div class="controls">
+								<img class="js-selectImage" data-imageid="{{imageID}}" src="{{getImagePathByID imageID}}">
+							</div>
+						</div>
+
+						<input type="hidden" name="newsid" value="{{_id._str}}">
+						<input type="hidden" name="evaid" value="{{_id._str}}">
+
+						<div class="control-group">
+							<div class="controls">
+								<button class="btn btn-success js-news-info-update" >保存</button>
+								&nbsp;
+								<!-- <button type="reset" class="btn btn-danger ">重置</button> -->
+							</div>
+						</div>
+					</fieldset>
+				</form>
+				<div class="close-detail-cell js-show-hide-box" data-buttom="true">收起
+				</div>
+			</div>
+			<!-- 详情 end -->				
+		</div>
+</template>

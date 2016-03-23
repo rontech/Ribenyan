@@ -1,15 +1,15 @@
-<!-- banner 添加模板 -->
-<template name="bannerAddCellMange">
-	<div class="cell-box js-add-banner-box" style="display:none;">
+<!-- 模块管理 信息添加模板 -->
+<template name="modalNewsAddTemplate">
+	<div class="cell-box js-add-news-box" style="display:none;">
         <!-- 详情 start -->
         <div class="cell-detail" style="display: block;">
         	<header>
-            	<p><span class="js-index">{{index}}:</span>新添加</p>
+            	<p><span class="js-index">1:</span>新添加</p>
             </header>
             <!-- 详细内容 -->
             <form class="form-horizontal" style="margin-top:10px;">
             	
-            	<fieldset id="detail_{{_id._str}}_box" data-id="add">
+            	<fieldset id="detail_{{_id._str}}_box" data-temptype="{{parentTempType}}" data-modalid="{{modalID._str}}" data-id="add">
 					<div class="control-group">
 						<label class="control-label ">
 							<span class="required">* </span>类型	
@@ -96,21 +96,21 @@
 							</button>
 						</div>
 					</div>
+
 					<div class="control-group">
-						<label class="control-label ">
-						</label>
 
 						<div class="controls">
-							<img id="img_{{_id._str}}_box" class="js-selectImage" data-imageid="" src="">
+							<img class="js-selectImage" data-imageid="" src="">
 						</div>
 					</div>
+
 
 					<input type="hidden" name="newsid" value="">
 					<input type="hidden" name="evaid" value=""> 
 
 					<div class="control-group">
 						<div class="controls">
-							<button class="btn btn-success js-banner-update">保存</button>
+							<button class="btn btn-success js-news-save">保存</button>
 							&nbsp;
 							<!-- <button type="reset" class="btn btn-danger">重置</button> -->
 						</div>

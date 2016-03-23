@@ -7,7 +7,7 @@ Meteor.methods({
   	// 新闻ＩＤ
   	var newsID = new Meteor.Collection.ObjectID(praiseObj.newsID);
     //检查用户是否点赞过
-    var newsEvaObj = NewsEvaluationCol.find({"newsID":newsID,"userID":praiseObj.userID,evaType:"3"});
+    var newsEvaObj = NewsEvaluationCol.find({"newsID":newsID,"userID":praiseObj.userID,evaType:"4"});
     if(newsEvaObj.fetch().length>0){
     	var result = {
     		"result":false,

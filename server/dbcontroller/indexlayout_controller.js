@@ -257,5 +257,375 @@ Meteor.methods({
 			return result;
 		}
 	},
+	/*
+	* 更新或插入模块排版基本信息
+	*/
+	"upSetIndexModalDate" : function(data){
+		// 更新ＩＤ
+		
+		var moretypeID = "";
+		// 验证数据
 
+		if(data.id == "add"){//增加
+			//名称
+			if(isHaveObjIndexLayout("typeShowName",data.typeshowname)){
+				var result = {
+					"result" : false,
+					"reason" : MODAL_NAME_IS_HAVE
+				};
+				return result;
+			}
+
+			//更多类型
+			if(data.isshowmore == "1"){
+				
+				moretypeID = new Meteor.Collection.ObjectID(data.moretype);
+
+				if(isHaveObjIndexLayout("typeID",data.moretype)){
+					var result = {
+						"result" : false,
+						"reason" : MODAL_TYPE_IS_HAVE
+					};
+					return result;
+				}
+			}
+
+			//获取最后一位排序
+			var lastInfo = IndexLayoutCol.findOne({"isVaild":1},{sort:{"showRule":-1}});
+			var sortNum = 1;
+			if(lastInfo){
+				sortNum = lastInfo.showRule + 1;
+			}
+
+			var insertData = {
+						"containerTemplate" : data.tempname,
+						"isShowMore" : data.isshowmore,
+						"typeID" : moretypeID,
+						"typeShowName" : data.typeshowname,
+						"dataObj" : new Array(),
+						"showRule" : sortNum,
+						"showType" : 2,
+						"isVaild" : 1
+			}
+			IndexLayoutCol.insert(insertData);
+
+		}else{//更新
+
+			var updateID = new Meteor.Collection.ObjectID(data.id);	
+
+			//名称
+			if(isHaveObjIndexLayout("typeShowName",data.typeshowname,data.id)){
+				var result = {
+					"result" : false,
+					"reason" : MODAL_NAME_IS_HAVE
+				};
+				return result;
+			}
+
+			//更多类型
+			if(data.isshowmore == "1"){
+				
+				moretypeID = new Meteor.Collection.ObjectID(data.moretype);
+
+				if(isHaveObjIndexLayout("typeID",data.moretype,data.id)){
+					var result = {
+						"result" : false,
+						"reason" : MODAL_TYPE_IS_HAVE
+					};
+					return result;
+				}
+			}
+
+			//更新数据
+			IndexLayoutCol.update(
+								{
+									"_id":updateID	
+								},{ 
+									$set:{
+											"containerTemplate" : data.tempname,
+											"isShowMore" : data.isshowmore,
+											"typeID" : moretypeID,
+											"typeShowName" : data.typeshowname
+										}
+								},function(error,result){
+									if(error){
+										var result ={
+											"result" : false,
+											"reason" : BANNER_INFO_ISSETTING
+										};
+										return result;
+									}else{
+										var result ={
+											"result" : true
+										};
+										return result;
+									}
+								}
+							);
+			}
+		
+
+		var result ={
+					"result" : true
+			};
+		return result;
+	},
+	/*
+	* 排序
+	* updateid : 更新对象
+	* sort : 当前排位
+	* type : 1:上升；0：下降
+	*/ 
+	"upDownIndexModalData" : function(updateid,sort,type){
+		sort = parseInt(sort);
+		var sortRule = "";
+		var findRule = "";
+		var reason = "";
+		if(type == 1){
+			findRule = {
+						"isVaild" : 1,
+						"showRule"  : {
+							$lt : sort
+							}
+					};
+			sortRule = {
+				"showRule" : -1
+			};
+			reason = SORT_IS_FIRST;
+		}else if(type == 0){
+			findRule = {
+						"isVaild" : 1,
+						"showRule" : {
+							$gt : sort
+						}
+					};
+			sortRule = {
+				"showRule" : 1
+			};
+			reason = SORT_IS_LAST;
+		}
+
+		var sortInfo = IndexLayoutCol.findOne(findRule,{sort:sortRule}); 
+		// 验证数据
+		if(!sortInfo){
+			var result = {
+				"result" : false,
+				"reason" : reason
+			};
+			return result;
+		}
+	
+		var updateID = new Meteor.Collection.ObjectID(updateid);
+		//更新
+		IndexLayoutCol.update({
+									"_id":updateID
+								},{
+									$set :{
+										"showRule" : sortInfo.showRule
+									}
+								},function(error,result){
+									if(error){
+										console.log("更新失败");
+									}else{
+										
+									}
+								}
+		);
+
+		//更新附近ID
+		IndexLayoutCol.update({
+									"_id":sortInfo._id
+								 },{
+								 	$set :{
+								 		"showRule" : sort
+								 	}
+								 }
+		);
+		
+		var result = {
+			"result" : true
+		};
+
+		return result;
+	},
+	/*
+	* 删除模块排版基本信息
+	*/
+	"deleteIndexModalDate" : function(deleteID){
+		var id = new Meteor.Collection.ObjectID(deleteID);
+		IndexLayoutCol.remove(id);
+		var result = {
+			"result" : true
+		};
+ 		return result;  
+	},
+	/*
+	* 更新模块排版显示信息
+	*/
+	"upSetIndexModalShowData" : function(data){
+
+		// 更新ID
+		var updateID = new Meteor.Collection.ObjectID(data.updateID); 
+		// 内嵌表ID
+		var id = "";
+		if(data.type == "1"){
+			id = new Meteor.Collection.ObjectID(data.newsID);
+		}else if(data.type == "2"){
+			id = new Meteor.Collection.ObjectID(data.evaID);
+		}
+
+		if(data.siteType == "2"){//站外
+			id = new Meteor.Collection.ObjectID();
+		}
+
+		// 检查在首页此新闻是否存在
+		if(data.dataID != id._str && data.siteType == "1" ){
+			if(checkNewISSetting(id,1)){
+				var result = {
+					"result" : false,
+					"reason" : NEWS_IN_INDEX_HASE_SETING
+				}
+				return result;
+			}
+		}
+		
+		if(data.dataID == "add"){//增加
+			var newdata = {
+				_id:id,
+				type:data.type,
+				siteType:data.siteType,
+				title:data.title,
+				introduce:data.introduce,
+				link:data.link,
+				imageID: data.imageID,
+				sort:0
+			};
+
+			IndexLayoutCol.update(
+								{
+									"_id":updateID
+								},
+							    {
+							    	$addToSet:{
+							    			"dataObj":newdata
+							    		}
+							    }
+			);
+
+		}else{//更新
+			var dataID = new Meteor.Collection.ObjectID(data.dataID);
+			//更新数据
+			IndexLayoutCol.update(
+								{
+									"_id" : updateID,
+									"dataObj" : {
+										$elemMatch :{
+											"_id" : dataID
+										}
+									}
+								},
+								{
+									$set : {
+										"dataObj.$._id" : id,
+										"dataObj.$.type":data.type,
+										"dataObj.$.siteType":data.siteType,
+										"dataObj.$.title":data.title,
+										"dataObj.$.introduce":data.introduce,
+										"dataObj.$.link":data.link,
+										"dataObj.$.imageID": data.imageID,
+										"dataObj.$.sort":0
+									}
+								}
+			);
+
+		}
+
+		var result = {
+			"result" : true
+		};
+		return result;
+	},
+	/*
+	* 删除模块排版显示信息
+	*/
+	"deleteIndexModalShowData" :function(data){
+
+		//解析数据
+		var updateById = new Meteor.Collection.ObjectID(data.updateID);
+		var deleteID   = new Meteor.Collection.ObjectID(data.dataID);
+		var num = IndexLayoutCol.update( 
+								{
+									"_id":updateById
+							   	},
+							   	{
+							   		$pull :{"dataObj":{"_id":deleteID}}
+							   	},function(error,result){
+
+							   	}
+							);
+		// 技术遗留
+		var result = {
+			"result" : true
+		};
+ 		return result;
+	},
 });
+
+
+/*
+* 检测新闻或广告是否被设置
+* id : 唯一标示
+* type : 1 : insert ; 2 : update
+*/
+function checkNewISSetting(id,type){
+
+	var checkData =  IndexLayoutCol.find(
+											{
+												"isVaild" : 1,
+												$or:
+													[
+														{
+															"dataObj" :
+																		{
+																			$elemMatch:{
+																				"_id":id,
+																				"siteType" : "1"
+																				}
+																		}
+														},
+														{
+															"dataObj.slideData" :
+																		{
+																			$elemMatch:{
+																				"_id":id,
+																				"siteType" : "1"
+																				}
+																		}
+														},
+														{
+															"dataObj.rightData" :
+																		{
+																			$elemMatch:{
+																				"_id":id,
+																				"siteType" : "1"
+																				}
+																		}
+														},
+													]
+												
+											}
+										);
+	if(type == 1){
+		if(checkData.count() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}else{
+		if(checkData.coutn() > 1){
+			return true;
+		}else{
+			return false;
+		}
+	}	
+}

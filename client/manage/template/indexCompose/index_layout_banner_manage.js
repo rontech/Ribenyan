@@ -1,5 +1,6 @@
 // 首页banner 排版
 
+// 
 Template.indexLayoutBannerManage.rendered = function() {
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
    console.log(tmp);
@@ -35,7 +36,9 @@ Template.indexLayoutBannerManage.events({
 		var index = boxObj.children("div.cell-box").length;
 
 		obj.find("span.js-index").text(index);
-
+		//清空数据
+		initData_bannerAddCellMange(obj);
+		
 		obj.toggle();
 	},
 	"click button.js-delete" : function(e){ // @删除@ 按钮
@@ -47,27 +50,25 @@ Template.indexLayoutBannerManage.events({
 			return false;
 		}else{
 			var deleteID = eventObj.data().id;
-			//提交Id
-			Meteor.call("deleteIndexBannerSlideDate",deleteID,function(error,result){
-				if(error){
-					alert(BANNER_DELETE_ERROR);
-				}else{
-					// 待调整 
-					alert(BANNER_DELETE_SUCCESS);
-				}
-			});
+			if(window.confirm("确认要删除吗？")==true){
+				//提交Id
+				Meteor.call("deleteIndexBannerSlideDate",deleteID,function(error,result){
+					if(error){
+						alert(BANNER_DELETE_ERROR);
+					}else{
+						// 待调整 
+						alert(BANNER_DELETE_SUCCESS);
+					}
+				});
+				return false;
+			}else{
+				return false;
+			}
 		}
 	}
 });
 
 Template.indexLayoutBannerManage.helpers({
-	"testData" : function(){
-		var data =　{
-			_id : new Meteor.Collection.ObjectID(),
-			title : "测试数据"
-		};
-		return data;
-	},
 	"slideData" : function(){
 		var topInfo = getTopData();
 		if(topInfo){

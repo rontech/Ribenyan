@@ -1,55 +1,28 @@
 /*
-* banner 管理详情页
+* 模块 添加新闻 
+* data : {
+			modalID : 数据更新ID；
+			parentTempType : 外部引用类型
+		  }
 */
-
-// 数据
-Template.bannerDetailCellManage.helpers({
-	"isNews" : function(){
-		if(this.type == "1"){
-			return "checked";
-		}else {
-			return "";
-		}
+Template.modalNewsAddTemplate.helpers({
+	"_id" : function(){//唯一ID
+		var id = new Meteor.Collection.ObjectID();
+		return id;
 	},
-	"isEva" : function(){
-		if(this.type == "2"){
-			return "checked";
-		}else {
-			return "";
-		}
+	"modalID":function(){//更新ID
+		return Template.currentData().modalID;
 	},
-	"siteIn" : function(){
-		if(this.siteType == "1"){
-			return "checked";
-		}else {
-			return "";
-		}
-	},
-	"siteOut" : function(){
-		if(this.siteType == "2"){
-			return "checked";
-		}else {
-			return "";
-		}
-	},
-	"isSiteIn" : function(){
-		if(this.siteType == "1"){
-			return "display";
-		}else {
-			return "none";
-		}
-	},
-	"isSiteOut" : function(){
-		if(this.siteType == "2"){
-			return "display";
-		}else {
-			return "none";
-		}
+	"parentTempType" : function(){//网布引用类型
+		return Template.currentData().parentTempType;
 	}
 });
 
-// 点击事件
-Template.bannerDetailCellManage.events({
+Template.modalNewsAddTemplate.events({
+	"click div.js-cancel-save-box":function(e){
+		$(e.currentTarget).parent().parent().toggle();
+		return false;
+	},
 	"change input[name=site]" :function(e) {//选择　跳转位置
 		var eveObj = $(e.currentTarget);
 		var val = eveObj.val();
@@ -116,10 +89,16 @@ Template.bannerDetailCellManage.events({
 		}
 		return false;
 	},
-	"click button.js-banner-update" : function(e){// banner 信息保存
-		var eveObj = $(e.currentTarget);
-		var boxObj = eveObj.parent().parent().parent();
-		var boxID = boxObj.data().id;
+	"click button.js-news-save" :function(e){ // @保存@ 按钮
+		var eventObj = $(e.currentTarget);
+		var boxObj = eventObj.parent().parent().parent();
+
+		// 模块ID
+		var updateID = boxObj.data().modalid;
+		// 内嵌ID
+		var dataID = boxObj.data().id;
+
+		//数据
 
 		//标题
 		var title = boxObj.find("input[name=title]").val();
@@ -191,39 +170,77 @@ Template.bannerDetailCellManage.events({
 
 		// 数据
 		var data = {
-						updateID:boxID,
-						type:type,
-						siteType:siteType,
-						title:title,
-						introduce:introduce,
-						link:link,
-						newsID:newsID,
-						evaID :evaID,
+						updateID:updateID,//更新ID
+						dataID:dataID,//内嵌数据ID
+						type:type,//类型
+						siteType:siteType,//跳转类型
+						title:title,//标题
+						introduce:introduce,//简介
+						link:link,//点击详情页 
+						newsID:newsID,//新闻ID
+						evaID :evaID,//广告ID
 						imageID:imageID
 					};
 
+		// 更新方法请求方法判断
+		var tempType = boxObj.data().temptype;
 		var methodName = "";
-		var pagetype = boxObj.parent().data().pagetype;
-		//判断 轮播图还是右侧信息
-		if(pagetype== "right"){//右侧详情
-			methodName = "updateIndextBannerRightDate";
-		}else if(pagetype == "slide") {//轮播图
-			methodName = "upSetIndextBannerSlideDate";
+		switch (tempType){
+			case "indexsilde"://首页 banner 轮播图
+				methodName = "upSetIndextBannerSlideDate";
+				break;
+			case "indexright"://首页 右侧 轮播图
+				methodName = "updateIndextBannerRightDate";
+				break;
+			case "indexmodal"://首页 模块新闻
+				methodName = "upSetIndexModalShowData";
+				break;
+			case "secondlistmodal"://二级列表右侧模块
+				methodName = "upSetSecondRightModalShowData";
+				break;
+			default :
+			    methodName = false;
+			    break;
 		}
-		//提交修改
-		Meteor.call(methodName,data,function(error,result){
-			if(error){
-				alert(BANNER_UPDATE_ERROR);
-			}else{
-				if(result.result){
-					alert("保存成功");
+		if(methodName){
+			Meteor.call(methodName,data,function(error,result){
+				if(error){
+					alert(UPDATE_ERROR);
+					return false;
 				}else{
-					alert(result.reason);
+					if(result.reason){
+						alert(result.reason);
+						return false;
+					}
+					alert(UPDATE_SUCCESS);
+					//关闭窗口
+					var box = boxObj.parent().parent().parent();
+					box.toggle();
+					return false;
 				}
-			}
-		});
-
+			});
+		}else{
+			alert(SYSTEM_ERROR);
+		}
 		return false;
-	},
-
+	}
 });
+
+/*
+*页面数据初始化
+*/
+initData_modalNewsAddTemplate = function(obj){
+	//类型
+	obj.find("input[name='type']").filter('[value=1]').prop('checked', true);
+	// 详情页位置
+	obj.find("input[name='site']").filter('[value=1]').prop('checked', true);
+	obj.find("input[name='siteoutlink']").val("");
+	obj.find("input[name='siteinlink']").val("");
+	obj.find("input[name='title']").val("");
+	obj.find("input[name='introduce']").val("");
+	obj.find("button.js-select-old-image").data("imageid",null);
+	obj.find("img.js-selectImage").data("imageid",null);
+	obj.find("img.js-selectImage").attr("src",null);
+	obj.find("input[name='newsid']").val("");
+	obj.find("input[name='evaid']").val("");
+}

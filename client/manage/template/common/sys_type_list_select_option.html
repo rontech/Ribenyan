@@ -1,0 +1,6 @@
+<!-- 系统类型 option 列表 -->
+<template name="sysTypeListSelectOption">
+	{{#each typeList}}
+		<option {{isSelectd _id._str }} value="{{_id._str}}">{{name}}</option>
+	{{/each}}
+</template>

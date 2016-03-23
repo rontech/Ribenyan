@@ -1,0 +1,71 @@
+<!-- 模块及基本信息添加 -->
+<template name="modalInfoAddTemplate">
+	<div class="well well-lg js-add-modal" style="display:none;">
+		<div class="cell-box js-modal-info" >
+			<header>
+          		<span>模块添加</span>
+      		</header>
+
+			<!-- 模块详情 -->
+			<form class="form-horizontal detail">
+				<fieldset id="detail_{{id}}_box" data-temptype="{{parentTempType}}"  data-id="add">
+
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>模板
+						</label>
+						<div class="controls">
+							<select class="span4 form-control " name="tempname">
+							{{#if isIndexManage}}
+								<option  value="0">未选择</option>
+								<option  value="newsGridTemplate3">3列容器</option>
+								<option  value="advertIndexImageTemplate">图片展示</option>
+							{{else}}
+								<option value="recommendRightContainer">列表</option>
+							{{/if}}
+							</select>
+						</div>
+					</div>
+				{{#if isIndexManage}}
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>是否显示更多
+						</label>
+						<div class="controls">
+							<input name="isshowmore" type="radio" value="1"/>　显示　
+							<input checked name="isshowmore" type="radio" value="2" />　不显示　
+						</div>
+					</div>
+
+					<div class="control-group"
+					style="{{#if isShowMoreDiv}}display:block;{{else}}display:none;{{/if}}">
+						<label class="control-label ">
+							<span class="required">* </span>更多类型
+						</label>
+						<div class="controls">
+							<select class="span4 form-control" name="moretype">
+								<option value="0">未选择</option>
+								{{>sysTypeListSelectOption }}
+							</select>
+						</div>
+					</div>
+				{{/if}}
+					<div class="control-group">
+						<label class="control-label ">
+							<span class="required">* </span>标题
+						</label>
+						<div class="controls">
+							<input type="text" name="typeshowname" value="" class="span6 m-wrap " />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class="controls">
+							<button class="btn btn-success js-modal-info-save-bt" >保存</button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</template>

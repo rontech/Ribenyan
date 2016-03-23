@@ -26,6 +26,8 @@
 				<input id="siteout" {{siteOut}} name="site" type="radio" value="2" />　站外　
 			</div>		
 		</div>
+
+		
 		<div class="control-group" style="display:{{isSiteOut}};">
 
 			<label class="control-label">
@@ -77,6 +79,17 @@
 				<span class="required">* </span>图片
 			</label>
 
+			<div class="controls">
+				<button  data-imageid=""
+				  class="btn btn-success js-upload-image">上传
+				</button>
+				<button  data-imageid="{{imageID}}"
+				  class="btn btn-success js-select-old-image">原图
+				</button>
+			</div>
+		</div>
+
+		<div class="control-group">
 			<div class="controls">
 				<img class="js-selectImage" data-imageid="{{imageID}}" src="{{getImagePathByID imageID}}">
 			</div>
