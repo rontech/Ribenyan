@@ -14,4 +14,6 @@ Meteor.subscribe("ImageInfoCol");
 Meteor.subscribe("SecondRightLayout");
 Meteor.subscribe("files");
 
+//订阅 广告信息
+Meteor.subscribe("SetingAdvInfo");
 

@@ -8,3 +8,8 @@ Meteor.publish("bus_news_evaluation_info",function(newsid){
 Meteor.publish("userData",function(userID){
 	return Meteor.users.find({_id:{$in:userID}}, {fields: {'username': 1}});
 });
+
+//广告投放信息
+Meteor.publish("SetingAdvInfo",function(){
+	return SetingAdvInfo.find();
+});
