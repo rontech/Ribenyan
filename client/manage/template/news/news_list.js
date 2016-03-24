@@ -87,7 +87,7 @@ Template.featureComparison.helpers({
           sortable: false,
           headerClass: 'span1',
           fn: function (name,object) {
-           var html = '<div class="text-right"><a class="btn btn-info" href="/manage/newslist/' + object._id + '">编辑</a><a class="btn btn-danger" href="/manage/newsdel/' + object._id + '">删除</a></div>';
+           var html = '<div class="text-right"><a class="btn btn-info" href="/manage/newslist/' + object._id + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
             return new Spacebars.SafeString(html);
           }
         }
@@ -95,3 +95,20 @@ Template.featureComparison.helpers({
     };
   }
 });
+
+Template.featureComparison.events({
+        'click [name=delete]': function (ev) {
+          ev.preventDefault();
+          var del = window.confirm('该条信息删除！')
+        if(del==true){            
+              var id = ev.currentTarget.value;
+              
+              var newsdata = NewsInfo.findOne({_id:new Meteor.Collection.ObjectID(id)});
+              var imageObj = newsdata.imageObj;
+          for(var i=0;i<imageObj.length;i++){
+            Files.remove(imageObj[i]);
+        }
+              NewsInfo.remove({_id:new Meteor.Collection.ObjectID(id)});
+            }
+        }
+    });
