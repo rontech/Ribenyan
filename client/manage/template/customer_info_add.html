@@ -1,16 +1,15 @@
-<template name="commentAdd">
-
+<template name="manageUserAdd">
 		<!-- validation -->
 		<div class="row-fluid">
 			<!-- block -->
 			<div class="block">
 				<div class="navbar navbar-inner block-header">
-					<div class="muted pull-left">用户信息注册</div>
+					<div class="muted pull-left">后台用户注册</div>
 				</div>
 				<div class="block-content collapse in">
 					<div class="span12">
 						<!-- BEGIN FORM-->
-						<form action="#" id="form_sample_1" class="form-horizontal" method="post">
+						<form action="#" id="manageuseradd-form" class="form-horizontal" method="post">
 							<fieldset>
 								<div class="alert alert-error hide">
 									<button class="close" data-dismiss="alert"></button>
@@ -23,23 +22,22 @@
 								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>名称</label>
 									<div class="controls">
-										<input type="text" name="name" data-required="1" class="span6 m-wrap " />
+										<input type="text" name="name" id="username" data-required="1" class="span6 m-wrap " />
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>邮箱</label>
 									<div class="controls">
-										<input name="email" type="text" class="span6 m-wrap" />
+										<input name="email" id="email" type="text" class="span6 m-wrap" />
 									</div>
 								</div>
-								
 								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>密码</label>
 									<div class="controls">
-										<input name="pwd" class="span6 m-wrap" type="password" >  </div> 
+										<input name="pwd" id="pwd" class="span6 m-wrap" type="password" >  </div> 
 									<div class="controls">
 										<span>
-										<input name="pwdq" class="span6 m-wrap " type="password" >
+										<input name="pwdq" id="pwdq" class="span6 m-wrap " type="password" >
 										&nbsp;（確認）	
 										</span>
 									</div>
@@ -47,19 +45,40 @@
 								<div class="control-group">
 									<label class="control-label">电话</label>
 									<div class="controls">
-										<input name="number" type="text" class="span6 m-wrap" />
+										<input name="tel" id="tel" type="text" class="span6 m-wrap" />
 									</div>
 								</div>
-								
+
 								<div class="control-group">
-									<label class="control-label">性别</label>
+									<label class="control-label">新闻权限</label>
 									<div class="controls form-inline">
-										<select class="form-control" name="sex">
-											<option value="Category 1">男</option>
-											<option value="Category 2">女</option>
+										<select class="form-control" id="newsperms" name="newsperms">
+											<option value="0">无</option>
+											<option value="1">有</option>
 										</select>
 									</div>
 								</div>
+
+								<div class="control-group">
+									<label class="control-label">广告权限</label>
+									<div class="controls form-inline">
+										<select class="form-control" id="adperms" name="adperms">
+											<option value="0">无</option>
+											<option value="1">有</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">管理权限</label>
+									<div class="controls form-inline">
+										<select class="form-control" id="ctrlperms" name="ctrlperms">
+											<option value="0">无</option>
+											<option value="1">有</option>
+										</select>
+									</div>
+								</div>
+
 								<div class="control-group">
 									<div class="controls">
 										<button type="submit" class="btn btn-primary">确定</button>
