@@ -27,29 +27,11 @@
 									</div>
 								</div>
 
-								<!--<div class="control-group">
-									<label class="control-label">上传文件</label>
-									<div class="controls">
-	                                    <div id="uniform-fileInput">
-	                                    	<input class="input-file uniform_on" id="upload" type="file">
-	                                    </div>
-	                                </div>
-	                            </div>-->
-
 								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>简介</label>
+									<label class="control-label"><span class="required">* </span>概要</label>
 									<div class="controls">
-										<textarea name="introduce" id="introduce" class="span6 m-wrap"></textarea>
-									</div>
-								</div>
-
-								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>内容</label>
-									<div class="controls row-fluid">
-			                            <div class="span10 block-content collapse in">
-			                               <textarea name="content" id="content" class="span6 m-wrap"></textarea>
-			                            </div>
-				                    </div>
+										<input type="text" id="resume" name="resume" data-required="1" class="span6 m-wrap " required/>
+									</div><!-- ////////////////////////////////////////////////// -->
 								</div>
 
 								<div class="control-group">
@@ -58,8 +40,63 @@
 										<select class="span2 form-control" id="showRule" name="showRule">
 											<option value="1">1: 买卖房屋</option>
 											<option value="2">2: 租赁房屋</option>
-											<option value="3">3: 自定义</option>
+											<option value="3">3: 招聘</option>
 										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">期望投放位置</label>
+									<div class="controls form-inline">
+										<select class="span2 form-control" id="hopeShowPosition" name="hopeShowPosition">
+											<option value="1">1: 首页</option>
+											<option value="2">2: 新闻类型</option>
+											<option value="3">3: 推荐板块（右侧模块）</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>概要</label>
+									<div class="controls">
+										<div class="col-xs-4">
+											<input type="text" id="resume" name="resume" data-required="1" class="span10 m-wrap " required/>
+										</div>
+										<div class="col-xs-4 form-inline">
+											<div class="row">
+												<div class="col-xs-5 text-nowrap">
+													<label ><span class="required">* </span>概要11s</label>\</div>
+												<div class="col-xs-7">
+													<input type="text" id="resume" name="resume" data-required="1" class="span12 m-wrap " required/>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-4 hidden-xs"></div>
+										
+										
+									</div><!-- ////////////////////////////////////////////////// -->
+								</div>
+
+
+
+
+
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>简介</label>
+									<div class="controls row-fluid">
+										<div class="span10 block-content collapse in">
+											<textarea name="introduce" id="introduce" class="span6 m-wrap"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>内容</label>
+									<div class="controls row-fluid">
+										<div class="span10 block-content collapse in">
+											<textarea name="content" id="content" class="span6 m-wrap"></textarea>
+										</div>
 									</div>
 								</div>
 
@@ -69,9 +106,23 @@
 										<input type="text" id="cstId" name="cstId" data-required="1" class="span6 m-wrap" />
 									</div>
 								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>邮箱</label>
+									<div class="controls">
+										<input type="text" id="advEmail" name="advEmail" data-required="1" class="span6 m-wrap " required/>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>联系电话</label>
+									<div class="controls">
+										<input type="text" id="advTelephone" name="advTelephone" data-required="1" class="span6 m-wrap " required/>
+									</div>
+								</div>
 								
 								<div class="control-group">
-	                            	{{> uploadForm}}
+									{{> uploadForm}}
 								</div>
 
 								<div class="control-group">
