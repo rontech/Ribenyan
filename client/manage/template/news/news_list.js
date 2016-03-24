@@ -28,7 +28,7 @@ var Common = function (value) {
 var delField = function (value) {
   var html;
   if (value === null || value === undefined) {
-    html = '<span style="color: orange; font-weight: bold"></span>';
+    html = '<span Class:"text-nowrap" style="color: orange; font-weight: bold"></span>';
   } else {
       switch (value){
         case 1:
@@ -41,7 +41,7 @@ var delField = function (value) {
             value = "已删除";
             break;
       }
-      html = '<span style="color: ">' + value + '</span>';
+      html = '<span Class:"text-nowrap">' + value + '</span>';
   }
   return new Spacebars.SafeString(html);
 };
@@ -80,7 +80,7 @@ Template.featureComparison.helpers({
         { key: 'secondTitle', label: '副标题', fn: Common},
         { key: 'introduce', label: '简介', fn: Common},
         { key: 'updateTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true},
-        { key: 'isVaild', label: '状态',headerClass: '',headerClass:'text-nowrap', fn: delField},
+        { key: 'isVaild', label: '状态',cellClass: 'text-nowrap',headerClass:'text-nowrap', fn: delField},
         {
           key: '',
           label: '',
