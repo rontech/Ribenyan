@@ -62,7 +62,6 @@ Template.adInfoAdd.events({
             }
         }
 
-
           AdInfo.insert({
                 "title":title,
                 "resume":resume,

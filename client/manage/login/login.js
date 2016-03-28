@@ -10,7 +10,13 @@ Template.managelogin.events({
             alert("登录名或密码有误 请重新输入！");
         }else{
            // Session.set("login_user",user[0]);
-            sessionStorage.setItem('login_user',user[0]);
+            newsperms = user[0].newsperms;
+            adperms   =user[0].adperms;
+            ctrlperms =user[0].ctrlperms;
+            sessionStorage.setItem('login_user',user[0]._id._str);
+            sessionStorage.setItem('newsperms',newsperms);
+            sessionStorage.setItem('adperms',adperms);
+            sessionStorage.setItem('ctrlperms',ctrlperms);
             Router.go("/manage/newslist");
         }
         //console.log(user.length);
