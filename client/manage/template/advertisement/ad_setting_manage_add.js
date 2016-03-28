@@ -24,7 +24,7 @@ Template.adSettingManageAdd.events({
 		Session.set("boxID",boxID);
 
 		//弹出画面
-		Modal.show("adPopupSelectAdv");
+		Modal.show("popupViewAdvSelect");
 
 		return false;
 	},

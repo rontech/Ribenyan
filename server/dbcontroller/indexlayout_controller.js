@@ -47,7 +47,7 @@ Meteor.methods({
 		// 判断更新或者插入
 		if(data.updateID == "add"){//插入
 			//如果是站外的链接，重新生成ID
-			if(data.siteType == "2"){
+			if(data.siteType == "2" && data.type =="1"){
 				id = new Meteor.Collection.ObjectID();
 			}
 			//验证数据
@@ -80,6 +80,21 @@ Meteor.methods({
 									}
 								}
 							);
+
+		    //判断是否是广告插入信息
+		    if(data.type == "2"){
+		    	var advInfo = {
+		    		"type" : 1,
+		    		"advID" : id,
+		    		"modalID" : updateById,
+		    		"dataObjID" : id,
+		    		"isVaild" : 1,
+		    	};
+		    	//投放信息表插入
+		    	SetingAdvInfo.insert(advInfo);
+
+		    }
+
 		}else{//更新
 			var oldID = new Meteor.Collection.ObjectID(data.updateID);
 			num = IndexLayoutCol.update(
@@ -116,7 +131,24 @@ Meteor.methods({
 								}
 							}
 						);
+			//判断广告是否更新
+			if(data.type == "2"){
+				if(!oldID.equals(id)){// 更新
+					//1.删除
+					SetingAdvInfo.remove({"advID":oldID,"modalID":updateById,"dataObjID":oldID});
 
+					//2.添加
+					var advInfo = {
+			    		"type" : 1,
+			    		"advID" : id,
+			    		"modalID" : updateById,
+			    		"dataObjID" : id,
+			    		"isVaild" : 1,
+		    		}; 
+
+					SetingAdvInfo.insert(advInfo);
+				}
+			}
 		}
 		if(num > 0){
 			var result ={
@@ -159,6 +191,20 @@ Meteor.methods({
 
 							   	}
 							);
+		// 删除对象信息
+		var deleteInfo = "";
+		for(var i=0;i<slideData.length;i++){
+			if(deleteID.equals(slideData[i]._id)){
+				deleteInfo = slideData[i];
+				break;
+			}
+		}
+		
+		// 判断是否是广告
+		if(deleteInfo.type == "2"){//广告
+			SetingAdvInfo.remove({"advID":deleteID,"modalID":updateById,"dataObjID":deleteID});
+		}
+
 		// 技术遗留
 		var result = {
 			"result" : true

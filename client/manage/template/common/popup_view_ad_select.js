@@ -1,5 +1,5 @@
 // 广告弹出选择
-Template.adPopupSelectAdv.helpers({
+Template.popupViewAdvSelect.helpers({
 	tables : function () {
       return AdInfo.find({});
     },
@@ -20,18 +20,18 @@ Template.adPopupSelectAdv.helpers({
 		    	key: 'title',
 		        label: '标题'
 		    },{ 
-	          	key: 'type', 
+	          	key: 'showRule', 
 	          	label: '类型',
 	          	fn:function(value,object,key){
 	          		var name = "";
 		          	switch (value) {
-		          		case 1 :
+		          		case "1" :
 		          			name = "卖房";
 		          			break;
-		          		case 2 :
+		          		case "2" :
 		          			name = "房屋出租";
 		          			break;
-		          		case 3 :
+		          		case "3" :
 		          			name = "招聘";
 		          			break;
 		          	}
@@ -43,7 +43,7 @@ Template.adPopupSelectAdv.helpers({
     }
 });
 
-Template.adPopupSelectAdv.events({
+Template.popupViewAdvSelect.events({
 	"hide.bs.modal #advModal" : function(e){//弹出框关闭
 		var boxID = Session.get("boxID");
 		var selectAdvID = Session.get("selectAdvID");
@@ -73,7 +73,8 @@ Template.adPopupSelectAdv.events({
   			Session.set("selectAdvID",selectAdvID);
   			
   			//关闭
-  			Modal.hide("adPopupSelectAdv");
+  			Modal.hide("popupViewAdvSelect");
+
   		}else{
   			alert(DATA_ERROR);
   		}
@@ -85,13 +86,52 @@ function setBoxValue(boxID,selectAdvID){
 	var ID = new Meteor.Collection.ObjectID(selectAdvID);
 	// 广告信息
 	var advInfo = AdInfo.findOne({"_id":ID});
+
+	//设置信息
+	var boxObj = $("#"+boxID);
 	if(advInfo){
-		//设置信息
-		var boxObj = $("#"+boxID);
-		// 标题
-		boxObj.find("input[name='advinfo']").val(advInfo.title);
-		// id
-		boxObj.find("input[name='advID']").val(advInfo._id._str);
+		
+		if(boxObj.find("input[name='advID']").length >0){//二级列表
+			// 标题
+			boxObj.find("input[name='advinfo']").val(advInfo.title);
+			// id
+			boxObj.find("input[name='advID']").val(advInfo._id._str);
+		}else{//模块信息
+
+			// 标题
+			var titleInput = boxObj.find("input[name=title]");
+			titleInput.val(advInfo.title);
+
+			//二级标题
+			var introduceInput = boxObj.find("input[name=introduce]");
+			introduceInput.val(advInfo.resume);
+			// 图片
+
+			// 默认为第一个
+			var imageid = advInfo.imageObj[0];
+			var imageUrl = getImagePathByID(imageid);
+
+			//图片显示
+			var imageObj = boxObj.find("img.js-selectImage");
+			imageObj.data("imageid",imageid);
+			imageObj.attr("src",imageUrl);
+
+			//按钮
+			var imageButObj = boxObj.find("button.js-select-old-image");
+			imageButObj.data("imageid",imageid);
+			imageButObj.css("display","inline");
+
+			// 广告ＩＤ
+			var advIdInput = boxObj.find("input[name=evaid]");
+			advIdInput.val(advInfo._id._str);
+
+			//link - 需要修改
+			var newsLink = Meteor.absoluteUrl('manage/adview/' + advInfo._id._str);
+			var newslinkInput = boxObj.find("input[name=siteinlink]");
+			newslinkInput.val(newsLink);
+
+		}
+		
 	}else{
 		alert(DATA_ERROR);
 	}

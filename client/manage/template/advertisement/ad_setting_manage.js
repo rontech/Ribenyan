@@ -45,20 +45,20 @@ Template.advSettingManage.helpers({
           }
         },
         {
-          key: 'advType',
+          key: 'showRule',
           label: '广告类型',
           headerClass: '',
           cellClass:'',
           fn: function (value,object) {
           	var name = "";
           	switch (value) {
-          		case 1 :
+          		case "1" :
           			name = "卖房";
           			break;
-          		case 2 :
+          		case "2" :
           			name = "房屋出租";
           			break;
-          		case 3 :
+          		case "3" :
           			name = "招聘";
           			break;
           	}
@@ -137,7 +137,7 @@ function analysisAdvInfo(){
 		 var advInfo = AdInfo.findOne({"_id":setAdvList[i].advID});
 		 if(advInfo){
 		 	// 整合数据
-		 	setAdvList[i].advType = advInfo.type;
+		 	setAdvList[i].showRule = advInfo.showRule;
 		 	setAdvList[i].title = advInfo.title;
 		 	newList.push(setAdvList[i]);
 		 }
