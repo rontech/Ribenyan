@@ -7,10 +7,10 @@ Template.advLeftCell.helpers({
 		switch(type){
 			case 1 :
 			case 2 : 
-				templateName = "advHouseLeftCell";
+				templateName = "advHouseLeftCell";//房屋广告显示模板
 				break;
 			case 3 : 
-				templateName = "advCompanyJopLeftCell";
+				templateName = "advCompanyJopLeftCell";//招聘信息显示模板
 				break;
 			default :
 			    break;
