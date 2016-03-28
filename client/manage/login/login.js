@@ -3,10 +3,9 @@ Template.managelogin.events({
         e.preventDefault();
         var username = t.find('#login-username').value;
         var password = t.find('#login-password').value;
-        console.log(username);
-        console.log(password);
-        var user = AdminInfo.find({"name":username,"password":password}).fetch();
-        console.log(user);
+        password = $.md5(password); 
+        var user = AdminInfo.find({"username":username,"pwd":password}).fetch();
+
         if(user.length==0){
             alert("登录名或密码有误 请重新输入！");
         }else{
@@ -14,6 +13,6 @@ Template.managelogin.events({
             sessionStorage.setItem('login_user',user[0]);
             Router.go("/manage/newslist");
         }
-        console.log(user.length);
+        //console.log(user.length);
     },
 });
