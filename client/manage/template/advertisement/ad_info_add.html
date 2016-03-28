@@ -35,9 +35,10 @@
 								</div>
 
 								<div class="control-group">
-									<label class="control-label">显示规则</label>
+									<label class="control-label">广告类型</label>
 									<div class="controls form-inline">
 										<select class="span2 form-control" id="showRule" name="showRule">
+											<option value="0">请选择</option>
 											<option value="1">1: 买卖房屋</option>
 											<option value="2">2: 租赁房屋</option>
 											<option value="3">3: 招聘</option>
@@ -56,31 +57,89 @@
 									</div>
 								</div>
 
-								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>概要</label>
-									<div class="controls">
-										<div class="col-xs-4">
-											<input type="text" id="resume" name="resume" data-required="1" class="span10 m-wrap " required/>
+								<div id="house">
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>地址</label>
+										<div class="controls">
+											<input type="text" id="address" name="address" data-required="1" class="span6 m-wrap " required/>
 										</div>
-										<div class="col-xs-4 form-inline">
-											<div class="row">
-												<div class="col-xs-5 text-nowrap">
-													<label ><span class="required">* </span>概要11s</label>\</div>
-												<div class="col-xs-7">
-													<input type="text" id="resume" name="resume" data-required="1" class="span12 m-wrap " required/>
-												</div>
-											</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>最近车站</label>
+										<div class="controls">
+											<input type="text" id="nearestStation" name="nearestStation" data-required="1" class="span6 m-wrap " required/>
 										</div>
-										<div class="col-xs-4 hidden-xs"></div>
-										
-										
-									</div><!-- ////////////////////////////////////////////////// -->
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>房屋面积</label>
+										<div class="controls">
+											<input type="text" id="houseArea" name="houseArea" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>类型</label>
+										<div class="controls">
+											<input type="text" id="houseType" name="houseType" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>价格</label>
+										<div class="controls">
+											<input type="text" id="price" name="price" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>最近地铁线路</label>
+										<div class="controls">
+											<input type="text" id="nearestMetroLine" name="nearestMetroLine" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
 								</div>
 
-
-
-
-
+								<div id="people">
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>公司名称</label>
+										<div class="controls">
+											<input type="text" id="companyName" name="companyName" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>工作地址</label>
+										<div class="controls">
+											<input type="text" id="workAdress" name="workAdress" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>工作岗位</label>
+										<div class="controls">
+											<input type="text" id="position" name="position" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>薪酬</label>
+										<div class="controls">
+											<input type="text" id="salary" name="salary" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>公司首页</label>
+										<div class="controls">
+											<input type="text" id="companyHomePage" name="companyHomePage" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>联系方式</label>
+										<div class="controls">
+											<input type="text" id="companyTelephone" name="companyTelephone" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label"><span class="required">* </span>招聘邮箱</label>
+										<div class="controls">
+											<input type="text" id="companyEmail" name="companyEmail" data-required="1" class="span6 m-wrap " required/>
+										</div>
+									</div>
+								</div>
 
 								<div class="control-group">
 									<label class="control-label"><span class="required">* </span>简介</label>
@@ -101,21 +160,21 @@
 								</div>
 
 								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>客户ID</label>
+									<label class="control-label"><span class="required">* </span>广告客户ID</label>
 									<div class="controls">
 										<input type="text" id="cstId" name="cstId" data-required="1" class="span6 m-wrap" />
 									</div>
 								</div>
 
 								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>邮箱</label>
+									<label class="control-label"><span class="required">* </span>广告客户邮箱</label>
 									<div class="controls">
 										<input type="text" id="advEmail" name="advEmail" data-required="1" class="span6 m-wrap " required/>
 									</div>
 								</div>
 
 								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>联系电话</label>
+									<label class="control-label"><span class="required">* </span>广告客户联系电话</label>
 									<div class="controls">
 										<input type="text" id="advTelephone" name="advTelephone" data-required="1" class="span6 m-wrap " required/>
 									</div>
