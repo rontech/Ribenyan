@@ -1,10 +1,6 @@
 i18n.setLanguage('zh');
 Template.adListTable.rendered = function() {
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+   ckAdPerms();
 }
 //通用显示
 var Common = function (value) {

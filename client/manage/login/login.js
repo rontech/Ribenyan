@@ -17,7 +17,12 @@ Template.managelogin.events({
             sessionStorage.setItem('newsperms',newsperms);
             sessionStorage.setItem('adperms',adperms);
             sessionStorage.setItem('ctrlperms',ctrlperms);
-            Router.go("/manage/newslist");
+            if(newsperms=="1")
+                Router.go("/manage/newslist");
+            if(adperms=="1")
+                Router.go("/manage/adlist");
+            if(ctrlperms=="1")
+                Router.go("/manage/index/banner");
         }
         //console.log(user.length);
     },

@@ -1,10 +1,6 @@
  Template.newsInfoAdd.rendered = function() {
-   $('#content').ckeditor();
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   //console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+    ckNewsPerms();
+    $('#content').ckeditor();
  };
 
 function saveData(e,t,type,msg) {

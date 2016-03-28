@@ -1,10 +1,7 @@
  Template.adInfoUpdate.rendered = function() {
+   ckAdPerms();
    $('#content').ckeditor();
    $('#introduce').ckeditor();
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
    
    	var imageObj = Session.get("ad_info").imageObj;
    	console.log(Session.get("ad_info"));

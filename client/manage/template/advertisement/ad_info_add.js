@@ -1,10 +1,7 @@
 Template.adInfoAdd.rendered = function() {
+    ckAdPerms();
     $('#content').ckeditor();
     $('#introduce').ckeditor();
-    var tmp =   sessionStorage.getItem('login_user');
-    if(tmp==null){
-      Router.go("/managelogin");
-     }
     $("#house").hide();
     $("#people").hide();
 };

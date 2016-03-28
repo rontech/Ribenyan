@@ -1,3 +1,7 @@
+Template.manageUserAdd.rendered = function() {
+    ckCtrlPerms();
+}
+
 Template.manageUserAdd.events({
     'submit #manageuseradd-form' : function(e,t){
         var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");

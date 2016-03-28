@@ -3,6 +3,7 @@ Template.adView.leagueIs = function (showRule) {
 } ;
 
 Template.adtemplate1.rendered = function() {
+   ckAdPerms();
    unhtml("inner");
    unhtml("contentview");
    var adsession = Session.get("ad_view_info");

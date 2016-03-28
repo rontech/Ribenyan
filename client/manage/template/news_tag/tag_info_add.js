@@ -1,9 +1,5 @@
 Template.tagInfoAdd.rendered = function() {   
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+   ckNewsPerms();
 }
 
 Template.tagInfoAdd.events({
