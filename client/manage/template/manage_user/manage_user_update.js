@@ -14,7 +14,7 @@ Template.manageUserUpdate.events({
         var adperms   = t.find('#adperms').value;
         var ctrlperms = t.find('#ctrlperms').value;
 
-        AdminInfo.update(new Meteor.Collection.ObjectID(_id),{
+        AdminInfo.update(new Meteor.Collection.ObjectID(_id),{$set:{
                         "username":username,
                         "email":email,
                         "tel":tel,
@@ -22,7 +22,7 @@ Template.manageUserUpdate.events({
                         "adperms":adperms,
                         "ctrlperms":ctrlperms,
                         "updateTime":updatetime
-                    },function(){alert("已更新");Router.go("/manage/managelist/");}
+                    }},function(){alert("已更新");Router.go("/manage/managelist/");}
                     );
     },
     'click #delete' : function(e,t){
