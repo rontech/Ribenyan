@@ -1,5 +1,8 @@
+Template.tagUpdate.created = function() {   
+   ckPerms('newsperms');
+}
 Template.tagUpdate.rendered = function() {   
-   ckNewsPerms();
+
 }
 Template.tagUpdate.events({
     'submit #tag_info_update' : function(e,t){

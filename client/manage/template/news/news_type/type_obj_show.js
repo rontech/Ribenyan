@@ -1,5 +1,5 @@
-Template.typeShow.rendered = function() {   
-   ckNewsPerms();
+Template.typeShow.created = function() {   
+   ckPerms('newsperms');
 }
 
 Template.typeShow.helpers({

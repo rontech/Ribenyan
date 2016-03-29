@@ -1,5 +1,8 @@
+Template.tagInfoAdd.created = function() {   
+   ckPerms('newsperms');
+}
 Template.tagInfoAdd.rendered = function() {   
-   ckNewsPerms();
+
 }
 
 Template.tagInfoAdd.events({

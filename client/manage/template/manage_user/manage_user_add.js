@@ -1,5 +1,8 @@
+Template.manageUserAdd.created = function() {
+    ckPerms('ctrlperms');
+}
 Template.manageUserAdd.rendered = function() {
-    ckCtrlPerms();
+
 }
 
 Template.manageUserAdd.events({

@@ -1,5 +1,8 @@
+Template.manageUserUpdate.created = function() {
+    ckPerms('ctrlperms');
+}
 Template.manageUserUpdate.rendered = function() {   
-    ckCtrlPerms();
+
 }
 
 Template.manageUserUpdate.events({

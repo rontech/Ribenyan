@@ -1,5 +1,7 @@
- Template.adInfoUpdate.rendered = function() {
-   ckAdPerms();
+Template.adInfoUpdate.created = function() {
+  ckPerms('adperms');
+}
+Template.adInfoUpdate.rendered = function() {
    $('#content').ckeditor();
    $('#introduce').ckeditor();
    

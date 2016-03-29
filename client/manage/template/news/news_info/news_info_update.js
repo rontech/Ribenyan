@@ -1,5 +1,7 @@
+Template.newsView.created = function() {
+    ckPerms('newsperms');
+};
 Template.newsView.rendered = function() {   
-    ckNewsPerms();
 	$('#content').ckeditor();
    
    	var imageObj = Session.get("news_info").imageObj;

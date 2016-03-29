@@ -1,9 +1,12 @@
+Template.adView.created = function() {
+  ckPerms('adperms');
+}
+
 Template.adView.leagueIs = function (showRule) {
   return this.showRule === showRule;
 } ;
 
 Template.adtemplate1.rendered = function() {
-   ckAdPerms();
    unhtml("inner");
    unhtml("contentview");
    var adsession = Session.get("ad_view_info");

@@ -1,7 +1,11 @@
 i18n.setLanguage('zh');
-Template.newsList.rendered = function() {
-  ckNewsPerms();
-}
+Template.featureComparison.created = function() {
+    ckPerms('newsperms');
+};
+Template.newsList.created = function() {
+    ckPerms('newsperms');
+};
+
 
 //通用显示
 var Common = function (value) {

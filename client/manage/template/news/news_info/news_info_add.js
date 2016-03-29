@@ -1,5 +1,7 @@
+Template.newsInfoAdd.created = function() {
+    ckPerms('newsperms');
+};
  Template.newsInfoAdd.rendered = function() {
-    ckNewsPerms();
     $('#content').ckeditor();
  };
 

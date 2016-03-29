@@ -1,5 +1,5 @@
-Template.typeUpdate.rendered = function() {   
-   ckNewsPerms();
+Template.typeUpdate.created = function() {   
+   ckPerms('newsperms');
 }
 
 Template.typeUpdate.events({

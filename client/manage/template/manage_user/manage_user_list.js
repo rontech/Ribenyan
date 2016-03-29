@@ -1,6 +1,12 @@
 i18n.setLanguage('zh');
+Template.newsList.created = function() {
+    ckPerms('ctrlperms');
+}
+Template.manageUserList.created = function() {
+    ckPerms('ctrlperms');
+}
 Template.newsList.rendered = function() {
-      ckCtrlPerms();
+
 }
 
 //通用显示

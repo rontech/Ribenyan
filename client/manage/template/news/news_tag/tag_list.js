@@ -1,6 +1,12 @@
 i18n.setLanguage('zh');
+Template.tagListTable.created = function() {   
+   ckPerms('newsperms');
+}
+Template.tagList.created = function() {   
+   ckPerms('newsperms');
+}
 Template.tagListTable.rendered = function() {   
-   ckNewsPerms();
+
 }
 
 var noteField = function (value) {

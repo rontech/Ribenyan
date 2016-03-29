@@ -1,5 +1,7 @@
+Template.adInfoAdd.created = function() {
+  ckPerms('adperms');
+}
 Template.adInfoAdd.rendered = function() {
-    ckAdPerms();
     $('#content').ckeditor();
     $('#introduce').ckeditor();
     $("#house").hide();

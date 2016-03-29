@@ -1,5 +1,5 @@
-Template.typeInfoAdd.rendered = function() {   
-   ckNewsPerms();
+Template.typeInfoAdd.created = function() {   
+   ckPerms('newsperms');
 }
 
 Template.typeInfoAdd.events({

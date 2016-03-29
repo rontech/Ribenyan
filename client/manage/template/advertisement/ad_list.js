@@ -1,6 +1,12 @@
 i18n.setLanguage('zh');
+Template.adListTable.created = function() {
+  ckPerms('adperms');
+}
+Template.adList.created = function() {
+  ckPerms('adperms');
+}
 Template.adListTable.rendered = function() {
-   ckAdPerms();
+
 }
 //通用显示
 var Common = function (value) {
