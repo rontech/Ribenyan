@@ -162,7 +162,13 @@ Meteor.methods({
 	*/ 
 	"deleteSecondRightModalData" : function(deleteID){
 		var id = new Meteor.Collection.ObjectID(deleteID);
+
+		// 删除模块；
 		SecondRightLayout.remove(id);
+
+		// 删除广告投放信息
+		SetingAdvInfo.remove({"type":1,"modalID":id});
+
 		var result = {
 			"result" : true
 		};
@@ -221,6 +227,22 @@ Meteor.methods({
 							    }
 			);
 
+			//判断广告是否更新
+			if(data.type == "2"){
+
+				//.添加
+				var advInfo = {
+		    		"type" : 3,
+		    		"advID" : id,
+		    		"modalID" : updateID,
+		    		"dataObjID" : id,
+		    		"isVaild" : 1,
+	    		}; 
+
+				SetingAdvInfo.insert(advInfo);
+			}
+
+
 		}else{//更新
 			var dataID = new Meteor.Collection.ObjectID(data.dataID);
 			//更新数据
@@ -247,6 +269,25 @@ Meteor.methods({
 								}
 			);
 
+			//判断广告是否更新
+			if(data.type == "2"){
+				if(!dataID.equals(id)){// 更新
+					//1.删除
+					SetingAdvInfo.remove({"advID":dataID,"modalID":updateID,"dataObjID":dataID});
+
+					//2.添加
+					var advInfo = {
+			    		"type" : 3,
+			    		"advID" : id,
+			    		"modalID" : updateID,
+			    		"dataObjID" : id,
+			    		"isVaild" : 1,
+		    		}; 
+
+					SetingAdvInfo.insert(advInfo);
+				}
+			}
+
 		}
 
 		var result = {
@@ -261,6 +302,9 @@ Meteor.methods({
 		//解析数据
 		var updateById = new Meteor.Collection.ObjectID(data.updateID);
 		var deleteID   = new Meteor.Collection.ObjectID(data.dataID);
+
+		var dataObj = IndexLayoutCol.findOne({"_id":updateById}).dataObj;
+
 		var num = SecondRightLayout.update( 
 								{
 									"_id":updateById
@@ -271,6 +315,20 @@ Meteor.methods({
 
 							   	}
 							);
+		// 删除对象信息
+		var deleteInfo = "";
+		for(var i=0;i<dataObj.length;i++){
+			if(deleteID.equals(dataObj[i]._id)){
+				deleteInfo = dataObj[i];
+				break;
+			}
+		}
+		
+		// 判断是否是广告
+		if(deleteInfo.type == "2"){//广告
+			SetingAdvInfo.remove({"advID":deleteID,"modalID":updateById,"dataObjID":deleteID});
+		}
+
 		// 技术遗留
 		var result = {
 			"result" : true
