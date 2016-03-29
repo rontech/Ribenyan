@@ -25,6 +25,7 @@ Template.manageUserAdd.events({
             "newsperms":newsperms,
             "adperms":adperms,
             "ctrlperms":ctrlperms,
+            "updateTime":createtime,
             "createTime":createtime
             },function(){
                 alert("录入成功");
