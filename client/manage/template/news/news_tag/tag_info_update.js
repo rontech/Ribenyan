@@ -10,12 +10,12 @@ Template.tagUpdate.events({
         var isVaild  = parseInt(t.find('#isVaild').value);
         var note     = t.find('#note').value;
         TagInfo.update(
-                new Meteor.Collection.ObjectID(_id),{
+                new Meteor.Collection.ObjectID(_id),{$set:{
                     "type":type,
                     "name":name,
                     "isVaild":isVaild,
                     "note":note
-                },function(){alert("已更新");Router.go("/manage/taglist");}
+                }},function(){alert("已更新");Router.go("/manage/taglist");}
             );
     },
     'click #delete' : function(e,t){
