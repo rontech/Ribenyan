@@ -2,8 +2,8 @@ i18n.setLanguage('zh');
 Template.typeListTable.created = function() {   
    ckPerms('newsperms');
 }
-Template.typeListTable.created = function() {   
-   ckPerms('typeList');
+Template.typeList.created = function() {   
+   ckPerms('newsperms');
 }
 
 //显示备注
