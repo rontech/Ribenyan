@@ -20,7 +20,7 @@ Template.adInfoAdd.helpers({
 Template.adInfoAdd.events({
     'submit #ad_info_add' : function(e,t){
         var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
-        
+
         var address          = "";
         var nearestStation   = "";
         var houseArea        = "";

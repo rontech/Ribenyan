@@ -13,6 +13,7 @@ Template.manageUserUpdate.events({
         var username  = t.find('#username').value;
         var email     = t.find('#email').value;
         var tel       = t.find('#tel').value;
+        var role      = t.find('#role').value;
         var newsperms = t.find('#newsperms').value;
         var adperms   = t.find('#adperms').value;
         var ctrlperms = t.find('#ctrlperms').value;
@@ -21,6 +22,7 @@ Template.manageUserUpdate.events({
                         "username":username,
                         "email":email,
                         "tel":tel,
+                        "role":role,
                         "newsperms":newsperms,
                         "adperms":adperms,
                         "ctrlperms":ctrlperms,

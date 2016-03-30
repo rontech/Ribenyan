@@ -1,5 +1,5 @@
 Template.featureComparison.created = function() {
-    //ckPerms('newsperms');
+    ckPerms('newsperms');
 };
 // Template.newsList.created = function() {
 //     ckPerms('newsperms');
