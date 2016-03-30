@@ -1,12 +1,14 @@
 Template.adInfoAdd.created = function() {
   ckPerms('adperms');
 }
-Template.adInfoAdd.rendered = function() {
-    $('#content').ckeditor();
-    $('#introduce').ckeditor();
+Template.adInfoAdd.onRendered(function() {
     $("#house").hide();
     $("#people").hide();
-};
+    CKEDITOR.replace("content");
+    CKEDITOR.replace("introduce");
+    // $("#content").ckeditor();
+    // $('#introduce').ckeditor();
+});
 
 Template.adInfoAdd.events({
     'submit #ad_info_add' : function(e,t){

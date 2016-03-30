@@ -1,9 +1,9 @@
 Template.newsInfoAdd.created = function() {
     ckPerms('newsperms');
 };
- Template.newsInfoAdd.rendered = function() {
-    $('#content').ckeditor();
- };
+Template.newsInfoAdd.onRendered (function() {
+    CKEDITOR.replace("content");
+});
 
 function saveData(e,t,type,msg) {
 	    //console.log(e);

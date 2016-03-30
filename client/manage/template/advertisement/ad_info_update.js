@@ -2,8 +2,8 @@ Template.adInfoUpdate.created = function() {
   ckPerms('adperms');
 }
 Template.adInfoUpdate.rendered = function() {
-   $('#content').ckeditor();
-   $('#introduce').ckeditor();
+    CKEDITOR.replace("content");
+    CKEDITOR.replace("introduce");
    
    	var imageObj = Session.get("ad_info").imageObj;
    	console.log(Session.get("ad_info"));

@@ -2,7 +2,7 @@ Template.newsView.created = function() {
     ckPerms('newsperms');
 };
 Template.newsView.rendered = function() {   
-	$('#content').ckeditor();
+    CKEDITOR.replace("content");
    
    	var imageObj = Session.get("news_info").imageObj;
    	for(var i=0;i<imageObj.length;i++){
