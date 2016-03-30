@@ -6,8 +6,12 @@ Template.adList.created = function() {
   ckPerms('adperms');
 }
 Template.adListTable.rendered = function() {
-
 }
+
+Template.adListTable.role = function (q) {
+  return sessionStorage.getItem('role') === q;
+};
+
 //通用显示
 var Common = function (value) {
   var html;
@@ -29,6 +33,10 @@ Template.adListTable.helpers({
   adTables : function () {
     return AdInfo.find();
   },
+  advTables : function () {
+    var login_user = sessionStorage.getItem('login_user');
+    return AdInfo.find({"cstId":login_user});
+  },
   tableSettings : function () {
     return {
       rowsPerPage: 10,
@@ -45,6 +53,18 @@ Template.adListTable.helpers({
             return new Spacebars.SafeString(html);
           }
         },
+        // {
+        //   key: 'cstId',
+        //   label: '客户账号',
+        //   headerClass: '',
+        //   cellClass:'',
+        //   fn: function (name,object) {
+        //     var tmp = AdminInfo.find({_id:new Meteor.Collection.ObjectID(name)}).fetch();
+        //     console.log(name+tmp[0]);
+        //     //var html = '<span>' + tmp[0].username + '</span>';
+        //     //return new Spacebars.SafeString(html);
+        //   }
+        // },
         {
           key: '',
           label: '',

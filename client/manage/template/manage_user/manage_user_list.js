@@ -1,13 +1,8 @@
 i18n.setLanguage('zh');
-Template.newsList.created = function() {
-    ckPerms('ctrlperms');
-}
 Template.manageUserList.created = function() {
     ckPerms('ctrlperms');
 }
-Template.newsList.rendered = function() {
 
-}
 
 //通用显示
 var Common = function (value) {

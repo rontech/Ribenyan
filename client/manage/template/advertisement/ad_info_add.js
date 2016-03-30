@@ -10,6 +10,13 @@ Template.adInfoAdd.onRendered(function() {
     // $('#introduce').ckeditor();
 });
 
+Template.adInfoAdd.helpers({
+  cstId: function() {
+    var cstId = sessionStorage.getItem('login_user');
+    return cstId;
+  }
+});
+
 Template.adInfoAdd.events({
     'submit #ad_info_add' : function(e,t){
         var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
@@ -59,7 +66,7 @@ Template.adInfoAdd.events({
               companyTelephone = t.find('#companyTelephone').value;
               companyEmail     = t.find('#companyEmail').value;
             }else{
-                alert("请选择广告类型");
+                //alert("请选择广告类型");
             }
         }
 

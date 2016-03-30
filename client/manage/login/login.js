@@ -14,6 +14,8 @@ Template.managelogin.events({
             adperms   =user[0].adperms;
             ctrlperms =user[0].ctrlperms;
             sessionStorage.setItem('login_user',user[0]._id._str);
+            sessionStorage.setItem('username',user[0].username);
+            sessionStorage.setItem('role',user[0].role);
             sessionStorage.setItem('newsperms',newsperms);
             sessionStorage.setItem('adperms',adperms);
             sessionStorage.setItem('ctrlperms',ctrlperms);
