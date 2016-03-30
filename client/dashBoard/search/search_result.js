@@ -1,3 +1,4 @@
+var advNum = 2;
 
 Template.searchResult.events({
 	"click button.js-search" : function(e){//点击查询
@@ -14,13 +15,21 @@ Template.searchResult.events({
 });
 
 Template.searchResult.helpers({
+	"isHavaResult":function(){
+		if(compositeData().length>0){
+			return true;
+		}else{
+			return false;
+		}
+	},
 	"datalist" : function(){
 		console.log(Template.currentData().searchText);
 		if(Template.currentData().searchText){
 			return compositeData();
-		}else{
-			return new Array();
 		}
+	},
+	"searchText" : function(){
+		return Template.currentData().searchText;
 	}
 });
 
@@ -28,8 +37,11 @@ Template.searchResult.helpers({
 function compositeData(){
 
 	var searchText = new RegExp(Template.currentData().searchText);
+
 	var newsInfo = searchNewsData(searchText).fetch();
 	var advInfo = searchAdverInfo(searchText).fetch();
+
+	console.log(newsInfo);
 
 	if(!newsInfo){
 		return advInfo;

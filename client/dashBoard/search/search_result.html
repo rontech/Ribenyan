@@ -5,19 +5,25 @@
         <div class="content_left" >
 
         	<form role="search" id="searchForm" method="get" action="/search">
-	            <input class="search-input-list" name="s" value="ssss">
-	            <button typy="button" class="search-btn transition">
+	            <input class="search-input-list" name="s" value="{{searchText}}">
+	            <button typy="button" class="search-btn transition js-search">
 	            <i class="icon icon-search-list"></i></button>
 	        </form>
-
-	        <!-- 检索结果 -->
-	        {{#each newsList}}
-		      {{#if this.isAdv}}
-				    {{> advLeftCell}}
-		      {{else}}
-		        {{> newsListCell}}
-		      {{/if}}
-			{{/each}}
+	        {{#if isHavaResult}}
+		       <!-- 检索结果 -->
+	         	{{#each datalist}}
+			      {{#if this.isAdv}}
+					    {{> advLeftCell}}
+			      {{else}}
+			        {{> newsListCell}}
+			      {{/if}}
+			    {{/each}}
+	        {{else}}
+		      	<div >
+	        		无检索结果
+	        	</div>
+	        {{/if}}
+	       
 		</div>
 
 		<div class="content_right">
