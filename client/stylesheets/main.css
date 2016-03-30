@@ -175,6 +175,10 @@ a , a:focus,a:hover{
     background-position: -260px -120px;
     cursor: pointer;
 }
+.icon-search-list {
+    background-position: -271px -10px;
+    margin-top: 20px;
+}
 .icon-line {
     background-position: -145px -1px;
 }
@@ -282,6 +286,32 @@ a , a:focus,a:hover{
     font-size: 26px;
     background-color: transparent;
     padding-right: 50px;
+}
+.search-content input:focus {
+  box-shadow:none;
+  outline:0
+}
+
+.search-input-list {
+    height: 60px;
+    width: 99%;
+    border: 1px solid #f0f0f0;
+    font-size: 18px;
+    padding-left: 20px;
+}
+
+.search-btn {
+    position: absolute;
+    margin-left: -80px;
+    width: 80px;
+    height: 60px;
+    text-align: center;
+    background-color: #3ca5f6;
+    display: inline-block;
+    cursor: pointer;
+    border: none!important;
+    line-height: 60px;
+    box-shadow: none!important;
 }
 
 .article-type {

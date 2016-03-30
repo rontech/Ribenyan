@@ -1,0 +1,28 @@
+<!-- 检索结果展现画面 -->
+<template name="searchResult">
+	{{> header }}
+	<div class="container">
+        <div class="content_left" >
+
+        	<form role="search" id="searchForm" method="get" action="/search">
+	            <input class="search-input-list" name="s" value="ssss">
+	            <button typy="button" class="search-btn transition">
+	            <i class="icon icon-search-list"></i></button>
+	        </form>
+
+	        <!-- 检索结果 -->
+	        {{#each newsList}}
+		      {{#if this.isAdv}}
+				    {{> advLeftCell}}
+		      {{else}}
+		        {{> newsListCell}}
+		      {{/if}}
+			{{/each}}
+		</div>
+
+		<div class="content_right">
+			{{> secondRightList}}
+		</div>
+	</div>
+</template>
+
