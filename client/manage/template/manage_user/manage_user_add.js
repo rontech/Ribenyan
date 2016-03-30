@@ -34,7 +34,7 @@ Template.manageUserAdd.events({
             "createTime":createtime
             },function(){
                 alert("录入成功");
-                Router.go("/manage/newslist");
+                Router.go("/manage/managelist");
              });
         }else{
             alert("密码输入不一致，请重新输入！");

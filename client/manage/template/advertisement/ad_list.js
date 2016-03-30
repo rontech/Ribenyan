@@ -53,18 +53,17 @@ Template.adListTable.helpers({
             return new Spacebars.SafeString(html);
           }
         },
-        // {
-        //   key: 'cstId',
-        //   label: '客户账号',
-        //   headerClass: '',
-        //   cellClass:'',
-        //   fn: function (name,object) {
-        //     var tmp = AdminInfo.find({_id:new Meteor.Collection.ObjectID(name)}).fetch();
-        //     console.log(name+tmp[0]);
-        //     //var html = '<span>' + tmp[0].username + '</span>';
-        //     //return new Spacebars.SafeString(html);
-        //   }
-        // },
+        {
+          key: 'cstId',
+          label: '客户账号',
+          headerClass: '',
+          cellClass:'',
+          fn: function (name,object) {
+            var tmp = AdminInfo.find({_id:new Meteor.Collection.ObjectID(name)}).fetch();
+            var html = '<span>' + tmp[0].username + '</span>';
+            return new Spacebars.SafeString(html);
+          }
+        },
         {
           key: '',
           label: '',
