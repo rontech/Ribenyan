@@ -1,3 +1,6 @@
+Template.modalInfoAddTemplate.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 *  添加模块基本信息
 * data : {

@@ -1,3 +1,6 @@
+Template.listRightModalManage.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 * 二级列表右侧 模块新闻管理
 */

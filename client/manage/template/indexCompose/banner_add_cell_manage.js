@@ -1,3 +1,6 @@
+Template.bannerAddCellMange.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 *  banner 添加 模板
 */

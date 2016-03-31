@@ -1,3 +1,6 @@
+Template.bannerDetailCellManage.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 * banner 管理详情页
 */

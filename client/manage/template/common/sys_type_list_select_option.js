@@ -1,3 +1,6 @@
+Template.sysTypeListSelectOption.created = function() {
+    ckPerms('ctrlperms');
+}
 Template.sysTypeListSelectOption.helpers({
 	"typeList" : function(){
 		var listData = TypeInfo.find({"isVaild":1});

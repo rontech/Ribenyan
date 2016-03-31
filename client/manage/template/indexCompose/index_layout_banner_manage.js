@@ -1,3 +1,6 @@
+Template.indexLayoutBannerManage.created = function() {
+    ckPerms('ctrlperms');
+}
 // 首页banner 排版
 
 // 

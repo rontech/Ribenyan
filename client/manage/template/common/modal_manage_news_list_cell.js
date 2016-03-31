@@ -1,3 +1,6 @@
+Template.modalManageNewsListCell.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 * 首页模块管理-新闻列表
 * author ysj

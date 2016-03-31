@@ -1,3 +1,6 @@
+Template.indexModalManage.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 * 首页 模块新闻管理
 */

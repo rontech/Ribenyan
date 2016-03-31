@@ -1,3 +1,6 @@
+Template.modalNewsAddTemplate.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 * 模块 添加新闻 
 * data : {

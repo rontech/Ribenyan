@@ -1,3 +1,6 @@
+Template.popupViewAdvSelect.created = function() {
+    ckPerms('ctrlperms');
+}
 // 广告弹出选择
 Template.popupViewAdvSelect.helpers({
 	tables : function () {

@@ -1,3 +1,6 @@
+Template.modalManageNewsList.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 * 模块管理-新闻列表
 * author ysj

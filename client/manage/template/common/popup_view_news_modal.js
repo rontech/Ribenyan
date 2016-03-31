@@ -1,3 +1,6 @@
+Template.popupViewNewsModal.created = function() {
+    ckPerms('ctrlperms');
+}
 //　新闻弹出层选择
 Template.popupViewNewsModal.events({
 	"hide.bs.modal #newsModal" : function(e){//弹出框关闭

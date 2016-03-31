@@ -1,3 +1,6 @@
+Template.modalInfoEditTemplate.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 *模块基本信息修改
 */

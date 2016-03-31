@@ -1,3 +1,6 @@
+Template.listRightModalManageCell.created = function() {
+    ckPerms('ctrlperms');
+}
 /*
 * 新闻模块cell
 */ 
