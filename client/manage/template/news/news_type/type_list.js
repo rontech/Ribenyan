@@ -1,10 +1,9 @@
 i18n.setLanguage('zh');
-Template.typeListTable.rendered = function() {   
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+Template.typeListTable.created = function() {   
+   ckPerms('newsperms');
+}
+Template.typeList.created = function() {   
+   ckPerms('newsperms');
 }
 
 //显示备注

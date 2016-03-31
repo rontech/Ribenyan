@@ -1,10 +1,9 @@
- Template.adInfoUpdate.rendered = function() {
-   $('#content').ckeditor();
-   $('#introduce').ckeditor();
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+Template.adInfoUpdate.created = function() {
+  ckPerms('adperms');
+}
+Template.adInfoUpdate.rendered = function() {
+    CKEDITOR.replace("content");
+    CKEDITOR.replace("introduce");
    
    	var imageObj = Session.get("ad_info").imageObj;
    	console.log(Session.get("ad_info"));

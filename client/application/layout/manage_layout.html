@@ -6,83 +6,29 @@
 <template name="manageLayout">
 	<script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
-	<link href="/bootstrap/bootstrap.css" rel="stylesheet" media="screen">
+	<!-- <link href="/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> -->
 	<link href="/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="/bootstrap/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
 	<link href="/assets/styles.css" rel="stylesheet" media="screen">
 	<link href="/assets/DT_bootstrap.css" rel="stylesheet" media="screen">
 	<!--<script src="/bootstrap/js/bootstrap.min.js"></script> -->
 	<script src="/assets/scripts.js"></script>
-	<script src="/assets/DT_bootstrap.js"></script>
+	<!-- <script src="/assets/DT_bootstrap.js"></script> -->
 	<script src="/assets/jQuery.md5.js"></script>
 
 		{{> admin_header}}
 		<div class="leftnav col-xs-2">
-			<a href="/manage/newslist">
-				<div class="row block badge-important" style="background-color:#AC2925">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻情报</h5>
-					</div>
-				</div>
-			</a>
-			<a href="/manage/adlist">
-				<div class="row block badge-important" style="background-color:#AC2925">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>广告情報</h5>
-					</div>
-				</div>
-			</a>
-
-			<a href="/manage/typelist">
-				<div class="row block badge-important" style="background-color:#AC2925">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻类型</h5>
-					</div>
-				</div>
-			</a>
-
-			<a href="/manage/taglist">
-				<div class="row block badge-important" style="background-color:#AC2925">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻标签</h5>
-					</div>
-				</div>
-			</a>
-
-			<a href="/manage/manageUserAdd">
-				<div class="row block badge-important" style="background-color:#AC2925">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>后台用户</h5>
-					</div>
-				</div>
-			</a>
-
-			<!-- ysj add  -->
-			<div class="row block badge-important" style="background-color:#AC2925">
-				<a href="{{ pathFor 'indexbannermanage' }}">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>首页－banner排版</h5>
-					</div>
-				</a>
+			<div class="panel-group text-center" id="accordion">
+				{{#if newsPermission "1"}}
+					{{>newsmenu}}
+				{{/if}}
+				{{#if adPermission "1"}}
+					{{>admenu}}
+				{{/if}}
+				{{#if ctrlPermission "1"}}
+					{{>ctlmenu}}
+				{{/if}}
 			</div>
-
-			<div class="row block badge-important" style="background-color:#AC2925">
-				<a href="{{ pathFor 'indexmodalmanage' }}">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>首页-模块排版</h5>
-					</div>
-				</a>
-			</div>
-
-			<div class="row block badge-important" style="background-color:#AC2925">
-				<a href="{{ pathFor 'secondlistmodalmanage' }}">
-					<div class="hidden-xs col-md-10 leftnav-li">
-						<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>二级列表右侧排版</h5>
-					</div>
-				</a>
-			</div>
-			<!-- ysj add end -->
-
 		</div><!--left_cont-->
 
 		<div class="col-xs-10 rightcont">
@@ -92,4 +38,112 @@
 
 </template>
 
+<template name="newsmenu">
+	<div class="panel panel-default">
+		<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			<div class="panel-heading" style="background-color:#D1D1D1">
+				<h4 class="panel-title">
+					新闻模块
+				</h4>
+			</div>
+		</a>
+		<div id="collapseOne" class="panel-collapse collapse in">
+			<div class="panel-body">
+				<a href="/manage/newslist">
+					<div class="row block badge-important" style="background-color:#AC2925">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻情报</h5>
+						</div>
+					</div>
+				</a>
+				<a href="/manage/typelist">
+					<div class="row block badge-important" style="background-color:#AC2925">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻类型</h5>
+						</div>
+					</div>
+				</a>
+
+				<a href="/manage/taglist">
+					<div class="row block badge-important" style="background-color:#AC2925">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>新闻标签</h5>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="admenu">
+	<div class="panel panel-default">
+		<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			<div class="panel-heading" style="background-color:#D1D1D1">
+				<h4 class="panel-title">
+					广告模块
+				</h4>
+			</div>
+		</a>
+		<div id="collapseTwo" class="panel-collapse collapse">
+			<div class="panel-body">
+				<a href="/manage/adlist">
+					<div class="row block badge-important" style="background-color:#AC2925">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>广告情報</h5>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="ctlmenu">
+	<div class="panel panel-default">
+		<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+			<div class="panel-heading" style="background-color:#D1D1D1">
+				<h4 class="panel-title">
+					管理模块
+				</h4>
+			</div>
+		</a>
+		<div id="collapseThree" class="panel-collapse collapse">
+			<div class="panel-body">
+				<a href="/manage/managelist">
+					<div class="row block badge-important" style="background-color:#AC2925">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>后台用户</h5>
+						</div>
+					</div>
+				</a>
+
+				<!-- ysj add  -->
+				<div class="row block badge-important" style="background-color:#AC2925">
+					<a href="{{ pathFor 'indexbannermanage' }}">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>首页－banner排版</h5>
+						</div>
+					</a>
+				</div>
+
+				<div class="row block badge-important" style="background-color:#AC2925">
+					<a href="{{ pathFor 'indexmodalmanage' }}">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>首页-模块排版</h5>
+						</div>
+					</a>
+				</div>
+
+				<div class="row block badge-important" style="background-color:#AC2925">
+					<a href="{{ pathFor 'secondlistmodalmanage' }}">
+						<div class="hidden-xs col-md-10 leftnav-li">
+							<h5 class="text-center" style="color:white;"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&nbsp;</span>二级列表右侧排版</h5>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
 

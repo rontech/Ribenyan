@@ -1,10 +1,8 @@
+Template.newsView.created = function() {
+    ckPerms('newsperms');
+};
 Template.newsView.rendered = function() {   
-	$('#content').ckeditor();
-   	var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   	console.log(tmp);
-   	if(tmp==null){
-      	Router.go("/managelogin");
-   	}	
+    CKEDITOR.replace("content");
    
    	var imageObj = Session.get("news_info").imageObj;
    	for(var i=0;i<imageObj.length;i++){

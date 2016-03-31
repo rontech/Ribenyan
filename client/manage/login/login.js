@@ -10,8 +10,21 @@ Template.managelogin.events({
             alert("登录名或密码有误 请重新输入！");
         }else{
            // Session.set("login_user",user[0]);
-            sessionStorage.setItem('login_user',user[0]);
-            Router.go("/manage/newslist");
+            newsperms = user[0].newsperms;
+            adperms   =user[0].adperms;
+            ctrlperms =user[0].ctrlperms;
+            sessionStorage.setItem('login_user',user[0]._id._str);
+            sessionStorage.setItem('username',user[0].username);
+            sessionStorage.setItem('role',user[0].role);
+            sessionStorage.setItem('newsperms',newsperms);
+            sessionStorage.setItem('adperms',adperms);
+            sessionStorage.setItem('ctrlperms',ctrlperms);
+            if(adperms=="1")
+                Router.go("/manage/adlist");
+            if(ctrlperms=="1")
+                Router.go("/manage/index/banner");
+            if(newsperms=="1")
+                Router.go("/manage/newslist");
         }
         //console.log(user.length);
     },

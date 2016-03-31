@@ -1,18 +1,26 @@
-Template.adInfoAdd.rendered = function() {
-    $('#content').ckeditor();
-    $('#introduce').ckeditor();
-    var tmp =   sessionStorage.getItem('login_user');
-    if(tmp==null){
-      Router.go("/managelogin");
-     }
+Template.adInfoAdd.created = function() {
+  ckPerms('adperms');
+}
+Template.adInfoAdd.onRendered(function() {
     $("#house").hide();
     $("#people").hide();
-};
+    CKEDITOR.replace("content");
+    CKEDITOR.replace("introduce");
+    // $("#content").ckeditor();
+    // $('#introduce').ckeditor();
+});
+
+Template.adInfoAdd.helpers({
+  cstId: function() {
+    var cstId = sessionStorage.getItem('login_user');
+    return cstId;
+  }
+});
 
 Template.adInfoAdd.events({
     'submit #ad_info_add' : function(e,t){
         var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
-        
+
         var address          = "";
         var nearestStation   = "";
         var houseArea        = "";
@@ -58,10 +66,9 @@ Template.adInfoAdd.events({
               companyTelephone = t.find('#companyTelephone').value;
               companyEmail     = t.find('#companyEmail').value;
             }else{
-                alert("请选择广告类型");
+                //alert("请选择广告类型");
             }
         }
-
 
           AdInfo.insert({
                 "title":title,
