@@ -69,5 +69,6 @@ function compositeData(){
 			j++;
 		}
 	}
+	console.log(listInfo);
 	return listInfo;
 }
