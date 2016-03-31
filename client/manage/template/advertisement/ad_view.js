@@ -1,3 +1,7 @@
+Template.adView.created = function() {
+  ckPerms('adperms');
+}
+
 Template.adView.leagueIs = function (showRule) {
   return this.showRule === showRule;
 } ;

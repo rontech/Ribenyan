@@ -1,11 +1,17 @@
 i18n.setLanguage('zh');
-Template.adListTable.rendered = function() {
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+Template.adListTable.created = function() {
+  ckPerms('adperms');
 }
+Template.adList.created = function() {
+  ckPerms('adperms');
+}
+Template.adListTable.rendered = function() {
+}
+
+Template.adListTable.role = function (q) {
+  return sessionStorage.getItem('role') === q;
+};
+
 //通用显示
 var Common = function (value) {
   var html;
@@ -27,6 +33,10 @@ Template.adListTable.helpers({
   adTables : function () {
     return AdInfo.find();
   },
+  advTables : function () {
+    var login_user = sessionStorage.getItem('login_user');
+    return AdInfo.find({"cstId":login_user});
+  },
   tableSettings : function () {
     return {
       rowsPerPage: 10,
@@ -44,12 +54,23 @@ Template.adListTable.helpers({
           }
         },
         {
+          key: 'cstId',
+          label: '客户账号',
+          headerClass: '',
+          cellClass:'',
+          fn: function (name,object) {
+            var tmp = AdminInfo.find({_id:new Meteor.Collection.ObjectID(name)}).fetch();
+            var html = '<span>' + tmp[0].username + '</span>';
+            return new Spacebars.SafeString(html);
+          }
+        },
+        {
           key: '',
           label: '',
           sortable: false,
           headerClass: 'span1',
           fn: function (name,object) {
-           var html = '<div class="text-right"><a class="btn btn-info" href="/manage/adlist/' + object._id + '">编辑</a><a class="btn btn-danger" href="/manage/addel/' + object._id + '">删除</a></div>';
+           var html = '<div class="text-right"><a class="btn btn-info" href="/manage/adlist/' + object._id + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
             return new Spacebars.SafeString(html);
           }
         },
@@ -69,4 +90,20 @@ Template.adListTable.helpers({
       ]
     };
   }
+});
+
+Template.adList.events({
+    'click [name=delete]': function (ev) {
+      ev.preventDefault();
+      var del = window.confirm('该条信息删除！')
+      if(del==true){            
+          var id = ev.currentTarget.value;
+          var addata = AdInfo.findOne({_id:new Meteor.Collection.ObjectID(id)});
+          var imageObj = addata.imageObj;
+          for(var i=0;i<imageObj.length;i++){
+            Files.remove(imageObj[i]);
+          }
+          AdInfo.remove({_id:new Meteor.Collection.ObjectID(id)});
+      }
+    }
 });

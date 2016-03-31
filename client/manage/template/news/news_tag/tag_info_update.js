@@ -1,9 +1,8 @@
+Template.tagUpdate.created = function() {   
+   ckPerms('newsperms');
+}
 Template.tagUpdate.rendered = function() {   
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+
 }
 Template.tagUpdate.events({
     'submit #tag_info_update' : function(e,t){
@@ -14,12 +13,12 @@ Template.tagUpdate.events({
         var isVaild  = parseInt(t.find('#isVaild').value);
         var note     = t.find('#note').value;
         TagInfo.update(
-                new Meteor.Collection.ObjectID(_id),{
+                new Meteor.Collection.ObjectID(_id),{$set:{
                     "type":type,
                     "name":name,
                     "isVaild":isVaild,
                     "note":note
-                },function(){alert("已更新");Router.go("/manage/taglist");}
+                }},function(){alert("已更新");Router.go("/manage/taglist");}
             );
     },
     'click #delete' : function(e,t){

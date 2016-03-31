@@ -1,9 +1,5 @@
-Template.typeUpdate.rendered = function() {   
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
+Template.typeUpdate.created = function() {   
+   ckPerms('newsperms');
 }
 
 Template.typeUpdate.events({
@@ -15,12 +11,12 @@ Template.typeUpdate.events({
         var isVaild   = parseInt(t.find('#isVaild').value);
         var remark    = t.find('#remark').value;
         TypeInfo.update(
-                new Meteor.Collection.ObjectID(_id),{
+                new Meteor.Collection.ObjectID(_id),{$set:{
                     "parentID":parentID,
                     "name":name,
                     "isVaild":isVaild,
                     "remark":remark
-                },function(){alert("已更新");Router.go("/manage/typelist");}
+                }},function(){alert("已更新");Router.go("/manage/typelist");}
             );
     },
     'click #delete' : function(e,t){

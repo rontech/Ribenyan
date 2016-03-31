@@ -1,11 +1,9 @@
- Template.newsInfoAdd.rendered = function() {
-   $('#content').ckeditor();
-   var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   //console.log(tmp);
-   if(tmp==null){
-      Router.go("/managelogin");
-   }
- };
+Template.newsInfoAdd.created = function() {
+    ckPerms('newsperms');
+};
+Template.newsInfoAdd.onRendered (function() {
+    CKEDITOR.replace("content");
+});
 
 function saveData(e,t,type,msg) {
 	    //console.log(e);
@@ -50,7 +48,7 @@ function saveData(e,t,type,msg) {
         var copyright   = t.find('#copyright').value;
         var author      = t.find('#author').value;
         // var newsID      = t.find('#newsID').value;
-        var imageObj = getFileIds();        
+        var imageObj = getFileIds();
 
         NewsInfo.insert({
                         "sourceID":[],

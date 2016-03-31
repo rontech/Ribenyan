@@ -44,7 +44,7 @@ iron:location@1.0.11
 iron:middleware-stack@1.0.11
 iron:router@1.0.12
 iron:url@1.0.11
-jalik:ufs@0.5.2
+jalik:ufs@0.5.3
 jalik:ufs-local@0.2.5
 jquery@1.11.6
 launch-screen@1.0.8

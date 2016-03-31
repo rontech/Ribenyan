@@ -1,0 +1,118 @@
+<template name="manageUserUpdate">
+		<!-- validation -->
+		<div class="row-fluid">
+			<!-- block -->
+			<div class="block">
+				<div class="navbar navbar-inner block-header">
+					<div class="muted pull-left">后台用户更新</div>
+				</div>
+				<div class="block-content collapse in">
+					<div class="span12">
+						<!-- BEGIN FORM-->
+						<form action="#" id="manageuserupdate-form" class="form-horizontal" method="post">
+							<fieldset>
+								<div class="alert alert-error hide">
+									<button class="close" data-dismiss="alert"></button>
+									You have some form errors. Please check below.
+								</div>
+								<div class="alert alert-success hide">
+									<button class="close" data-dismiss="alert"></button>
+									Your form validation is successful!
+								</div>
+								<input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>名称</label>
+									<div class="controls">
+										<input type="text" name="name" id="username" data-required="1" value="{{username}}" class="span6 m-wrap " required/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label"><span class="required">* </span>邮箱</label>
+									<div class="controls">
+										<input name="email" id="email" type="email" value="{{email}}" class="span6 m-wrap" required />
+									</div>
+								</div>
+								<!-- <div class="control-group">
+									<label class="control-label"><span class="required">* </span>密码</label>
+									<div class="controls">
+										<input name="pwd" id="pwd" class="span6 m-wrap" type="password" required>  </div> 
+									<div class="controls">
+										<span>
+										<input name="pwdq" id="pwdq" class="span6 m-wrap " type="password" required>
+										&nbsp;（確認）	
+										</span>
+									</div>
+								</div> -->
+								<div class="control-group">
+									<label class="control-label">电话</label>
+									<div class="controls">
+										<input name="tel" id="tel" type="telephone" value="{{tel}}" class="span6 m-wrap form-control" />
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">用户角色</label>
+									<div class="controls form-inline">
+										<select class="form-control" id="role" name="role">
+											<option value="0" {{selected role "0"}}>管理员</option>
+											<option value="1" {{selected role "1"}}>一般</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">新闻权限</label>
+									<div class="controls form-inline">
+										<select class="form-control" id="newsperms" name="newsperms">
+											<option value="0" {{selected newsperms "0"}}>无</option>
+											<option value="1" {{selected newsperms "1"}}>有</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group" id="newsCtrl">
+									<label class="control-label">新闻版块权限</label>
+									<div class="controls form-inline">
+										{{> typeShow}}
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">广告权限</label>
+									<div class="controls form-inline">
+										<select class="form-control" id="adperms" name="adperms">
+											<option value="0" {{selected adperms "0"}}>无</option>
+											<option value="1" {{selected adperms "1"}}>有</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">管理权限</label>
+									<div class="controls form-inline">
+										<select class="form-control" id="ctrlperms" name="ctrlperms">
+											<option value="0" {{selected ctrlperms "0"}}>无</option>
+											<option value="1" {{selected ctrlperms "1"}}>有</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<div class="controls">
+										<button type="submit" class="btn btn-primary">确定</button>
+										&nbsp;
+										<button type="reset" class="btn">重置</button>
+										&nbsp;
+										<button type="submit" id="delete" class="btn btn-danger">删除</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+						<!-- END FORM-->
+					</div>
+				</div>
+			</div>
+			<!-- /block -->
+		</div>
+		<!-- /validation -->
+</template>
