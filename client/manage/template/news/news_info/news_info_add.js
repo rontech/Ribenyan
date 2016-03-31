@@ -48,7 +48,7 @@ function saveData(e,t,type,msg) {
         var copyright   = t.find('#copyright').value;
         var author      = t.find('#author').value;
         // var newsID      = t.find('#newsID').value;
-        var imageObj = getFileIds();        
+        var imageObj = getFileIds();
 
         NewsInfo.insert({
                         "sourceID":[],

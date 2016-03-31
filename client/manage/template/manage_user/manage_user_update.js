@@ -2,13 +2,28 @@ Template.manageUserUpdate.created = function() {
     ckPerms('ctrlperms');
 }
 Template.manageUserUpdate.rendered = function() {   
-
+    $("#newsCtrl").hide();
+    if($("#newsperms").val()=="1"){
+        $("#newsCtrl").show();
+    }
 }
 
 Template.manageUserUpdate.events({
     'submit #manageuserupdate-form' : function(e,t){
         var updatetime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
         e.preventDefault();
+
+        var Obj = new Array();
+        var index = 0;
+        $("input[name='checkbox']:checkbox:checked").each(function(){
+            var data = $(this).val().split(",");
+            var typeObj =  new  Object();
+            typeObj["typeID"] = new Meteor.Collection.ObjectID(data[0]);
+            typeObj["typeName"] = data[1];
+            Obj[index] = typeObj;
+            index++;
+        });
+
         var _id       = t.find('#_id').value;
         var username  = t.find('#username').value;
         var email     = t.find('#email').value;
@@ -24,6 +39,7 @@ Template.manageUserUpdate.events({
                         "tel":tel,
                         "role":role,
                         "newsperms":newsperms,
+                        "newsblockperms":Obj,
                         "adperms":adperms,
                         "ctrlperms":ctrlperms,
                         "updateTime":updatetime
@@ -39,5 +55,14 @@ Template.manageUserUpdate.events({
 			function(){Router.go("/manage/managelist/");}
             );
         }
+    },
+    'change #newsperms' : function(e,t){
+      e.preventDefault();
+      var newsperms   = t.find('#newsperms').value;
+      if(newsperms=="1"){
+        $("#newsCtrl").show();
+      }else{
+        $("#newsCtrl").hide();
+      }
     },
 });
