@@ -47,7 +47,7 @@ Meteor.methods({
 		// 判断更新或者插入
 		if(data.updateID == "add"){//插入
 			//如果是站外的链接，重新生成ID
-			if(data.siteType == "2"){
+			if(data.siteType == "2" && data.type =="1"){
 				id = new Meteor.Collection.ObjectID();
 			}
 			//验证数据
@@ -80,6 +80,21 @@ Meteor.methods({
 									}
 								}
 							);
+
+		    //判断是否是广告插入信息
+		    if(data.type == "2"){
+		    	var advInfo = {
+		    		"type" : 1,
+		    		"advID" : id,
+		    		"modalID" : updateById,
+		    		"dataObjID" : id,
+		    		"isVaild" : 1,
+		    	};
+		    	//投放信息表插入
+		    	SetingAdvInfo.insert(advInfo);
+
+		    }
+
 		}else{//更新
 			var oldID = new Meteor.Collection.ObjectID(data.updateID);
 			num = IndexLayoutCol.update(
@@ -116,7 +131,24 @@ Meteor.methods({
 								}
 							}
 						);
+			//判断广告是否更新
+			if(data.type == "2"){
+				if(!oldID.equals(id)){// 更新
+					//1.删除
+					SetingAdvInfo.remove({"advID":oldID,"modalID":updateById,"dataObjID":oldID});
 
+					//2.添加
+					var advInfo = {
+			    		"type" : 1,
+			    		"advID" : id,
+			    		"modalID" : updateById,
+			    		"dataObjID" : id,
+			    		"isVaild" : 1,
+		    		}; 
+
+					SetingAdvInfo.insert(advInfo);
+				}
+			}
 		}
 		if(num > 0){
 			var result ={
@@ -159,6 +191,20 @@ Meteor.methods({
 
 							   	}
 							);
+		// 删除对象信息
+		var deleteInfo = "";
+		for(var i=0;i<slideData.length;i++){
+			if(deleteID.equals(slideData[i]._id)){
+				deleteInfo = slideData[i];
+				break;
+			}
+		}
+		
+		// 判断是否是广告
+		if(deleteInfo.type == "2"){//广告
+			SetingAdvInfo.remove({"advID":deleteID,"modalID":updateById,"dataObjID":deleteID});
+		}
+
 		// 技术遗留
 		var result = {
 			"result" : true
@@ -242,7 +288,24 @@ Meteor.methods({
 								}
 							}
 						);
+			//判断广告是否更新
+			if(data.type == "2"){
+				if(!oldID.equals(id)){// 更新
+					//1.删除
+					SetingAdvInfo.remove({"advID":oldID,"modalID":updateById,"dataObjID":oldID});
 
+					//2.添加
+					var advInfo = {
+			    		"type" : 1,
+			    		"advID" : id,
+			    		"modalID" : updateById,
+			    		"dataObjID" : id,
+			    		"isVaild" : 1,
+		    		}; 
+
+					SetingAdvInfo.insert(advInfo);
+				}
+			}
 		
 		if(num > 0){
 			var result ={
@@ -452,8 +515,17 @@ Meteor.methods({
 	* 删除模块排版基本信息
 	*/
 	"deleteIndexModalDate" : function(deleteID){
+
 		var id = new Meteor.Collection.ObjectID(deleteID);
+		// 模板信息
+		// var modalInfo = IndexLayoutCol.findOne({"_id":id});
+		
+		// 删除模板信息
 		IndexLayoutCol.remove(id);
+
+		// 删除广告投放信息
+		SetingAdvInfo.remove({"type":1,"modalID":id});
+
 		var result = {
 			"result" : true
 		};
@@ -512,6 +584,21 @@ Meteor.methods({
 							    }
 			);
 
+			//判断广告是否更新
+			if(data.type == "2"){
+
+				//.添加
+				var advInfo = {
+		    		"type" : 1,
+		    		"advID" : id,
+		    		"modalID" : updateID,
+		    		"dataObjID" : id,
+		    		"isVaild" : 1,
+	    		}; 
+
+				SetingAdvInfo.insert(advInfo);
+			}
+
 		}else{//更新
 			var dataID = new Meteor.Collection.ObjectID(data.dataID);
 			//更新数据
@@ -538,6 +625,25 @@ Meteor.methods({
 								}
 			);
 
+			//判断广告是否更新
+			if(data.type == "2"){
+				if(!dataID.equals(id)){// 更新
+					//1.删除
+					SetingAdvInfo.remove({"advID":dataID,"modalID":updateID,"dataObjID":dataID});
+
+					//2.添加
+					var advInfo = {
+			    		"type" : 1,
+			    		"advID" : id,
+			    		"modalID" : updateID,
+			    		"dataObjID" : id,
+			    		"isVaild" : 1,
+		    		}; 
+
+					SetingAdvInfo.insert(advInfo);
+				}
+			}
+
 		}
 
 		var result = {
@@ -553,6 +659,9 @@ Meteor.methods({
 		//解析数据
 		var updateById = new Meteor.Collection.ObjectID(data.updateID);
 		var deleteID   = new Meteor.Collection.ObjectID(data.dataID);
+
+		var dataObj = IndexLayoutCol.findOne({"_id":updateById}).dataObj;
+
 		var num = IndexLayoutCol.update( 
 								{
 									"_id":updateById
@@ -563,6 +672,21 @@ Meteor.methods({
 
 							   	}
 							);
+
+		// 删除对象信息
+		var deleteInfo = "";
+		for(var i=0;i<dataObj.length;i++){
+			if(deleteID.equals(dataObj[i]._id)){
+				deleteInfo = dataObj[i];
+				break;
+			}
+		}
+		
+		// 判断是否是广告
+		if(deleteInfo.type == "2"){//广告
+			SetingAdvInfo.remove({"advID":deleteID,"modalID":updateById,"dataObjID":deleteID});
+		}
+
 		// 技术遗留
 		var result = {
 			"result" : true

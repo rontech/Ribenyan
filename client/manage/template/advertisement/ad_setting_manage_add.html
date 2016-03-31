@@ -1,0 +1,50 @@
+<!-- 广告二级列表投放模板 -->
+<template name="adSettingManageAdd">
+	<div style="height:50px;padding:20px;" class="control-group">
+		<button style="float:right;" type="button" id="add" 
+		class="btn btn-success js-add-adv">投放</button>
+	</div>
+
+	<div class="well well-lg js-add-adv" style="display:none;margin-left:20px;
+margin-right: 20px;">
+		<div class="cell-box js-modal-info" >
+			<header>
+          		<span>广告投放</span>
+      		</header>
+
+			<!-- 模块详情 -->
+			<form class="form-horizontal detail">
+				<fieldset id="detail_{{id}}_box" data-id="add">
+
+					<div class="control-group" >
+						<label class="control-label ">
+							<span class="required">* </span>广告
+						</label>
+						<div class="controls">
+							 <input type="text" id="advinfo" name="advinfo" data-id="" class="span6 m-wrap " readonly />
+							<button  class="btn btn-success js-select-adv">选择
+							</button>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label">类型</label>
+						<div class="controls form-inline">
+							{{> typeShow}}
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class="controls">
+							<button class="btn btn-success js-save-bt" >保存</button>
+						</div>
+					</div>
+
+					<input type="hidden" name="advID" value="">
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+</template>

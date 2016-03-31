@@ -9,6 +9,10 @@ Template.header.events({
 				Router.go("index");
 			}
 		});
+	},
+	"click li.js-show-search-box" : function(e){//搜索按钮
+		$("#search-box").addClass("active");
+		$("body").css("overflow","hidden");
 	}
 });
 

@@ -54,7 +54,8 @@ Template.bannerAddCellMange.events({
 			Modal.show("popupViewNewsModal");
 		}else if(type=="2"){
 			//弹出广告选窗口
-			alert("暂未对应");
+			// alert("暂未对应");
+			Modal.show("popupViewAdvSelect");
 		}	
 		
 		return false;

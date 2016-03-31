@@ -3,7 +3,11 @@
 	<!-- 列表 -->
 	<!-- <p>新闻列表</p> -->
 	{{#each newsList}}
-		{{> newsListCell}}
+      {{#if this.isAdv}}
+		    {{> advLeftCell}}
+      {{else}}
+        {{> newsListCell}}
+      {{/if}}
 	{{/each}}
 
   <!-- 加载更多 -->
