@@ -1,24 +1,24 @@
 Template.typeShow.created = function() {   
 	ckPerms('newsperms');
 }
-//废弃
-Template.typeShow.helpers({
-	typelists: function() {
-		return TypeInfo.find({isVaild:1}).fetch();
-	},
-});
+// //废弃
+// Template.typeShow.helpers({
+// 	typelists: function() {
+// 		return TypeInfo.find({isVaild:1}).fetch();
+// 	},
+// });
 
-Template.typeShow.helpers({
-	checked: function() {
-		var types = Session.get("news_info").typeObj
-		for(var i = 0;i<types.length;i++){
-			if(this._id._str === types[i].typeID._str) {
-				return "checked";
-			}
-		}
-		return "";
-	}
-});
+// Template.typeShow.helpers({
+// 	checked: function() {
+// 		var types = Session.get("news_info").typeObj
+// 		for(var i = 0;i<types.length;i++){
+// 			if(this._id._str === types[i].typeID._str) {
+// 				return "checked";
+// 			}
+// 		}
+// 		return "";
+// 	}
+// });
 //news add
 Template.userTypeShow.helpers({
 	typelists: function() {
@@ -32,6 +32,15 @@ Template.userTypeShow.helpers({
 		console.log(id);
 		return TypeInfo.find({'_id':{$in:id},isVaild:1}).fetch(); 
 	},
+	checked: function() {
+		var types = Session.get("news_info").typeObj
+		for(var i = 0;i<types.length;i++){
+			if(this._id._str === types[i].typeID._str) {
+				return "checked";
+			}
+		}
+		return "";
+	}
 	
 });
 
