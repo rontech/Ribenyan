@@ -126,7 +126,7 @@ function setBoxValue(boxID,selectAdvID){
 			advIdInput.val(advInfo._id._str);
 
 			//link - 需要修改
-			var newsLink = Meteor.absoluteUrl('manage/adview/' + advInfo._id._str);
+			var newsLink = Meteor.absoluteUrl('adv/detail/' + advInfo._id._str);
 			var newslinkInput = boxObj.find("input[name=siteinlink]");
 			newslinkInput.val(newsLink);
 

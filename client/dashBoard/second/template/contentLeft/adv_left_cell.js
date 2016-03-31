@@ -2,14 +2,14 @@
 Template.advLeftCell.helpers({
 	"templateName" : function(){//显示模板
 		var advInfo = getAdvInfoById(this.advID);
-		var type = advInfo.type;
+		var type = advInfo.showRule;
 		var templateName = "";
 		switch(type){
-			case 1 :
-			case 2 : 
+			case "1" :
+			case "2" : 
 				templateName = "advHouseLeftCell";//房屋广告显示模板
 				break;
-			case 3 : 
+			case "3" : 
 				templateName = "advCompanyJopLeftCell";//招聘信息显示模板
 				break;
 			default :
