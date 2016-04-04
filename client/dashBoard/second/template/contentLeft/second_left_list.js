@@ -1,6 +1,17 @@
 //广告嵌套新闻
 var advNum = 2;
 
+Template.secondLeftList.onRendered(function(){
+	console.log(Template.currentData());
+	var id = new Meteor.Collection.ObjectID(Template.currentData().typeID);
+
+	var typeName = TypeInfo.findOne({"_id":id}).name;
+	var title = typeName　+ "-" + SYS_APP_NAME;
+
+	// 网页标题　类型＋网站名称
+	document.title = title  ;
+});
+
 Template.secondLeftList.helpers({
 	newsList : function(){
 		// 类型ＩＤ
