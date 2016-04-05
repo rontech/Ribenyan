@@ -15,18 +15,18 @@ Meteor.publish("News",function(typeID,sort,limit){
 
 	//新闻列表
 	return NewsCol.find(
-					{
-						isVaild:1,
-						typeObj:{
-							$elemMatch:{
-								typeID: new Meteor.Collection.ObjectID(typeID)
-							}
-						}
-					},
-					{
-						sort: sort, limit: limit
-					}
-				);
+		{
+			isVaild:1,
+			typeObj:{
+				$elemMatch:{
+					typeID: new Meteor.Collection.ObjectID(typeID)
+				}
+			}
+		},
+		{
+			sort: sort, limit: limit
+		}
+	);
 });
 
 //新闻详情

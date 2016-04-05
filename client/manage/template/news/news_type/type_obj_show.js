@@ -24,12 +24,12 @@ Template.userTypeShow.helpers({
 	typelists: function() {
 		var user = sessionStorage.getItem('login_user');
 		var result =  AdminInfo.find({_id:new Meteor.Collection.ObjectID(user)}).fetch();
-		console.log(result[0].newsblockperms);
+		//console.log(result[0].newsblockperms);
 		var id = new Array();
 		for(var i=0;i<result[0].newsblockperms.length;i++){
 			id[i] = result[0].newsblockperms[i].typeID;
 		}
-		console.log(id);
+		//console.log(id);
 		return TypeInfo.find({'_id':{$in:id},isVaild:1}).fetch(); 
 	},
 	checked: function() {
@@ -50,7 +50,6 @@ Template.typeShowAll.helpers({
 	},
 	checked: function() {
 		var user = Session.get('user_info');
-		console.log("////////"+user.newsblockperms);
 		var id = new Array();
 		for(var i=0;i<user.newsblockperms.length;i++){
 			if(this._id._str === user.newsblockperms[i].typeID._str) {
