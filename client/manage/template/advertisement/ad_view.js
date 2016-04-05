@@ -24,6 +24,9 @@ Template.adtemplate1.rendered = function() {
                             );
       active="";
    }
+
+   setTitle();
+
 }
 
 Template.adtemplate2.rendered = function() {
@@ -37,8 +40,19 @@ Template.adtemplate2.rendered = function() {
                            "</div>"
                             );
    }
+   setTitle();
 }
 
 Template.adtemplate3.rendered = function() {
   unhtml("inner");
+  setTitle();
+}
+
+//设置网站标题 
+function setTitle(){
+  var adTitle = Template.currentData().title;
+  var title = adTitle + "-" + SYS_APP_NAME;
+
+  // 网页标题　类型＋网站名称
+  document.title = title  ;
 }
