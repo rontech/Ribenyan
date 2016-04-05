@@ -29,16 +29,14 @@ Template.manageListTable.helpers({
 			rowsPerPage: 10,
 			showNavigation: 'auto',
 			showColumnToggles: false,
-			fields: [
+			fields: 
+			[
 				{
 					key: 'username',
 					label: '账号',
 					headerClass: '',
 					cellClass:'',
-					fn: function (name,object) {
-						var html = '<a href="/manage/managelist/' + object._id + '">' + name + '</a>';
-						return new Spacebars.SafeString(html);
-					}
+					fn: function (name,object) {var html = '<a href="/manage/managelist/' + object._id + '">' + name + '</a>';return new Spacebars.SafeString(html);}
 				},
 				{ key: 'email', label: '邮箱', fn: Common},
 				{ key: 'tel', label: '电话', fn: Common},
@@ -48,9 +46,7 @@ Template.manageListTable.helpers({
 					label: '',
 					sortable: false,
 					headerClass: 'span1',
-					fn: function (name,object) {
-						var html = '<div class="text-right"><a class="btn btn-info" href="/manage/managelist/' + object._id + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
-						return new Spacebars.SafeString(html);
+					fn: function (name,object) {var html = '<div class="text-right"><a class="btn btn-info" href="/manage/managelist/' + object._id + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';return new Spacebars.SafeString(html);
 					}
 				}
 			]
