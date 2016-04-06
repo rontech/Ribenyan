@@ -1,23 +1,22 @@
 <!-- 广告投放管理 -->
 <template name="advSettingManage">
-
-	<div class="row-fluid">
-		<!-- block -->
-		<div class="block span12">
-			<div class="navbar navbar-inner block-header">
-				<div class="muted pull-left">广告投放信息一栏</div>
+	<div class="row">
+		<div class="col-md-12 panel-default">
+			<div class="content-box-header panel-heading">
+				<div class="panel-title ">广告投放信息一栏</div>
+			
+				<div class="panel-options">
+					<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+					<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+				</div>
 			</div>
-			{{> adSettingManageAdd}}
-
-			<!-- 投放关高列表 -->
-			<div class="block-content collapse in">
-				<div class="control-group span12">
-					 <div id="advSettingTable" class="controls">
-					    {{> reactiveTable class="table table-striped table-bordered table-hover " collection=adTables settings=tableSettings}}
-					  </div>
+			<div class="content-box-large box-with-header">
+				<div class="panel-body">
+					{{> adSettingManageAdd}}
+					{{> reactiveTable class="table table-striped table-bordered table-hover " collection=adTables settings=tableSettings}}
 				</div>
 			</div>
 		</div>
-		<!-- /block -->
 	</div>
 </template>
+
