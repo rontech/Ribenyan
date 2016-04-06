@@ -1,5 +1,5 @@
 Template.typeShow.created = function() {   
-	ckPerms('newsperms');
+	// ckPerms('newsperms');
 }
 //广告投放
 Template.typeShow.helpers({

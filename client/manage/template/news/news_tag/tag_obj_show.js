@@ -1,5 +1,5 @@
 Template.tagShow.created = function() {   
-	ckPerms('newsperms');
+	// ckPerms('newsperms');
 }
 
 Template.tagShow.helpers({
