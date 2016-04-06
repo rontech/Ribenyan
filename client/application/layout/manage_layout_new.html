@@ -28,7 +28,7 @@
 	<![endif]-->
 
 	
-	<div class="header">
+	<div class="header" id="header">
 		 <div class="container-fluid">
 			<div class="row">
 			   <div class="col-md-5">
@@ -68,7 +68,7 @@
 		 </div>
 	</div>
 
-	<div class="page-content">
+	<div class="page-content" id="page-content">
 		<div class="row">
 		  <div class="col-md-2">
 			<div class="sidebar content-box" style="display: block;">
@@ -95,7 +95,7 @@
 		</div>
 	</div>
 
-	<footer style="position: fixed;bottom:0;left:0;width:100%;">
+	<footer >
 		 <div class="container">
 
 			<div class="copy text-center">
@@ -104,7 +104,15 @@
 
 		 </div>
 	</footer>
-
+	<script type="text/javascript">
+		//footer吸底效果
+	    var _ch = $("#page-content").height();//这个就是你中间内容div的高度
+	    var _wh = $(window).height();//整个窗口的高度
+	    //console.log("window's height",_wh,"content's height",_ch,"_wh - _ch:",_wh - _ch);
+	    if(_wh - _ch > 135){
+	        $("#page-content").css("min-height",(_wh-135)+"px");
+	    }
+	</script>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
 	<!-- jQuery UI -->
