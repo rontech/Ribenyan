@@ -1,115 +1,104 @@
 <template name="manageUserAdd">
-		<!-- validation -->
-		<div class="row-fluid">
-			<!-- block -->
-			<div class="block">
-				<div class="navbar navbar-inner block-header">
-					<div class="muted pull-left">后台用户注册</div>
-				</div>
-				<div class="block-content collapse in">
-					<div class="span12">
-						<!-- BEGIN FORM-->
-						<form action="#" id="manageuseradd-form" class="form-horizontal" method="post">
-							<fieldset>
-								<div class="alert alert-error hide">
-									<button class="close" data-dismiss="alert"></button>
-									You have some form errors. Please check below.
-								</div>
-								<div class="alert alert-success hide">
-									<button class="close" data-dismiss="alert"></button>
-									Your form validation is successful!
-								</div>
-								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>名称</label>
-									<div class="controls">
-										<input type="text" name="name" id="username" data-required="1" class="span6 m-wrap " />
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>邮箱</label>
-									<div class="controls">
-										<input name="email" id="email" type="text" class="span6 m-wrap" />
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label"><span class="required">* </span>密码</label>
-									<div class="controls">
-										<input name="pwd" id="pwd" class="span6 m-wrap" type="password" >  </div> 
-									<div class="controls">
-										<span>
-										<input name="pwdq" id="pwdq" class="span6 m-wrap " type="password" >
-										&nbsp;（確認）	
-										</span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">电话</label>
-									<div class="controls">
-										<input name="tel" id="tel" type="text" class="span6 m-wrap" />
-									</div>
-								</div>
-
-								<div class="control-group">
-									<label class="control-label">用户角色</label>
-									<div class="controls form-inline">
-										<select class="form-control" id="role" name="role">
-											<option value="0">管理员</option>
-											<option value="1">一般</option>
-										</select>
-									</div>
-								</div>
-
-								<div class="control-group">
-									<label class="control-label">新闻权限</label>
-									<div class="controls form-inline">
-										<select class="form-control" id="newsperms" name="newsperms">
-											<option value="0">无</option>
-											<option value="1">有</option>
-										</select>
-									</div>
-								</div>
-								
-								<div class="control-group" id="newsCtrl">
-									<label class="control-label">新闻版块权限</label>
-									<div class="controls form-inline">
-										{{> typeShowAll}}
-									</div>
-								</div>
-
-								<div class="control-group">
-									<label class="control-label">广告权限</label>
-									<div class="controls form-inline">
-										<select class="form-control" id="adperms" name="adperms">
-											<option value="0">无</option>
-											<option value="1">有</option>
-										</select>
-									</div>
-								</div>
-
-								<div class="control-group">
-									<label class="control-label">管理权限</label>
-									<div class="controls form-inline">
-										<select class="form-control" id="ctrlperms" name="ctrlperms">
-											<option value="0">无</option>
-											<option value="1">有</option>
-										</select>
-									</div>
-								</div>
-
-								<div class="control-group">
-									<div class="controls">
-										<button type="submit" class="btn btn-primary">确定</button>
-										&nbsp;
-										<button type="reset" class="btn">重置</button>
-									</div>
-								</div>
-							</fieldset>
-						</form>
-						<!-- END FORM-->
-					</div>
+	<div class="row">
+		<div class="col-md-12 panel-default">
+			<div class="content-box-header panel-heading">
+				<div class="panel-title ">后台用户注册</div>
+			
+				<div class="panel-options">
+					<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+					<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
 				</div>
 			</div>
-			<!-- /block -->
+			<div class="content-box-large box-with-header">
+				<div class="panel-body">
+					<form class="form-horizontal" id="manageuseradd-form" role="form" method="post">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">名称</label>
+							<div class="col-sm-10">
+								<input type="text" id="username" name="username" data-required="1" class="form-control " required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+							<div class="col-sm-10">
+								<input type="email" id="email" name="email" data-required="1" class="form-control " required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">密码</label>
+							<div class="col-sm-10">
+								<input type="password" id="pwd" name="pwd" data-required="1" class="form-control " required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">确认密码</label>
+							<div class="col-sm-10">
+								<input type="password" id="pwdq" name="pwdq" data-required="1" class="form-control " required/>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="select-1">电话</label>
+							<div class="col-md-10">
+								<input name="tel" id="tel" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="select-1">用户角色</label>
+							<div class="col-md-10">
+								<select class="form-control" id="role" name="role">
+									<option value="0">管理员</option>
+									<option value="1">一般</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="select-1">新闻权限</label>
+							<div class="col-md-10">
+								<select class="form-control" id="newsperms" name="newsperms">
+									<option value="0">无</option>
+									<option value="1">有</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group" id="newsCtrl">
+							<label class="col-md-2 control-label" for="select-1">新闻版块权限</label>
+							<div class="col-md-10">
+								{{> typeShowAll}}
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="select-1">广告权限</label>
+							<div class="col-md-10">
+								<select class="form-control" id="adperms" name="adperms">
+									<option value="0">无</option>
+									<option value="1">有</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="select-1">管理权限</label>
+							<div class="col-md-10">
+								<select class="form-control" id="ctrlperms" name="ctrlperms">
+									<option value="0">无</option>
+									<option value="1">有</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary">确定</button>
+								&nbsp;
+								<button type="reset" class="btn">重置</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
 		</div>
-		<!-- /validation -->
+	</div>
+
 </template>
+
