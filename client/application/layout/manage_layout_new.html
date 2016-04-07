@@ -6,19 +6,19 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- jQuery UI -->
-	<link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
+<!-- 	<link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen"> -->
 
 	<!-- Bootstrap -->
 <!-- 	<link href="../../admin3/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 	<!-- styles -->
 	<link href="../../admin3/css/styles.css" rel="stylesheet">
 
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="../../admin3/vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
 	<link href="../../admin3/vendors/select/bootstrap-select.min.css" rel="stylesheet">
 	<link href="../../admin3/vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
 
-	<link href="../../admin3/css/forms.css" rel="stylesheet">
+	<link href="../../admin3/css/forms.css" rel="stylesheet"> -->
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,8 +56,8 @@
 						  <li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account: {{ShowUserName}}<b class="caret"></b></a>
 							<ul class="dropdown-menu animated fadeInUp" style="">
-							  <!-- <li><a href="profile.html">Profile</a></li> -->
-							  <li><a href="/managelogout">Logout</a></li>
+							  <li><a href="{{ pathFor 'managepwdchange' }}">changePwd</a></li>
+							  <li><a href="{{ pathFor 'managelogout' }}">Logout</a></li>
 							</ul>
 						  </li>
 						</ul>
@@ -116,13 +116,13 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
 	<!-- jQuery UI -->
-	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<!-- <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<!-- <script src="../../admin3/bootstrap/js/bootstrap.min.js"></script> -->
 
-	<script src="../../admin3/vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+<!-- 	<script src="../../admin3/vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
 
-	<script src="../../admin3/vendors/select/bootstrap-select.min.js"></script>
+	<script src="../../admin3/vendors/select/bootstrap-select.min.js"></script> -->
 
 	<!-- <script src="../../admin3/vendors/tags/js/bootstrap-tags.min.js"></script> -->
 
@@ -130,7 +130,7 @@
 
 	<!-- <script src="../../admin3/vendors/moment/moment.min.js"></script> -->
 
-	<script src="../../admin3/vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+	<!-- <script src="../../admin3/vendors/wizard/jquery.bootstrap.wizard.min.js"></script> -->
 
 	 <!-- bootstrap-datetimepicker -->
 	 <!-- <link href="../../admin3/vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
@@ -141,7 +141,7 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
  -->
 	<script src="../../admin3/js/custom.js"></script>
-	<script src="../../admin3/js/forms.js"></script>
+	<!-- <script src="../../admin3/js/forms.js"></script> -->
 </template>
 
 <template name="newsmenu">
