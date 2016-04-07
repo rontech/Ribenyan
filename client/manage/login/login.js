@@ -3,8 +3,8 @@ Template.managelogin.events({
 		e.preventDefault();
 		var username = t.find('#login-username').value;
 		var password = t.find('#login-password').value;
-		password = $.md5(password); 
-		var user = AdminInfo.find({"username":username,"pwd":password}).fetch();
+		pwd = $.md5(password); 
+		var user = AdminInfo.find({"username":username,"pwd":pwd}).fetch();
 
 		if(user.length == 0){
 			alert("登录名或密码有误 请重新输入！");

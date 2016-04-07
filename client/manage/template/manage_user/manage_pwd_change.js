@@ -7,13 +7,9 @@ Template.managePwdChange.events({
 		var oldpwd  = t.find('#oldpwd').value;
 		var pwd       = t.find('#pwd').value;
 		var pwdq      = t.find('#pwdq').value;
-		console.log("userId"+userId);
-		console.log("oldpwd"+oldpwd);
-		console.log("pwd"+pwd);
-		console.log("pwdq"+pwdq);
+
 		if(pwd == pwdq){
 			oldpwd = $.md5(oldpwd); 
-			console.log("oldpwd"+oldpwd);
 			var user = AdminInfo.find({"_id":new Meteor.Collection.ObjectID(userId),"pwd":oldpwd}).fetch();
 			if(user.length == 0){
 				alert("旧密码有误 请重新输入！");
