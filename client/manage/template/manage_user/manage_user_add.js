@@ -31,26 +31,31 @@ Template.manageUserAdd.events({
 		var adperms   = t.find('#adperms').value;
 		var ctrlperms = t.find('#ctrlperms').value;
 
-		if(pwd == pwdq) {
-			pwd = $.md5(pwd); 
-			AdminInfo.insert({
-				"username":username,
-				"pwd":pwd,
-				"email":email,
-				"tel":tel,
-				"role":role,
-				"newsperms":newsperms,
-				"newsblockperms":Obj,
-				"adperms":adperms,
-				"ctrlperms":ctrlperms,
-				"updateTime":createtime,
-				"createTime":createtime
+		var ckName = AdminInfo.find({"username":username}).fetch();
+		if(ckName.length == 0){
+			if(pwd == pwdq) {
+				pwd = $.md5(pwd); 
+				AdminInfo.insert({
+					"username":username,
+					"pwd":pwd,
+					"email":email,
+					"tel":tel,
+					"role":role,
+					"newsperms":newsperms,
+					"newsblockperms":Obj,
+					"adperms":adperms,
+					"ctrlperms":ctrlperms,
+					"updateTime":createtime,
+					"createTime":createtime
 			},function(){
 				alert("录入成功");
 				Router.go("/manage/managelist");
 			 });
+			}else{
+				alert("密码输入不一致，请重新输入！");
+			}
 		}else{
-			alert("密码输入不一致，请重新输入！");
+			alert("登录名重复，请更换！");
 		}
 	},
 	'change #newsperms' : function(e,t) {
