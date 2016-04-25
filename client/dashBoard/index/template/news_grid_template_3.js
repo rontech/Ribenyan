@@ -1,5 +1,5 @@
 //模板固定显示新闻数据
-var defaultNum = 6;
+var defaultNum = 2;
 
 //页面创建之前
 Template.newsGridTemplate3.onCreated(function(){

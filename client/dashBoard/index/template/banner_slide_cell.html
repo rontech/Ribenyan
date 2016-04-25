@@ -1,16 +1,11 @@
 <template name="bannerSlideCell">
-	<li style="display: none;">
-	    <a href="{{link}}" target="_blank">
-	        <img src="{{getImagePathByID imageID}}" alt="{{introduce}}" title="{{title}}">
-	        <div class="text">
-	            <div class="title">{{title}}</div>
-	            <div class="autor" style="max-height:24px;line-height:24px;">
-	              <p style="width: 90%;float: left;max-height:20px;white-space: nowrap;overflow:hidden;">{{introduce}}</p>
-	              <span class="num">
-	                (<span class="pageState"><span>3</span>/3</span>)
-	              </span>
-	            </div>
-	        </div>
-	    </a>
+    <li>
+        <img src="{{getImagePathByID imageID}}" />
+        <h3>{{title}}</h3>
+        <h2>secondTitle 数据库缺！</h2>
+        <div>
+            <p>{{introduce}}</p>
+            <span><a href="{{link}}">更多...</a></span>
+        </div>
     </li>
 </template>

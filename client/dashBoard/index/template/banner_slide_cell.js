@@ -1,3 +1,2 @@
 Template.bannerSlideCell.helpers({
-	
 });

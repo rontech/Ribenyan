@@ -1,2 +1,6 @@
 .meteor/local
 .meteor/meteorite
+.idea/news.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/vcs.xml

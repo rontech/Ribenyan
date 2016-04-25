@@ -1,0 +1,14 @@
+<template name="mainLeft">
+    <div class="main-left">
+        <div class="content-inside">
+            {{#with bannerData}}
+                 {{> UI.dynamic template = this.containerTemplate}}
+            {{/with}}
+            <!-- 新闻类型列表 -->
+            {{#each typeNewsList}}
+                {{> UI.dynamic template = this.containerTemplate}}
+            {{/each}}
+
+        </div>
+    </div>
+</template>

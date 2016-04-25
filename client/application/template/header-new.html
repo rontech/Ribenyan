@@ -1,0 +1,26 @@
+<template name="header">
+    {{> popupSearchInput}}
+    <div class="header">
+        <div class="content">
+            <div class="logo"><span id="sp-menu"></span>LOGO</div>
+            <div class="respBox">
+                <div class="menu" id="nav">
+                    <ul>
+                        {{#each firstNode}}
+                            <li class="on">
+                                <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="tools">
+                    <ul>
+                        <li class="searchli"><a class="search" href="javascript:;"><span></span></a></li>
+                        <li><a class="login" href="{{pathFor 'login'}}">登录/注册</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,5 +1,5 @@
 <!-- 新闻页签 -->
-<template name="newsGridCell3">
+<template name="newsGridCell31">
 	<!-- 卡片布局 -->
   	<div class="col-sm-6 col-md-4">
         <!-- 新闻卡片 -->
@@ -26,3 +26,32 @@
     </div>
     <!-- 卡片布局 end-->
 </template>
+
+
+
+<template name="newsGridCell3">
+        <div class="row-left">
+            <!-- 新闻卡片 -->
+            <div class="card">
+                <a href="{{pathFor 'newsDetail' id=this._id._str}}">
+                    <div class="img" style="background-image:url({{getImagePathByID imageid}});">
+                    </div>
+                </a>
+                <div class="info">
+                    <h3>{{title}}</h3>
+                    <p>{{introduce}}</p>
+                </div>
+                <div class="share finan">
+                    <ul>
+                        <li class="look"><a href="#"><i></i>124</a></li>
+                        <li class="WeChat"><a href="#"><i></i></a></li>
+                        <li class="webo"><a href="#"><i></i></a></li>
+                        <li class="new"><a href="#"><i></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 卡片布局 end-->
+        </div>
+ </template>
+
+

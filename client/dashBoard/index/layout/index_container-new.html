@@ -1,0 +1,42 @@
+<template name="indexContainer">
+    <!-- 主体 start-->
+    <div id="main">
+        {{> mainLeft}}
+        {{> mainRight}}
+    </div>
+
+    <script type="text/javascript">
+        var openTrue = true;
+        var opinionTrue = true;
+        $(function() {
+            $("#sp-menu").on('click', function() {
+                if (openTrue) {
+                    $('.respBox').addClass('on');
+                    openTrue = false;
+                } else {
+                    $('.respBox').removeClass('on');
+                    openTrue = true;
+                }
+            })
+            $(".search").on('click', function() {
+                $('#search-box').addClass('active');
+                $('body').css('overflow', 'hidden')
+            });
+            $(".icon-search-close").on('click', function() {
+                $('#search-box').removeClass('active');
+                $('body').css('overflow', 'inherit')
+            })
+
+            $(".login-input input").focus(function(){
+                $(this).parents().css('border-color','#1d8bdf');
+                $(this).prev('span').css('background-color','#1d8bdf');
+
+            })
+            $(".login-input input").blur(function(){
+                $(this).parents().css('border-color','#dcddde');
+                $(this).prev('span').css('background-color','#dcddde');
+
+            })
+        })
+    </script>
+</template>

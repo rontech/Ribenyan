@@ -21,7 +21,6 @@ iron:router
 check
 ejson
 accounts-password
-twbs:bootstrap
 email
 peppelg:bootstrap-3-modal
 aslagle:reactive-table

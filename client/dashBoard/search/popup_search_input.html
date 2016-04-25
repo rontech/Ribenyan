@@ -1,15 +1,15 @@
 <template name="popupSearchInput">
 
-	<div class="search-box" id="search-box">
-		<i class="icon icon-search-close js-close-search-box"></i>
-      	<div class="search-content overlay-dialog-animate">
-	        <div class="search-input">
-	            <form role="search" id="searchForm" method="get" action="/search">
-	                <button type="button" class="js-search"></button>
-	                <input placeholder="请输入关键字" name="s" id="search-input">
+    <div id="search-box" class="search-box">
+        <i class="fa fa-close icon-search-close"></i>
+        <div class="search-content overlay-dialog-animate">
+            <div class="search-input">
+                <form action="/search" method="get" id="searchForm" role="search">
+                    <button class="js-search" type="submit"><i class="fa fa-search"></i></button>
+                    <input id="search-input" name="s" placeholder="请输入关键字">
                 </form>
-	        </div>
-	    </div>
-	</div>
+            </div>
+        </div>
+    </div>
 
 </template>
