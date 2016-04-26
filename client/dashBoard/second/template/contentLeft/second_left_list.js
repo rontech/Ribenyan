@@ -10,6 +10,26 @@ Template.secondLeftList.onRendered(function(){
 
 	// 网页标题　类型＋网站名称
 	document.title = title  ;
+
+	var url = location.href;
+	if(url.indexOf("second/") > 0 ) {
+		url = url.split("second/");
+		//console.log(url[1]);
+		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(url[1])}).fetch();
+		//console.log(tmp[0].showName);
+		//console.log($(".header .content .respBox #nav li ").text());
+		$(".header .content .respBox #nav li ").each(function(){
+			// console.log($(this).text());
+			if($(this).text().toString() == tmp[0].showName.){
+				console.log($(this).text());
+				$(this).addClass("on");
+				return;
+			}
+		});
+	}else if(url.indexOf("news/detail/") > 0){
+		url = url.split("news/detail/");
+		console.log(url[1]);
+	}
 });
 
 Template.secondLeftList.helpers({

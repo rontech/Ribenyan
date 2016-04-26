@@ -4,5 +4,9 @@ Template.secondContainer.onCreated(function () {
 });
 
 Template.secondContainer.helpers({
-	
+
+});
+
+Template.secondContainer.onRendered(function(){
+
 });

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="fluid-icon" href="/icon.png" title="">
+		<link rel="shortcut icon" href="/icon.png" />
+		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="../css/grey.css" />
+		<script src="../js/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../js/icheck.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<div id="header">
+			<div class="logo">
+				<img src="img/web-logo.png"/>
+			</div>
+			<div class="header-tools">
+				<span class="open-menu"><i class="fa fa-bars"></i></span><span class="log-out"><i class="fa"></i></span>
+				<span class="setup"><i class="fa fa-cog"></i></span>
+			</div>
+		</div>
+		<div id="main-content">
+			<div class="left-menu">
+				<div class="user-info">
+					<i class="gender-img"><img src="img/ico_woman.png"/></i>
+					<p><span class="user-name">X X X</span><span class="user-gender">女士</span></p>
+				</div>
+				<div class="list-menu">
+					<ul class="nav">
+						<li class="submenu open">
+							<a href="#">
+								<i class="fa fa-file-text-o"></i> 新闻模块
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><span>21</span><a href="#"><i class="fa fa-comments-o"></i>新闻情报</a>
+								
+								</li>
+								<li><span>21</span><a href="#"><i class="fa fa-pie-chart"></i>新闻类型</a></li>
+								<li><span>21</span><a href="#"><i class="fa fa-calendar"></i>新闻标签</a></li>
+							</ul>
+						</li>
+
+						<li class="submenu">
+							<a href="#">
+								<i class="fa fa-hourglass-2"></i> 广告模块
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><a href="#"> 广告情報</a></li>
+							</ul>
+						</li>
+
+						<li class="submenu">
+							<a href="#">
+								<i class="fa fa-cogs"></i> 管理模块
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><a href="#">后台用户</a></li>
+								<li><a href="#">广告投放管理</a></li>
+								<li><a href="#">首页－banner排版</a></li>
+								<li><a href="#">首页-模块排版</a></li>
+								<li><a href="#">二级列表右侧排版</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="classes-list">
+						<li><a href="javascript">用户</a></li>
+						<li><a href="javascript">安全</a></li>
+						<li><a href="javascript">顾客</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content-box">
+				
+			
+			 <div class="title-box">
+			   	<h2>新闻信息登入</h2>
+			 </div>
+			 <div class="new-form">
+			 	<form action="" method="post">
+			 		<div class="must clear"><span>标    题</span><input type="text" name="title" class="pub-input" id="" value="" /></div>
+			 		<div class="must clear"><span>副标题</span><input type="text" name="subheading" class="pub-input" id="" value="" /></div>
+			 		<div class="must clear"><span>简    介</span><input type="text" name="synopsis" class="pub-input" id="" value="" /></div>
+			 		<div class="must clear"><img src="img/edit.gif"/></div>
+			 		<div class="tags">
+			 			<ul>
+			 				<li>标签</li>
+			 				<li><input type="checkbox"><span>军事</span></li>
+			 				<li><input type="checkbox" checked><span>汽车</span></li>
+			 				<li><input type="checkbox"><span>实事</span></li>
+			 				<li><input type="checkbox"><span>新房</span></li>
+			 				<li><input type="checkbox"><span>装修</span></li>
+			 			</ul>
+			 		</div>
+			 		<div class="tags">
+			 			<ul>
+			 				<li>类型</li>
+			 				<li><input type="checkbox"><span>社会人文</span></li>
+			 				<li><input type="checkbox" checked><span>经济金融</span></li>
+			 				<li><input type="checkbox"><span>政治军事</span></li>
+			 				<li><input type="checkbox"><span>文化科技</span></li>
+			 				<li><input type="checkbox"><span>娱乐休闲</span></li>
+			 			</ul>
+			 		</div>
+			 		<div class="must clear"><span>关键字</span><input type="text" name="keyword" class="pub-input" id="" value="" /></div>
+			 		<div class="not-must clear mb15">
+                     	<dl class="seleDl">
+                     	<dt>排序规则</dt>
+                     	<dd><select>
+                        <option value="正常">正常</option>
+                        <option value="发布时间">发布时间</option>
+                        <option value="其他">其他</option>
+                      </select></dd>
+                     </dl>
+                     
+                     <dl class="seleDl">
+                     	<dt>语言</dt>
+                     	<dd><select>
+                        <option value="日语">日语</option>
+                        <option value="英语">英语</option>
+                        <option value="中文">中文</option>
+                      </select></dd>
+                     </dl>
+			 		</div>
+			 		
+<div class="not-must"><span>原文链接</span><input type="text" name="link" class="pub-input" id="" value="" /></div>
+<div class="not-must clear mb15">
+                     	<dl class="seleDl">
+                     	<dt>版      权</dt>
+                     	<dd><select>
+                        <option value="系统">系统</option>
+                        <option value="转发">转发</option>
+                      </select></dd>
+                     </dl>
+                     <dl class="seleDl">
+                     	<dt>作  者</dt>
+                     	<dd><select>
+                        <option value="作者1">作者1</option>
+                        <option value="作者2">作者2</option>
+                      </select></dd>
+                     </dl>
+                     <dl class="seleDl last">
+                     	<dt>图  片</dt>
+                     	<dd class="not-a-b"><a href="javascript:;" class="file">选择文件
+    <input type="file" name="" id="">
+</a><div class="showFileName"></div></dd>
+                     </dl>
+			 		</div>
+			 		<div class="info-list clear">
+			 		 <ul>
+			 		 	<li><span>文件名</span><input type="text" name="" id="" value="" /></li>
+			 		 	<li><span>URL</span><input type="text" name="" id="" value="" /></li>
+			 		 	<li><span>类型</span><input type="text" name="" id="" value="" /></li>
+			 		 	<li><span>扩展名</span><input type="text" name="" id="" value="" /></li>
+			 		 	<li><span>大小</span><input type="text" name="" id="" value="" /></li>
+			 		 </ul>
+			 		</div>
+			 		<div class="btn-list">
+			 		<button class="bg-red">发  布</button>
+			 		<button class="bg-yellow">暂  存</button>
+			 		<button class="bg-green">重  置</button>
+			 		</div>
+			 	</form>
+			 </div>
+			
+		</div>
+		
+		<script>
+$(document).ready(function(){
+  $('input').iCheck({ 
+  labelHover : false, 
+  cursor : true, 
+  checkboxClass : 'icheckbox_square-grey', 
+  radioClass : 'iradio_square-blue', 
+  increaseArea : '20%' 
+}); 
+});
+</script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</body>
+</html>

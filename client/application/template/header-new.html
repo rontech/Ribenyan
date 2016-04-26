@@ -2,12 +2,12 @@
     {{> popupSearchInput}}
     <div class="header">
         <div class="content">
-            <div class="logo"><span id="sp-menu"></span>LOGO</div>
+            <div class="logo"><span id="sp-menu"></span><img src="../../img/web-logo.png"></div>
             <div class="respBox">
                 <div class="menu" id="nav">
                     <ul>
                         {{#each firstNode}}
-                            <li class="on">
+                            <li >
                                 <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
                                 </a>
                             </li>
