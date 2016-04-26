@@ -11,19 +11,21 @@ Template.secondLeftList.onRendered(function(){
 	// 网页标题　类型＋网站名称
 	document.title = title  ;
 
+});
+
+Template.secondLeftList.onCreated(function(){
 	var url = location.href;
-	if(url.indexOf("second/") > 0 ) {
+	if(url.indexOf("/index") > 0 ){
+		$(".header .content .respBox .menu li").removeClass("on");
+		$(".header .content .respBox #nav li:first").addClass("on");
+	}else  if(url.indexOf("second/") > 0 ) {
 		url = url.split("second/");
-		//console.log(url[1]);
 		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(url[1])}).fetch();
-		//console.log(tmp[0].showName);
-		//console.log($(".header .content .respBox #nav li ").text());
 		$(".header .content .respBox #nav li ").each(function(){
-			// console.log($(this).text());
-			if($(this).text().toString() == tmp[0].showName.){
-				console.log($(this).text());
+			if($(this).text().trim() == tmp[0].showName.trim()){
 				$(this).addClass("on");
-				return;
+			}else {
+				$(this).removeClass("on");
 			}
 		});
 	}else if(url.indexOf("news/detail/") > 0){
