@@ -1,8 +1,11 @@
 <!-- 检索结果展现画面 -->
 <template name="searchResult">
+    <link href="../../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../css/subpage.css" rel="stylesheet" type="text/css" >
 	{{> header }}
-	<div class="container">
-        <div class="content_left" >
+	<div id="main">
+        <div class="subpage-list-content" >
 
         	<form role="search" id="searchForm1" method="get" action="/search">
 	            <input class="search-input-list" id="search-input1" name="s" value="{{searchText}}">
@@ -26,9 +29,10 @@
 	       
 		</div>
 
-		<div class="content_right">
+		<div class="classify">
 			{{> secondRightList}}
 		</div>
 	</div>
+    <script type="text/javascript" src="../../js/common.js"></script>
 </template>
 
