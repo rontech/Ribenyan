@@ -2,6 +2,7 @@
 	display: none !important;   /*隐藏内容*/
 	visibility: hidden !important;  /*隐藏可视性*/
 }
+
 .fade {
 	opacity: 0;
 	-webkit-transition: opacity 0.15s linear;
