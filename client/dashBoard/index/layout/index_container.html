@@ -1,14 +1,21 @@
-<template name="indexContainer1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<template name="indexContainer">
 	 <!-- 主体 start-->
-    <div class="container">
+    <!-- <div class="container"> -->
     	<!-- 顶部数据 -->
-    	{{#with bannerData}}
+    	<!-- {{#with bannerData}}
     		{{> UI.dynamic template = this.containerTemplate}}
-    	{{/with}}
+    	{{/with}} -->
 		<!-- 新闻类型列表 -->
-		{{#each typeNewsList}}
-			{{> UI.dynamic template = this.containerTemplate}}
-		{{/each}}
+		<!-- {{#each typeNewsList}} -->
+			<!-- {{> UI.dynamic template = this.containerTemplate}}
+		{{/each}} -->
+    <!-- </div> -->
+
+    <!-- 主体 start-->
+    <div id="main">
+        {{> mainLeft}}
+        {{> mainRight}}
     </div>
+    <script type="text/javascript" src="../../js/common.js"></script>
+
 </template> 
