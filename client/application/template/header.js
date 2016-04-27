@@ -1,3 +1,7 @@
+Template.header.onRendered(function(){
+	$("#nav li:first").addClass("on");
+
+});
 
 Template.header.events({
 	"click .logout" : function(e){

@@ -1,38 +1,30 @@
 <template name="newsDetail">
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <div class="page-content">
 
-	<!-- 新闻标题 -->
-	<h1 class="news-t-h1">{{title}}</h1>
-	<!-- 作者信息 -->
-	<div class="article-author">
-        <span class="author-name">
-            日本眼
-        </span>
-        <i class="icon icon-line"></i>
-        <span class="article-time">2016-03-15 07:10</span>
-        <span class="article-pl">评论{{discussNum}}</span>
-        <span class="article-pl">赞{{praiseNum}}</span>
+        <div class="content-copy">
+            <h1>{{title}}</h1>
+            <div class="tools-list">
+                <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span>
+                <span class="date">2016-03-15  07:10</span><span class="comment">评论 {{discussNum}}</span><span class="praise"> 赞 {{praiseNum}}</span></div>
+            <div class="page-copy">
+                <p>
+                    {{#if isHaveImage}}
+                        <div class="img">
+                            <img src="{{getImaegPathByObj this.imageObj}}" alt="{{title}}">
+                        </div>
+                        <br>
+                    {{/if}}
+                        <span class="text-remarks" label="备注">{{introduce}}</span>
+                </p>
+                <p></p>
+                {{{content}}}
+            </div>
+
+            <!-- 评论 -->
+            {{> discuss　newsID=_id._str}}
+
+        </div>
     </div>
-	<!-- 新闻图片 -->
-	{{#if isHaveImage}}
-	<div class="article-img-box">
-        <img src="{{getImaegPathByObj this.imageObj}}" alt="{{title}}">
-    </div>
-    {{/if}}
-    <!-- 简介 -->
-
-	<!-- 新闻详情 -->
-    <div class="mod_list">
-    	<!-- 显示新闻结构 使用三层大括号显示-->
-    	<p>
-    		<span class="text-remarks" label="备注">{{introduce}}
-    		</span>
-    	</p>
-
-    	<p></p>
-        
-        {{{content}}}
-        <!-- 评论 -->
-        {{> discuss　newsID=_id._str}}
-    </div>
-
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
 </template>

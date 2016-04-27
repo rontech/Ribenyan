@@ -1,27 +1,19 @@
 <template name="newsListCell">
+    <li>
+        <div class="img" style="background-image: url({{getImaegPathByObj this.imageObj}});"></div>
+        <div class="content-info">
+            <h2>{{title}}</h2>
+            <div class="tools-list">
+                <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span>
+            </div>
+            <p id="introduce">{{introduce}}</p>
+            <p class="btn">
+                {{#each tagObj}}
+                <a href="javascript:;">{{tagName}}</a>
+                {{/each}}
+                <a href="{{pathFor 'newsDetail' id=this._id._str}}">详情点击</a>
+            </p>
+        </div>
+    </li>
 
-	<!-- 文章cell -->
-    <div class="mod_cell">
-       <div class="row">
-        <!-- 文章图片 -->
-        <div class="mod_cell_pic col-md-3 col-sm-3 col-xs-3" style="background-image:url({{getImaegPathByObj this.imageObj}});-webkit-background-size: cover;background-size: cover;background-position: center;">
-            <a href="{{pathFor 'newsDetail' id=this._id._str}}">
-              <!-- <img class="img-responsive" src="{{getImaegPathByObj this.imageObj}}"> -->
-            </a>
-        </div>
-        
-        <!-- 文章信息 -->
-        <div class="col-md-9 col-sm-9 col-xs-9">
-            <a href="{{pathFor 'newsDetail' id=this._id._str}}" class="subtitle" alt="文章标题">{{title}}</a>
-            <div class="desc">{{introduce}}</div>
-            <div class="all">
-              {{#each tagObj}}
-                 <span>{{tagName}}</span>
-              {{/each}}
-              </div>
-        </div>
-        
-      </div>
-    </div>
-   	<!-- 文章cell end-->
 </template>

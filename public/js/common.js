@@ -1,20 +1,19 @@
 var openTrue = true;
-			$(function() {
-				var p = 0,
-					t = 0;
-				$(window).scroll(function(e) {
-					p = $(this).scrollTop()
-					if (p == 0) {
-						$('.header').removeClass("on");
-						return true;
-					} else {
-						$('.header').addClass("on");
-						return true;
-					}
-					setTimeout(function() {
-						t = p;
-					}, 0)
-				})
+$(function() {
+				
+				
+					 $(document).scroll(function(){
+	   					var scrollTop =$(document).scrollTop();
+	 					 if(scrollTop==0){
+	 					 	$('.header').removeClass("on");
+	 					 }else{
+	 					 	$('.header').addClass("on");
+	 							 }
+					})
+				
+				
+				
+				
 				$("#sp-menu").on('click', function() {
 					if (openTrue) {
 						$('body').addClass('with-panel-left-cover');
@@ -46,11 +45,22 @@ var openTrue = true;
 					$(this).parents().css('border-color', '#dcddde');
 					$(this).prev('span').css('background-color', '#dcddde');
 				})
+				
+				
+				
 			})
 			
 
-
-
+$(".onWeChat").on('click', function() {
+			$(".js_qrcode_wrap.on").removeClass('on');
+			$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+					
+				})
+$(".share-close").on('click', function() {
+			
+					$(this).parents(".js_qrcode_wrap.on").removeClass('on');
+					
+				})
 jQuery(document).ready(function($){
 	// browser window scroll (in pixels) after which the "back to top" link is shown
 	var offset = 100,

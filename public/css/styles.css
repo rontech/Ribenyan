@@ -19,9 +19,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 body {
 	line-height: 18px;
 	color: #414141;
-	background: #efefef;
+	background: #efefef  ! important;
 	font-size: 14px;
-	font-family: "microsoft yahei","微软雅黑",arial;
+	font-family: "microsoft yahei","微软雅黑",arial ! important;
 	padding-top:84px;
 }
 
@@ -331,19 +331,55 @@ font-weight:initial;
 
 .details .row {margin-top: 10px;}
 .details .row .row-left{ width: 50%; float:left;  }
-.card{ margin: 0px 10px;border-radius: 3px;  -webkit-box-shadow:  0 0px 1px #b8b8b8;  box-shadow: 0 0px 1px #b8b8b8;}
+.card{ margin: 0px 10px;border-radius: 3px;  -webkit-box-shadow:  0 0px 1px #b8b8b8;  box-shadow: 0 0px 1px #b8b8b8;position: relative;}
 .details .row .row-left .img{ border-radius: 3px 3px 0px 0px;height: 185px;
 -webkit-background-size: cover;
 background-size: cover;
 background-position: center;}
 .details .row .row-left .info{ padding: 20px; width: 100%; background: #fff;}
-.details .row .row-left .info h3{ font-size: 20px;margin-bottom: 5px; line-height: 26px;}
+.details .row .row-left .info h3{ min-height: 50px; max-height: 50px; overflow: hidden; font-size: 20px;margin-bottom: 5px; line-height: 26px;}
 .details .row .row-left .info h3 span{ display:block;font-size: 18px; margin-bottom: 20px; line-height: 24px;}
-
+.details .row .row-left .info p{ min-height: 38px; max-height: 38px; overflow: hidden; }
 .list-img{ margin:  10px 10px 0px 10px;}
 .list-img ul li{ float: left; margin-right: 1%; width: 33%; overflow: hidden;-webkit-border-radius: 3px;border-radius: 3px; }
 .list-img ul li:last-child{ margin-right: 0%; width: 32%;}
 .list-img ul li a img{}
+
+
+.js_qrcode_wrap {
+  position: absolute;
+  left: 0;
+  width: 150px;
+  top: 50px;
+  left:50%;
+  margin-left: -75px;
+  background: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding-bottom: 10px;
+  -webkit-box-shadow: 0px 3px 5px #444C5A;
+  box-shadow: 0px 3px 5px #444C5A;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.js_qrcode_wrap.on{opacity: 1;
+  z-index: 5;}
+.js_qrcode_wrap p{ font-size: 10px;line-height: 14px;margin-top: 10px; border-top: 1px solid #eee;padding-top: 10px;padding-left: 5px;}
+.js_qrcode_wrap p a{color: #00BFE8; text-decoration: underline;}
+.js_qrcode_close {
+	text-align: center;
+	width: 100%;
+  display: inline-block;
+  border-bottom: 1px solid #eee; margin-bottom: 5px;
+  padding: 5px 0px;
+}
+.js_qrcode_close i{float: right;}
+
+.js_share_qrcode{padding: 10p 0px; text-align: center;}
+.js_share_qrcode img{ margin: 0 auto;}
+
 .bring-in{width: 100%; background: #f7f7f7;}
 .bring-in .title{ width: 33.33%; border-right:1px solid #e6e6e6; border-left:1px solid #e6e6e6; background: #fff; height: 70px; line-height: 70px; text-align: center; font-size: 16px; font-weight: bold; }
 .bring-in .title i{ display: inline-block; width: 24px; height: 24px; background: url(../img/ico_use.png) no-repeat;vertical-align: -10%;margin-right: 5px; }
@@ -399,7 +435,8 @@ background-position: center;}
 .share ul li.look a i{ background:  url(../img/sprites.png) 0px -147px;width: 22px ;  margin-right:5px;}
 .share ul li.WeChat a i{ background:  url(../img/sprites.png) -41px -148px;width: 23px ; }
 .share ul li.webo a i{ background:  url(../img/sprites.png) -81px -148px;width: 23px ; }
-.share ul li.new a i{ background:  url(../img/sprites.png) 0px -182px;width: 57px ; height: 21px; }
+.share ul li.WeChat{ position: relative;}
+.share ul li.new a i{-webkit-border-radius:3px;border-radius:3px; text-align:center; line-height:21px;color:#fff;font-size: 12px;font-family:sans-serif;width: 57px; height: 21px;}
 .share ul li:last-child:before{width:0;}
 .share ul li:last-child a{padding: 20px 0px 21px 0px ; }
 .financial h2 i{ background-position:-24px 0px;}
@@ -558,6 +595,9 @@ body{padding-top: 60px;}
 }
 @media only screen and (max-width:320px) {
 .list-img ul li { width: 100%; margin-bottom: 10px;}
+.bxslider li div{ height: 70px;}
+.bxslider li div p{padding-top: 5px !important;}
+.bxslider li div span{bottom: 5px;}
 #main .main-left{padding: 0;}
 .bring-in .title { font-size: 14px;}
 .bring-in .title i{ width: 20px; height: 20px; background-size: cover;vertical-align: -8%;}

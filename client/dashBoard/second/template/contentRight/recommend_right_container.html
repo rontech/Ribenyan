@@ -1,10 +1,7 @@
 <template name="recommendRightContainer">
 	 <!-- 推荐阅读 -->
-    <div class="box_moder hot_article" style="display:{{isShow}}">
-      <h3>
-        <b>{{typeShowName}}</b>
-      </h3>
-      <span class="span_mark"></span>
+    <div class="hot-card">
+        <div class="title">{{typeShowName}}</div>
       <!-- 推荐文章列表 -->
       <ul>
          {{#each dataObj}}

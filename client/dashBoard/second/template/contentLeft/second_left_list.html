@@ -2,20 +2,24 @@
 <template name="secondLeftList">
 	<!-- 列表 -->
 	<!-- <p>新闻列表</p> -->
-	{{#each newsList}}
-      {{#if this.isAdv}}
-		    {{> advLeftCell}}
-      {{else}}
-        {{> newsListCell}}
-      {{/if}}
-	{{/each}}
+    <div class="content-list">
+            <ul>
+                {{#each newsList}}
+                    {{#if this.isAdv}}
+                        {{> advLeftCell}}
+                    {{else}}
+                        {{> newsListCell}}
+                    {{/if}}
+                {{/each}}
 
-  <!-- 加载更多 -->
-  {{#if hasMore}}
-    <a class="load_more" href="{{pathFor 'second' typeID=typeID limit=newLimit}}">
-      加载更多
-    </a>
-  {{/if}}
+                  <!-- 加载更多 -->
+                {{#if hasMore}}
+                    <a class="load_more" href="{{pathFor 'second' typeID=typeID limit=newLimit}}">
+                      加载更多
+                    </a>
+                {{/if}}
+            </ul>
+    </div>
   
 </template>
 

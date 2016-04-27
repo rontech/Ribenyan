@@ -1,28 +1,20 @@
 <!-- 房屋广高 -->
 <template name="advHouseLeftCell">
-	<!-- 广告cell -->
-    <div class="mod_cell">
-       <div class="row">
-
-        <!-- 房屋信息 -->
-        <div class="col-md-6 col-sm-6 col-xs-6">
-            <a href="{{pathFor 'adDetail' id=this._id._str}}" class="subtitle" alt="文章标题">{{title}}</a>
-            <div class="advInfo">
-            <p>位置:{{address}}</p>
-			      <p>地铁:{{nearestStation}}</p>
-            <p>价格:{{price}}</p>
+    <li>
+        <div class="img" style="background-image: url({{getImagePathByID this.imageObj}});"></div>
+        <div class="content-info">
+            <h2>{{title}}</h2>
+            <div class="tools-list">
+                <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span>
             </div>
-            
+            <p>位置:{{address}}</p>
+            <p>地铁:{{nearestStation}}</p>
+            <p>价格:{{price}}</p>
+            <p class="btn">
+                <a href="javascript:;">房产广告</a>
+                <a href="{{pathFor 'adDetail' id=this._id._str}}">详情点击</a>
+            </p>
         </div>
+    </li>
 
-        <!-- 房屋图片 -->
-        <div class="mod_cell_pic col-md-6 col-sm-6 col-xs-6">
-            <a href="">
-              <img src="{{getImagePathByID this.imageObj}}">
-            </a>
-        </div>
-        
-      </div>
-    </div>
-   	<!-- 广告cell end-->
 </template>

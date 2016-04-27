@@ -1,15 +1,7 @@
 <template name="recommendRightListCell">
-	<!-- 文章 -->
-	  <li>
-	      <!-- 图片 -->
-	      <div class="hot_article_img" style="background-image:url({{getImagePathByID imageID}});-webkit-background-size: cover;background-size: cover;background-position: center;">
-	        <a href="{{link}}" target="_blank">
-	        	<!-- <div class="img" style="background-image:url({{getImagePathByID imageID}});"></div> -->
-	            <!-- <img src="{{getImagePathByID imageID}}"> -->
-	        </a>
-	      </div>
-	      
-	      <a href="{{link}}" target="_blank">{{title}}</a>
-	  </li>
-      <!-- 文章 -->
+    <a href="{{link}}" target="_blank">
+        <div class="img" style="background-image: url({{getImagePathByID imageID}});"></div>
+        <h3>{{title}}</h3>
+    </a>
+    <br>
 </template>

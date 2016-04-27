@@ -2,17 +2,19 @@
 <template name="secondContainer">
     <link href="../../css/font-awesome.min.css" rel="stylesheet">
     <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../css/subpage.css" rel="stylesheet" type="text/css" >
 	{{> header }}
-	<div class="container">
-        <div class="content_left" >
+	<div id="main">
+        <div class="subpage-list-content" >
         	<!-- {{>　secondLeftList typeID=typeID limit=limit}} -->
         	{{> yield region="main"}}
 		</div>
 
-		<div class="content_right">
+		<div class="classify">
 			{{> secondRightList}}
 		</div>
 	</div>
 	<!-- 弹出框 -->
-	
+    {{> goTop }}
+    <script type="text/javascript" src="../../js/common.js"></script>
 </template>

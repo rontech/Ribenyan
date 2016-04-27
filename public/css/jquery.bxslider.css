@@ -139,9 +139,9 @@
 .bx-wrapper .bx-controls-direction a.disabled {
 	display: none;
 }
-
+.list-img .bx-pager {display: none;}
 /* AUTO CONTROLS (START / STOP) */
-
+.list-img a.bx-prev,.list-img a.bx-next{display: block;}
 .bx-wrapper .bx-controls-auto {
 	text-align: center;
 	display: none;
@@ -224,7 +224,7 @@
 .bxslider li h2{font-size: 24px; color: #fff; bottom:100px;}
 .bxslider li h3{font-size: 16px;bottom:130px}
 .bxslider li div{ padding-right: 20px;}
-.bxslider li div p{ width: 100%; height: 34px; ;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.bxslider li div p{ width: 100%; height: 34px;}
 }
 
 
@@ -232,7 +232,7 @@
 
 
 @media only screen and (max-width:320px) {
-.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{bottom:65px;}
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{bottom:70px;}
 .bx-wrapper .bx-pager.bx-default-pager a{ width: 12px; height: 12px;}
 .bxslider li h2{ font-size: 16px; bottom:90px}
 .bxslider li h3{ font-size: 14px;bottom:110px}
