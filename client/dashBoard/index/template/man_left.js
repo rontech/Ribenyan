@@ -1,3 +1,0 @@
-Template.mainLeft.onRendered(function() {
-
-});
