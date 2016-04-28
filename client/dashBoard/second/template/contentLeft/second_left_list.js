@@ -14,13 +14,14 @@ Template.secondLeftList.onRendered(function(){
 });
 
 Template.secondLeftList.onCreated(function(){
+	//导航高亮显示
 	var url = location.href;
 	if(url.indexOf("/index") > 0 ){
 		$(".header .content .respBox .menu li").removeClass("on");
 		$(".header .content .respBox #nav li:first").addClass("on");
 	}else  if(url.indexOf("second/") > 0 ) {
-		url = url.split("second/");
-		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(url[1])}).fetch();
+		url = url.split("/");
+		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(url[4])}).fetch();
 		$(".header .content .respBox #nav li ").each(function(){
 			if($(this).text().trim() == tmp[0].showName.trim()){
 				$(this).addClass("on");
@@ -29,8 +30,8 @@ Template.secondLeftList.onCreated(function(){
 			}
 		});
 	}else if(url.indexOf("news/detail/") > 0){
-		url = url.split("news/detail/");
-		console.log(url[1]);
+		url = url.split("/");
+		console.log(url);
 	}
 });
 
