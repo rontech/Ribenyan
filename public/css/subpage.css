@@ -12,7 +12,7 @@
 .tools-list span i{ color: #fe8835; font-size: 18px;}
 .tools-list span.comment,.tools-list span.date,.tools-list span.praise{ font-size: 15px; color: #99a3b1;}
 .subpage-list-content .content-list ul li .content-info p{ font-size: 15px;margin-top: 15px; min-height: 38px; max-height: 38px; overflow: hidden;}
-.subpage-list-content .content-list ul li .content-info p.btn{ text-align: right; min-height: auto;}
+.subpage-list-content .content-list ul li .content-info p.btn{ text-align: right; min-height: auto;display:block !important;}
 .subpage-list-content .content-list ul li .content-info p.btn a{  display:inline-block; width:100%;max-width: 115px; background: #fe8835; color: #fff; text-align: center; line-height: 30px;-webkit-border-radius: 3px;border-radius: 3px; box-shadow: 0px 3px 0px #ef7a28; margin-left: 20px; font-family: "microsoft yahei","微软雅黑",arial; font-size: 16px; font-weight: bold;}
 .subpage-list-content .content-list ul li .content-info p.btn a:first-child{margin-left: 0;}
 .classify{ float: right; width:30%;max-width: 440px; background: #f2f9ff;padding-bottom: 20px; overflow: hidden;}

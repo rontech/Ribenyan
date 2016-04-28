@@ -4,6 +4,7 @@
     <link href="../../css/font-awesome.min.css" rel="stylesheet">
     <link href="../../css/styles.css" rel="stylesheet">
     <link href="../../css/subpage.css" rel="stylesheet" type="text/css" >
+    <link href="../../css/main.css" rel="stylesheet" type="text/css" >
 	{{> header }}
 	<div id="main">
         <div class="subpage-list-content" >
@@ -13,21 +14,24 @@
 	            <button typy="button" class="search-btn transition js-search">
 	            <i class="icon icon-search-list"></i></button>
 	        </form>
-	        {{#if isHavaResult}}
-		       <!-- 检索结果 -->
-	         	{{#each datalist}}
-			      {{#if this.isAdv}}
-					    {{> advLeftCell}}
-			      {{else}}
-			        {{> newsListCell}}
-			      {{/if}}
-			    {{/each}}
-	        {{else}}
-		      	<div >
-	        		无检索结果
-	        	</div>
-	        {{/if}}
-	       
+            <div class="content-list">
+                    <ul>
+                    {{#if isHavaResult}}
+                       <!-- 检索结果 -->
+                        {{#each datalist}}
+                          {{#if this.isAdv}}
+                                {{> advLeftCell}}
+                          {{else}}
+                            {{> newsListCell}}
+                          {{/if}}
+                        {{/each}}
+                    {{else}}
+                        <div >
+                            无检索结果
+                        </div>
+                    {{/if}}
+                    </ul>
+            </div>
 		</div>
 
 		<div class="classify">
