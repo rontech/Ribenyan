@@ -17,7 +17,17 @@
                 <div class="tools">
                     <ul>
                         <li class="searchli"><a class="search" href="javascript:;"><span></span></a></li>
-                        <li><a class="login" href="{{pathFor 'login'}}">登录/注册</a></li>
+
+                        <!--<li><a class="login" href="{{pathFor 'login'}}">登录/注册</a></li>-->
+
+                        {{#if currentUser}}
+                            <li><a class="login" href="">{{#with currentUser}}{{name}}{{/with}}</a></li>
+                            <li><a class="logout login" href="#">退出</a></li>
+                        {{else}}
+                            <li><a class="login" href="{{pathFor 'login'}}">登录/注册</a></li>
+                        {{/if}}
+
+
                     </ul>
                 </div>
             </div>

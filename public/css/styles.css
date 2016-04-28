@@ -232,7 +232,7 @@ font-weight:initial;
 .header .logo span:after{left:0; width: 100%; position: absolute; content: "";top:13px; height: 8px; background: #3a476b;}	
 .header .menu {
 	position: absolute;
-	right: 245px;
+	right:290px;
 	transition: all 0.3s ease-in-out;
 }
 #nav.sec{right:400px;}
