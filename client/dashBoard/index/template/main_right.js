@@ -1,7 +1,5 @@
-Template.mainLeft.helpers({
-    bannerData : function(){//轮播图
-        return IndexLayoutCol.findOne({showType:1});
-    },
+Template.mainRight.helpers({
+
     typeNewsList : function(){//新闻及广告
         var list =  IndexLayoutCol.find(
             {
@@ -13,9 +11,16 @@ Template.mainLeft.helpers({
         ).fetch();
         var leftList = [];
         var num = Math.floor(list.length / 2);
-        for(var i = 0;i<num;i++){
-            leftList[i] = list[i];
+        for(var i = num;i<list.length;i++){
+            leftList[leftList.length] = list[i];
         }
         return leftList;
+    },
+    isFirstOne : function(index){
+        if (index == 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 });

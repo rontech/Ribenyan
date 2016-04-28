@@ -1,0 +1,37 @@
+<!-- 首页房屋广告 -->
+<template name="indexHouseAdvOne">
+
+	<div class="details house">
+		<h2><span><a href="#">更多...</a></span><i></i>房屋广告</h2>
+		{{#each dataObj}}
+		<div class="row">
+			<div class="card">
+				
+				<div class="row-alone" style="background-image: url({{getImagePathByID imageid}});">
+					<div class="share-list">
+						<ul>
+							<li class="look">
+								<a href="javascript:;" class="on"></a>
+							</li>
+							<li class="WeChat">
+								<a href="javascript:;"></a>
+							</li>
+							<li class="webo">
+								<a href="javascript:;"></a>
+							</li>
+						</ul>
+					</div>
+					<a target="_blank" href="{{link}}">
+						<div class="look-copy">
+							<h3>{{title}}<span></span></h3>
+							<p>{{introduce}}<span><a href="#">详细 . . .</a></span></p>
+						</div>
+					</a>
+				</div>
+				
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	<div class="clearfix"></div>
+</template>

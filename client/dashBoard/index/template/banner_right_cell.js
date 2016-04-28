@@ -1,3 +1,0 @@
-Template.bannerRightCell.helpers({
-	
-});

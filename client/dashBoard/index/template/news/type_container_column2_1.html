@@ -1,0 +1,66 @@
+<template name="typeContainerColumn21"> 
+	
+	<!--  -->
+	{{#each listNews}}
+		{{#if isBanner}}
+			<!-- banner -->
+			{{#each data}}
+			<a href="{{pathFor 'newsDetail' id=this._id._str}}" target="_blank"><div class="banner"><img src="{{getImagePathByID imageid}}" />
+				<div class="title">{{title}}</div>
+				<div class="banner-details">
+					<div class="news"><a href="#">实 事</a></div>
+					<p>{{introduce}}</p>
+				</div>
+			</div>
+			</a>
+			{{/each}}
+		{{else}}
+			<div class="details ">
+			{{#if isTitle}}
+				<!-- 标题 -->
+				<h2>
+					{{#if isShowMore}}
+					<span>
+						<a href="{{pathFor 'second' typeID=this.link._str}}" target="_blank">更多...</a>
+					</span>
+					{{/if}}
+					{{typeShowName}}
+				</h2>
+			{{/if}}
+				<!-- 列表 -->
+				<div class="row">
+					{{#each data}}	
+					<div class="row-left">
+						<div class="card">
+							<a href="{{pathFor 'newsDetail' id=this._id._str}}" target="_blank">
+								<div id="bgaaa" class="img" style="background-image:url({{getImagePathByID imageid}});">
+								</div>
+							
+								<div class="info">
+									<h3>{{title}}</h3>
+									<p>{{introduce}}</p>
+								</div>
+							</a>
+							<div class="js_qrcode_wrap">
+								<a title="关闭" data-type="top" class="js_qrcode_close" target="_self" href="javascript:;"><i class="fa fa-close share-close"></i>分享到微信朋友圈</a>
+								<div class="js_share_qrcode" title=""><img alt="Scan me!" style="display: block;" src="img/index.png"></div>
+								<p>打开微信，点击底部"发现"，使用"扫一扫"即可将网页分享到我的朋友圈。<a href="#">如何使用</a></p>
+							</div>
+
+							<div class="share finan">
+								<ul>
+									<li class="look"><a href="#"><i></i>124</a></li>
+									<li class="WeChat"><a href="javascript:;" class="onWeChat" ><i></i></a></li>
+									<li class="webo"><a href="javascript:;" onclick="shareToSinaWB(event)" name="" data-original= "img/info2.jpg"><i></i></a></li>
+									<li class="new"><a href="#"><i>实事</i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		{{/if}}
+	{{/each}}
+</template>

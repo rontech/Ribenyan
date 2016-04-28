@@ -1,58 +1,8 @@
-<template name="banner1">
-	
-	 <!-- banner start -->
-      <div class="banner">
-       
-        <!-- 轮播图 -->
-        <div class="banner-left">
-            <!--首页幻灯-->
-            <div class="focus">
-                <div id="pic">
-                    <div class="tempWrap" style="overflow:hidden; position:relative; width:650px">
-                        <ul style=" position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-                          {{#each slideData}}
-                              {{>bannerSlideCell}}
-                          {{/each}}
-                        </ul>
-                    </div>
-                </div>
+<template name="banner">
+    <ul class="bxslider">
+        {{#each slideData}}
+            {{> bannerSlideCell}}
+        {{/each}}
+    </ul>
 
-                <div class="tip-bg"></div>
-                <div class="btns">
-                    <ul>
-                        <li class="prev" id="focus_btn_left"></li>
-                        <li class="next" id="focus_btn_right"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 左侧图片 -->
-        <div class="banner-right">
-          <!--请复制以下部分-->
-            {{#each rightData}}
-              {{#if isFirstOne @index }}
-                  {{>bannerRightCell }}
-              {{else}}
-                  {{>bannerRightCell }}
-              {{/if}}
-           　{{/each}}
-        </div>
-
-      </div>
-      <!--  banner end-->
-
-       <!-- 轮播图启动 -->
-    <script type="text/javascript">
-      $(function(){
-          $(".focus").slide({
-              mainCell: "#pic ul",
-              effect: "fade",
-              autoPlay: true,
-              delayTime: 200,
-              interTime: 5000,
-              pageStateCell: ".pageState"
-          });
-        });
-    </script>
 </template>
