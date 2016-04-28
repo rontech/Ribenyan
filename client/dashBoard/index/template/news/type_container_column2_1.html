@@ -5,7 +5,7 @@
 		{{#if isBanner}}
 			<!-- banner -->
 			{{#each data}}
-			<a href="{{pathFor 'newsDetail' id=this._id._str}}" target="_blank"><div class="banner"><img src="{{getImagePathByID imageid}}" />
+			<a href="{{pathFor 'newsDetail' id=this._id._str}}" target="_blank"><div class="banner"><img src="{{getImagePathByID imageID}}" />
 				<div class="title">{{title}}</div>
 				<div class="banner-details">
 					<div class="news"><a href="#">实 事</a></div>
@@ -33,7 +33,7 @@
 					<div class="row-left">
 						<div class="card">
 							<a href="{{pathFor 'newsDetail' id=this._id._str}}" target="_blank">
-								<div id="bgaaa" class="img" style="background-image:url({{getImagePathByID imageid}});">
+								<div id="bgaaa" class="img" style="background-image:url({{getImagePathByID imageID}});">
 								</div>
 							
 								<div class="info">
