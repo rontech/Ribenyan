@@ -19,9 +19,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 body {
 	line-height: 18px;
 	color: #414141;
-	background: #efefef  ! important;
+	background: #efefef !important;
 	font-size: 14px;
-	font-family: "microsoft yahei","微软雅黑",arial ! important;
+	font-family: "microsoft yahei","微软雅黑",arial !important;;
 	padding-top:84px;
 }
 
@@ -468,11 +468,11 @@ background-position: center;}
 .banner img{ width: 100%; height: auto;}
 .banner .title{ font-size: 20px; position: absolute; left: 20px; bottom:80px; color: #fefefe; font-weight: bold;}
 .banner .title span{ font-size: 18px; display: block;margin-top: 5px;}
-.banner .banner-details{ position: absolute; height: 60px; bottom:0; background: #15274d; width: 100%;border-radius: 0px 0px 3px 3px; }
-.banner .banner-details p{ width: 65%; color: #fff; margin: 10px;text-overflow: ellipsis;
-    white-space: nowrap; overflow: hidden; height: 34px;}
-.banner .banner-details .news{ float: right;  height:100%;width: 20%;border-left:1px solid #334b7f;}
-.banner .banner-details .news a{ display:block; text-align: center; background: #fe8835;width: 64px;  line-height:24px;height: 24px; color: #fff; text-decoration: none; font-weight: bold;-webkit-border-radius: 2px;border-radius: 2px; margin:18px auto 0px auto;}
+.banner .banner-details{ position: absolute; min-height: 60px; bottom:0; background: #15274d; width: 100%;border-radius: 0px 0px 3px 3px; }
+.banner .banner-details p{ width: 65%; color: #fff; margin: 10px;}
+.banner .banner-details .news{height:100%;width: 20%; position: absolute;right: 0;}
+.banner .banner-details .news:after{position: absolute; background: #334b7f; content: ""; width: 1px; height: 100%;left:0; top:0}
+.banner .banner-details .news a{ display:block;width:64px; text-align: center; background: #fe8835;width: 64px;  line-height:24px;min-height: 24px;position: absolute;top:50%; margin-top:-12px ; color: #fff; text-decoration: none; font-weight: bold;-webkit-border-radius: 2px;border-radius: 2px;left:50%;margin-left: -32px;}
 
 
 
@@ -582,7 +582,7 @@ body{padding-top: 60px;}
 .details h2{padding:0px 6%;}
 .details .row .row-left{ width: 100% !important; margin: 0 auto;margin-bottom: 20px; float: none;}
 #main .main-left,#main .main-right{padding: 0;}
-.banner .banner-details .news a{ width: 85%;}
+
 .footer-menu {padding: 10px 0px;}
 .footer-menu ul li{  width: 100%; margin-right: 0px; line-height: 24px; text-align: center;}
 .list-img ul li{width: 100%; text-align: center;}

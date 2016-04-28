@@ -4,15 +4,15 @@
 .subpage-list-content .content-list ul li{margin-bottom: 15px; overflow: hidden;}
 .subpage-list-content .content-list ul li .img{ float: left; -webkit-border-radius: 3px;border-radius: 3px;  width:100%;max-width:386px; height:  198px; background-position: center; background-size: cover; border-bottom: 3px solid #e3e4e8; margin-right: 15px;}
 .subpage-list-content .content-list ul li .content-info{ background: #fff; float: left; max-width: 660px; width: 100%; -webkit-border-radius: 3px;border-radius: 3px;border-bottom: 3px solid #e3e4e8; padding: 20px;}
-.subpage-list-content .content-list ul li .content-info h2{ font-size: 21px;  line-height: 26px;}
+.subpage-list-content .content-list ul li .content-info h2{ font-size: 21px;  line-height: 26px; max-height: 26px;min-height: 26px; overflow: hidden;}
 .tools-list{margin-top: 15px;}
 .tools-list span{ display: inline-block;margin-right: 20px;}
 .tools-list span.eye {font-family: "microsoft yahei","微软雅黑",arial; color:#99a3b1;}
 .tools-list span.eye i{width: 17px; height: 17px; background:url(../img/sprites.png) no-repeat right -27px; vertical-align: -10%;margin-right: 3px; display: inline-block;}
 .tools-list span i{ color: #fe8835; font-size: 18px;}
 .tools-list span.comment,.tools-list span.date,.tools-list span.praise{ font-size: 15px; color: #99a3b1;}
-.subpage-list-content .content-list ul li .content-info p{ font-size: 15px;margin-top: 15px;}
-.subpage-list-content .content-list ul li .content-info p.btn{ text-align: right;}
+.subpage-list-content .content-list ul li .content-info p{ font-size: 15px;margin-top: 15px; min-height: 38px; max-height: 38px; overflow: hidden;}
+.subpage-list-content .content-list ul li .content-info p.btn{ text-align: right; min-height: auto;}
 .subpage-list-content .content-list ul li .content-info p.btn a{  display:inline-block; width:100%;max-width: 115px; background: #fe8835; color: #fff; text-align: center; line-height: 30px;-webkit-border-radius: 3px;border-radius: 3px; box-shadow: 0px 3px 0px #ef7a28; margin-left: 20px; font-family: "microsoft yahei","微软雅黑",arial; font-size: 16px; font-weight: bold;}
 .subpage-list-content .content-list ul li .content-info p.btn a:first-child{margin-left: 0;}
 .classify{ float: right; width:30%;max-width: 440px; background: #f2f9ff;padding-bottom: 20px; overflow: hidden;}
@@ -111,4 +111,11 @@ background-position: center; }
 		.subpage-list-content .content-list ul li .img{max-width: 100%; margin-right: 0%;}
 .subpage-list-content .content-list ul li .content-info{ max-width: 100%;}	
 .subpage-list-content .content-list ul li .content-info p.btn a{ width: 50%;}
+
+
+
+
+
+.subpage-list-content .content-list ul li .content-info h2,.subpage-list-content .content-list ul li .content-info p{max-height:100%;min-height: 100%;}
+
 }

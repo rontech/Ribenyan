@@ -3,16 +3,13 @@
         <div class="img" style="background-image: url({{getImaegPathByObj this.imageObj}});"></div>
         <div class="content-info">
             <h2>{{title}}</h2>
-            <div class="tools-list">
-                <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span>
-            </div>
+            <div class="tools-list"> <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span> </div>
             <p id="introduce">{{introduce}}</p>
             <p class="btn">
                 {{#each tagObj}}
-                <a href="javascript:;">{{tagName}}</a>
-                {{/each}}
-                <a href="{{pathFor 'newsDetail' id=this._id._str}}">详情点击</a>
-            </p>
+                     <a href="javascript:;">{{tagName}}</a>
+                 {{/each}}
+                <a href="{{pathFor 'newsDetail' id=this._id._str}}">详情点击</a></p>
         </div>
     </li>
 
