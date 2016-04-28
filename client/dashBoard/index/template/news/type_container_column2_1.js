@@ -56,6 +56,12 @@ Template.typeContainerColumn21.helpers({
 		var objInfo = {};
 		var newsInfo = [];
 		for (var i = 0;i<dataObj.length;i++){
+
+			var info = dataObj[i];
+
+			// 修改图片
+			info.imageID = modifyImage(info);
+
 			//是否显示标题
 			if(listNews.length == 0){
 				objInfo.isTitle = true;
@@ -70,7 +76,7 @@ Template.typeContainerColumn21.helpers({
 				objInfo.isTitle = false;
 			}
 
-			if(dataObj[i].showType == "0"){//banner-新闻ｃａｒｄ
+			if(info.showType == "0"){//banner-新闻ｃａｒｄ
 				if(newsInfo.length　!=0){
 					//存储数据
 					objInfo.data = newsInfo;
@@ -80,7 +86,7 @@ Template.typeContainerColumn21.helpers({
 					objInfo = {};
 					newsInfo = [];	
 				}
-				newsInfo[newsInfo.length] = dataObj[i];
+				newsInfo[newsInfo.length] = info;
 				objInfo.data = newsInfo;
 				objInfo.isBanner = true;
 				listNews[listNews.length] = objInfo;
@@ -89,7 +95,7 @@ Template.typeContainerColumn21.helpers({
 				objInfo = {};
 				newsInfo = [];
 			}else{
-				newsInfo[newsInfo.length] = dataObj[i];
+				newsInfo[newsInfo.length] = info;
 				if(newsInfo.length==2){
 					//存储数据
 					objInfo.data = newsInfo;
@@ -114,4 +120,16 @@ Template.typeContainerColumn21.helpers({
 	}
 });
 
+// 筛选图片
+function modifyImage(info){
+
+	var imageID = "";
+
+	if(info.imageObj){
+		imageID = info.imageObj[0];
+	}else{
+		imageID = info.imageID;
+	}
+	return imageID;
+}
 
