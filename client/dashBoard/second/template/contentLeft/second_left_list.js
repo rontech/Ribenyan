@@ -29,9 +29,19 @@ Template.secondLeftList.onCreated(function(){
 				$(this).removeClass("on");
 			}
 		});
-	}else if(url.indexOf("news/detail/") > 0){
-		url = url.split("/");
-		console.log(url);
+	}else if(url.indexOf("/news/detail/") > 0){
+		// url = url.split("/");
+		// console.log(url[5]);
+		// var tmp = NewsCol.find().fetch();
+		// // console.log(tmp);
+		// // console.log(tmp[0].typeObj[0].typeName);
+		// $(".header .content .respBox #nav li ").each(function(){
+		// 	if($(this).text().trim() == tmp[0].typeObj[0].typeName.trim()){
+		// 		$(this).addClass("on");
+		// 	}else {
+		// 		$(this).removeClass("on");
+		// 	}
+		// });
 	}
 });
 

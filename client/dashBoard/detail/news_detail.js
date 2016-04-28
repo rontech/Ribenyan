@@ -7,6 +7,10 @@ Template.newsDetail.onRendered(function(){
 	document.title = title  ;
 });
 
+Template.newsDetail.onCreated(function(){
+		
+});
+
 
 Template.newsDetail.helpers({
 	"praiseNum" : function(){
