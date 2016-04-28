@@ -19,9 +19,11 @@
 			{{#if isTitle}}
 				<!-- 标题 -->
 				<h2>
+					{{#if isShowMore}}
 					<span>
 						<a href="{{pathFor 'second' typeID=this.link._str}}" target="_blank">更多...</a>
 					</span>
+					{{/if}}
 					{{typeShowName}}
 				</h2>
 			{{/if}}

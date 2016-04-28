@@ -57,15 +57,20 @@ Template.typeContainerColumn21.helpers({
 		var newsInfo = [];
 		for (var i = 0;i<dataObj.length;i++){
 			//是否显示标题
-			if(i==0 || objInfo.isTitle){
+			if(listNews.length == 0){
 				objInfo.isTitle = true;
 				objInfo.typeShowName = this.typeShowName;
 				objInfo.link = this.typeID;
+				if(this.isShowMore == "1"){
+					objInfo.isShowMore = true;
+				}else{
+					objInfo.isShowMore = false;
+				}
 			}else{
 				objInfo.isTitle = false;
 			}
 
-			if(dataObj[i].showType == 0){//banner-新闻ｃａｒｄ
+			if(dataObj[i].showType == "0"){//banner-新闻ｃａｒｄ
 				if(newsInfo.length　!=0){
 					//存储数据
 					objInfo.data = newsInfo;
@@ -75,7 +80,8 @@ Template.typeContainerColumn21.helpers({
 					objInfo = {};
 					newsInfo = [];	
 				}
-				newsInfo[0] = dataObj[i];
+				newsInfo[newsInfo.length] = dataObj[i];
+				objInfo.data = newsInfo;
 				objInfo.isBanner = true;
 				listNews[listNews.length] = objInfo;
 				
@@ -83,18 +89,14 @@ Template.typeContainerColumn21.helpers({
 				objInfo = {};
 				newsInfo = [];
 			}else{
-
+				newsInfo[newsInfo.length] = dataObj[i];
 				if(newsInfo.length==2){
 					//存储数据
 					objInfo.data = newsInfo;
 					listNews[listNews.length] = objInfo;
-
 					//重置
 					objInfo = {};
 					newsInfo = [];	
-					
-				}else{
-					newsInfo[newsInfo.length] = dataObj[i];
 				}
 
 				objInfo.isBanner = false;
@@ -107,9 +109,7 @@ Template.typeContainerColumn21.helpers({
 			// 添加最后一条数据
 			listNews[listNews.length] = objInfo;
 		}
-	
-		console.log(listNews);
-
+		
 		return listNews;
 	}
 });
