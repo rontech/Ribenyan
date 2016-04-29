@@ -2,6 +2,11 @@
 
 defaultNum = 2
 
+Template.typeContainerColumn21.onCreated(function(){
+	$("#nav li:first").addClass("on");
+	$("#footer .content .footer-menu  li:first").addClass("on");
+});
+
 Template.typeContainerColumn21.helpers({
 	listNews : function(){
 		/*
