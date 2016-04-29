@@ -16,10 +16,11 @@ Template.secondLeftList.onRendered(function(){
 Template.secondLeftList.onCreated(function(){
 	//导航高亮显示
 	var url = location.href;
-	if(url.indexOf("/index") > 0 ){
-		$(".header .content .respBox .menu li").removeClass("on");
-		$(".header .content .respBox #nav li:first").addClass("on");
-	}else  if(url.indexOf("second/") > 0 ) {
+	// if(url.indexOf("/index") > 0 ){
+	// 	$(".header .content .respBox .menu li").removeClass("on");
+	// 	$(".header .content .respBox #nav li:first").addClass("on");
+	// }else
+	if(url.indexOf("second/") > 0 ) {
 		url = url.split("/");
 		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(url[4])}).fetch();
 		$(".header .content .respBox #nav li ").each(function(){
@@ -29,26 +30,19 @@ Template.secondLeftList.onCreated(function(){
 				$(this).removeClass("on");
 			}
 		});
-		$("#footer .content .footer-menu  li ").each(function(){
-			if($(this).text().trim() == tmp[0].showName.trim()){
+	}else if(url.indexOf("/news/detail/") > 0){
+		url = url.split("/");
+		console.log(url[5]);
+		var tmp = NewsCol.find().fetch();
+		console.log(tmp);
+		// console.log(tmp[0].typeObj[0].typeName);
+		$(".header .content .respBox #nav li ").each(function(){
+			if($(this).text().trim() == tmp[0].typeObj[0].typeName.trim()){
 				$(this).addClass("on");
 			}else {
 				$(this).removeClass("on");
 			}
 		});
-	}else if(url.indexOf("/news/detail/") > 0){
-		// url = url.split("/");
-		// console.log(url[5]);
-		// var tmp = NewsCol.find().fetch();
-		// // console.log(tmp);
-		// // console.log(tmp[0].typeObj[0].typeName);
-		// $(".header .content .respBox #nav li ").each(function(){
-		// 	if($(this).text().trim() == tmp[0].typeObj[0].typeName.trim()){
-		// 		$(this).addClass("on");
-		// 	}else {
-		// 		$(this).removeClass("on");
-		// 	}
-		// });
 	}
 });
 

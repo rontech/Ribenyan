@@ -1,5 +1,5 @@
 Template.newsDetail.onRendered(function(){
-
+	console.log(Template.currentData());
 	var newsTitle = Template.currentData().title;
 	var title = newsTitle + "-" + SYS_APP_NAME;
 
@@ -8,7 +8,7 @@ Template.newsDetail.onRendered(function(){
 });
 
 Template.newsDetail.onCreated(function(){
-		
+
 });
 
 
@@ -38,10 +38,12 @@ Template.newsDetail.helpers({
 
 	},
 	"isHaveImage" : function(){
-		if(this.imageObj.length > 0){
-			return true;
-		}else{
-			return false;
+		if(this.imageObj){
+			if(this.imageObj.length > 0){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 });

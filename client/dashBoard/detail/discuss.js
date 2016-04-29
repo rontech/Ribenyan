@@ -92,12 +92,14 @@ Template.discuss.events({
 // 页面数据
 Template.discuss.helpers({
 	"praiseNum" : function(){//点在数量
-		var id = new Meteor.Collection.ObjectID(Template.currentData().newsID);		 
+		var id = new Meteor.Collection.ObjectID(Template.currentData().newsID);
 		var newsObj = NewsCol.findOne({_id:id});
-		if(newsObj.praise){
-			return newsObj.praise;
-		}else{
-			return 0;
+		if(newsObj){
+			if(newsObj.praise){
+				return newsObj.praise;
+			}else{
+				return 0;
+			}
 		}
 	},
 });
