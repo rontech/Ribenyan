@@ -1,6 +1,8 @@
 var openTrue = true;
 $(function() {
-				
+					$('body').removeClass('with-panel-left-cover');
+					$('.respBox').removeClass('on');
+					openTrue = true;
 				
 					 $(document).scroll(function(){
 	   					var scrollTop =$(document).scrollTop();
