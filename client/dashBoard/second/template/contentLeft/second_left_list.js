@@ -29,6 +29,13 @@ Template.secondLeftList.onCreated(function(){
 				$(this).removeClass("on");
 			}
 		});
+		$("#footer .content .footer-menu  li ").each(function(){
+			if($(this).text().trim() == tmp[0].showName.trim()){
+				$(this).addClass("on");
+			}else {
+				$(this).removeClass("on");
+			}
+		});
 	}else if(url.indexOf("/news/detail/") > 0){
 		// url = url.split("/");
 		// console.log(url[5]);

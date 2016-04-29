@@ -492,6 +492,11 @@ background-position: center;}
 .footer-menu ul li:last-child{margin-right: 0px;}
 .footer-menu ul li a{color:#a6a6a6;}
 .footer-menu ul li a:hover{ color: #fff;}
+.footer-menu ul li.on a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
 
 
 
@@ -585,6 +590,7 @@ body{padding-top: 60px;}
 
 .footer-menu {padding: 10px 0px;}
 .footer-menu ul li{  width: 100%; margin-right: 0px; line-height: 24px; text-align: center;}
+
 .list-img ul li{width: 100%; text-align: center;}
 .list-img ul li:last-child{ width: 100% !important;}
 .list-img ul li a img{ margin: 0 auto; display: block;}
