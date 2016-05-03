@@ -324,7 +324,7 @@ font-weight:initial;
 #main .main-left{ width: 50%; float: left;padding: 0px 20px 0px;}
 #main .main-right{ width: 50%; float: right;}
 .content-inside{ width: 100%;}
-.details{ width: 100%; margin-top: 20px;}
+.details{ width: 100%; margin-top: 20px ;}
 .details h2{ font-family:simsun,"宋体"; font-size:14px; color: #010101; padding: 0 15px;}
 .details h2 i{ vertical-align: -13%;display: inline-block; width: 16px; height: 16px;margin-right: 5px; background: url(../img/sprites.png) no-repeat;}
 .details h2 span{ float: right; font-size: 12px;}
@@ -442,7 +442,7 @@ background-position: center;}
 .financial h2 i{ background-position:-24px 0px;}
 .culture h2 i{background-position:-53px 0px;}
 .house h2 i{ background-position:-80px 0px;}
-.society{margin-top: 0 !important;}
+/*.society{margin-top: 0 !important;}*/
 .society h2 i{ background-position:-110px 0px;}
 .share.finan ul li.look a i,.share.finan ul li.WeChat a i,.share.finan ul li.webo a i,.share.finan ul li.new a i{ background-color: #CCA640;}
 .share.cult ul li.look a i,.share.cult ul li.WeChat a i,.share.cult ul li.webo a i,.share.cult ul li.new a i{ background-color: #ec3c36;}
