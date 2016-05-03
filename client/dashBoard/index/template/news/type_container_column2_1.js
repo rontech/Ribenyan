@@ -16,8 +16,31 @@ Template.typeContainerColumn21.onRendered(function(){
 			$(this).parent().addClass("financial");
 		if(tmp.indexOf("人文") >= 0 )
 			$(this).parent().addClass("culture");
-
 	});
+	//微信分享按钮event
+	$(".onWeChat").on('click', function() {
+		$(".js_qrcode_wrap.on").removeClass('on');
+		$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+		$(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
+	});
+	$(".share-close").on('click', function() {
+		$(this).parents(".js_qrcode_wrap.on").removeClass('on');
+	});
+
+});
+
+Template.qrCode.onRendered(function(){
+	//二维码生成
+	var qrCode=$((this).find(".js_share_qrcode"));
+	var www = "http://www.ribenyan.net"+$((this).find("input")).val();
+	qrCode.each(function(){
+			$(this).qrcode({
+				render	: "canvas",//也可以替换为table
+				width   : 130,
+				height  : 130,
+				text	: www
+			});
+		});
 });
 
 Template.typeContainerColumn21.helpers({
@@ -31,7 +54,7 @@ Template.typeContainerColumn21.helpers({
 
 					data :[]//数组
 				｝】
-		*/ 
+		*/
 
 		//解析默认数据
 		var dataObj = this.dataObj;
@@ -70,7 +93,7 @@ Template.typeContainerColumn21.helpers({
 
 		// 首页以存在新闻ＩＤ
 		var arrayID = [];
-		
+
 		var objInfo = {};
 		var newsInfo = [];
 		for (var i = 0;i<dataObj.length;i++){
@@ -102,13 +125,13 @@ Template.typeContainerColumn21.helpers({
 
 					//重置
 					objInfo = {};
-					newsInfo = [];	
+					newsInfo = [];
 				}
 				newsInfo[newsInfo.length] = info;
 				objInfo.data = newsInfo;
 				objInfo.isBanner = true;
 				listNews[listNews.length] = objInfo;
-				
+
 				//重置
 				objInfo = {};
 				newsInfo = [];
@@ -120,20 +143,20 @@ Template.typeContainerColumn21.helpers({
 					listNews[listNews.length] = objInfo;
 					//重置
 					objInfo = {};
-					newsInfo = [];	
+					newsInfo = [];
 				}
 
 				objInfo.isBanner = false;
 			}
 
-			
+
 		}
 		if(newsInfo.length>0){
 			objInfo.data = newsInfo;
 			// 添加最后一条数据
 			listNews[listNews.length] = objInfo;
 		}
-		
+
 		return listNews;
 	}
 });
