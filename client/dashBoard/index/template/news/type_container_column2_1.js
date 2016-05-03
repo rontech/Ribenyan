@@ -7,6 +7,19 @@ Template.typeContainerColumn21.onCreated(function(){
 
 });
 
+Template.typeContainerColumn21.onRendered(function(){
+	$("#main .details h2").each(function(){
+		var tmp = $(this).text().trim();
+		if(tmp.indexOf("社会") >= 0 )
+			$(this).parent().addClass("society");
+		if(tmp.indexOf("金融") >= 0 )
+			$(this).parent().addClass("financial");
+		if(tmp.indexOf("人文") >= 0 )
+			$(this).parent().addClass("culture");
+
+	});
+});
+
 Template.typeContainerColumn21.helpers({
 	listNews : function(){
 		/*
