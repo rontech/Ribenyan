@@ -1,10 +1,26 @@
 Template.newsDetail.onRendered(function(){
-	console.log(Template.currentData());
+	//console.log(Template.currentData());
 	var newsTitle = Template.currentData().title;
 	var title = newsTitle + "-" + SYS_APP_NAME;
 
 	// 网页标题　类型＋网站名称
 	document.title = title  ;
+
+	//导航高亮显示
+	var url = location.href;
+	 if(url.indexOf("/news/detail/") > 0){
+		 // $(".header .content .respBox #nav li:first ").removeClass("on");
+		var type = $(".tools-list input").val();
+		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(type)}).fetch();
+
+		$(".header .content .respBox #nav li ").each(function(){
+			if($(this).text().trim() ==tmp[0].showName.trim()){
+				$(this).addClass("on");
+			}else {
+				$(this).removeClass("on");
+			}
+		});
+	}
 });
 
 Template.newsDetail.onCreated(function(){

@@ -31,11 +31,8 @@ Template.secondLeftList.onCreated(function(){
 			}
 		});
 	}else if(url.indexOf("/news/detail/") > 0){
-		url = url.split("/");
-		console.log(url[5]);
-		var tmp = NewsCol.find().fetch();
-		console.log(tmp);
-		// console.log(tmp[0].typeObj[0].typeName);
+		var type = $(".tools-list input").text();
+		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(type)}).fetch();
 		$(".header .content .respBox #nav li ").each(function(){
 			if($(this).text().trim() == tmp[0].typeObj[0].typeName.trim()){
 				$(this).addClass("on");

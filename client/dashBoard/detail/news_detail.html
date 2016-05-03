@@ -10,6 +10,7 @@
             <h1>{{title}}</h1>
             <div class="tools-list">
                 <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span>
+                <input type="hidden" id="type" name="type" value="{{typeObj.[0].typeID._str}}"/>
                 <span class="date">2016-03-15  07:10</span><span class="comment">评论 {{discussNum}}</span><span class="praise"> 赞 {{praiseNum}}</span></div>
             <div class="page-copy">
                 <p>
@@ -28,7 +29,7 @@
             </div>
 
             <!-- 评论 -->
-            {{> discuss　newsID=_id._str}}
+            {{> discuss　newsID=_id._str }}
 
         </div>
     </div>
