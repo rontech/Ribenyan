@@ -21,6 +21,26 @@ Template.newsDetail.onRendered(function(){
 			}
 		});
 	}
+
+	//微信分享按钮event
+	$(".onWeChat").on('click', function() {
+		$(".js_qrcode_wrap.on").removeClass('on');
+		$(".js_qrcode_wrap").addClass('on');
+	});
+	$(".share-close").on('click', function() {
+		$(".js_qrcode_wrap.on").removeClass('on');
+	});
+	//二维码生成
+	var qrCode=$((this).find(".js_share_qrcode"));
+	qrCode.each(function(){
+		$(this).qrcode({
+			render	: "canvas",//也可以替换为table
+			width   : 130,
+			height  : 130,
+			text	: url
+		});
+	});
+	
 });
 
 Template.newsDetail.onCreated(function(){
