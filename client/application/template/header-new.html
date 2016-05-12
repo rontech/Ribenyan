@@ -2,7 +2,21 @@
     {{> popupSearchInput}}
     <div class="header">
         <div class="content">
-            <div class="logo"><span id="sp-menu"></span><img src="../../img/web-logo.png"></div>
+            <div class="logo"><img src="../../img/web-logo.png"></div>
+
+            <div id="wrapper">
+                <div id="scroller" class="response-menu">
+                    <ul>
+                        {{#each firstNode}}
+                            <li class="home">
+                                <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+
             <div class="respBox">
                 <div class="menu" id="nav">
                     <ul>
@@ -33,4 +47,15 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="/js/iscroll.js"></script>
+    <script type="text/javascript">
+        var myscroll;
+        function loaded(){
+            setTimeout(function(){
+                myscroll=new IScroll("#wrapper",{ eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+            },100 );
+        }
+        window.addEventListener("load",loaded,false);
+    </script>
 </template>

@@ -5,7 +5,25 @@ Template.newsDetail.onRendered(function(){
 
 	// 网页标题　类型＋网站名称
 	document.title = title  ;
-
+	//mobile 导航颜色
+	var tmp=-1;
+	$("#scroller li").each(function(){
+		switch(tmp%4+1){
+			case 1:
+				$(this).addClass("one");
+				break;
+			case 2:
+				$(this).addClass("two");
+				break;
+			case 3:
+				$(this).addClass("three");
+				break;
+			case 4:
+				$(this).addClass("four");
+				break;
+		}
+		tmp++;
+	});
 	//导航高亮显示
 	var url = location.href;
 	 if(url.indexOf("/news/detail/") > 0){
@@ -20,6 +38,13 @@ Template.newsDetail.onRendered(function(){
 				$(this).removeClass("on");
 			}
 		});
+		 $("#scroller li").each(function(){
+			 if($(this).text().trim() ==tmp[0].showName.trim()){
+				 $(this).addClass("on");
+			 }else {
+				 $(this).removeClass("on");
+			 }
+		 });
 	}
 
 	//微信分享按钮event

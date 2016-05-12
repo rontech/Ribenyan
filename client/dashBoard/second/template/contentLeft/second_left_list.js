@@ -14,12 +14,27 @@ Template.secondLeftList.onRendered(function(){
 });
 
 Template.secondLeftList.onCreated(function(){
+	//mobile 导航颜色
+	var tmp=-1;
+	$("#scroller li").each(function(){
+		switch(tmp%4+1){
+			case 1:
+				$(this).addClass("one");
+				break;
+			case 2:
+				$(this).addClass("two");
+				break;
+			case 3:
+				$(this).addClass("three");
+				break;
+			case 4:
+				$(this).addClass("four");
+				break;
+		}
+		tmp++;
+	});
 	//导航高亮显示
 	var url = location.href;
-	// if(url.indexOf("/index") > 0 ){
-	// 	$(".header .content .respBox .menu li").removeClass("on");
-	// 	$(".header .content .respBox #nav li:first").addClass("on");
-	// }else
 	if(url.indexOf("second/") > 0 ) {
 		url = url.split("/");
 		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(url[4])}).fetch();
@@ -30,6 +45,14 @@ Template.secondLeftList.onCreated(function(){
 				$(this).removeClass("on");
 			}
 		});
+		$("#scroller li").each(function(){
+			if($(this).text().trim() == tmp[0].showName.trim()){
+				$(this).addClass("on");
+			}else {
+				$(this).removeClass("on");
+			}
+		});
+		myscroll=new IScroll("#wrapper",{ eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
 	}else if(url.indexOf("/news/detail/") > 0){
 		var type = $(".tools-list input").text();
 		var tmp = HeaderInfoCol.find({typeID:new Meteor.Collection.ObjectID(type)}).fetch();
