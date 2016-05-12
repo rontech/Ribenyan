@@ -8,7 +8,7 @@
                 <div id="scroller" class="response-menu">
                     <ul>
                         {{#each firstNode}}
-                            <li class="home">
+                            <li class="home {{getClass @index}}">
                                 <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
                                 </a>
                             </li>

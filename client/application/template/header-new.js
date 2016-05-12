@@ -55,6 +55,23 @@ Template.header.helpers({
         }else{
             return "none";
         }
+    },
+    getClass:function(index){
+        index = (index + 1) % 4 ;
+        switch (index) {
+            case 1:
+                return "one";
+                break;
+            case 2:
+                return "two";
+                break;
+            case 3:
+                return "three";
+                break;
+            case 4:
+                return "four";
+                break;
+        }
     }
 });
 
