@@ -2,6 +2,28 @@ Template.loginRegister.onCreated(function () {
 	$("body").css({'background-color': '#eff2f8'});
 });
 
+Template.loginRegister.onRendered(function () {
+	//mobile 导航颜色
+	var tmp=-1;
+	$("#scroller li").each(function(){
+		switch(tmp%4+1){
+			case 1:
+				$(this).addClass("one");
+				break;
+			case 2:
+				$(this).addClass("two");
+				break;
+			case 3:
+				$(this).addClass("three");
+				break;
+			case 4:
+				$(this).addClass("four");
+				break;
+		}
+		tmp++;
+	});
+});
+
 Template.loginRegister.events({
 
 	'click .tab-box li' : function(e){

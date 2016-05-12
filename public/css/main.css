@@ -129,17 +129,17 @@
   margin-top: 55px;
 }
 
-.search-input button {
-  position: absolute;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  text-indent: -999px;
-  border: none;
-  background: url(../images/icon.png) -262px -68px no-repeat;
+/*.search-input button {*/
+  /*position: absolute;*/
+  /*right: 0;*/
+  /*width: 40px;*/
+  /*height: 40px;*/
+  /*text-indent: -999px;*/
+  /*border: none;*/
+  /*background: url(../images/icon.png) -262px -68px no-repeat;*/
 
-  outline: 0;
-}
+  /*outline: 0;*/
+/*}*/
 .search-input button:hover {
   background-position: -362px -68px;
 }
