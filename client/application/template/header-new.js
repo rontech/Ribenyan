@@ -1,27 +1,6 @@
 Template.header.onRendered(function(){
     // $("#nav li:first").addClass("on");
     $("#scroller li:first").addClass("on");
-    //mobile 导航颜色
-        var tmp=-1;
-        $("#scroller li").each(function(){
-            switch(tmp%4+1){
-                case 1:
-                    $(this).addClass("one");
-                    break;
-                case 2:
-                    $(this).addClass("two");
-                    break;
-                case 3:
-                    $(this).addClass("three");
-                    break;
-                case 4:
-                    $(this).addClass("four");
-                    break;
-            }
-            tmp++;
-        });
-
-
 });
 
 Template.header.events({
@@ -57,20 +36,21 @@ Template.header.helpers({
         }
     },
     getClass:function(index){
-        index = (index + 1) % 4 ;
-        switch (index) {
-            case 1:
-                return "one";
-                break;
-            case 2:
-                return "two";
-                break;
-            case 3:
-                return "three";
-                break;
-            case 4:
-                return "four";
-                break;
+        if(index!=0){
+            switch ((index ) % 4) {
+                case 1:
+                    return "one";
+                    break;
+                case 2:
+                    return "two";
+                    break;
+                case 3:
+                    return "three";
+                    break;
+                case 0:
+                    return "four";
+                    break;
+            }
         }
     }
 });
