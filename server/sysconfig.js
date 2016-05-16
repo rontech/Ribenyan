@@ -3,14 +3,14 @@
 
 //程序启动配置
 Meteor.startup( function() {
-  process.env.MAIL_URL = 
-  "smtp://sj-yang@%40rontech.co.jp:Passw0rd02:@smtp.gmail.com:465";
+  process.env.MAIL_URL =
+      "smtp://anyone@rontech.co.jp:!Qaz@Wsx*Ik,(Ol.:@smtp.gmail.com:465";
 });
 
 //邮件配置
 
  Accounts.emailTemplates.siteName = "日本眼";
- Accounts.emailTemplates.from = "　日本眼 <accounts@example.com>";
+ Accounts.emailTemplates.from = "　日本眼 <admin@ribenyan.net>";
 Accounts.emailTemplates.enrollAccount.subject = function (user) {
     return "Welcome to Awesome Town, " + user.profile.name;
 };
