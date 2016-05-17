@@ -1,4 +1,4 @@
-<template name="listMenu">
+<template name="contentBox">
     <script type="text/javascript" src="../js/icheck.min.js"></script>
     <div class="content-box">
         <div class="title-box">
@@ -15,10 +15,13 @@
                 <div class="must clear"><span>简    介</span>
                     <input type="text" name="synopsis" class="pub-input" id="" value="" />
                 </div>
-                <div class="must clear"><img src="img/edit.gif"/></div>
+                <div style="background-color: #eee;border: 1px solid #d2d2d2">
+                        <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
+                        <textarea name="content" id="content" class="form-control"></textarea>
+                </div>
                 <div class="tags">
                     <ul>
-                        <li>标签</li>
+                        <li><strong>标签</strong></li>
                         <li>
                             <input type="checkbox">
                             <span>军事</span></li>
@@ -38,7 +41,7 @@
                 </div>
                 <div class="tags">
                     <ul>
-                        <li>类型</li>
+                        <li><strong>类型</strong></li>
                         <li>
                             <input type="checkbox">
                             <span>社会人文</span></li>
@@ -61,7 +64,7 @@
                 </div>
                 <div class="not-must clear mb15">
                     <dl class="seleDl">
-                        <dt>排序规则</dt>
+                        <dt><strong>排序规则</strong></dt>
                         <dd>
                             <select>
                                 <option value="正常">正常</option>
@@ -71,7 +74,7 @@
                         </dd>
                     </dl>
                     <dl class="seleDl">
-                        <dt>语言</dt>
+                        <dt><strong>语言</strong></dt>
                         <dd>
                             <select>
                                 <option value="日语">日语</option>
@@ -86,7 +89,7 @@
                 </div>
                 <div class="not-must clear mb15">
                     <dl class="seleDl">
-                        <dt>版      权</dt>
+                        <dt><strong>版      权</strong></dt>
                         <dd>
                             <select>
                                 <option value="系统">系统</option>
@@ -95,7 +98,7 @@
                         </dd>
                     </dl>
                     <dl class="seleDl">
-                        <dt>作  者</dt>
+                        <dt><strong>作  者</strong></dt>
                         <dd>
                             <select>
                                 <option value="作者1">作者1</option>
@@ -104,7 +107,7 @@
                         </dd>
                     </dl>
                     <dl class="seleDl last">
-                        <dt>图  片</dt>
+                        <dt><strong>图  片</strong></dt>
                         <dd class="not-a-b"><a href="javascript:;" class="file">选择文件
                             <input type="file" name="" id="">
                         </a>

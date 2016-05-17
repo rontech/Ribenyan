@@ -1,4 +1,8 @@
-Template.listMenu.rendered = function() {
+Template.contentBox.rendered = function() {
+    CKEDITOR.replace("content");
+    if(!this._rendered) {
+        $("input").iCheck();
+    }
     $('input').iCheck({
         labelHover : false,
         cursor : true,
