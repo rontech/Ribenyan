@@ -1,0 +1,143 @@
+<template name="listMenu">
+    <script type="text/javascript" src="../js/icheck.min.js"></script>
+    <div class="content-box">
+        <div class="title-box">
+            <h2>新闻信息登入</h2>
+        </div>
+        <div class="new-form">
+            <form action="" method="post">
+                <div class="must clear"><span>标    题</span>
+                    <input type="text" name="title" class="pub-input" id="" value="" />
+                </div>
+                <div class="must clear"><span>副标题</span>
+                    <input type="text" name="subheading" class="pub-input" id="" value="" />
+                </div>
+                <div class="must clear"><span>简    介</span>
+                    <input type="text" name="synopsis" class="pub-input" id="" value="" />
+                </div>
+                <div class="must clear"><img src="img/edit.gif"/></div>
+                <div class="tags">
+                    <ul>
+                        <li>标签</li>
+                        <li>
+                            <input type="checkbox">
+                            <span>军事</span></li>
+                        <li>
+                            <input type="checkbox" checked>
+                            <span>汽车</span></li>
+                        <li>
+                            <input type="checkbox">
+                            <span>实事</span></li>
+                        <li>
+                            <input type="checkbox">
+                            <span>新房</span></li>
+                        <li>
+                            <input type="checkbox">
+                            <span>装修</span></li>
+                    </ul>
+                </div>
+                <div class="tags">
+                    <ul>
+                        <li>类型</li>
+                        <li>
+                            <input type="checkbox">
+                            <span>社会人文</span></li>
+                        <li>
+                            <input type="checkbox" checked>
+                            <span>经济金融</span></li>
+                        <li>
+                            <input type="checkbox">
+                            <span>政治军事</span></li>
+                        <li>
+                            <input type="checkbox">
+                            <span>文化科技</span></li>
+                        <li>
+                            <input type="checkbox">
+                            <span>娱乐休闲</span></li>
+                    </ul>
+                </div>
+                <div class="must clear"><span>关键字</span>
+                    <input type="text" name="keyword" class="pub-input" id="" value="" />
+                </div>
+                <div class="not-must clear mb15">
+                    <dl class="seleDl">
+                        <dt>排序规则</dt>
+                        <dd>
+                            <select>
+                                <option value="正常">正常</option>
+                                <option value="发布时间">发布时间</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="seleDl">
+                        <dt>语言</dt>
+                        <dd>
+                            <select>
+                                <option value="日语">日语</option>
+                                <option value="英语">英语</option>
+                                <option value="中文">中文</option>
+                            </select>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="not-must"><span>原文链接</span>
+                    <input type="text" name="link" class="pub-input" id="" value="" />
+                </div>
+                <div class="not-must clear mb15">
+                    <dl class="seleDl">
+                        <dt>版      权</dt>
+                        <dd>
+                            <select>
+                                <option value="系统">系统</option>
+                                <option value="转发">转发</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="seleDl">
+                        <dt>作  者</dt>
+                        <dd>
+                            <select>
+                                <option value="作者1">作者1</option>
+                                <option value="作者2">作者2</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="seleDl last">
+                        <dt>图  片</dt>
+                        <dd class="not-a-b"><a href="javascript:;" class="file">选择文件
+                            <input type="file" name="" id="">
+                        </a>
+                            <div class="showFileName"></div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="info-list clear">
+                    <ul>
+                        <li><span>文件名</span>
+                            <input type="text" name="" id="" value="" />
+                        </li>
+                        <li><span>URL</span>
+                            <input type="text" name="" id="" value="" />
+                        </li>
+                        <li><span>类型</span>
+                            <input type="text" name="" id="" value="" />
+                        </li>
+                        <li><span>扩展名</span>
+                            <input type="text" name="" id="" value="" />
+                        </li>
+                        <li><span>大小</span>
+                            <input type="text" name="" id="" value="" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-list">
+                    <button class="bg-red">发  布</button>
+                    <button class="bg-yellow">暂  存</button>
+                    <button class="bg-green">重  置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</template>
