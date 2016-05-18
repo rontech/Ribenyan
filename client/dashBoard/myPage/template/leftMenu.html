@@ -1,7 +1,14 @@
 <template name="leftMenu">
     <div class="left-menu">
         <div class="user-info"> <i class="gender-img"><img src="../admin/img/ico_woman.png"></i>
-            <p><span class="user-name">X X X</span><span class="user-gender">用户</span></p>
+            {{#if currentUser}}
+                <p><span class="user-name">{{#with currentUser}}{{name}}{{/with}}</span><span class="user-gender">用户</span></p>
+                <input type="hidden" value="{{#with currentUser}}{{_id}}{{/with}}"/>
+            {{else}}
+                <p><a class="login" href="{{pathFor 'login'}}"><span class="user-gender" style="color: white;font-size: 25px;">登陆</span></a></p>
+            {{/if}}
+
+
         </div>
         <div class="list-menu">
             <ul class="nav">
