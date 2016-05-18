@@ -22,41 +22,34 @@
                 <div class="tags">
                     <ul>
                         <li><strong>标签</strong></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>军事</span></li>
-                        <li>
-                            <input type="checkbox" checked>
-                            <span>汽车</span></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>实事</span></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>新房</span></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>装修</span></li>
+                        {{> tagShow}}
+                        <!--<li>-->
+                            <!--<input type="checkbox">-->
+                            <!--<span>军事</span></li>-->
+                        <!--<li>-->
+                            <!--<input type="checkbox" checked>-->
+                            <!--<span>汽车</span></li>-->
+                        <!--<li>-->
+                            <!--<input type="checkbox">-->
+                            <!--<span>实事</span></li>-->
+                        <!--<li>-->
+                            <!--<input type="checkbox">-->
+                            <!--<span>新房</span></li>-->
+                        <!--<li>-->
+                            <!--<input type="checkbox">-->
+                            <!--<span>装修</span></li>-->
                     </ul>
                 </div>
                 <div class="tags">
                     <ul>
                         <li><strong>类型</strong></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>社会人文</span></li>
-                        <li>
-                            <input type="checkbox" checked>
-                            <span>经济金融</span></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>政治军事</span></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>文化科技</span></li>
-                        <li>
-                            <input type="checkbox">
-                            <span>娱乐休闲</span></li>
+                        <li id="111">
+                            {{#each typelists}}
+                                <input type="hidden" name="_id"  id="_id" value="{{_id}}"/>
+                                <label class="checkbox-inline"><input id="{{_id}}" name="checkbox" type="checkbox" value="{{_id._str}},{{name}}" {{checked}}>{{name}}&nbsp;&nbsp;</label>
+                            {{/each}}
+                        </li>
+
                     </ul>
                 </div>
                 <div class="must clear"><span>关键字</span>
