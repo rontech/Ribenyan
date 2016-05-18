@@ -60,20 +60,3 @@ Template.typeShowAll.helpers({
 	}
 });
 
-//user add
-Template.typeShowFront.helpers({
-	typelists: function() {
-		return TypeInfo.find({isVaild:1}).fetch();
-	},
-	checked: function() {
-		var user = Session.get('user_info');
-		var id = new Array();
-		for(var i=0;i<user.newsblockperms.length;i++){
-			if(this._id._str === user.newsblockperms[i].typeID._str) {
-				return "checked";
-			}
-		}
-		return "";
-	}
-});
-

@@ -1,15 +1,6 @@
 Template.contentBox.rendered = function() {
     CKEDITOR.replace("content");
-    // Meteor.subscribe("bus_type_info");
-    // var typelists = TypeInfo.find({isVaild:1}).fetch();
-    // console.log(typelists);
-    // typelists.foreach(
-    //     $("#111").append(
-    //     "<input type='hidden' name='_id'  id='_id' value=' "+ this._id +" '/> <label class='checkbox-inline'><input id=' "+ this._id +" ' name='checkbox' type='checkbox' value=' "+ this._id._str + this.name +">"+ this.name +"&nbsp;&nbsp;</label>"
-    // )    );
 
-
-    
     $('input').iCheck({
         labelHover : false,
         cursor : true,
@@ -19,18 +10,87 @@ Template.contentBox.rendered = function() {
     })
 }
 
-Template.contentBox.helpers({
-    typelists: function() {
-        return TypeInfo.find({isVaild:1}).fetch();
-    },
-    checked: function() {
-        var user = Session.get('user_info');
-        var id = new Array();
-        for(var i=0;i<user.newsblockperms.length;i++){
-            if(this._id._str === user.newsblockperms[i].typeID._str) {
-                return "checked";
-            }
-        }
-        return "";
+
+function saveData1(e,t,type,msg) {
+    //console.log(e);
+    var date;
+    var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
+    if(type==1) {
+        date = new Date().Format("yyyy/MM/dd");
+    }else{
+        date = "";
     }
+    var Obj = new Array();
+    var index = 0;
+    $("input[name='checkbox']:checkbox:checked").each(function(){
+        var data = $(this).val().split(",");
+        var typeObj =  new  Object();
+        typeObj["typeID"] = new Meteor.Collection.ObjectID(data[0]);
+        typeObj["typeName"] = data[1];
+        Obj[index] = typeObj;
+        index++;
+    });
+
+    var Tag = new Array();
+    var tagIndex = 0;
+    $("input[name='tag']:checkbox:checked").each(function(){
+        var tagData = $(this).val().split(",");
+        var tagObj =  new  Object();
+        tagObj["tagID"] = new Meteor.Collection.ObjectID(tagData[0]);
+        tagObj["tagName"] = tagData[1];
+        Tag[tagIndex] = tagObj;
+        tagIndex++;
+    });
+
+    e.preventDefault();
+    var title       = t.find('#title').value;
+    var secondTitle = t.find('#secondTitle').value;
+    var introduce   = t.find('#introduce').value;
+    var content     = t.find('#content').value;
+    var keyWord     = t.find('#keyWord').value;
+    var showRule    = t.find('#showRule').value;
+    var language    = t.find('#language').value;
+    var originURL   = t.find('#originURL').value;
+    var copyright   = t.find('#copyright').value;
+    var author      = t.find('#author').value;
+    // var newsID      = t.find('#newsID').value;
+    var imageObj = getFileIds();
+
+
+    NewsInfo.insert({
+        "sourceID":[],
+        "title":title,
+        "secondTitle":secondTitle,
+        "introduce":introduce,
+        "content":content,
+        "tagObj":Tag,
+        "typeObj":Obj,
+        "keyWord":keyWord,
+        "isVaild":type,
+        "showRule":showRule,
+        "language":language,
+        "originURL":originURL,
+        "copyright":copyright,
+        "author":author,
+        "publishTime":date,
+        "createTime":createtime,
+        "updateTime":createtime,
+        // "newsID":newsID,
+        "imageObj":imageObj,
+        "from"  : 1     //1:mypage   0:manage
+    },function(){
+        alert(msg);
+        Router.go("/index");
+    });
+}
+
+Template.contentBox.events({
+    'submit #news_info_add_F' : function(e,t){
+        saveData1(e,t,1,"已发布");
+    },
+    'click #save' : function(e,t){
+        saveData1(e,t,2,"已保存，未发布！");
+    },
 });
+
+
