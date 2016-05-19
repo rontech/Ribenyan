@@ -1,0 +1,4 @@
+Template.leftMenu.created = function() {
+
+};
+

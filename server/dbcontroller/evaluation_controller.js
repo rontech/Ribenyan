@@ -16,6 +16,7 @@ Meteor.methods({
 			if(newsInfo){
 				var insertObj = {
 					"newsID":newsInfo._id,
+					"newsTitle":newsInfo.title,
 		    		"isVaild":1,
 		    		"userID":plData.userID,
 		    		"content":plData.content,
@@ -70,6 +71,7 @@ Meteor.methods({
 
 					var insertObj = {
 						"newsID":newsInfo._id,
+						"newsTitle":newsInfo.title,
 			    		"isVaild":1,
 			    		"userID":data.userID,
 			    		"evaluationID":evaInfo._id,

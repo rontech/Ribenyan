@@ -6,6 +6,9 @@
         </div>
         <div class="new-form">
             <form   method="post" id="news_info_add_F">
+                {{#if currentUser}}
+                    <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
+                {{/if}}
                 <div class="must clear"><span>标    题</span>
                     <input type="text" name="title" class="pub-input" id="title" value="" />
                 </div>

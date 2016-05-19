@@ -1,9 +1,9 @@
 <template name="leftMenu">
     <div class="left-menu">
-        <div class="user-info"> <i class="gender-img"><img src="../admin/img/ico_woman.png"></i>
+        <div class="user-info"> <i class="gender-img"><img src="../../admin/img/ico_woman.png"></i>
             {{#if currentUser}}
                 <p><span class="user-name">{{#with currentUser}}{{name}}{{/with}}</span><span class="user-gender">用户</span></p>
-                <input type="hidden" value="{{#with currentUser}}{{_id}}{{/with}}"/>
+                <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
             {{else}}
                 <p><a class="login" href="{{pathFor 'login'}}"><span class="user-gender" style="color: white;font-size: 25px;">登陆</span></a></p>
             {{/if}}
@@ -15,15 +15,15 @@
                 <li class="submenu open"> <a href="javascript:;"> <i class="fa fa-file-text-o"></i> 我的动态 <span class="caret pull-right"></span> </a>
                     <!-- Sub menu -->
                     <ul>
-                        <li><span>21</span><a href="#"><i class="fa fa-comments-o"></i>新闻情报</a> </li>
-                        <li><span>21</span><a href="#"><i class="fa fa-pie-chart"></i>新闻类型</a></li>
-                        <li><span>21</span><a href="#"><i class="fa fa-calendar"></i>新闻标签</a></li>
+                        <li><span>21</span><a href="{{pathFor 'contentBoxListNews'}}"><i class="fa fa-comments-o"></i>发布的新闻</a> </li>
+                        <li><span>21</span><a href="{{pathFor 'contentBoxListEvaluation'}}"><i class="fa fa-pie-chart"></i>评论列表</a></li>
+                        <li><span>21</span><a href="#"><i class="fa fa-calendar"></i>点赞列表</a></li>
                     </ul>
                 </li>
                 <li class="submenu"> <a href="javascript:;"> <i class="fa fa-hourglass-2"></i> 发布信息<span class="caret pull-right"></span> </a>
                     <!-- Sub menu -->
                     <ul>
-                        <li><a href="#"> 添加新闻情報</a></li>
+                        <li><a href="{{pathFor 'contentBox'}}"> 添加新闻情報</a></li>
                         <li><a href="#"> 添加广告情報</a></li>
                     </ul>
                 </li>

@@ -53,7 +53,8 @@ function saveData1(e,t,type,msg) {
     var originURL   = t.find('#originURL').value;
     var copyright   = t.find('#copyright').value;
     var author      = t.find('#author').value;
-    // var newsID      = t.find('#newsID').value;
+    var attribute   = $('#attribute').val();
+    // var newsID   = t.find('#newsID').value;
     var imageObj = getFileIds();
 
 
@@ -77,7 +78,8 @@ function saveData1(e,t,type,msg) {
         "updateTime":createtime,
         // "newsID":newsID,
         "imageObj":imageObj,
-        "from"  : 1     //1:mypage   0:manage
+        "from"  : 1,     //1:mypage   0:manage
+        "attribute":attribute
     },function(){
         alert(msg);
         Router.go("/index");

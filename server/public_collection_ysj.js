@@ -3,6 +3,9 @@ Meteor.publish("bus_news_evaluation_info",function(newsid){
 	var newsID = new Mongo.Collection.ObjectID(newsid);
 	return NewsEvaluationCol.find({isVaild:1,newsID:newsID});
 });
+Meteor.publish("bus_news_evaluation_info1",function(){
+	return NewsEvaluationCol.find({isVaild:1});
+});
 
 //评论作者
 Meteor.publish("userData",function(userID){

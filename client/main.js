@@ -6,7 +6,8 @@ Meteor.subscribe("bus_advertisement_info");
 Meteor.subscribe("bus_news_info");
 
 Meteor.subscribe("bus_second_layout_data_info");
-Meteor.subscribe("bus_news_evaluation_info");
+Meteor.subscribe("bus_news_evaluation_info");   //正常状态+newID
+Meteor.subscribe("bus_news_evaluation_info1"); //正常状态
 Meteor.subscribe("bus_type_info");
 Meteor.subscribe("bus_tag_info");
 Meteor.subscribe("bus_manage_user_info");
