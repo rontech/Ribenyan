@@ -204,8 +204,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafbfb', end
 .search-box{ float: right; width: 300px;}
 button.search{width: 40px; height: 40px; -webkit-border-radius: 50%;border-radius: 50%; border: 1px solid #c0c1c1; position:absolute; text-align: center; line-height: 36px; cursor: ppointer;}
 button.search i{ color: #cecece; font-size: 16px; padding-right: 0;}
-.form-control{background: #dbdddd; 
-height:40px;-webkit-border-radius: 40px 15px 15px 40px;border-radius: 40px 15px 15px 40px;border: 0;padding-left: 50px; padding-right: 10px;}
+.form-control{
+    background: #dbdddd;
+    height:40px;
+    /*-webkit-border-radius: 40px 15px 15px 40px;*/
+    /*border-radius: 40px 15px 15px 40px;*/
+    border: 0;
+    /*padding-left: 50px;*/
+    padding-right: 10px;
+}
 
 .tab{ width: 100%;
 border: 1px solid #bcbdbd; 

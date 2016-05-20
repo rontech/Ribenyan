@@ -54,52 +54,24 @@ Template.userParise.helpers({
 	},
 	tableSettings : function () {
 		return {
-			rowsPerPage: 10,
+			rowsPerPage: 9,
 			showNavigation: 'auto',
 			showColumnToggles: false,
 			fields: [
 				{
-					key: 'title',
+					key: 'newsTitle',
 					label: '标题',
 					headerClass: '',
 					cellClass:'',
 					fn: function (name,object) {
-					 var html = '<a href="/news/detail/' + object._id + '">' + name + '</a>';
+					 var html = '<a href="/news/detail/' + object.newsID + '">' + name + '</a>';
 						return new Spacebars.SafeString(html);
 					}
 				},
-				{ key: 'secondTitle', label: '副标题', fn: Common},
-				{ key: 'introduce', label: '简介', fn: Common},
 				{ key: 'updateTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true},
-				{ key: 'isVaild', label: '状态',cellClass: 'text-nowrap',headerClass:'text-nowrap', fn: delField},
-				{
-					key: '',
-					label: '',
-					sortable: false,
-					headerClass: 'span1',
-					fn: function (name,object) {
-					 var html = '<div class="text-right"><a class="btn btn-info" href="/manage/newslist/' + object._id + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
-						return new Spacebars.SafeString(html);
-					}
-				}
+
 			]
 		};
 	}
 });
 
-// Template.userParise.events({
-// 		'click [name=delete]': function (ev) {
-// 			ev.preventDefault();
-// 			var del = window.confirm('该条信息删除！')
-// 		if(del==true){
-// 					var id = ev.currentTarget.value;
-//
-// 					var newsdata = NewsInfo.findOne({_id:new Meteor.Collection.ObjectID(id)});
-// 					var imageObj = newsdata.imageObj;
-// 			for(var i=0;i<imageObj.length;i++){
-// 				Files.remove(imageObj[i]);
-// 		}
-// 					NewsInfo.remove({_id:new Meteor.Collection.ObjectID(id)});
-// 				}
-// 		}
-// });
