@@ -46,7 +46,7 @@ var delField = function (value) {
 Template.userNews.helpers({
 	tables : function () {
 		var userObj = Meteor.user();
-		return NewsInfo.find({attribute:userObj._id});
+		return NewsInfo.find({isVaild:1,attribute:userObj._id});
 	},
 	tableSettings : function () {
 		return {

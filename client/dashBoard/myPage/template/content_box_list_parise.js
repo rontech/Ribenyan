@@ -1,4 +1,4 @@
-Template.userEval.created = function() {
+Template.userParise.created = function() {
 	//ckPerms('newsperms');
 };
 
@@ -43,15 +43,14 @@ var delField = function (value) {
 	return new Spacebars.SafeString(html);
 };
 
-Template.userEval.helpers({
+Template.userParise.helpers({
 	tables : function () {
 		var userObj = Meteor.user();
 		return NewsEvaluationCol.find({
 			isVaild:1,
 			userID:userObj._id,
-			evaType:{$in:["1","3"]}
+			evaType:{$in:["4","5"]}
 		});
-
 	},
 	tableSettings : function () {
 		return {
@@ -60,19 +59,19 @@ Template.userEval.helpers({
 			showColumnToggles: false,
 			fields: [
 				{
-					key: 'newsTitle',
+					key: 'title',
 					label: '标题',
 					headerClass: '',
 					cellClass:'',
 					fn: function (name,object) {
-					 var html = '<a href="/news/detail/' + object.newsID + '">' + name + '</a>';
+					 var html = '<a href="/news/detail/' + object._id + '">' + name + '</a>';
 						return new Spacebars.SafeString(html);
 					}
 				},
-				// { key: 'secondTitle', label: '副标题', fn: Common},
-				// { key: 'introduce', label: '简介', fn: Common},
+				{ key: 'secondTitle', label: '副标题', fn: Common},
+				{ key: 'introduce', label: '简介', fn: Common},
 				{ key: 'updateTime', fn: Common, sortOrder: 0, sortDirection: 'descending',hidden: true},
-				{ key: 'content', label: '评论',cellClass: 'text-nowrap',headerClass:'text-nowrap', fn: delField},
+				{ key: 'isVaild', label: '状态',cellClass: 'text-nowrap',headerClass:'text-nowrap', fn: delField},
 				{
 					key: '',
 					label: '',
@@ -87,8 +86,8 @@ Template.userEval.helpers({
 		};
 	}
 });
-//
-// Template.userEval.events({
+
+// Template.userParise.events({
 // 		'click [name=delete]': function (ev) {
 // 			ev.preventDefault();
 // 			var del = window.confirm('该条信息删除！')
