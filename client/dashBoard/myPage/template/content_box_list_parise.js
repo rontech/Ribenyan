@@ -54,7 +54,7 @@ Template.userParise.helpers({
 	},
 	tableSettings : function () {
 		return {
-			rowsPerPage: 9,
+			rowsPerPage: 10,
 			showNavigation: 'auto',
 			showColumnToggles: false,
 			fields: [

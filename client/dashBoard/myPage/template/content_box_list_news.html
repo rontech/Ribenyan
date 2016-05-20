@@ -3,6 +3,11 @@
     <div class="content-box">
         <div class="title-box">
             <h2>我的新闻信息</h2>
+            <div class="text-right">
+                <form action="{{pathFor 'contentBox'}}" id="news_info_update" class="block-content">
+                    <button type="submit" id="add" class="btn btn-primary">新建</button>
+                </form>
+            </div>
         </div>
         <div class="new-form">
             <div class="row">
@@ -12,9 +17,7 @@
                             {{#if currentUser}}
                                 <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
                             {{/if}}
-                            <form action="{{pathFor 'contentBox'}}" id="news_info_update" class="block-content">
-                                <button type="submit" id="add" class="btn btn-primary">新建</button>
-                            </form>
+
                             {{> userNews}}
                         </div>
                     </div>
