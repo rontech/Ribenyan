@@ -1,20 +1,22 @@
 <!-- 房屋广高 -->
 <template name="advHouseLeftCell">
     <li>
-        <div class="img" style="background-image: url({{getImagePathByID this.imageObj}});"></div>
-        <div class="content-info">
-            <h2>{{title}}</h2>
-            <div class="tools-list">
-                <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span>
+        <a href="{{pathFor 'adDetail' id=this._id._str}}">
+            <div class="img" style="background-image: url({{getImagePathByID this.imageObj}});"></div>
+            <div class="content-info">
+                <h2>{{title}}</h2>
+                <div class="tools-list">
+                    <span class="eye"><i></i>日本眼</span><span class="WeChat"><a href="javascript:;"><i class="fa fa-wechat"></i></a></span><span class="webo"><a href="javascript:;"><i class="fa fa-weibo"></i></a></span>
+                </div>
+                <p>位置:{{address}}</p>
+                <p>地铁:{{nearestStation}}</p>
+                <p>价格:{{price}}</p>
+                <p class="btn">
+                    <a href="javascript:;">房产广告</a>
+                    <a href="{{pathFor 'adDetail' id=this._id._str}}">详情点击</a>
+                </p>
             </div>
-            <p>位置:{{address}}</p>
-            <p>地铁:{{nearestStation}}</p>
-            <p>价格:{{price}}</p>
-            <p class="btn">
-                <a href="javascript:;">房产广告</a>
-                <a href="{{pathFor 'adDetail' id=this._id._str}}">详情点击</a>
-            </p>
-        </div>
+        </a>
     </li>
 
 </template>
