@@ -44,6 +44,30 @@ Template.qrCode.onRendered(function(){
 });
 
 Template.typeContainerColumn21.helpers({
+	"praiseNum" : function(){
+		if(this.praise){
+			return this.praise;
+		}else{
+			return 0;
+		}
+	},
+	"discussNum" : function(){
+		var plList = NewsEvaluationCol.find(
+			{
+				newsID:this._id,
+				evaType:"1"
+			},
+			{
+				sort:{creatDate:-1}
+			}
+		);
+		if(plList){
+			return plList.count();
+		}else{
+			return 0;
+		}
+
+	},
 	listNews : function(){
 		/*
 		* 结构　：　【｛
