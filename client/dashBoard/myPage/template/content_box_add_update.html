@@ -1,4 +1,4 @@
-<template name="contentBox">
+<template name="contentBoxNewsUpdate">
     <script type="text/javascript" src="../js/icheck.min.js"></script>
     <div class="content-box">
         <div class="title-box">
@@ -9,18 +9,19 @@
                 {{#if currentUser}}
                     <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
                 {{/if}}
+                <input type="hidden" name="_id"  id="_id" value="{{_id._str}}"/>
                 <div class="must clear"><span>标    题</span>
-                    <input type="text" name="title" class="pub-input" id="title" value="" required/>
+                    <input type="text" name="title" class="pub-input" id="title" value="{{title}}" />
                 </div>
                 <div class="must clear"><span>副标题</span>
-                    <input type="text" name="subheading" class="pub-input" id="secondTitle" value="" />
+                    <input type="text" name="subheading" class="pub-input" id="secondTitle" value="{{secondTitle}}" />
                 </div>
                 <div class="must clear"><span>简    介</span>
-                    <input type="text" name="synopsis" class="pub-input" id="introduce" value="" required/>
+                    <input type="text" name="synopsis" class="pub-input" id="introduce" value="{{introduce}}" />
                 </div>
                 <div style="background-color: #eee;border: 1px solid #d2d2d2">
                         <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
-                        <textarea name="content" id="content" class="form-control " required></textarea>
+                        <textarea name="content" id="content" class="form-control " value="{{content}}"></textarea>
                 </div>
                 <div class="tags">
                     <ul>
@@ -38,13 +39,23 @@
 
                 <div class="not-must clear mb15">
                     <dl class="seleDl">
+                        <dt><strong>状      态</strong></dt>
+                        <dd>
+                            <select id="isVaild" name="isVaild">
+                                <option value="1" {{selected isVaild 1}}>1: 正常</option>
+                                <option value="0" {{selected isVaild 0}}>0: 删除</option>
+                                <option value="2" {{selected isVaild 2}}>2: 未发表</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="seleDl">
                         <dt><strong>排序规则</strong></dt>
                         <dd>
                             <select  id="showRule" name="showRule">
-                                <option value="1">1: 正常</option>
-                                <option value="2">2: 置顶</option>
-                                <option value="3">3: 不显示</option>
-                                <option value="4">4: 推荐</option>
+                                <option value="1" {{selected showRule 1}}>1: 正常</option>
+                                <option value="2" {{selected showRule 2}}>2: 置顶</option>
+                                <option value="3" {{selected showRule 3}}>3: 不显示</option>
+                                <option value="4" {{selected showRule 4}}>4: 推荐</option>
                             </select>
                         </dd>
                     </dl>
@@ -52,8 +63,8 @@
                         <dt><strong>语言</strong></dt>
                         <dd>
                             <select id="language" name="language">
-                                <option value="0">0：日文</option>
-                                <option value="1">1：中文</option>
+                                <option value="0" {{selected language 0}}>0: 日文</option>
+                                <option value="1" {{selected language 1}}>1: 中文</option>
                             </select>
                         </dd>
                     </dl>
@@ -61,29 +72,29 @@
                         <dt><strong>版      权</strong></dt>
                         <dd>
                             <select id="copyright" name="copyright">
-                                <option value="1">1：系统</option>
-                                <option value="2">2：复制</option>
+                                <option value="1" {{selected copyright 1}}>1: 系统</option>
+                                <option value="2" {{selected copyright 2}}>2: 复制</option>
                             </select>
                         </dd>
                     </dl>
                 </div>
                 <div class="must clear"><span>关键字</span>
-                    <input type="text" name="keyword" class="pub-input" id="keyWord" value="" />
+                    <input type="text" name="keyword" class="pub-input" id="keyWord" value="{{keyWord}}" />
                 </div>
                 <div class="not-must"><span>原文链接</span>
-                    <input type="text" name="link" class="pub-input" id="originURL" value="" />
+                    <input type="text" name="link" class="pub-input" id="originURL" value="{{originURL}}" />
                 </div>
                 <div class="not-must clear mb15">
                     <div class="not-must"><span>作  者</span>
-                        <input type="text" name="link" class="pub-input" id="author" value="" />
+                        <input type="text" name="link" class="pub-input" id="author" value="{{author}}" />
                     </div>
                 </div>
 
                 {{> uploadFormFront}}
 
                 <div class="btn-list">
-                    <button type="submit" class="bg-red" >发  布</button>
-                    <!--<button type="submit" id="save" class="bg-yellow">暂  存</button>-->
+                    <button type="submit"  class="bg-yellow">更新</button>
+                    <button type="submit" class="bg-red" id="save">发  布</button>
                     <button type="reset" class="bg-green" >重  置</button>
                 </div>
             </form>
