@@ -16,3 +16,8 @@ Meteor.publish("userData",function(userID){
 Meteor.publish("SetingAdvInfo",function(){
 	return SetingAdvInfo.find();
 });
+
+//文章作者名
+Meteor.publish("articleUserName",function(){
+	return Meteor.users.find();
+});

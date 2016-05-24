@@ -19,4 +19,6 @@ Meteor.subscribe("files");
 
 //订阅 广告信息
 Meteor.subscribe("SetingAdvInfo");
+//订阅前段文章作者用户名
+Meteor.subscribe("articleUserName");
 
