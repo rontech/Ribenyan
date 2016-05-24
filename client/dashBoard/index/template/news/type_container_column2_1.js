@@ -41,6 +41,14 @@ Template.qrCode.onRendered(function(){
 				text	: www
 			});
 		});
+
+	//截取introduce长度
+	$(".card .info p").each(function(){
+		if(($(this).text().length)>40) {
+			var tmp = $(this).text().substring(0, 40) + "...";
+		}
+		$(this).text(tmp);
+	});
 });
 
 Template.typeContainerColumn21.helpers({
