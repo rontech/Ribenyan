@@ -1,0 +1,162 @@
+<template name="frontAdInfoAdd">
+    <script type="text/javascript" src="../js/icheck.min.js"></script>
+    <div class="content-box">
+        <div class="title-box">
+            <h2>广告信息登入</h2>
+        </div>
+        <div class="new-form">
+            <form   method="post" id="ad_info_add_F">
+                {{#if currentUser}}
+                    <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
+                {{/if}}
+                <div class="must clear"><span>标    题</span>
+                    <input type="text" name="title" class="pub-input" id="title" value="" required/>
+                </div>
+
+                <div class="not-must clear mb15">
+                    <dl class="seleDl">
+                        <dt><strong>广告类型</strong></dt>
+                        <dd>
+                            <select  id="showRule" name="showRule">
+                                <option value="0">请选择</option>
+                                <option value="1">1: 买卖房屋</option>
+                                <option value="2">2: 租赁房屋</option>
+                                <option value="3">3: 招聘</option>
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="seleDl">
+                        <dt><strong>投放位置</strong></dt>
+                        <dd>
+                            <select  id="hopeShowPosition" name="hopeShowPosition">
+                                <option value="1">1: 首页</option>
+                                <option value="2">2: 新闻类型</option>
+                                <option value="3">3: 推荐板块（右侧模块）</option>
+                            </select>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="house">
+                    <div class="must clear"><span>租金</span>
+                        <input type="text" name="price" class="pub-input" id="price" value="" />
+                    </div>
+                    <div class="must clear"><span>公寓</span>
+                        <input type="text" name="apartment" class="pub-input" id="apartment" value="" />
+                    </div>
+                    <div class="must clear"><span>户型</span>
+                        <input type="text" name="roomType" class="pub-input" id="roomType" value="" />
+                    </div>
+                    <div class="must clear"><span>押金</span>
+                        <input type="text" name="deposit" class="pub-input" id="deposit" value="" />
+                    </div>
+                    <div class="must clear"><span>礼金</span>
+                        <input type="text" name="giftMoney" class="pub-input" id="giftMoney" value="" />
+                    </div>
+                    <div class="must clear"><span>管理费</span>
+                        <input type="text" name="kanrihi" class="pub-input" id="kanrihi" value="" />
+                    </div>
+                    <div class="must clear"><span>地址</span>
+                        <input type="text" name="address" class="pub-input" id="address" value="" />
+                    </div>
+                    <div class="must clear"><span>交通</span>
+                        <input type="text" name="traffic" class="pub-input" id="traffic" value="" />
+                    </div>
+                    <div class="must clear"><span>联系电话</span>
+                        <input type="text" name="contactPhone" class="pub-input" id="contactPhone" value="" />
+                    </div>
+                    <div class="must clear"><span>建造年</span>
+                        <input type="text" name="buildYear" class="pub-input" id="buildYear" value="" />
+                    </div>
+                    <div class="must clear"><span>楼高</span>
+                        <input type="text" name="buildingHigh" class="pub-input" id="buildingHigh" value="" />
+                    </div>
+                    <div class="must clear"><span>房屋面积</span>
+                        <input type="text" name="houseArea" class="pub-input" id="houseArea" value="" />
+                    </div>
+                    <div class="must clear"><span>朝向</span>
+                        <input type="text" name="orientation" class="pub-input" id="orientation" value="" />
+                    </div>
+                    <div class="must clear"><span>建筑材料</span>
+                        <input type="text" name="buildingMaterial" class="pub-input" id="buildingMaterial" value=""/>
+                    </div>
+                    <div class="must clear"><span>周边环境</span>
+                        <input type="text" name="environment" class="pub-input" id="environment" value=""  />
+                    </div>
+                    <div class="must clear"><span>设备\条件</span>
+                        <input type="text" name="condition" class="pub-input" id="condition" value=""  />
+                    </div>
+                </div>
+
+                <div id="people">
+                    <div class="must clear"><span>公司名称</span>
+                        <input type="text" name="companyName" class="pub-input" id="companyName" value="" />
+                    </div>
+                    <div class="must clear"><span>工作地址</span>
+                        <input type="text" name="workAdress" class="pub-input" id="workAdress" value="" />
+                    </div>
+                    <div class="must clear"><span>岗位名称</span>
+                        <input type="text" name="position" class="pub-input" id="position" value="" />
+                    </div>
+                    <div class="must clear"><span>薪酬</span>
+                        <input type="text" name="salary" class="pub-input" id="salary" value="" />
+                    </div>
+                    <div class="must clear"><span>公司首页</span>
+                        <input type="text" name="companyHomePage" class="pub-input" id="companyHomePage" value="" />
+                    </div>
+                    <div class="must clear"><span>联系方式</span>
+                        <input type="text" name="companyTelephone" class="pub-input" id="companyTelephone" value="" />
+                    </div>
+                    <div class="must clear"><span>招聘邮箱</span>
+                        <input type="text" name="companyEmail" class="pub-input" id="companyEmail" value="" />
+                    </div>
+                    <div class="must clear"><span>岗位职责</span>
+                        <input type="text" name="duty" class="pub-input" id="duty" value="" />
+                    </div>
+                    <div class="must clear"><span>任职要求</span>
+                        <input type="text" name="requirement" class="pub-input" id="requirement" value="" />
+                    </div>
+                    <div class="must clear"><span>福利待遇</span>
+                        <input type="text" name="weal" class="pub-input" id="weal" value="" />
+                    </div>
+                    <div class="must clear"><span>公司介绍</span>
+                        <input type="text" name="companyIntroduce" class="pub-input" id="companyIntroduce" value="" />
+                    </div>
+                </div>
+
+
+                <div style="background-color: #eee;border: 1px solid #d2d2d2">
+                    <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px">简    介</h2><br>
+                    <textarea name="introduce" id="introduce" class="form-control"></textarea>
+                </div>
+                <div style="background-color: #eee;border: 1px solid #d2d2d2;margin-top: 10px">
+                    <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
+                    <textarea name="content" id="content" class="form-control"></textarea>
+                </div>
+
+                <div class="must clear" style="margin-top: 10px">
+                    <span>广告客户ID</span>
+                    <input type="text" name="cstId" class="pub-input" id="cstId" value="{{#with currentUser}}{{_id}}{{/with}}"  style="padding-left: 150px" disabled/>
+                </div>
+                <div class="not-must">
+                    <span>广告客户邮箱</span>
+                    <input type="text" name="advEmail" class="pub-input" id="advEmail" value="" style="padding-left: 150px"/>
+                </div>
+                <div class="not-must clear mb15">
+                    <div class="not-must">
+                        <span>广告客户联系电话</span>
+                        <input type="text" name="advTelephone" class="pub-input" id="advTelephone" value="" style="padding-left: 170px"/>
+                    </div>
+                </div>
+
+                {{> uploadFormFront}}
+
+                <div class="btn-list">
+                    <button type="submit" class="bg-red" >发  布</button>
+                    <!--<button type="submit" id="save" class="bg-yellow">暂  存</button>-->
+                    <button type="reset" class="bg-green" >重  置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</template>
