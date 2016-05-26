@@ -1,3 +1,9 @@
+Template.contentBox.created = function() {
+    if(!Meteor.user()){
+        Router.go("/user/login")
+    }
+}
+
 Template.contentBox.rendered = function() {
     CKEDITOR.replace("content");
 

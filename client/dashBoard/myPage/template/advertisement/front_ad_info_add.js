@@ -1,3 +1,9 @@
+Template.frontAdInfoAdd.created = function() {
+    if(!Meteor.user()){
+        Router.go("/user/login")
+    }
+}
+
 Template.frontAdInfoAdd.rendered = function() {
     $("#house").hide();
     $("#people").hide();

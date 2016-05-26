@@ -10,11 +10,12 @@ Template.adtemplate12.rendered = function() {
     for(var i=0;i<dFile.length;i++){
         $("#picture").append("<li><img src='"+dFile[i].url+"' /></li>");
     }
-
-    $('.bxslider').bxSlider({
-        adaptiveHeight: true,
-        mode: 'fade'
-    });
+    if($("#picture").val()) {
+        $('.bxslider').bxSlider({
+            adaptiveHeight: true,
+            mode: 'fade'
+        });
+    }
 }
 
 Template.adtemplate13.rendered = function() {
@@ -25,9 +26,10 @@ Template.adtemplate13.rendered = function() {
     for(var i=0;i<dFile.length;i++){
         $("#picture").append("<li><img src='"+dFile[i].url+"' /></li>");
     }
-
-    $('.bxslider').bxSlider({
-        adaptiveHeight: true,
-        mode: 'fade'
-    });
+    if($("#picture").val()){
+        $('.bxslider').bxSlider({
+            adaptiveHeight: true,
+            mode: 'fade'
+        });
+    }
 }
