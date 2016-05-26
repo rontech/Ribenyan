@@ -85,6 +85,10 @@
                     <div class="must clear"><span>设备\条件</span>
                         <input type="text" name="condition" class="pub-input" id="condition" value=""  />
                     </div>
+                    <div style="background-color: #eee;border: 1px solid #d2d2d2;margin-top: 10px">
+                        <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
+                        <textarea name="content" id="content" class="form-control"></textarea>
+                    </div>
                 </div>
 
                 <div id="people">
@@ -109,29 +113,49 @@
                     <div class="must clear"><span>招聘邮箱</span>
                         <input type="text" name="companyEmail" class="pub-input" id="companyEmail" value="" />
                     </div>
-                    <div class="must clear"><span>岗位职责</span>
-                        <input type="text" name="duty" class="pub-input" id="duty" value="" />
+
+                    <div class="must clear input-group" ><span>岗位职责</span>
+                        <input type="hidden" id="zhizenum" value="1"/>
+                        <input type="text" name="duty" class="pub-input" placeholder="输入内容显示为一行" id="duty" value="" />
+                        <div class="input-group-btn">
+                            <input type="button" class="btn btn-info" id="addzhize" value="新建一行" style="height:40px;margin-bottom:15px;"/>
+                        </div>
                     </div>
-                    <div class="must clear"><span>任职要求</span>
-                        <input type="text" name="requirement" class="pub-input" id="requirement" value="" />
+                    <div id="zhize"></div>
+
+
+                    <div class="must clear input-group"><span>任职要求</span>
+                        <input type="hidden" id="yaoqiunum" value="1"/>
+                        <input type="text" name="requirement" class="pub-input" placeholder="输入内容显示为一行" id="requirement" value="" />
+                        <div class="input-group-btn">
+                            <input type="button" class="btn btn-info" id="addyaoqiu" value="新建一行" style="height: 40px;margin-bottom: 15px"/>
+                        </div>
                     </div>
-                    <div class="must clear"><span>福利待遇</span>
-                        <input type="text" name="weal" class="pub-input" id="weal" value="" />
+                    <div id="yaoqiu"></div>
+
+                    <div class="must clear input-group"><span>福利待遇</span>
+                        <input type="hidden" id="fulinum" value="1"/>
+                        <input type="text" name="weal" class="pub-input" placeholder="输入内容显示为一行" id="weal" value="" />
+                        <div class="input-group-btn">
+                            <input type="button" class="btn btn-info" id="addfuli" value="新建一行" style="height: 40px;margin-bottom: 15px"/>
+                        </div>
                     </div>
-                    <div class="must clear"><span>公司介绍</span>
-                        <input type="text" name="companyIntroduce" class="pub-input" id="companyIntroduce" value="" />
+                    <div id="fuli"></div>
+
+                    <div style="background-color: #eee;border: 1px solid #d2d2d2;margin-top: 10px">
+                        <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 公司介绍</h2><br>
+                        <textarea name="companyIntroduce" id="companyIntroduce" class="form-control"></textarea>
                     </div>
+
                 </div>
 
 
-                <div style="background-color: #eee;border: 1px solid #d2d2d2">
-                    <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px">简    介</h2><br>
+
+                <div style="background-color: #eee;border: 1px solid #d2d2d2;margin-top: 10px">
+                    <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px">广告简介</h2><br>
                     <textarea name="introduce" id="introduce" class="form-control"></textarea>
                 </div>
-                <div style="background-color: #eee;border: 1px solid #d2d2d2;margin-top: 10px">
-                    <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
-                    <textarea name="content" id="content" class="form-control"></textarea>
-                </div>
+
 
                 <div class="must clear" style="margin-top: 10px">
                     <span>广告客户ID</span>

@@ -4,9 +4,29 @@ Template.frontAdInfoAdd.rendered = function() {
 
     CKEDITOR.replace("content");
     CKEDITOR.replace("introduce");
+    CKEDITOR.replace("companyIntroduce");
+
 }
 
 Template.frontAdInfoAdd.events({
+    'click #addzhize' : function(e,t) {
+        var zhizeNum = $("#zhizenum").val();
+        $("#zhize").append("<input type=\"text\" name=\"duty\" class=\"pub-input\" placeholder=\"输入内容显示为一行\" id=\"duty"+zhizeNum+"\"  />");
+        zhizeNum++;
+        $("#zhizenum").val(zhizeNum);
+    },
+    'click #addyaoqiu' : function(e,t) {
+        var yaoqiuNum = $("#yaoqiunum").val();
+        $("#yaoqiu").append("<input type=\"text\" name=\"duty\" class=\"pub-input\" placeholder=\"输入内容显示为一行\" id=\"requirement"+yaoqiuNum+"\"  />");
+        yaoqiuNum++;
+        $("#yaoqiunum").val(yaoqiuNum);
+    },
+    'click #addfuli' : function(e,t) {
+        var fuliNum = $("#fulinum").val();
+        $("#fuli").append("<input type=\"text\" name=\"duty\" class=\"pub-input\" placeholder=\"输入内容显示为一行\" id=\"weal"+fuliNum+"\"  />");
+        fuliNum++;
+        $("#fulinum").val(fuliNum);
+    },
     'submit #ad_info_add_F' : function(e,t) {
         var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
 
@@ -34,10 +54,13 @@ Template.frontAdInfoAdd.events({
         var companyHomePage  = '';
         var companyTelephone = '';
         var companyEmail     = '';
-        var duty             = '';
-        var requirement      = '';
-        var weal             = '';
+        var duty             = new Array();
+        var requirement      = new Array();
+        var weal             = new Array();
         var companyIntroduce = '';
+
+
+
 
         e.preventDefault();
         var title            = t.find('#title').value;
@@ -79,10 +102,26 @@ Template.frontAdInfoAdd.events({
                 companyHomePage  = t.find('#companyHomePage').value;
                 companyTelephone = t.find('#companyTelephone').value;
                 companyEmail     = t.find('#companyEmail').value;
-                duty             = t.find('#duty').value;
-                requirement      = t.find('#requirement').value;
-                weal             = t.find('#weal').value;
+                duty[0]          = t.find('#duty').value;
+                requirement[0]   = t.find('#requirement').value;
+                weal[0]          = t.find('#weal').value;
                 companyIntroduce = t.find('#companyIntroduce').value;
+
+                var zzNum = $("#zhizenum").val();
+                for(var i=1;i<zzNum;i++){
+                    duty[i] = $("#duty"+i).val();
+                }
+
+                var yqNum = $("#yaoqiunum").val();
+                for(var i=1;i<yqNum;i++){
+                    requirement[i] = $("#requirement"+i).val();
+                }
+
+                var flNum = $("#fulinum").val();
+                for(var i=1;i<flNum;i++){
+                    weal[i] = $("#weal"+i).val();
+                }
+
 
             }else{
                 //alert("请选择广告类型");
