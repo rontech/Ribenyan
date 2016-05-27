@@ -95,6 +95,7 @@ h2{ font-size: 20px;}
 #header .header-tools{ width: 100%; padding:0px 60px 0px 325px;}
 #header .header-tools span{ position:relative;margin-top:30px;display:  inline-block;  cursor: pointer;}
 #header .header-tools span i{ padding-right: 0; color: #b0bec5;font-size: 24px;}
+#header .header-tools span.open-menu{display: none}
 #header .header-tools span.open-menu:after{ content: ""; position: absolute; width: 0; height: 0;  border: 5px solid transparent; border-left-color: #00bfe8;top:50%; right:-15px; margin-top: -5px;}
 #header .header-tools span.setup,#header .header-tools span.log-out{ float: right;}
 #header .header-tools span.log-out{margin-left: 60px;}
@@ -300,7 +301,9 @@ dl.seleDl.last{margin: 0;}
 .btn-list button.bg-yellow{ background: #ffce54;}
 .btn-list button.bg-green{ background: #48cfad;}
 
+
  @media only screen and (max-width: 1000px) {
+ #header .header-tools span.open-menu{display: inline-block}
 .mobhide{
 	display:none !important;
 }

@@ -1,4 +1,4 @@
-Template.myPageLayout.created = function() {
+Template.myPageLayout.rendered = function() {
     if(!Meteor.user()){
         Router.go("/user/login")
     }
