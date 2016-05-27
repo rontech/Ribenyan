@@ -12,7 +12,9 @@
 .tools-list span.eye i{width: 17px; height: 17px; background:url(../img/sprites.png) no-repeat right -27px; vertical-align: -10%;margin-right: 3px; display: inline-block;}
 .tools-list span i{ color: #fe8835; font-size: 18px;}
 .tools-list span.comment,.tools-list span.date,.tools-list span.praise{ font-size: 15px; color: #99a3b1;}
-.subpage-list-content .content-list ul li .content-info p{ font-size: 15px;margin-top: 15px; overflow: hidden;max-height: 38px;
+.subpage-list-content .content-list ul li .content-info p{ font-size: 15px;margin-top: 15px;
+	/*overflow: hidden;*/
+	max-height: 38px;
     min-height: 38px;}
 .subpage-list-content .content-list ul li .content-info p.btn{ text-align: right; min-height: auto;min-height: 38px; max-height: 38px; }
 .subpage-list-content .content-list ul li .content-info p.btn a{  display:inline-block; width:100%;max-width: 115px; background: #fe8835; color: #fff; text-align: center; line-height: 30px;-webkit-border-radius: 3px;border-radius: 3px; -webkit-box-shadow: 0px 3px 0px #ef7a28;box-shadow: 0px 3px 0px #ef7a28; margin-left: 20px; font-family: "microsoft yahei","微软雅黑",arial; font-size: 16px; font-weight: bold;}
@@ -100,6 +102,9 @@ background-position: center; }
     width: 100%;
     font-size: 18px;
     text-align: center;
+}
+.btn{
+	display:inherit ;
 }
 
 .btn-article {
