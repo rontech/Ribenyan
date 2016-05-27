@@ -1,5 +1,18 @@
 
 $(function() {
+	
+   $(document).scroll(function(){
+   	var scrollTop =$(document).scrollTop();
+  if(scrollTop<=80){
+  	$('.left-menu').removeClass('fixed');
+  	 $('.card-list').removeClass('fixed');
+   
+  }else{
+  	$('.left-menu').addClass('fixed');
+    $('.card-list').addClass('fixed');
+  }
+})
+	
 	$(".submenu > a").on('click',function(){
 	if($(this).parent().hasClass('open')){
 		$(this).parent().removeClass('open');
