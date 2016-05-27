@@ -2,9 +2,9 @@
 <div id="main-content">
     <div class="left-menu">
         <div class="user-info"> <i class="gender-img"><img src="../../admin/img/ico_woman.png"></i>
-            {{#if currentUser}}
-                <p><span class="user-name">{{#with currentUser}}{{name}}{{/with}}</span><span class="user-gender">用户</span></p>
-                <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
+            {{#if centerUsers}}
+                <p><span class="user-name">{{#with centerUsers}}{{name}}{{/with}}</span><span class="user-gender">用户</span></p>
+                <input type="hidden" id="attribute" value="{{#with centerUsers}}{{_id}}{{/with}}"/>
             {{else}}
                 <p><a class="login" href="{{pathFor 'login'}}"><span class="user-gender" style="color: white;font-size: 25px;">登陆</span></a></p>
             {{/if}}
