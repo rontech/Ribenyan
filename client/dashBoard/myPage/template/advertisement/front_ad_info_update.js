@@ -194,3 +194,28 @@ Template.frontAdInfoUpdate.events({
         }
     }
 });
+
+
+Template.frontAdInfoUpdate.helpers({
+    "zhizeNum" : function(){
+        if(this.duty){
+            return this.duty.length;
+        }else{
+            return 0;
+        }
+    },
+    "yaoqiuNum" : function(){
+        if(this.requirement){
+            return this.requirement.length;
+        }else{
+            return 0;
+        }
+    },
+    "fuliNum" : function(){
+        if(this.weal){
+            return this.weal.length;
+        }else{
+            return 0;
+        }
+    },
+});

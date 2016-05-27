@@ -73,7 +73,7 @@ Template.userAd.helpers({
 					sortable: false,
 					headerClass: 'span1',
 					fn: function (name,object) {
-						var html = '<div class="text-right"><a href="/adv/details/' + object._id + '"><button name="delete" class="btn btn-info" value="' + object._id  + '">查看</button></a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
+						var html = '<div class="text-right"><a class="btn btn-info" href="/user/adupdate/' + object._id + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
 						return new Spacebars.SafeString(html);
 					}
 				}

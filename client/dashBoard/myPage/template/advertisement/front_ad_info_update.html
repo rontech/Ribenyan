@@ -113,32 +113,49 @@
                     </div>
 
                     <div class="must clear input-group" ><span>岗位职责</span>
-                        <input type="hidden" id="zhizenum" value="1"/>
-                        <input type="text" name="duty" class="pub-input" placeholder="输入内容显示为一行" id="duty" value="{{duty}}" />
+                        <input type="hidden" id="zhizenum" value="{{zhizeNum}}"/>
+                        <input type="text" name="duty" class="pub-input" placeholder="输入内容显示为一行" id="duty" value="{{duty.[0]}}" />
                         <div class="input-group-btn">
                             <input type="button" class="btn btn-info" id="addzhize" value="新建一行" style="height:40px;margin-bottom:15px;"/>
                         </div>
                     </div>
-                    <div id="zhize"></div>
-
+                    <div id="zhize">
+                        {{#each duty}}
+                            {{#if @index}}
+                                <input type="text" name="duty" class="pub-input" value="{{this}}" placeholder="输入内容显示为一行" id="duty{{@index}}"/>
+                            {{/if}}
+                        {{/each}}
+                    </div>
 
                     <div class="must clear input-group"><span>任职要求</span>
-                        <input type="hidden" id="yaoqiunum" value="1"/>
-                        <input type="text" name="requirement" class="pub-input" placeholder="输入内容显示为一行" id="requirement" value="{{requirement}}" />
+                        <input type="hidden" id="yaoqiunum" value="{{yaoqiuNum}}"/>
+                        <input type="text" name="requirement" class="pub-input" placeholder="输入内容显示为一行" id="requirement" value="{{requirement.[0]}}" />
                         <div class="input-group-btn">
                             <input type="button" class="btn btn-info" id="addyaoqiu" value="新建一行" style="height: 40px;margin-bottom: 15px"/>
                         </div>
                     </div>
-                    <div id="yaoqiu"></div>
+                    <div id="yaoqiu">
+                        {{#each requirement}}
+                            {{#if @index}}
+                                <input type="text" name="requirement" class="pub-input" value="{{this}}" placeholder="输入内容显示为一行" id="requirement{{@index}}"/>
+                            {{/if}}
+                        {{/each}}
+                    </div>
 
                     <div class="must clear input-group"><span>福利待遇</span>
-                        <input type="hidden" id="fulinum" value="1"/>
-                        <input type="text" name="weal" class="pub-input" placeholder="输入内容显示为一行" id="weal" value="{{weal}}" />
+                        <input type="hidden" id="fulinum" value="{{fuliNum}}"/>
+                        <input type="text" name="weal" class="pub-input" placeholder="输入内容显示为一行" id="weal" value="{{weal.[0]}}" />
                         <div class="input-group-btn">
                             <input type="button" class="btn btn-info" id="addfuli" value="新建一行" style="height: 40px;margin-bottom: 15px"/>
                         </div>
                     </div>
-                    <div id="fuli"></div>
+                    <div id="fuli">
+                        {{#each weal}}
+                            {{#if @index}}
+                                <input type="text" name="weal" class="pub-input" value="{{this}}" placeholder="输入内容显示为一行" id="weal{{@index}}"/>
+                            {{/if}}
+                        {{/each}}
+                    </div>
 
                     <div style="background-color: #eee;border: 1px solid #d2d2d2;margin-top: 10px">
                         <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 公司介绍</h2><br>
