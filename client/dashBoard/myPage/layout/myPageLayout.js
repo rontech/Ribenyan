@@ -1,7 +1,11 @@
 Template.myPageLayout.rendered = function() {
-    if(!Meteor.user()){
-        Router.go("/user/login")
-    }
+    var self = this;
+    self.autorun(function(){
+        if(!Meteor.user()){
+            Router.go("/user/login")
+        }
+    });
+
 }
 
 Template.myPageLayout.events({

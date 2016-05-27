@@ -1,7 +1,7 @@
 Template.frontAdInfoAdd.created = function() {
-    if(!Meteor.user()){
-        Router.go("/user/login")
-    }
+    // if(!Meteor.user()){
+    //     Router.go("/user/login")
+    // }
 }
 
 Template.frontAdInfoAdd.rendered = function() {
