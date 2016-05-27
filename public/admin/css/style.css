@@ -302,36 +302,44 @@ dl.seleDl.last{margin: 0;}
 
  @media only screen and (max-width: 1000px) {
 .mobhide{
-	display:none !important;}
-	
-	.list-menu, .card-list, .title-box, .left-menu{
-		display:none;}
-		.tab{
-			margin-top:123px;
-            min-height: 580px}
-     .panel-body{
-         padding: 0px 0px 0px 0px;
+	display:none !important;
+}
+.list-menu, .card-list,  .left-menu{
+    display:none;
+}
+     .title-box{
+         display: block;
      }
-     .col-md-12{
-         padding: 0px 0px 0px 0px;
-     }
+.tab{
+    margin-top:0px;
+    min-height: 580px
+}
+.panel-body{
+ padding: 0px 0px 0px 0px;
+}
+.col-md-12{
+ padding: 0px 0px 0px 0px;
+}
 #main-content,.content-box{
 	
 	width:100%;
 	min-width:inherit;
 	padding:0;
-    }
-     .content-box{
-         min-height: 580px;
-         max-height: 580px;
-     }
+}
+     #main-content{
+ /*min-height: 280px;*/
+ max-height: 484px;
+}
+ .content-box{
+     min-height: 180px
+ }
 	
 	.card-list ul li span{
 		padding:10px 20px;}
 		.card-list ul li p{
 			margin-top:10px;}
 			.title-box{
-				margin-top:0;}
+				margin-top:126px;}
 	
 .card-list ul li{
 	width:100%;padding-right:0;}
