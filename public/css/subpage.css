@@ -13,7 +13,7 @@
 .tools-list span i{ color: #fe8835; font-size: 18px;}
 .tools-list span.comment,.tools-list span.date,.tools-list span.praise{ font-size: 15px; color: #99a3b1;}
 .subpage-list-content .content-list ul li .content-info p{ font-size: 15px;margin-top: 15px;
-	/*overflow: hidden;*/
+	overflow: hidden;
 	max-height: 38px;
     min-height: 38px;}
 .subpage-list-content .content-list ul li .content-info p.btn{ text-align: right; min-height: auto;min-height: 38px; max-height: 38px; }
