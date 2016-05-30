@@ -653,3 +653,120 @@ body {
       border-radius:10px;
    }  
 }
+
+/*
+*　后台管理css
+* author ysj
+*/
+.i-icom, .icom {
+    display: inline-block;
+    background-image: url(../images/icon.png);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    vertical-align: text-bottom;
+}
+.icom-line {
+    background-position: -145px -1px;
+}
+/*排版*/
+.cell-box{
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #f0f0f0;
+}
+.cell-box .cell-brief{
+    /*border-top: 1px solid #f0f0f0;*/
+    height: 40px;
+}
+.cell-detail{
+    display: none;
+}
+.cell-brief .number{
+    width: 4%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+.cell-brief  .number p {
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 14px;
+    color: #999;
+}
+
+.cell-brief .title{
+    width: 56%;
+    height: 100%;
+    float: left;
+}
+.cell-brief .title p{
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 15px;
+    color: #000;
+}
+.cell-brief .title p span{
+    font-size: 14px;
+    color: #999;
+}
+.cell-brief .but{
+    width: 40%;
+    height: 100%;
+    float: right;
+    text-align: right;
+}
+.cell-brief .but button{
+    margin-top: 5px;
+}
+
+.cell-detail{
+
+}
+.cell-detail header {
+    height: 40px;
+    font-size: 15px;
+    color: #000;
+    border: 1px solid #f0f0f0;
+    border-radius :6px;
+}
+.cell-detail header p{
+    margin-left: 5px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.cell-detail .content{
+    padding: 10px;
+
+}
+
+.cell-detail .close-detail-cell {
+    height: 60px;
+    background-color: #fff;
+    color: #bbb;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 60px;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+}
+
+/*模板*/
+.modal-box{
+    background-color:#fff;
+    border:1px solid #f0f0f0;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+}
+.modal-box header{
+    height: 35px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.modal-box .detail{
+    margin-top: 10px;
+}
