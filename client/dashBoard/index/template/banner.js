@@ -6,15 +6,14 @@ Template.banner.helpers({
 });
 
 Template.banner.onRendered(function(){
-
-            $('.bxslider').bxSlider({
-                auto: true,
-                autoControls: true
-            });
-            $('.bxslider-list').bxSlider({
-                  minSlides: 1,
-                  maxSlides: 3,
-                  slideWidth: 175,
-                  slideMargin: 10
-            });
+    $('.bxslider').bxSlider({
+        auto: true,
+        autoControls: true
+    });
+    $('.bxslider-list').bxSlider({
+          minSlides: 1,
+          maxSlides: 3,
+          slideWidth: 175,
+          slideMargin: 10
+    });
  });

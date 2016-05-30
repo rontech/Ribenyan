@@ -1,7 +1,7 @@
 <!-- 公司招聘信息 -->
 <template name="advCompanyJopLeftCell">
     <li>
-        <a href="{{pathFor 'adDetail' id=this._id._str}}">
+        <a href="{{pathFor 'adDetails' id=this._id._str}}">
             <div class="img" style="background-image: url({{getImagePathByID this.imageObj}});"></div>
             <div class="content-info">
                 <h2>{{title}}</h2>
@@ -13,7 +13,7 @@
                 <p style="margin-top: 5px;max-height: 18px;min-height: 18px">岗位:{{position}}</p>
                 <p class="btn" style="margin-top: 0px;">
                         <a href="javascript:;">招聘广告</a>
-                        <a href="{{pathFor 'adDetail' id=this._id._str}}">详情点击</a>
+                        <a href="{{pathFor 'adDetails' id=this._id._str}}">详情点击</a>
                 </p>
             </div>
         </a>
