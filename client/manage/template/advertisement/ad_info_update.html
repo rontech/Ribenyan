@@ -20,19 +20,13 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-2 control-label">概要</label>
-							<div class="col-sm-10">
-								<input type="text" id="resume" name="resume" value="{{resume}}" data-required="1" class="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
 							<label class="col-md-2 control-label" for="select-1">广告类型</label>
 							<div class="col-md-10">
 								<select class="form-control" id="showRule" name="showRule">
 									<option value="0">请选择</option>
-									<option value="1" {{selected showRule 1}}>1: 买卖房屋</option>
-									<option value="2" {{selected showRule 2}}>2: 租赁房屋</option>
-									<option value="3" {{selected showRule 3}}>3: 招聘</option>
+									<option value="1" >1: 买卖房屋</option>
+									<option value="2" >2: 租赁房屋</option>
+									<option value="3" >3: 招聘</option>
 								</select>
 							</div>
 						</div>
@@ -47,103 +41,228 @@
 							</div>
 						</div>
 
-						<div id="house">
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">地址</label>
-								<div class="col-sm-10">
-									<input type="text" id="address" name="address" value="{{address}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">最近车站</label>
-								<div class="col-sm-10">
-									<input type="text" id="nearestStation" name="nearestStation" value="{{nearestStation}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">房屋面积</label>
-								<div class="col-sm-10">
-									<input type="text" id="houseArea" name="houseArea" value="{{houseArea}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">类型</label>
-								<div class="col-sm-10">
-									<input type="text" id="houseType" name="houseType" value="{{houseType}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">价格</label>
-								<div class="col-sm-10">
-									<input type="text" id="price" name="price" data-required="1" value="{{price}}" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">最近地铁线路</label>
-								<div class="col-sm-10">
-									<input type="text" id="nearestMetroLine" name="nearestMetroLine" value="{{nearestMetroLine}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-						</div>
+                        <div id="house">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">租金</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="price" name="price" data-required="1" class="form-control" value="{{price}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">公寓</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="apartment" name="apartment" data-required="1" class="form-control" value="{{apartment}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">户型</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="roomType" name="roomType" data-required="1" class="form-control" {{roomType}}/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">押金</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="deposit" name="deposit" data-required="1" class="form-control" value="{{deposit}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">礼金</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="giftMoney" name="giftMoney" data-required="1" class="form-control" value="{{giftMoney}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">管理费</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="kanrihi" name="kanrihi" data-required="1" class="form-control" value="{{kanrihi}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="address" name="address" data-required="1" class="form-control" value="{{address}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">交通</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="traffic" name="traffic" data-required="1" class="form-control" value="{{traffic}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">联系电话</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="contactPhone" name="contactPhone" data-required="1" class="form-control" value="{{contactPhone}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">建造年</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="buildYear" name="buildYear" data-required="1" class="form-control" value="{{buildYear}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">楼高</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="buildingHigh" name="buildingHigh" data-required="1" class="form-control" value="{{buildingHigh}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">房屋面积</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="houseArea" name="houseArea" data-required="1" class="form-control" value="{{houseArea}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">朝向</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="orientation" name="orientation" data-required="1" class="form-control" value="{{orientation}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">建筑材料</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="buildingMaterial" name="buildingMaterial" data-required="1" class="form-control" value="{{buildingMaterial}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">周边环境</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="environment" name="environment" data-required="1" class="form-control" value="{{environment}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">设备\条件</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="condition" name="condition" data-required="1" class="form-control" value="{{condition}}"/>
+                                </div>
+                            </div>
 
-						<div id="people">
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">公司名称</label>
-								<div class="col-sm-10">
-									<input type="text" id="companyName" name="companyName" value="{{companyName}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">工作地址</label>
-								<div class="col-sm-10">
-									<input type="text" id="workAdress" name="workAdress" value="{{workAdress}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">工作岗位</label>
-								<div class="col-sm-10">
-									<input type="text" id="position" name="position" value="{{position}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">薪酬</label>
-								<div class="col-sm-10">
-									<input type="text" id="salary" name="salary" value="{{salary}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">公司首页</label>
-								<div class="col-sm-10">
-									<input type="text" id="companyHomePage" name="companyHomePage" value="{{companyHomePage}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">联系方式</label>
-								<div class="col-sm-10">
-									<input type="text" id="companyTelephone" name="companyTelephone" value="{{companyTelephone}}" data-required="1" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">招聘邮箱</label>
-								<div class="col-sm-10">
-									<input type="text" id="companyEmail" name="companyEmail" value="{{companyEmail}}" data-required="1" class="form-control" />
-								</div>
-							</div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">正文</label>
+                                <div class="col-sm-10">
+                                    <textarea name="content" id="content" class="form-control" value="{{content}}"></textarea>
+                                </div>
+                            </div>
+                        </div>
 
-						</div>
+                        <div id="people">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">公司名称</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="companyName" name="companyName" data-required="1" class="form-control" value="{{companyName}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">工作地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="workAdress" name="workAdress" data-required="1" class="form-control" value="{{workAdress}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">工作岗位</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="position" name="position" data-required="1" class="form-control" value="{{position}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">薪酬</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="salary" name="salary" data-required="1" class="form-control" value="{{salary}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">公司首页</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="companyHomePage" name="companyHomePage" data-required="1" class="form-control" value="{{companyHomePage}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">联系方式</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="companyTelephone" name="companyTelephone" data-required="1" class="form-control" value="{{companyTelephone}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">招聘邮箱</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="companyEmail" name="companyEmail" data-required="1" class="form-control" value="{{companyEmail}}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 col-md-2 control-label">岗位职责</label>
+                                <input type="hidden" id="zhizenum" value="{{zhizeNum}}"/>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" id="duty" name="duty" placeholder="输入内容显示为一行" data-required="1" class="form-control" value="{{duty.[0]}}"/>
+                                </div>
+                                <div class="col-sm-1 col-md-1">
+                                    <input type="button" class="btn btn-info" id="addzhize" value="新建一行"/>
+                                </div>
+                                <div id="zhize" class="col-md-offset-2 col-md-10">
+                                    {{#each duty}}
+                                        {{#if @index}}
+                                            <input type="text" name="duty" class="form-control" value="{{this}}" placeholder="输入内容显示为一行" id="duty{{@index}}"/>
+                                        {{/if}}
+                                    {{/each}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 col-md-2 control-label">任职要求</label>
+                                <input type="hidden" id="yaoqiunum" value="{{yaoqiuNum}}"/>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" id="requirement" name="requirement" placeholder="输入内容显示为一行" data-required="1" class="form-control"  value="{{requirement.[0]}}"/>
+                                </div>
+                                <div class="col-sm-1 col-md-1">
+                                    <input type="button" class="btn btn-info" id="addyaoqiu" value="新建一行"/>
+                                </div>
+
+                                <div id="yaoqiu" class="col-md-offset-2 col-md-10">
+                                    {{#each requirement}}
+                                        {{#if @index}}
+                                            <input type="text" name="requirement" class="form-control" value="{{this}}" placeholder="输入内容显示为一行" id="requirement{{@index}}"/>
+                                        {{/if}}
+                                    {{/each}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 col-md-2 control-label">福利待遇</label>
+                                <input type="hidden" id="fulinum" value="{{fuliNum}}"/>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" id="weal" name="weal" data-required="1" placeholder="输入内容显示为一行" class="form-control" value="{{weal.[0]}}"/>
+                                </div>
+                                <div class="col-sm-1 col-md-1">
+                                    <input type="button" class="btn btn-info" id="addfuli" value="新建一行"/>
+                                </div>
+
+                                <div id="fuli" class="col-md-offset-2 col-md-10">
+                                    {{#each weal}}
+                                        {{#if @index}}
+                                            <input type="text" name="weal" class="form-control" value="{{this}}" placeholder="输入内容显示为一行" id="weal{{@index}}"/>
+                                        {{/if}}
+                                    {{/each}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">公司介绍</label>
+                                <div class="col-sm-10">
+                                    <textarea name="companyIntroduce" id="companyIntroduce" class="form-control" value="{{companyIntroduce}}"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
 
 						<div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label">简介</label>
 							<div class="col-sm-10">
-								<input type="text" id="introduce" name="introduce" value="{{introduce}}" data-required="1" class="form-control" />
+								<textarea id="introduce" name="introduce"  data-required="1" class="form-control" value="{{introduce}}"></textarea>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-2 control-label">内容</label>
-							<div class="col-sm-10">
-								<textarea name="content" id="content" value="{{content}}" class="form-control"></textarea>
-							</div>
-						</div>
+
 						<div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label">广告客户ID</label>
 							<div class="col-sm-10">

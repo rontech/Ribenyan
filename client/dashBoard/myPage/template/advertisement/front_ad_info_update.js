@@ -32,6 +32,7 @@ Template.frontAdInfoUpdate.events({
     },
     'submit #ad_info_update_F' : function(e,t) {
         var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
+        var updatetime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
         var _id        = $('#_id').val();
 
         var price            = '';
@@ -172,7 +173,7 @@ Template.frontAdInfoUpdate.events({
                 "weal":weal,
                 "companyIntroduce":companyIntroduce,
                 "createTime":createtime,
-                "updateTime":createtime,
+                "updateTime":updatetime,
                 "imageObj":imageObj
             }},function(){
                 alert("已保存");
