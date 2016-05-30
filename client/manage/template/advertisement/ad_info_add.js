@@ -6,6 +6,7 @@ Template.adInfoAdd.onRendered(function() {
 	$("#people").hide();
 	CKEDITOR.replace("content");
 	CKEDITOR.replace("introduce");
+	CKEDITOR.replace("companyIntroduce");
 });
 
 Template.adInfoAdd.helpers({
@@ -16,26 +17,62 @@ Template.adInfoAdd.helpers({
 });
 
 Template.adInfoAdd.events({
+	'click #addzhize' : function(e,t) {
+		var zhizeNum = $("#zhizenum").val();
+		$("#zhize").append("<input type=\"text\" name=\"duty\" class=\"form-control\" placeholder=\"输入内容显示为一行\" id=\"duty"+zhizeNum+"\"  />");
+		zhizeNum++;
+		$("#zhizenum").val(zhizeNum);
+	},
+	'click #addyaoqiu' : function(e,t) {
+		var yaoqiuNum = $("#yaoqiunum").val();
+		$("#yaoqiu").append("<input type=\"text\" name=\"duty\" class=\"form-control\" placeholder=\"输入内容显示为一行\" id=\"requirement"+yaoqiuNum+"\"  />");
+		yaoqiuNum++;
+		$("#yaoqiunum").val(yaoqiuNum);
+	},
+	'click #addfuli' : function(e,t) {
+		var fuliNum = $("#fulinum").val();
+		$("#fuli").append("<input type=\"text\" name=\"duty\" class=\"form-control \" placeholder=\"输入内容显示为一行\" id=\"weal"+fuliNum+"\"  />");
+		fuliNum++;
+		$("#fulinum").val(fuliNum);
+	},
 	'submit #ad_info_add' : function(e,t) {
 		var createtime = new Date().Format("yyyy/MM/dd/hh:mm:ss");
 
-		var address          = "";
-		var nearestStation   = "";
-		var houseArea        = "";
-		var houseType        = "";
-		var price            = "";
-		var nearestMetroLine = "";
-		var companyName      = "";
-		var workAdress       = "";
-		var position         = "";
-		var salary           = "";
-		var companyHomePage  = "";
-		var companyTelephone = "";
-		var companyEmail     = "";
+		var price            = '';
+		var apartment        = '';
+		var roomType         = '';
+		var deposit          = '';
+		var giftMoney        = '';
+		var kanrihi          = '';
+		var address          = '';
+		var traffic          = '';
+		var contactPhone     = '';
+		var buildYear        = '';
+		var buildingHigh     = '';
+		var houseArea        = '';
+		var orientation      = '';
+		var buildingMaterial = '';
+		var environment      = '';
+		var condition        = '';
+
+		var companyName      = '';
+		var workAdress       = '';
+		var position         = '';
+		var salary           = '';
+		var companyHomePage  = '';
+		var companyTelephone = '';
+		var companyEmail     = '';
+		var duty             = new Array();
+		var requirement      = new Array();
+		var weal             = new Array();
+		var companyIntroduce = '';
+
+
+
 
 		e.preventDefault();
 		var title            = t.find('#title').value;
-		var resume           = t.find('#resume').value;
+		// var resume           = t.find('#resume').value;
 		var showRule         = t.find('#showRule').value;
 		var hopeShowPosition = t.find('#hopeShowPosition').value;
 		var introduce        = t.find('#introduce').value;
@@ -47,12 +84,22 @@ Template.adInfoAdd.events({
 
 		if(showRule == "1" || showRule == "2") {
 			//房屋信息
-			address          = t.find('#address').value;
-			nearestStation   = t.find('#nearestStation').value;
-			houseArea        = t.find('#houseArea').value;
-			houseType        = t.find('#houseType').value;
 			price            = t.find('#price').value;
-			nearestMetroLine = t.find('#nearestMetroLine').value;
+			apartment        = t.find('#apartment').value;
+			roomType         = t.find('#roomType').value;
+			deposit          = t.find('#deposit').value;
+			giftMoney        = t.find('#giftMoney').value;
+			kanrihi          = t.find('#kanrihi').value;
+			address          = t.find('#address').value;
+			traffic          = t.find('#traffic').value;
+			contactPhone     = t.find('#contactPhone').value;
+			buildYear        = t.find('#buildYear').value;
+			buildingHigh     = t.find('#buildingHigh').value;
+			houseArea        = t.find('#houseArea').value;
+			orientation      = t.find('#orientation').value;
+			buildingMaterial = t.find('#buildingMaterial').value;
+			environment      = t.find('#environment').value;
+			condition        = t.find('#condition').value;
 		}else{
 			if (showRule=="3") {
 				//招聘信息
@@ -63,6 +110,25 @@ Template.adInfoAdd.events({
 				companyHomePage  = t.find('#companyHomePage').value;
 				companyTelephone = t.find('#companyTelephone').value;
 				companyEmail     = t.find('#companyEmail').value;
+				duty[0]          = t.find('#duty').value;
+				requirement[0]   = t.find('#requirement').value;
+				weal[0]          = t.find('#weal').value;
+				companyIntroduce = t.find('#companyIntroduce').value;
+
+				var zzNum = $("#zhizenum").val();
+				for(var i=1;i<zzNum;i++){
+					duty[i] = $("#duty"+i).val();
+				}
+
+				var yqNum = $("#yaoqiunum").val();
+				for(var i=1;i<yqNum;i++){
+					requirement[i] = $("#requirement"+i).val();
+				}
+
+				var flNum = $("#fulinum").val();
+				for(var i=1;i<flNum;i++){
+					weal[i] = $("#weal"+i).val();
+				}
 			}else{
 				//alert("请选择广告类型");
 			}
@@ -70,15 +136,29 @@ Template.adInfoAdd.events({
 
 		AdInfo.insert({
 			"title":title,
-			"resume":resume,
 			"showRule":showRule,
 			"hopeShowPosition":hopeShowPosition,
-			"address":address,
-			"nearestStation":nearestStation,
-			"houseArea":houseArea,
-			"houseType":houseType,
+			"introduce":introduce,
+			"content":content,
+			"cstId":cstId,
+			"advEmail":advEmail,
+			"advTelephone":advTelephone,
 			"price":price,
-			"nearestMetroLine":nearestMetroLine,
+			"apartment":apartment,
+			"roomType":roomType,
+			"deposit":deposit,
+			"giftMoney":giftMoney,
+			"kanrihi":kanrihi,
+			"address":address,
+			"traffic":traffic,
+			"contactPhone":contactPhone,
+			"buildYear":buildYear,
+			"buildingHigh":buildingHigh,
+			"houseArea":houseArea,
+			"orientation":orientation,
+			"buildingMaterial":buildingMaterial,
+			"environment":environment,
+			"condition":condition,
 			"companyName":companyName,
 			"workAdress":workAdress,
 			"position":position,
@@ -86,11 +166,10 @@ Template.adInfoAdd.events({
 			"companyHomePage":companyHomePage,
 			"companyTelephone":companyTelephone,
 			"companyEmail":companyEmail,
-			"introduce":introduce,
-			"content":content,
-			"cstId":cstId,
-			"advEmail":advEmail,
-			"advTelephone":advTelephone,
+			"duty":duty,
+			"requirement":requirement,
+			"weal":weal,
+			"companyIntroduce":companyIntroduce,
 			"createTime":createtime,
 			"updateTime":createtime,
 			"imageObj":imageObj

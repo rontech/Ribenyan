@@ -51,7 +51,7 @@ Template.adListTable.helpers({
 					headerClass: '',
 					cellClass:'',
 					fn: function (name,object) {
-						var html = '<a href="/manage/adview/' + object._id + '">' + name + '</a>';
+						var html = '<a href="/adv/details/' + object._id + '">' + name + '</a>';
 						return new Spacebars.SafeString(html);
 					}
 				},
