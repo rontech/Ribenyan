@@ -1,7 +1,6 @@
 Template.frontAdInfoUpdate.rendered = function() {
-    $("#house").hide();
     $("#people").hide();
-
+    $("#house").hide();
     CKEDITOR.replace("content");
     CKEDITOR.replace("introduce");
     CKEDITOR.replace("companyIntroduce");

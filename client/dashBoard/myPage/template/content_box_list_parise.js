@@ -75,7 +75,7 @@ Template.userParise.helpers({
 					sortable: false,
 					headerClass: 'span1',
 					fn: function (name,object) {
-						var html = '<div class="text-right"><a href="/news/detail/' + object.newsID + '"><button name="delete" class="btn btn-info" value="' + object._id  + '">查看</button></a></div>';
+						var html = '<div class="text-right"><a href="/news/detail/' + object.newsID + '"><button name="delete" class="btn btn-primary" value="' + object._id  + '">查看</button></a></div>';
 						return new Spacebars.SafeString(html);
 					}
 				}
