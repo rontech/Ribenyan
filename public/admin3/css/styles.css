@@ -651,7 +651,8 @@ body {
       border-bottom:0px;
       box-shadow:0px 0px 1px #0fa6bc;
       border-radius:10px;
-   }  
+   }
+
 }
 
 /*
@@ -769,4 +770,24 @@ body {
 }
 .modal-box .detail{
     margin-top: 10px;
+}
+
+.form-group{
+    margin-left: 0px !important;
+    margin-right: 0px!important;
+}
+
+.preview{
+    margin-top: 20px;
+}
+
+.previewbtn{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 80px;
+}
+
+.previewbtn button{
+    padding-left: 40px;
+    padding-right: 40px;
 }
