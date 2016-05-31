@@ -2,7 +2,7 @@
 var advNum = 2;
 
 Template.secondLeftList.onRendered(function(){
-	console.log(Template.currentData());
+	// console.log(Template.currentData());
 	var id = new Meteor.Collection.ObjectID(Template.currentData().typeID);
 
 	var typeName = TypeInfo.findOne({"_id":id}).name;
@@ -115,6 +115,6 @@ function compositeData(){
 			j++;
 		}
 	}
-	console.log(listInfo);
+	// console.log(listInfo);
 	return listInfo;
 }

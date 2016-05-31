@@ -40,7 +40,7 @@ Template.loginRegister.events({
 							$(".error-msg").text(LOGIGN_INCORRECT_PASSWORD);
 							$(".error-msg").removeClass("hide");
 						}
-						console.log("登录失败");
+						// console.log("登录失败");
 					}else{
 						Router.go("index");
 					}
@@ -49,7 +49,7 @@ Template.loginRegister.events({
 		}
 	},
 	'click button.js-register-submit' :function(e){//注册
-		console.log("点击注册");
+		// console.log("点击注册");
 
 		var email = $("#reg_email").val();
 		var username = $("#reg_username").val();
@@ -99,7 +99,7 @@ Template.loginRegister.events({
 		}
 			
 		//提交注册
-		console.log("提交注册");
+		// console.log("提交注册");
 
 		Accounts.createUser({
 								email:email,
@@ -109,7 +109,7 @@ Template.loginRegister.events({
 							},
 							function(error){
 								if(error){
-									console.log(error);
+									// console.log(error);
 
 									if(error.reason == "Email already exists."){
 										$("#reg_error").text(REG_EMAIL_EXIST);
@@ -121,7 +121,7 @@ Template.loginRegister.events({
 										$("#reg_error").removeClass("hide");
 									}
 								}else{
-									console.log("注册成功");
+									// console.log("注册成功");
 									Router.go("index");
 								}
 							}

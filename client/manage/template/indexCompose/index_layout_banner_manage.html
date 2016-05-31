@@ -15,7 +15,7 @@
 					
 					<span>轮播图</span>
 					<div style="float:right !important;">
-						<button type="button" class="btn btn-success js-add-banner-box">添加</button>
+						<button type="button" class="btn btn-primary js-add-banner-box">添加</button>
 					</div>
 					{{#each slideData}}
 					<div class="cell-box" >
@@ -31,7 +31,7 @@
 				            	</p>
 				            </div>
 				            <div class="but">
-				            	<button type="button" class="btn btn-success js-edit">编辑</button>
+				            	<button type="button" class="btn btn-info js-edit">编辑</button>
 				            	<button type="button" data-id="{{_id._str}}" class="btn btn-danger js-delete">删除</button>
 				            </div>
 				        </div>
@@ -63,50 +63,50 @@
 
 				</div>
 
-				<!-- 右侧列表 -->
-				<div class="well well-lg">
-					
-					<span>右侧列表</span>
-					{{#each rightData}}
-					<div class="cell-box" >
-				        <!-- 标题　简介　start -->
-				        <div class="cell-brief"  style="display: block;">
-				            <div class="number">
-				            	<p>{{indexAddOne @index}}</p>
-				            </div>
-				            <div class="title">
-				            	<p>
-				            		<span>标题:</span>
-				            		{{title}}
-				            	</p>
-				            </div>
-				            <div class="but">
-				            	<button type="button" class="btn btn-success js-edit">编辑</button>
-				            </div>
-				        </div>
-				        <!-- 标题　简介　end -->
+				<!--&lt;!&ndash; 右侧列表 &ndash;&gt;-->
+				<!--<div class="well well-lg">-->
+					<!---->
+					<!--<span>右侧列表</span>-->
+					<!--{{#each rightData}}-->
+					<!--<div class="cell-box" >-->
+				        <!--&lt;!&ndash; 标题　简介　start &ndash;&gt;-->
+				        <!--<div class="cell-brief"  style="display: block;">-->
+				            <!--<div class="number">-->
+				            	<!--<p>{{indexAddOne @index}}</p>-->
+				            <!--</div>-->
+				            <!--<div class="title">-->
+				            	<!--<p>-->
+				            		<!--<span>标题:</span>-->
+				            		<!--{{title}}-->
+				            	<!--</p>-->
+				            <!--</div>-->
+				            <!--<div class="but">-->
+				            	<!--<button type="button" class="btn btn-success js-edit">编辑</button>-->
+				            <!--</div>-->
+				        <!--</div>-->
+				        <!--&lt;!&ndash; 标题　简介　end &ndash;&gt;-->
 
-				        <!-- 详情 start -->
-				        <div class="cell-detail" style="display: none;">
-				        	<header>
-		                    	<p><span>{{indexAddOne @index}}:</span>{{title}}</p>
-		                
-		                    </header>
-		                    <!-- 详细内容 -->
-			                <form data-pagetype="right" class="form-horizontal" style="margin-top:10px;">
-			                	
-			                	{{> bannerDetailCellManage }}
-			                	
-			                </form>
-				        
-				            <div class="close-detail-cell js-show-hide-box" data-buttom="true">收起
-				            </div>
+				        <!--&lt;!&ndash; 详情 start &ndash;&gt;-->
+				        <!--<div class="cell-detail" style="display: none;">-->
+				        	<!--<header>-->
+		                    	<!--<p><span>{{indexAddOne @index}}:</span>{{title}}</p>-->
+		                <!---->
+		                    <!--</header>-->
+		                    <!--&lt;!&ndash; 详细内容 &ndash;&gt;-->
+			                <!--<form data-pagetype="right" class="form-horizontal" style="margin-top:10px;">-->
+			                	<!---->
+			                	<!--{{> bannerDetailCellManage }}-->
+			                	<!---->
+			                <!--</form>-->
+				        <!---->
+				            <!--<div class="close-detail-cell js-show-hide-box" data-buttom="true">收起-->
+				            <!--</div>-->
 
-				        </div>
-				        <!-- 详情 end -->
-				    </div>
-				    {{/each}}
-				</div>		
+				        <!--</div>-->
+				        <!--&lt;!&ndash; 详情 end &ndash;&gt;-->
+				    <!--</div>-->
+				    <!--{{/each}}-->
+				<!--</div>		-->
 
 			</div>
 		</div>

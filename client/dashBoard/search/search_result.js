@@ -27,7 +27,7 @@ Template.searchResult.helpers({
 		// return true;
 	},
 	"datalist" : function(){
-		console.log(Template.currentData().searchText);
+		// console.log(Template.currentData().searchText);
 		if(Template.currentData().searchText){
 			return compositeData();
 		}
@@ -110,7 +110,7 @@ function searchAdverInfo(searchText){
 									]
 								}
 							).fetch();
-	console.log(advList);
+	// console.log(advList);
 
 	if(advList.length > 0 ){
 		var list = new Array();

@@ -57,7 +57,7 @@ Template.adSettingManageAdd.events({
         	alert(ADVINFO_SET_TYPE_NOT_SELECT);
         	return false;
         }
-        console.log(Obj);
+        // console.log(Obj);
 
         var dataAry = new Array();
         //整理数据

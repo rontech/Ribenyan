@@ -122,7 +122,7 @@ Template.plDpForm.events({
 					alert(DP_SUBMIT_ERROR);
 				}else{
 					if(result.result){//成功
-						console.log("点评成功");
+						// console.log("点评成功");
 						//　清空评论框内容
 						textObj.val("");
 					}else{
@@ -158,7 +158,7 @@ Template.plDpForm.events({
 					alert(PRAISE_SUBMIT_ERROR);
 				}else{
 					if(result.result){//成功
-						console.log("点赞成功");
+						// console.log("点赞成功");
 						//　动画
 					}else{
 						alert(result.reason);
@@ -195,7 +195,7 @@ Template.plDpForm.events({
 					alert(NO_PRAISE_SUBMIT_ERROR);
 				}else{
 					if(result.result){//成功
-						console.log("踩成功");
+						// console.log("踩成功");
 						//　动画
 					}else{
 						alert(result.reason);
@@ -243,7 +243,7 @@ Template.plDplist.events({
 					alert(REP_SUBMIT_ERROR);
 				}else{
 					if(result.result){//成功
-						console.log("回复成功");
+						// console.log("回复成功");
 						//　清空评论框内容
 						textObj.val("");
 					}else{

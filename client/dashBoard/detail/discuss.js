@@ -55,7 +55,7 @@ Template.discuss.events({
 		Modal.show("popupUserLoginRegister");
 	},
 	"click button.js-pl-submit" : function(e){//评论"发表按钮"
-		console.log("点击评论　发表　按钮");
+		// console.log("点击评论　发表　按钮");
 		//验证评论内容
 		var evntObj = $(e.currentTarget);
 		var plText = $("#saytext").val();

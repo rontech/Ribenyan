@@ -8,7 +8,7 @@ Template.adInfoUpdate.rendered = function() {
 	CKEDITOR.replace("introduce");
 	CKEDITOR.replace("companyIntroduce");
 	var imageObj = Session.get("ad_info").imageObj;
-	console.log(Session.get("ad_info"));
+	// console.log(Session.get("ad_info"));
 	for(var i=0;i<imageObj.length;i++){
 		addRow(imageObj[i]);
 	}

@@ -22,7 +22,7 @@ Template.showDetail.events({
 		News.update({_id:id}, {$set: editNews}, function(error) {
 	      if (error) {
 	        // 向用户显示错误信息
-	        console.log(error);
+	        // console.log(error);
 	        alert("更新失败");
 	      } else {
 	        //Router.go('postPage', {_id: currentPostId});

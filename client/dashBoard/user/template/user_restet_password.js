@@ -35,7 +35,7 @@ Template.forgotPassword.events({
 		        alert(SYS_ERROR);
 		      }
 		    } else {
-		      console.log('Email Sent. Check your mailbox.');
+		      // console.log('Email Sent. Check your mailbox.');
 		      alert("邮件已发送，请到邮箱确认");
 		      return false;
 		    }
@@ -86,7 +86,7 @@ Template.resetPassword.events({
 
       	Accounts.resetPassword(Session.get('resetPassword'), password, function(err) {
 	        if (err) {
-	            console.log('We are sorry but something went wrong.');
+	            // console.log('We are sorry but something went wrong.');
 	            if(err.reason == "Token expired"){//ｔｏｋｅｎ　失效
 	            	alert(RSET_PAW_TOKEN_EXIT);
 	            	Router.go("forgotpassword")
@@ -96,7 +96,7 @@ Template.resetPassword.events({
 		   		$("#rset_error").removeClass("hide");	
 				return false;
 	        }else {
-	            console.log('Your password has been changed. Welcome back!');
+	            // console.log('Your password has been changed. Welcome back!');
 	            Session.set('resetPassword', null);
 	            // 跳转首页
 	            Router.go("index");

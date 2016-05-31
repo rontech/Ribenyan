@@ -10,7 +10,7 @@ Template.myPageLayout.rendered = function() {
 
 Template.myPageLayout.events({
     "click .logout" : function(e){
-        console.log("退出登录");
+        // console.log("退出登录");
         Meteor.logout(function(error){
             if(error){
                 console.log("退出失败");

@@ -6,7 +6,7 @@ Template.indexLayoutBannerManage.created = function() {
 // 
 Template.indexLayoutBannerManage.rendered = function() {
    var tmp =   sessionStorage.getItem('login_user');//Session.get("login_user");
-   console.log(tmp);
+   // console.log(tmp);
    if(tmp==null){
       Router.go("/managelogin");
    }
