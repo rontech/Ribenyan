@@ -1,11 +1,11 @@
 <template name="bannerSlideCell">
     <li>
-        <a href="{{link}}" target="_blank"><img src="{{getImagePathByID imageID}}" /></a>
+        <a href="{{link}}" target="_self"><img src="{{getImagePathByID imageID}}" /></a>
         <h3></h3>
         <h2></h2>
         <div>
-            <a href="{{link}}" target="_blank"><p>{{title}}</p></a>
-            <span><a href="{{link}}" target="_blank">更多...</a></span>
+            <a href="{{link}}" target="_self"><p>{{title}}</p></a>
+            <span><a href="{{link}}" target="_self">更多...</a></span>
         </div>
     </li>
 </template>

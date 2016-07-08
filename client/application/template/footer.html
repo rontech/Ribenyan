@@ -3,7 +3,6 @@
         <div class="content">
             <div class="footer-menu">
                 <ul>
-
                     <li><a href="http://www.ribenyan.net">www.ribenyan.net</a></li>
                     <!--<li><a href="#">广告服务</a></li>-->
                     <li><a href="#">联系我们</a></li>
@@ -11,6 +10,40 @@
                     <li><a href="#"> Copyright © 2016 · All Rights Reserved</a></li>
                 </ul>
             </div>
+            <div class="m-footer">
+              <div class="m-search" title="Open/close search form">
+                <div class="m-search-form">
+                  <form method="get" class="search-form" action="/search">
+                    <input type="text" class="search-field" placeholder="Search" value="" id="search-input1" name="s"/>
+                      <button type="submit" class="search-submit">
+                      <i class="fa fa-search"></i>
+                        </button>
+                      <button type="button" class="search-remove">
+                        <i class ="fa fa-remove"> </i>
+                      </button>
+                  </form>
+                </div>
+              </div>
+              <div id="m-menu-bar">
+                <ul class="m-footer-menu">
+                 {{#if currentUser}}
+                   <li><a class="login" href="/user/mypage/newslist"><i class="fa fa-home"></i><br>{{#with currentUser}}{{name}}{{/with}}</a></li>
+                   <li><a class="logout login" href=""><i class="fa fa-sign-out"></i><br>退出</a></li>
+                 {{else}}
+                   <li><a href="{{pathFor 'login'}}" id="login-icon"><i class="fa fa-sign-in"></i><br>登录・注册 </a></li>
+                 {{/if}}
+                  {{#if isDetailPage}}
+                    <li ><a href=""><i class="fa fa-thumbs-o-up {{noLoginColor}}" aria-hidden="true"></i><br>给个赞</a></li>
+                    <li><a href=""><i class="fa fa-comment {{noLoginColor}}" aria-hidden="true"></i><br>评论一下</a></li>
+                    <li><a href="" id="share-timeline"><i class="fa fa-comments {{noLoginColor}}" aria-hidden="true"></i><br>分享到朋友圈</a></li>
+                  {{else}}
+                    <li><a href=""><i class="fa fa-pencil {{noLoginColor}}" aria-hidden="true"></i><br>发表新主题</a></li>
+                    <li><a href="" id="search-icon"><i class="fa fa-search" aria-hidden="true"></i><br>検索</a></li>
+                  {{/if}}
+                </ul>
+              </div>
+            </div>
         </div>
     </div>
+
 </template>

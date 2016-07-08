@@ -2,7 +2,7 @@
     {{> popupSearchInput}}
     <div class="header">
         <div class="content">
-            <div class="logo"><img src="../../img/web-logo.png"></div>
+            <div class="logo"><a href="/"><img src="../../img/web-logo.png"></a></div>
 
             <div id="wrapper">
                 <div id="scroller" class="response-menu">
@@ -46,15 +46,4 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="/js/iscroll.js"></script>
-    <script type="text/javascript">
-        var myscroll;
-        function loaded(){
-            setTimeout(function(){
-                myscroll=new IScroll("#wrapper",{ eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
-            },100 );
-        }
-        window.addEventListener("load",loaded,false);
-    </script>
 </template>

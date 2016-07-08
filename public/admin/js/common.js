@@ -12,15 +12,31 @@ $(function() {
     $('.card-list').addClass('fixed');
   }
 })
-	
+
 	$(".submenu > a").on('click',function(){
-	if($(this).parent().hasClass('open')){
-		$(this).parent().removeClass('open');
-		
-	}else{$('.nav li').removeClass('open');
-	$(this).parent().addClass('open');}
-	
+	  if($(this).parent().hasClass('open')){
+	  	$(this).parent().removeClass('open');
+	  }else{
+      $('.nav li').removeClass('open');
+	    $(this).parent().addClass('open');
+    }
 	})
+
+	$(".submenu ul li > a").on('click',function(){
+    if($('.left-menu').css('display') == 'block') {
+		  $('.submenu').removeClass('open');
+		  $('.left-menu').css('display', 'none');
+    } 
+	})
+
+	$("#menuswitch").on('click',function(){
+    if(!$('.submenu').hasClass('open')) {
+		  $('.submenu').addClass('open');
+		  $('.left-menu').css('display', 'block');
+      $("#menuswitch").click();
+    } 
+	})
+
 	
 })
 

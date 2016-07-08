@@ -1,4 +1,15 @@
 Template.header.onRendered(function(){
+  myScroll=new IScroll("#wrapper",{ eventPassthrough: true, scrollX: true, scrollY: false,
+                                    preventDefault: false});
+  $(window).on('scroll',
+    function() {
+      if ( $(window).scrollTop() > 50 ) {
+        $(".logo").hide();
+      } else {
+        $(".logo").show();
+      };
+    });
+
     // $("#nav li:first").addClass("on");
     $("#scroller li:first").addClass("on");
 });
