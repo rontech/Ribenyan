@@ -71,6 +71,10 @@ Template.footer.events({
                             }, function(res) {
                             _report('timeline', res.err_msg);
                             });
+    },
+
+    "click #like-icon" : function(e){
+      $('.js-like-article').click();
     }
 
 });

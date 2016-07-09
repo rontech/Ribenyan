@@ -773,3 +773,8 @@ ul.m-footer-menu li a {
 .no-login-color {
  color: #696969; 
 }
+
+/* hidden bx-wrapper for mobile */
+@media screen and (max-width: 768px) {
+  .bx-wrapper{display: none; }
+}
