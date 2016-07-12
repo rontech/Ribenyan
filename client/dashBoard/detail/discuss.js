@@ -15,7 +15,7 @@ Template.discuss.events({
 	"click div.js-like-article" : function(e){//新闻点赞
 
 		if(!Meteor.user()){
-			alert(SYS_OPERATION_NEED_LOGIN);
+			 Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  title: '警告', message: SYS_OPERATION_NEED_LOGIN });
 			return false;
 		}
 		// 是否已点过赞
@@ -38,17 +38,20 @@ Template.discuss.events({
 					console.log("点赞失败");
 					var nowNum = parseInt(praiseObj.text()) - 1;
 					praiseObj.text(nowNum); 
-					alert(PRAISE_SUBMIT_ERROR);
+			 		Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
+							title: '警告', message: PRAISE_SUBMIT_ERROR });
 				}else{
 					if(result.result){//成功
 						
 					}else{
-						alert(result.reason);
+			 			Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
+							title: '警告', message: result.reason });
 					}
 				}
 			});
 		}else{
-			alert(PRAISE_HAS_SUBMIT);
+			 Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
+							title: '警告', message: PRAISE_HAS_SUBMIT });
 		}
 	},
 	"click a.moder-lgn-box" : function(e){//登录按钮　弹出登陆框
@@ -60,10 +63,12 @@ Template.discuss.events({
 		var evntObj = $(e.currentTarget);
 		var plText = $("#saytext").val();
 		if( isEmpty(plText) ){
-			alert(PL_CONTENT_IS_NULL);
+			Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
+							title: '警告', message: PL_CONTENT_IS_NULL });
 			return false;
 		}else if ( plText.length < 8 ){
-			alert(TEXTERA_PLACEHOLDER);
+			Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
+							title: '警告', message: TEXTERA_PLACEHOLDER });
 		}else{
 			var plData = {
 				"newsID": Template.currentData().newsID,
@@ -73,14 +78,16 @@ Template.discuss.events({
 			//提交评论
 			Meteor.call("submitNewsEvaluation",plData,function(error,result){
 				if(error){//评论失败
-					alert(PL_SUBMIT_ERROR);
+					Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
+							title: '警告', message: PL_SUBMIT_ERROR });
 				}else{
 					if(result.result){//成功
 						console.log("评论成功");
 						//　清空评论框内容
 						$("#saytext").val("");
 					}else{
-						alert(result.reason);
+						Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
+							title: '警告', message: result.reason });
 					}
 				}
 			});
