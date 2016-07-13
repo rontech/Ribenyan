@@ -7,3 +7,4 @@
 
 #Ignore .demeteorized
 .demeteorized
+.meteor/dev_bundle
