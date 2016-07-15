@@ -27,19 +27,36 @@
               <div id="m-menu-bar">
                 <ul class="m-footer-menu">
                   {{#if isDetailPage}}
+                    <li>
+                        <a href="/mobile/news/discuss/{{_id._str}}">
+                        <i class="fa fa-comment {{noLoginColor}}" aria-hidden="true">
+                        {{#if discussNum }}
+                          <div class="pl-number">{{discussNum}}</div>  
+                        {{/if}}
+                        </i><br>
+                        评论</a>
+
+                    </li>
                     <li >
                       <a href="" id="footer-like-icon">
                         <i class="fa fa-thumbs-o-up {{noLoginColor}}" aria-hidden="true"></i><br>赞
                       </a>
                     </li>
                     <li>
-                        <a href="">
-                        <i class="fa fa-comment {{noLoginColor}}" aria-hidden="true"></i><br>评论</a>
-                      </li>
-                    <li><a href="" id="share-timeline"><i class="fa fa-comments {{noLoginColor}}" aria-hidden="true"></i><br>分享</a></li>
+                      <a href="" id="share-timeline">
+                        <i class="fa fa-comments {{noLoginColor}}" aria-hidden="true"></i><br>分享
+                      </a>
+                    </li>
                   {{else}}
-                    <li><a href="/user/mypage"><i class="fa fa-pencil {{noLoginColor}}" aria-hidden="true"></i><br>发表新主题</a></li>
-                    <li><a href="" id="search-icon"><i class="fa fa-search" aria-hidden="true"></i><br>検索</a></li>
+                    <li>
+                      <a href="/user/mypage">
+                        <i class="fa fa-pencil {{noLoginColor}}" aria-hidden="true"></i><br>发表新主题</a>
+                    </li>
+                    <li>
+                      <a href="" id="search-icon">
+                        <i class="fa fa-search" aria-hidden="true"></i><br>検索
+                      </a>
+                    </li>
                   {{/if}}
                   {{#if currentUser}}
                    <li>

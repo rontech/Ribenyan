@@ -30,7 +30,27 @@ Template.footer.helpers({
       } else {
         return "no-login-color";
       }
-    }
+    },
+
+    "discussNum" : function(){
+      if(this._id) {
+        var plList = NewsEvaluationCol.find(
+                          {
+                            newsID:this._id,
+                            evaType:"1"
+                          },
+                          {
+                            sort:{creatDate:-1}
+                          }
+                        );
+
+        if(plList){
+          return plList.count();
+        }else{
+          return false;
+        }
+      }
+    },
 });
 
 Template.footer.events({
