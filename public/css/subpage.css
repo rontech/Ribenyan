@@ -1,5 +1,5 @@
 #main{margin-top: 20px;}
-.subpage-list-content{ float: left; width: 70%;margin-top: 20px; padding-right: 20px;}
+.subpage-list-content{ float: left; width: 70%;margin-top: 0px; padding-right: 20px;}
 .subpage-list-content .content-list{ overflow: hidden;}
 .subpage-list-content .content-list ul li{margin-bottom: 15px; overflow: hidden;}
 .subpage-list-content .content-list ul li .img{ float: left; -webkit-border-radius: 3px;border-radius: 3px;  width:100%;max-width:386px; height:  198px; background-position: center; background-size: cover; border-bottom: 3px solid #e3e4e8; margin-right: 15px;}
@@ -59,7 +59,7 @@ background-position: center; }
 .page-content{}
 .page-content .img{ text-align: center;}
 .page-content .img img{-webkit-border-radius: 3px;border-radius: 3px; min-height:208px ; min-width: 208px; width: 100%; max-width:100%;}
-.page-content .content-copy{ background: #ffffff;margin-top: 20px; padding: 55px;overflow: hidden;}
+.page-content .content-copy{ background: #ffffff;margin-top: 0px; padding: 55px;overflow: hidden;}
 .page-content .content-copy h1{ font-size: 30px; line-height: 120%;}
 .page-content .content-copy .page-copy{margin-top: 20px; line-height: 160%;}
 .page-content .content-copy .page-copy p{margin-bottom: 15px;}

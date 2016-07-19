@@ -680,8 +680,8 @@ input#search-input.sec{
 
 .header .tools ul li a.login{padding: 0 5px;}
 
-#scroller { width: 420px;}
-#scroller li {width: 70px}
+#scroller { width: 480px;}
+#scroller li {width: 75px}
 }
 @media only screen and (max-width:320px) {
 .list-img ul li { width: 100%; margin-bottom: 10px;}
@@ -729,9 +729,10 @@ ul.m-footer-menu li a i{
 ul.m-footer-menu li a {
   border: none;
   display: block;
-	color: #a6a6a6;
+  color: #a6a6a6;
   text-align: center;
   text-decoration: none;
+  min-width: 75px;
 }
 
 .m-footer-menu {

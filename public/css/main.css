@@ -562,6 +562,22 @@
   border-color: #fafafa
 }
 
+.pl-number {
+    position: absolute;
+    font-size: 10px;
+    background: #f63756;
+    color: #ffffff;
+    height: 12px;
+    border-radius: 11px;
+    vertical-align: middle;
+    display: inline-block;
+    font-style: normal;
+    margin-left: 5px;
+    top: 1px;
+    line-height: 15px;
+    padding: 0px 4px;
+}
+
 /*点评*/
 .dp-box {
   padding: 20px;
@@ -787,6 +803,7 @@
         width: 100%;
         padding: 0 20px;
     }
+
 }
 
  /*mobile*/
@@ -799,9 +816,15 @@
         width: 100%;
         padding: 0;
     }
+    /*评论隐藏*/    
+    .pl-wrap{
+      display: none;
+    }
 }
+
 @media screen and (min-width: 0px) and (max-width: 400px) {
     body {
         padding-bottom: 20px;
     } 
 }
+

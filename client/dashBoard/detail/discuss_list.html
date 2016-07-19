@@ -11,7 +11,7 @@
            <span class="span-mark-author active" data-type="agree">最新评论</span>
             {{#each plList}}
                 <!-- 评论内容　ｃｅｌｌ start-->
-                <div class="pl-box-wrap  " data-pid="558013" id="g_pid558013">
+                <div class="pl-box-wrap  ">
                     <div class="pl-box-top">
         	            <div class="author-info">
         	                <!-- <div class="author-face">
@@ -34,6 +34,8 @@
             	</div>
             	<!-- 评论内容　ｃｅｌｌ end-->
             {{/each}}
+        {{else}}
+        <span class="span-mark-author active" data-type="agree">暂无评论</span>
         {{/if}}
 	</div>
      {{#if Template.subscriptionsReady}}
