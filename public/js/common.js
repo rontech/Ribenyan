@@ -4,13 +4,13 @@ $(function() {
 					$('.respBox').removeClass('on');
 					openTrue = true;
 				
-					 $(document).scroll(function(){
+					$(document).scroll(function(){
 	   					var scrollTop =$(document).scrollTop();
-	 					 if(scrollTop==0){
+	 					if(scrollTop==0){
 	 					 	$('.header').removeClass("on");
-	 					 }else{
-	 					 	$('.header').addClass("on");
-	 							 }
+	 					}else{
+	 						$('.header').addClass("on");
+	 					}
 					})
 				
 				

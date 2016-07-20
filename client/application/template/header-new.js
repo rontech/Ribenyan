@@ -3,11 +3,14 @@ Template.header.onRendered(function(){
                                     preventDefault: false});
   $(window).on('scroll',
     function() {
-      if ( $(window).scrollTop() > 50 ) {
-        $(".logo").hide();
-      } else {
-        $(".logo").show();
-      };
+        if($("#wrapper").is(":visible")){
+            if ( $(window).scrollTop() > 50 ) {
+                $(".logo").hide();
+              } else {
+                $(".logo").show();
+              };
+        }
+      
     });
 
     // $("#nav li:first").addClass("on");
