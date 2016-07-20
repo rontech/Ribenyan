@@ -439,6 +439,13 @@ background-position: center;}
 .share ul li.new a i{-webkit-border-radius:3px;border-radius:3px; text-align:center; line-height:21px;color:#fff;font-size: 12px;font-family:sans-serif;width: 57px; height: 21px;}
 .share ul li:last-child:before{width:0;}
 .share ul li:last-child a{padding: 20px 0px 21px 0px ; }
+.header-icon-like-prompt{
+	position: absolute;
+    margin-top: 25px;
+    margin-left: 30px;
+    color: #333;
+    opacity: 0;
+}
 .financial h2 i{ background-position:-24px 0px;}
 .culture h2 i{background-position:-53px 0px;}
 .house h2 i{ background-position:-80px 0px;}

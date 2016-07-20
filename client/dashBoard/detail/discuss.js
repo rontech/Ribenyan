@@ -36,8 +36,6 @@ Template.discuss.events({
 			Meteor.call("newsPraise",praiseData,function(error,result){
 				if(error){//点赞失败
 					console.log("点赞失败");
-					var nowNum = parseInt(praiseObj.text()) - 1;
-					praiseObj.text(nowNum); 
 			 		Modal.show('CommonModal', {style: '', elementId: 'pl-wrap-article',  
 							title: '警告', message: PRAISE_SUBMIT_ERROR });
 				}else{

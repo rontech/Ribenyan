@@ -8,7 +8,7 @@
 			<a href="{{pathFor 'newsDetail' id=this._id._str}}" target="_self"><div class="banner"><img src="{{getImagePathByID imageID}}" />
 				<div class="title">{{title}}</div>
 				<div class="banner-details">
-					<div class="news"><a href="#">实 事</a></div>
+					<div class="news"><a href="#">热 点</a></div>
 					<p>{{introduce}}</p>
 				</div>
 			</div>
@@ -45,10 +45,22 @@
 							{{>qrCode}}
 
 							<div class="share finan">
+								
 								<ul>
-                                    <li class=""><a href="javascript:;" id="top-like-icon"><i class="fa fa-thumbs-up" style="font-size: 20px;color: #CCA640"></i>{{praiseNum}}</a></li>
-									<li class=""><a href="{{pathFor 'newsDetail' id=this._id._str}}"><i class="fa fa-commenting" style="font-size: 20px;color: #CCA640"></i>{{discussNum}}</a></li>
-									<li class="WeChat"><a href="javascript:;" class="onWeChat" ><i></i></a></li>
+                                    <li class="" data-newsid="{{_id._str}}" data-click="true" id="top-like-icon">
+                                    	<div class="header-icon-like-prompt">
+			                				<i class="icon icon-like active"></i><span class="c1">+1</span>
+			            				</div>
+                                    	<a href="javascript:;" ><i class="fa fa-thumbs-up" style="font-size: 20px;color: #CCA640"></i>{{praiseNum}}</a>
+                                   	</li>
+									<li class="">
+										<a href="{{pathFor 'newsDetail' id=this._id._str}}">
+											<i class="fa fa-commenting" style="font-size: 20px;color: #CCA640"></i>{{discussNum}}
+										</a>
+									</li>
+									<li class="WeChat">
+										<a href="javascript:;" class="onWeChat" ><i></i></a>
+									</li>
 									<!--<li class="webo"><a href="javascript:;" onclick="shareToSinaWB(event)" name="" data-original= "img/info2.jpg"><i></i></a></li>-->
 									<li class="new"><a href="#"><i>实事</i></a></li>
 								</ul>
