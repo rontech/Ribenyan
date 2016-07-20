@@ -41,7 +41,7 @@ Template.typeContainerColumn21.events({
     var newsID = eventObj.data().newsid;
     if(isPraise){//点赞
       $(e.currentTarget).data("click",false);
-      
+
       //提交点赞
       var praiseData = {
        "newsID" : newsID,
@@ -115,6 +115,15 @@ Template.typeContainerColumn21.helpers({
 			return 0;
 		}
 
+	},
+	"discussUrl" :function(){
+		var url = "";
+		if(isMobileDisplay()){
+			url = "/mobile/news/discuss/" + this._id._str + "/1";
+		}else{
+			url = "/news/detail/" + this._id._str;
+		}
+		return url;
 	},
 	listNews : function(){
 		/*

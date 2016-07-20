@@ -28,7 +28,7 @@
                 <ul class="m-footer-menu">
                   {{#if isDetailPage}}
                     <li>
-                        <a href="/mobile/news/discuss/{{_id._str}}">
+                        <a href="{{pathFor 'discussMobile' id=this._id._str type=2}}">
                         <i class="fa fa-comment {{noLoginColor}}" aria-hidden="true">
                         {{#if discussNum }}
                           <div class="pl-number">{{discussNum}}</div>  
