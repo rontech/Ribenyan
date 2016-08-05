@@ -1,6 +1,57 @@
 <template name="notFound">
-	<div class="col-xs-8 col-xs-offset-2 not-found jumbotron">
-		<h2>404</h2>
-		<p>Sorry, we couldn't find a page at this address. 抱歉，我们无法找到该页面。</p>
+	<style type="text/css">
+		body{
+			    background-color: rgb(2, 84, 132);
+			}
+		h1 {
+		    font-size: 4.0rem;
+		    line-height: 1.2;
+		    letter-spacing: -.1rem;
+		    margin-top: 0;
+		    margin-bottom: 1rem;
+		}
+		.row {
+			    /*position: fixed;*/
+			   /* top: 50%;
+			    left: 50%;
+			    margin-left: -100px;*/
+		}
+	    .container {
+		    position: relative;
+		    width: 100%;
+		    margin: 0 auto;
+		    padding: 0 20px;
+		    box-sizing: border-box;
+		}
+		.title {
+		    color: Green;
+		    text-align: center;
+		    font-size: 4.0rem;
+		}
+		.sub-heading {
+		    font-size: 1.5rem;
+		    text-align: center;
+		    /*color: #FFFB81;*/
+		    margin: 10px 0;
+		}
+		hr.hr-style-404 {
+		    border: 0;
+		    height: 1px;
+		    width: 300px;
+		    background-image: linear-gradient(to right, #3c763d, rgba(255, 255, 255, 0.65), #38d43a);
+		}
+		.redirect-style-404 {
+		    color: #ffffff;
+		}
+
+	</style>
+	<div id="main">
+		<div class="row">
+			<div class="container">
+				<h1 class="title">404</h1>
+				<p class="sub-heading">画面跑到火星去了</p>
+				<hr class="hr-style-404">
+			</div>
+		</div>
 	</div>
 </template>
