@@ -23,10 +23,12 @@ $(function() {
 	})
 
 	$(".submenu ul li > a").on('click',function(){
-    if($('.left-menu').css('display') == 'block') {
-		  $('.submenu').removeClass('open');
-		  $('.left-menu').css('display', 'none');
-    } 
+    if($(".open-menu").is(":visible")){
+      if($('.left-menu').css('display') == 'block') {
+        $('.submenu').removeClass('open');
+        $('.left-menu').css('display', 'none');
+      }   
+    }
 	})
 
 	$("#menuswitch").on('click',function(){
