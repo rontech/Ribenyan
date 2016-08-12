@@ -9,21 +9,19 @@
                 {{#if currentUser}}
                     <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
                 {{/if}}
-                <div class="must clear"><span>标    题</span>
+                
+                <div class="must clear"><span>标题</span>
                     <input type="text" name="title" class="pub-input" id="title" value="" required/>
                 </div>
-                <div style="background-color: #eee;border: 1px solid #d2d2d2">
-                        <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
-                        <textarea name="content" id="content" class="form-control " required></textarea>
+
+                <div style="border-radius: 3px;background-color: #eee;border: 1px solid #d2d2d2">
+                        <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px">正文</h2><br>
+                        <textarea name="content" id="content" class="form-control " style="height:200px;" required></textarea>
                 </div>
 
-                <div class="tags">
-                    <ul>
-                        <li><strong>类型</strong></li>
-                        {{> typeShow }}
-
-                    </ul>
+                <div class="title" >类型
                 </div>
+                {{> typeShow }}
 
                 <!-- 图片 -->
                 {{> uploadFormFront}}

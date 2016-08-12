@@ -45,12 +45,12 @@ function updateData(e,t,type,msg) {
 		var secondTitle = t.find('#secondTitle').value;
 		var introduce   = t.find('#introduce').value;
 		var content     = t.find('#content').value;
-		var keyWord     = t.find('#keyWord').value;
-		var showRule    = t.find('#showRule').value;
-		var language    = t.find('#language').value;
-		var originURL   = t.find('#originURL').value;
-		var copyright   = t.find('#copyright').value;
-		var author      = t.find('#author').value;
+		// var keyWord     = t.find('#keyWord').value;
+		// var showRule    = t.find('#showRule').value;
+		// var language    = t.find('#language').value;
+		// var originURL   = t.find('#originURL').value;
+		// var copyright   = t.find('#copyright').value;
+		// var author      = t.find('#author').value;
 		// var newsID      = t.find('#newsID').value;
 		var imageObj    = getFileIds();
 		var isVaild     =  parseInt(t.find('#isVaild').value);
@@ -64,13 +64,13 @@ function updateData(e,t,type,msg) {
 					"content":content,
 					"tagObj":Tag,
 					"typeObj":Obj,
-					"keyWord":keyWord,
+					// "keyWord":keyWord,
 					"isVaild":isVaild,
-					"showRule":showRule,
-					"language":language,
-					"originURL":originURL,
-					"copyright":copyright,
-					"author":author,
+					// "showRule":showRule,
+					// "language":language,
+					// "originURL":originURL,
+					// "copyright":copyright,
+					// "author":author,
 					"updateTime":updatetime,
 					// "newsID":newsID,
 					"imageObj":imageObj
@@ -87,13 +87,13 @@ function updateData(e,t,type,msg) {
 						"content":content,
 						"tagObj":Tag,
 						"typeObj":Obj,
-						"keyWord":keyWord,
+						// "keyWord":keyWord,
 						"isVaild":1,
-						"showRule":showRule,
-						"language":language,
-						"originURL":originURL,
-						"copyright":copyright,
-						"author":author,
+						// "showRule":showRule,
+						// "language":language,
+						// "originURL":originURL,
+						// "copyright":copyright,
+						// "author":author,
 						"publishTime":date,
 						"updateTime":updatetime,
 						// "newsID":newsID,

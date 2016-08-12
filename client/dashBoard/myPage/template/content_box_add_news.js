@@ -53,12 +53,12 @@ function saveData1(e,t,type,msg) {
     var secondTitle = t.find('#secondTitle').value;
     var introduce   = t.find('#introduce').value;
     var content     = t.find('#content').value;
-    var keyWord     = t.find('#keyWord').value;
-    var showRule    = t.find('#showRule').value;
-    var language    = t.find('#language').value;
-    var originURL   = t.find('#originURL').value;
-    var copyright   = t.find('#copyright').value;
-    var author      = t.find('#author').value;
+    // var keyWord     = t.find('#keyWord').value;
+    // var showRule    = t.find('#showRule').value;
+    // var language    = t.find('#language').value;
+    // var originURL   = t.find('#originURL').value;
+    // var copyright   = t.find('#copyright').value;
+    // var author      = t.find('#author').value;
     var attribute   = $('#attribute').val();
     // var newsID   = t.find('#newsID').value;
     var imageObj = getFileIds();
@@ -72,13 +72,13 @@ function saveData1(e,t,type,msg) {
         "content":content,
         "tagObj":Tag,
         "typeObj":Obj,
-        "keyWord":keyWord,
+        // "keyWord":keyWord,
         "isVaild":type,
-        "showRule":showRule,
-        "language":language,
-        "originURL":originURL,
-        "copyright":copyright,
-        "author":author,
+        // "showRule":showRule,
+        // "language":language,
+        // "originURL":originURL,
+        // "copyright":copyright,
+        // "author":author,
         "publishTime":date,
         "createTime":createtime,
         "updateTime":createtime,

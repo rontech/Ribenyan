@@ -23,24 +23,20 @@
                         <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
                         <textarea name="content" id="content" class="form-control " value="{{content}}"></textarea>
                 </div>
-                <div class="tags">
+                <!-- <div class="tags">
                     <ul>
                         <li><strong>标签</strong></li>
                         {{> tagShow}}
                     </ul>
+                </div> -->
+                <div class="title" >类型
                 </div>
-                <div class="tags">
-                    <ul>
-                        <li><strong>类型</strong></li>
-                        {{> typeShow }}
+                {{> typeShow }}
 
-                    </ul>
-                </div>
-
-                <div class="not-must clear mb15">
+                <div class="not-must clear mb15 title">
                     <dl class="seleDl">
-                        <dt><strong>状      态</strong></dt>
-                        <dd>
+                        <dt><strong>状态</strong></dt>
+                        <dd style="font-size:14px;font-weight:normal;">
                             <select id="isVaild" name="isVaild">
                                 <option value="1" {{selected isVaild 1}}>1: 正常</option>
                                 <option value="0" {{selected isVaild 0}}>0: 删除</option>
@@ -48,7 +44,8 @@
                             </select>
                         </dd>
                     </dl>
-                    <dl class="seleDl">
+                    </div>
+                    <!--  <dl class="seleDl">
                         <dt><strong>排序规则</strong></dt>
                         <dd>
                             <select  id="showRule" name="showRule">
@@ -88,7 +85,7 @@
                     <div class="not-must"><span>作  者</span>
                         <input type="text" name="link" class="pub-input" id="author" value="{{author}}" />
                     </div>
-                </div>
+                </div> -->
 
                 {{> uploadFormFront}}
 
