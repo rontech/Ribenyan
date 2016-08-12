@@ -1,0 +1,40 @@
+<template name="contentBoxMobileAddNews">
+    <script type="text/javascript" src="/js/icheck.min.js"></script>
+    <div class="content-box">
+        <div class="title-box">
+            <h2>新闻信息登入</h2>
+        </div>
+        <div class="new-form tab">
+            <form   method="post" id="news_info_add_F">
+                {{#if currentUser}}
+                    <input type="hidden" id="attribute" value="{{#with currentUser}}{{_id}}{{/with}}"/>
+                {{/if}}
+                <div class="must clear"><span>标    题</span>
+                    <input type="text" name="title" class="pub-input" id="title" value="" required/>
+                </div>
+                <div style="background-color: #eee;border: 1px solid #d2d2d2">
+                        <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
+                        <textarea name="content" id="content" class="form-control " required></textarea>
+                </div>
+
+                <div class="tags">
+                    <ul>
+                        <li><strong>类型</strong></li>
+                        {{> typeShow }}
+
+                    </ul>
+                </div>
+
+                <!-- 图片 -->
+                {{> uploadFormFront}}
+
+                <div class="btn-list">
+                    <button type="submit" class="bg-red" >发  布</button>
+                    <!--<button type="submit" id="save" class="bg-yellow">暂  存</button>-->
+                    <button type="reset" class="bg-green" >重  置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</template>

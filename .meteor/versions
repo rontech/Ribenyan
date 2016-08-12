@@ -64,6 +64,7 @@ modules@0.5.1
 modules-runtime@0.6.1
 mongo@1.1.5
 mongo-id@1.0.2
+mystor:device-detection@0.2.0
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.41
 observe-sequence@1.0.9
