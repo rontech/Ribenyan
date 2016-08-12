@@ -1,5 +1,5 @@
 <template name="contentBox">
-    <script type="text/javascript" src="../js/icheck.min.js"></script>
+    <script type="text/javascript" src="/js/icheck.min.js"></script>
     <div class="content-box">
         <div class="title-box">
             <h2>新闻信息登入</h2>
@@ -22,21 +22,19 @@
                         <h2 style="font-size: 18px;padding-left: 15px;padding-top: 10px"> 正    文</h2><br>
                         <textarea name="content" id="content" class="form-control " required></textarea>
                 </div>
-                <div class="tags">
+
+            <!--     <div class="tags">
                     <ul>
                         <li><strong>标签</strong></li>
                         {{> tagShow}}
                     </ul>
+                </div> -->
+                
+                <div class="title" >类型
                 </div>
-                <div class="tags">
-                    <ul>
-                        <li><strong>类型</strong></li>
-                        {{> typeShow }}
+                {{> typeShow }}
 
-                    </ul>
-                </div>
-
-                <div class="not-must clear mb15">
+                <!-- <div class="not-must clear mb15">
                     <dl class="seleDl">
                         <dt><strong>排序规则</strong></dt>
                         <dd>
@@ -66,8 +64,8 @@
                             </select>
                         </dd>
                     </dl>
-                </div>
-                <div class="must clear"><span>关键字</span>
+                </div> -->
+               <!--  <div class="must clear"><span>关键字</span>
                     <input type="text" name="keyword" class="pub-input" id="keyWord" value="" />
                 </div>
                 <div class="not-must"><span>原文链接</span>
@@ -77,7 +75,7 @@
                     <div class="not-must"><span>作  者</span>
                         <input type="text" name="link" class="pub-input" id="author" value="" />
                     </div>
-                </div>
+                </div> -->
 
                 {{> uploadFormFront}}
 

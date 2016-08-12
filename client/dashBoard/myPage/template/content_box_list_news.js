@@ -78,7 +78,13 @@ Template.userNews.helpers({
 					// 	return new Spacebars.SafeString(html);
 					// }
 					fn: function (name,object) {
-						var html = '<div class="text-right"><a class="btn btn-info" href="/user/newsupdate/' + object._id + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
+						var url = "";
+						if(Meteor.Device.isPhone()){
+							url = "/user/newsupdate/mobile/" + object._id ;
+						}else{
+							url = "/user/newsupdate/" + object._id ;
+						}
+						var html = '<div class="text-right"><a class="btn btn-info" href="' + url + '">编辑</a><button name="delete" class="btn btn-danger" value="' + object._id  + '">删除</button></div>';
 						return new Spacebars.SafeString(html);
 					}
 				}

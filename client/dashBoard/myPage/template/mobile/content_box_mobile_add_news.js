@@ -1,11 +1,11 @@
-Template.contentBox.created = function() {
+Template.contentBoxMobileAddNews.created = function() {
     // if(!Meteor.user()){
     //     Router.go("/user/login")
     // }
 }
 
-Template.contentBox.rendered = function() {
-    CKEDITOR.replace("content");
+Template.contentBoxMobileAddNews.rendered = function() {
+    // CKEDITOR.replace("content");
 
     $('input').iCheck({
         labelHover : false,
@@ -50,8 +50,8 @@ function saveData1(e,t,type,msg) {
 
     e.preventDefault();
     var title       = t.find('#title').value;
-    var secondTitle = t.find('#secondTitle').value;
-    var introduce   = t.find('#introduce').value;
+    // var secondTitle = t.find('#secondTitle').value;
+    // var introduce   = t.find('#introduce').value;
     var content     = t.find('#content').value;
     // var keyWord     = t.find('#keyWord').value;
     // var showRule    = t.find('#showRule').value;
@@ -67,8 +67,8 @@ function saveData1(e,t,type,msg) {
     NewsInfo.insert({
         "sourceID":[],
         "title":title,
-        "secondTitle":secondTitle,
-        "introduce":introduce,
+        // "secondTitle":secondTitle,
+        // "introduce":introduce,
         "content":content,
         "tagObj":Tag,
         "typeObj":Obj,
@@ -92,7 +92,7 @@ function saveData1(e,t,type,msg) {
     });
 }
 
-Template.contentBox.events({
+Template.contentBoxMobileAddNews.events({
     'submit #news_info_add_F' : function(e,t){
         saveData1(e,t,1,"已发布");
     },

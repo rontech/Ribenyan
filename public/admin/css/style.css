@@ -297,8 +297,8 @@ dl.seleDl.last{margin: 0;}
 .info-list ul li{ float: left; width: 20%;}
 .info-list ul li span{ font-size: 16px; float: left;margin-right: 5px;line-height: 32px;}
 .info-list ul li input{border: 0; width: 65%; font-size: 16px; line-height: 32px;}
-.btn-list{background-color: #f7f7f7; padding: 15px;}
-.btn-list button{width: 95px; border: 0; -webkit-border-radius: 3px;border-radius: 3px; padding:8px;text-align: center; margin-right:20px;color: #fff;}
+.btn-list{/*background-color: #f7f7f7; padding: 15px;*/text-align: center;}
+.btn-list button{width: 90px; border: 0; -webkit-border-radius: 3px;border-radius: 3px; padding:8px;text-align: center; margin-right:10px;color: #fff;}
 .btn-list button.bg-red{ background: #fc6e51;}
 .btn-list button.bg-yellow{ background: #ffce54;}
 .btn-list button.bg-green{ background: #48cfad;}
@@ -374,3 +374,15 @@ dl.seleDl.last{margin: 0;}
 .tab th.title, .tab th.setup{
 	width:60%;}
  }
+
+div.title{
+	width:100%;
+	border-radius: 3px;
+	background-color: #eee;
+	border: 1px solid #d2d2d2;
+	margin-top: 10px;
+	padding: 15px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}

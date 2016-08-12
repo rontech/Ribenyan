@@ -1,5 +1,5 @@
-Template.contentBoxNewsUpdate.rendered = function() {
-	CKEDITOR.replace("content");
+Template.contentBoxMobileUpdateNews.rendered = function() {
+	// CKEDITOR.replace("content");
 
 	var imageObj = Session.get("news_info").imageObj;
 	for(var i=0;i<imageObj.length;i++){
@@ -42,8 +42,8 @@ function updateData(e,t,type,msg) {
 		e.preventDefault();
 		var _id         = t.find('#_id').value;
 		var title       = t.find('#title').value;
-		var secondTitle = t.find('#secondTitle').value;
-		var introduce   = t.find('#introduce').value;
+		// var secondTitle = t.find('#secondTitle').value;
+		// var introduce   = t.find('#introduce').value;
 		var content     = t.find('#content').value;
 		// var keyWord     = t.find('#keyWord').value;
 		// var showRule    = t.find('#showRule').value;
@@ -106,7 +106,7 @@ function updateData(e,t,type,msg) {
 }
 
 
-Template.contentBoxNewsUpdate.events({
+Template.contentBoxMobileUpdateNews.events({
 	'submit #news_info_add_F' : function(e,t){
 		updateData(e,t,1,"已更新");
 	},
