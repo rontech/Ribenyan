@@ -59,8 +59,8 @@ function updateData(e,t,type,msg) {
 			NewsInfo.update(
 				new Meteor.Collection.ObjectID(_id),{$set:{
 					"title":title,
-					"secondTitle":secondTitle,
-					"introduce":introduce,
+					// "secondTitle":secondTitle,
+					// "introduce":introduce,
 					"content":content,
 					"tagObj":Tag,
 					"typeObj":Obj,
@@ -82,8 +82,8 @@ function updateData(e,t,type,msg) {
 				 if(msgck==true){
 					 NewsInfo.update(new Meteor.Collection.ObjectID(_id),{$set:{
 						"title":title,
-						"secondTitle":secondTitle,
-						"introduce":introduce,
+						// "secondTitle":secondTitle,
+						// "introduce":introduce,
 						"content":content,
 						"tagObj":Tag,
 						"typeObj":Obj,
