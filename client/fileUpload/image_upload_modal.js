@@ -3,6 +3,7 @@ window.workers = {};
 Template.imageUploadModal.events({
     'click [name=upload]': function (ev, tpl) {
         ev.preventDefault();
+        
         UploadFS.selectFilesMobile(function (file) {   
                 const ONE_MB = 1024 * 100;
                 let uploader = new UploadFS.Uploader({
