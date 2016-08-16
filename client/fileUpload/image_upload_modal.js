@@ -32,12 +32,12 @@ Template.imageUploadModal.events({
                     // console.error(file.name + ' could not be uploaded', err);
                 };
                 uploader.onProgress = function (file, progress) {
-                    console.log(file.name + ' :'
-                        + "\n" + (progress * 100).toFixed(2) + '%'
-                        + "\n" + (this.getSpeed() / 1024).toFixed(2) + 'KB/s'
-                        + "\n" + 'elapsed: ' + (this.getElapsedTime() / 1000).toFixed(2) + 's'
-                        + "\n" + 'remaining: ' + (this.getRemainingTime() / 1000).toFixed(2) + 's'
-                    );
+                    // console.log(file.name + ' :'
+                    //     + "\n" + (progress * 100).toFixed(2) + '%'
+                    //     + "\n" + (this.getSpeed() / 1024).toFixed(2) + 'KB/s'
+                    //     + "\n" + 'elapsed: ' + (this.getElapsedTime() / 1000).toFixed(2) + 's'
+                    //     + "\n" + 'remaining: ' + (this.getRemainingTime() / 1000).toFixed(2) + 's'
+                    // );
                 };
 
                 uploader.start();
