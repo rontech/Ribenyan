@@ -4,49 +4,41 @@ Template.imageUploadModal.events({
     'click [name=upload]': function (ev, tpl) {
         ev.preventDefault();
         
-        var callback = function (ev) {
-            UploadFS.readAsArrayBuffer(ev, function (data, file) {
-                var uploader = new UploadFS.Uploader({
-                	// Optimize speed transfer by increasing/decreasing chunk size automatically
-	                adaptive: true,
-	                // Define the upload capacity (if upload speed is 1MB/s, then it will try to maintain upload at 80%, so 800KB/s)
-	                // (used only if adaptive = true)
-	                capacity: 0.8, // 80%
-	                // The size of each chunk sent to the server
-	                chunkSize: 8 * 1024, // 8k
-	                // The max chunk size (used only if adaptive = true)
-	                maxChunkSize: 128 * 1024, // 128k
-	                // This tells how many tries to do if an error occurs during upload
-	                maxTries: 5,
-                    data: data,
+        UploadFS.selectFilesMobile(function (file) {   
+                const ONE_MB = 1024 * 100;
+                let uploader = new UploadFS.Uploader({
+                    adaptive: true,
+                    chunkSize: ONE_MB * 16.66,
+                    maxChunkSize: ONE_MB * 20,
+                    data: file,
                     file: file,
-                    store: FilesStore
+                    store: FilesStore,
+                    maxTries: 5
                 });
-
-                // Remove uploader on complete
-                uploader.onComplete = function () {
-                	
-                    setData(file._id);
-                    //console.log(ev.currentTarget);
-
-                    delete workers[file.name];
+                uploader.onAbort = function (file) {
+                    // console.log(file.name + ' upload aborted');
                 };
-                // Remember uploader
-                tpl.autorun(function () {
-                    uploader.getProgress();
-                    if (uploader.getFile()._id) {
-                        workers[uploader.getFile()._id] = uploader;
-                    }
-                });
+                uploader.onComplete = function (file) {
+                    // console.log(file.name + ' upload completed');
+                    addRow(file._id);
+                };
+                uploader.onCreate = function (file) {
+                    // console.log(file.name + ' created');
+                    workers[file._id] = this;
+                };
+                uploader.onError = function (err, file) {
+                    // console.error(file.name + ' could not be uploaded', err);
+                };
+                uploader.onProgress = function (file, progress) {
+                    console.log(file.name + ' :'
+                        + "\n" + (progress * 100).toFixed(2) + '%'
+                        + "\n" + (this.getSpeed() / 1024).toFixed(2) + 'KB/s'
+                        + "\n" + 'elapsed: ' + (this.getElapsedTime() / 1000).toFixed(2) + 's'
+                        + "\n" + 'remaining: ' + (this.getRemainingTime() / 1000).toFixed(2) + 's'
+                    );
+                };
                 uploader.start();
             });
-        };
-
-        var input = document.createElement('input');
-        input.type = 'file';
-        input.multiple = true;
-        input.onchange = callback;
-        input.click();
     }
 });
 
