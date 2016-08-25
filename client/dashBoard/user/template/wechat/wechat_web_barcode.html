@@ -1,0 +1,24 @@
+<template name="wechatWebBarCode">
+	<!-- <script type="text/javascript">
+		var obj = new WxLogin({
+                          id:"wechat_login", 
+                          appid: "wx25a4726b89792eda", //应用唯一标识，在微信开放平台提交应用审核通过后获得
+                          scope: "snsapi_login", //固定
+                          redirect_uri: "http%3a%2f%2fwww.ribenyan.net%2fwechat%2fregist",//重定向地址，需要进行UrlEncode
+                          state: "pc",
+                          style: "black",
+                          href: ".impowerBox .qrcode {width: 200px;}"
+                        });
+	</script> -->
+	<div class="lgn-three-btn-box">
+        <ul>
+            <li class="js-ga-login" data-login="weixin">
+            	<div id="wechat_login" style="display: none;position: absolute;width: 0px;height: 0px;margin-top: -400px;box-shadow: 0 0 6px rgba(14,22,30,.3);margin-left: -45px;">
+					
+				</div>
+                <i class="wechat-login js-ga-login icon icon-three icon-three-wx"></i>
+            </li>
+        </ul>
+    </div>
+	
+</template>
