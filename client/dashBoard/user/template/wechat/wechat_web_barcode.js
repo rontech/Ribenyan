@@ -4,10 +4,13 @@ Template.wechatWebBarCode.events({
 		// $("#wechat_login").toggle();
 		Session.set("counter", Session.get("counter") + 1);
 		Meteor.loginWithWechat({
-		loginStyle: 'popup'
+		loginStyle: 'redirect'
 		//loginStyle: 'redirect'  you can use redirect for mobile web app
-		}, function () {
-		console.log('in call back', arguments);
-		});
+		}, function (err, res) {
+          if (err !== undefined)
+            console.log('sucess ' + res)
+          else
+            console.log('login failed ' + err)
+      });
     }
 });
