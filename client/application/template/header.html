@@ -1,66 +1,49 @@
-<template name="header1">
-  {{> popupSearchInput}}
-	<!-- Fixed navbar -->
-    <nav class="nav_header navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a style="color:white;font-size:18px;font-weight:bold;" class="navbar-brand" href="#">焦点新闻</a>
+<template name="header">
+    {{> popupSearchInput}}
+    <div class="header">
+        <div class="content">
+            <div class="logo"><a href="/"><img src="/img/web-logo.png"></a></div>
+
+            <div id="wrapper">
+                <div id="scroller" class="response-menu">
+                    <ul>
+                        {{#each firstNode}}
+                            <li class="home {{getClass @index}}">
+                                <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="respBox">
+                <div class="menu" id="nav">
+                    <ul>
+                        {{#each firstNode}}
+                            <li>
+                                <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="tools">
+                    <ul>
+                        <li class="searchli"><a class="search" href="javascript:;"><span></span></a></li>
+
+                        <!--<li><a class="login" href="{{pathFor 'login'}}">登录/注册</a></li>-->
+
+                        {{#if currentUser}}
+                            <li><a class="login" href="/user/mypage/newslist">{{#with currentUser}}{{name}}{{/with}}</a></li>
+                            <li><a class="logout login" href="#">退出</a></li>
+                        {{else}}
+                            <li><a class="login" href="{{pathFor 'login'}}">登录/注册</a></li>
+                        {{/if}}
+
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-
-          <ul class="nav_bar_ul nav navbar-nav">
-            <!-- <li class="active"><a href="#">推荐</a></li> -->
-            {{#each firstNode}}
-                <li>
-                  <a href="{{pathFor this.clickShowLayout typeID=this.typeID._str}}">{{showName}}
-                  </a>
-                </li>
-            {{/each}}
-            <!-- 更多 -->
-              <li style="display:{{isShowMore}};"  class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多 <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  {{#each MoreNode}}
-                      <li><a href="{{typeID}}">{{showName}}</a></li>
-                  {{/each}}
-                </ul>
-              </li>
-          </ul>
-
-          <ul class="nav_bar_ul nav navbar-nav navbar-right">
-            <li class="search-li js-show-search-box" >
-              <i class="icon icon-search "></i>
-              <span style="margin-left:5px;">搜索</span>
-            </li>
-            {{#if currentUser}}
-            <li>
-              <!-- <a href="{{pathFor 'login'}}"> -->
-              <a href="">
-                  {{#with currentUser}}{{name}}{{/with}}
-              </a>
-            </li>
-          　 <li>
-               <a class="logout" href="#">退出
-               </a>
-            </li>
-            {{else}}
-              <li>
-                <a href="{{pathFor 'login'}}">登录/注册
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            {{/if}}
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-
-
+    </div>
 </template>
