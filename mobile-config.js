@@ -33,10 +33,10 @@ App.accessRule('http://www.ribenyan.net/*');
 // 使用插件：boxfish:accounts-wechat
 // 插件地址：https://github.com/boxfish/meteor-accounts-wechat
 App.configurePlugin('cordova-plugin-wechat', {
-    WECHATAPPID: 'wxdd15b6922237eac5'
+    WECHATAPPID: 'wx25a4726b89792eda'
 });
 
-// 添加包方法：meteor add cordova:xu.li.cordova.wechat@https://github.com/xu-li/cordova-plugin-wechat/tarball/ab08d76f322f7988e34231b3655300d3f36b37fa
-App.configurePlugin('xu.li.cordova.wechat', {
-	WECHATAPPID: "wxdd15b6922237eac5"
-});
+// // 添加包方法：meteor add cordova:xu.li.cordova.wechat@https://github.com/xu-li/cordova-plugin-wechat/tarball/ab08d76f322f7988e34231b3655300d3f36b37fa
+// App.configurePlugin('xu.li.cordova.wechat', {
+// 	WECHATAPPID: "wxdd15b6922237eac5"
+// });
