@@ -13,7 +13,7 @@ Template.wechatWebBarCode.events({
   //           console.log('login failed ' + err)
   //     });
 
-  		Meteor.loginWithWeChat(function (err, res) {
+  		Meteor.loginWithWebWeChat(function (err, res) {
           if (err) {
             console.log('success ' + res);
           }

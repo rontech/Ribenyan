@@ -1,88 +1,135 @@
-// wechat 
+MeteorWebWeChat = {};
+MeteorWebWeChat.whitelistedFields = ['nickname', 'sex', 'province', 'city', 'country',
+  'headimgurl', 'privilege'];
 
-/**
-* 获取aeecsstoken及openID
-*
-*@param code 获取授权返回的code，不能为空
-*@return obj 
-*/ 
-getAccssToken = function(code){
-	// 发送请求
+var OAuth = Package.oauth.OAuth;
 
-	// 获取access_token ,openid
+var serviceName = 'wechat';
+var serviceVersion = 2;
+var serviceUrls = null;
+var serviceHandler = function(query) {
+  var response = getTokenResponse(query);
 
-	//test
-	var obj = {
-		"access_token" : "Ajhy0OchX5xma0iwm9Vws3iNw-OyMsRks2vwrcjg4dRZy5W8ucUg32NDvKGTqyicIjshtGflaTEuVd6GXqGk2nvTMyM8h_jcSQ4yFvJ4pzU",
-		"openid" : "oG5t7xGiKyX03Y0qNycbwkEZ3F94"
-	};
-	return obj;
-}
+  var expiresAt = (+new Date) + (1000 * parseInt(response.expiresIn, 10));
+  var accessToken = response.accessToken;
+  var scope = response.scope;
+  var openId = response.openId;
+  var unionId = response.unionId;
 
-/**
-* 获取微信用户信息
-*
-*@param code 获取授权返回的code，不能为空
-*@return obj 
-*
-*/ 
-getWechatInfo = function(access_token,openid){
-	var url = "https://api.weixin.qq.com/sns/userinfo?access_token="+ access_token + "&openid="　+　openid;
-	// 发送请求
-	var wechatInfo = {
-		"openid": "oG5t7xGiKyX03Y0qNycbwkEZ3F94",
-		"nickname": "馃悜馃悜",
-		"sex": 1,
-		"language": "zh_CN",
-		"city": "",
-		"province": "",
-		"country": "CN",
-		"headimgurl": "http://wx.qlogo.cn/mmopen/8gvkbsB2qQ6294TfE9yx6ak5nIMm4Vgjc2Wtib7tEv4icRro3JC2REL9zmSb8dF02Taics0nPMs9Ob2GzNlLvTQ6FxiacISOGLho/0",
-		"unionid": "oBg45sy5moQn6GtwZknTZEbGt_Qw"
-	};
-	return wechatInfo;
-}
+  var serviceData = {
+    accessToken: accessToken,
+    expiresAt: expiresAt,
+    openId: openId,
+    unionId: unionId,
+    scope: scope,
+    id: openId  // id is required by Meteor, using openId since it's not given by WeChat
+  };
 
-validationWechatUser = function(obj){
-	if(!isEmpty(obj.unionid)){
-		var username = obj.unionid;;
-		var paw = obj.unionid;
-		//查找用户
-		Meteor.loginWithPassword(username,paw,
-					function(error){
-						if(error){
-							var rea = error.reason;
-							if(rea == LOGIGN_USER_NOT_FOUND_ACCOUNT){
-								$(".error-msg").text(LOGIGN_USER_NOT_FOUND);
-								$(".error-msg").removeClass("hide");
-							}else if(rea == LOGIGN_INCORRECT_PASSWORD_ACCOUNT){
-								$(".error-msg").text(LOGIGN_INCORRECT_PASSWORD);
-								$(".error-msg").removeClass("hide");
-							}
-							// console.log("登录失败");
-						}else{
-							Router.go("index");
-						}
-					}
-				);
-	}
-	
-	//
+  // only set the token in serviceData if it's there. this ensures
+  // that we don't lose old ones
+  if (response.refreshToken)
+    serviceData.refreshToken = response.refreshToken;
 
-}
 
-wechatLogin = function(code){
-	var token = getAccssToken(code);
-    if(token){
-      var result = getWechatInfo(token.access_token,token.openid);
-      if(result){
-      	//验证用户
+  var identity = getIdentity(accessToken, openId);
+  var fields = _.pick(identity, MeteorWebWeChat.whitelistedFields);
+  _.extend(serviceData, fields);
 
-      }else{
-     	//返回时失败信息
-     	return false;
-      }
-    }else{
-    	return false;
+  return {
+    serviceData: serviceData,
+    options: {
+      profile: fields
     }
-}
+  };
+};
+
+var getTokenResponse = function (query) {
+  var config = ServiceConfiguration.configurations.findOne({service: 'webwechat'});
+  if (!config)
+    throw new ServiceConfiguration.ConfigError();
+
+  var response;
+  try {
+    //Request an access token
+    response = HTTP.get(
+      "https://api.weixin.qq.com/sns/oauth2/access_token", {
+        params: {
+          code: query.code,
+          appid: config.appId,
+          secret: OAuth.openSecret(config.secret),
+          grant_type: 'authorization_code'
+        }
+      }
+    );
+    if (response.error) // if the http response was an error
+        throw response.error;
+    if (typeof response.content === "string")
+        response.content = JSON.parse(response.content);
+    if (response.content.error)
+        throw response.content;
+
+  } catch (err) {
+    throw _.extend(new Error("Failed to complete OAuth handshake with WeChat. " + err.message),
+      {response: err.response});
+  }
+
+  return {
+    accessToken: response.content.access_token,
+    expiresIn: response.content.expires_in,
+    refreshToken: response.content.refresh_token,
+    openId: response.content.openid,
+    scope: response.content.scope,
+    unionId: response.content.unionid
+  };
+};
+
+var getIdentity = function (accessToken, openId) {
+  try {
+    var response = HTTP.get("https://api.weixin.qq.com/sns/userinfo", {
+      params: {access_token: accessToken, openid: openId, lang: 'en'}}
+    );
+    if (response.error) // if the http response was an error
+        throw response.error;
+    if (typeof response.content === "string")
+        return JSON.parse(response.content);
+    if (response.content.error)
+        throw response.content;
+  } catch (err) {
+    throw _.extend(new Error("Failed to fetch identity from WeChat. " + err.message),
+      {response: err.response});
+  }
+};
+
+
+// register OAuth service
+OAuth.registerService(serviceName, serviceVersion, serviceUrls, serviceHandler);
+
+// retrieve credential
+MeteorWebWeChat.retrieveCredential = function(credentialToken, credentialSecret) {
+  return OAuth.retrieveCredential(credentialToken, credentialSecret);
+};
+
+// Meteor.methods({
+//   handleWeChatOauthRequest: function(query) {
+//     // allow the client with 3rd party authorization code to directly ask server to handle it
+//     check(query.code, String);
+//     var oauthResult = serviceHandler(query);
+//     var credentialSecret = Random.secret();
+
+//     //var credentialToken = OAuth._credentialTokenFromQuery(query);
+//     var credentialToken = query.state;
+//     // Store the login result so it can be retrieved in another
+//     // browser tab by the result handler
+//     OAuth._storePendingCredential(credentialToken, {
+//       serviceName: serviceName,
+//       serviceData: oauthResult.serviceData,
+//       options: oauthResult.options
+//     }, credentialSecret);
+
+//     // return the credentialToken and credentialSecret back to client
+//     return {
+//       'credentialToken': credentialToken,
+//       'credentialSecret': credentialSecret
+//     };
+//   }
+// });
