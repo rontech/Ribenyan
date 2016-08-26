@@ -28,3 +28,10 @@ App.launchScreens({
 
 // 服务器
 App.accessRule('http://www.ribenyan.net/*');
+
+//wechat config 
+// 使用插件：boxfish:accounts-wechat
+// 插件地址：https://github.com/boxfish/meteor-accounts-wechat
+App.configurePlugin('cordova-plugin-wechat', {
+    WECHATAPPID: 'wxdd15b6922237eac5'
+});

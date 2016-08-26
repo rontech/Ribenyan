@@ -37,4 +37,4 @@ mystor:device-detection
 mrt:nprogress
 service-configuration@1.0.10
 shell-server
-bayes:accounts-wechat
+boxfish:accounts-wechat
