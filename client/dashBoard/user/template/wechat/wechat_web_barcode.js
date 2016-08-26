@@ -12,6 +12,7 @@ Template.wechatWebBarCode.events({
   //         else
   //           console.log('login failed ' + err)
   //     });
+
   		Meteor.loginWithWeChat(function (err, res) {
           if (err) {
             console.log('success ' + res);
@@ -20,5 +21,21 @@ Template.wechatWebBarCode.events({
             console.log('login failed ' + err);
           }
       });
-    }
+
+     //  Wechat.share({
+     //    message: {
+     //      title: "Hi, there",
+     //      media: {
+     //         type: Wechat.Type.IMAGE,
+     //         image:"http://www.ribenyan.net/ufs/files/wGLosFcv4PS5ucjv3/pokenmen%20go%20.jpg"
+     //      }
+     //    },
+     //    	scene: Wechat.Scene.TIMELINE   // share to Timeline
+	    // }, function () {
+	    //     alert("Success");
+	    // }, function (reason) {
+	    //     console.log(reason);
+	    //     alert("Failed: " + reason);
+	    // });
+   }
 });
