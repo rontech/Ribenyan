@@ -15,11 +15,11 @@ if (Meteor.isClient) {
   Accounts.addAutopublishFields({
     forLoggedInUser: _.map(
       MeteorWebWeChat.whitelistedFields.concat(['accessToken', 'expiresAt']), // don't publish refresh token
-      function (subfield) { return 'services.wechat.' + subfield; }
+      function (subfield) { return 'services.webwechat.' + subfield; }
     ),
 
     forOtherUsers: _.map(
       MeteorWebWeChat.whitelistedFields,
-      function (subfield) { return 'services.wechat.' + subfield; })
+      function (subfield) { return 'services.webwechat.' + subfield; })
   });
 }
