@@ -1,13 +1,12 @@
 MeteorWebWeChat = {};
+MeteorWebWeChat.whitelistedFields = ['nickname', 'sex', 'province', 'city', 'country',
+  'headimgurl', 'privilege'];
+
+var OAuth = Package.oauth.OAuth;
 
 var serviceName = 'webwechat';
 var serviceVersion = 2;
 var serviceUrls = null;
-var OAuth = Package.oauth.OAuth;
-
-MeteorWebWeChat.whitelistedFields = ['nickname', 'sex', 'province', 'city', 'country',
-  'headimgurl', 'privilege'];
-
 var serviceHandler = function(query) {
   var response = getTokenResponse(query);
 
@@ -42,13 +41,6 @@ var serviceHandler = function(query) {
       profile: fields
     }
   };
-};
-
-OAuth.registerService(serviceName, serviceVersion, serviceUrls, serviceHandler);
-
-// retrieve credential
-MeteorWebWeChat.retrieveCredential = function(credentialToken, credentialSecret) {
-  return OAuth.retrieveCredential(credentialToken, credentialSecret);
 };
 
 var getTokenResponse = function (query) {
@@ -110,7 +102,12 @@ var getIdentity = function (accessToken, openId) {
 
 
 // register OAuth service
+OAuth.registerService(serviceName, serviceVersion, serviceUrls, serviceHandler);
 
+// retrieve credential
+MeteorWebWeChat.retrieveCredential = function(credentialToken, credentialSecret) {
+  return OAuth.retrieveCredential(credentialToken, credentialSecret);
+};
 
 Meteor.methods({
   handleWebWeChatOauthRequest: function(query) {
@@ -128,8 +125,6 @@ Meteor.methods({
       serviceData: oauthResult.serviceData,
       options: oauthResult.options
     }, credentialSecret);
-
-    console.log("handleWebWeChatOauthRequest");
 
     // return the credentialToken and credentialSecret back to client
     return {
