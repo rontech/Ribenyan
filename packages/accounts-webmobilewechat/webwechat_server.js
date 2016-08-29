@@ -1,4 +1,5 @@
 Accounts.oauth.registerService('webwechat');
+
 MeteorWebWeChat = {};
 MeteorWebWeChat.whitelistedFields = ['nickname', 'sex', 'province', 'city', 'country',
   'headimgurl', 'privilege'];
@@ -23,7 +24,7 @@ var serviceHandler = function(query) {
     openId: openId,
     unionId: unionId,
     scope: scope,
-    id: openId  // id is required by Meteor, using openId since it's not given by WeChat
+    id: unionId  // id is required by Meteor, using openId since it's not given by WeChat
   };
 
   // only set the token in serviceData if it's there. this ensures

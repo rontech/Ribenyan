@@ -17,3 +17,17 @@ Meteor.methods({
   // }
 });
 
+Accounts.onCreateUser(function (options, user) {
+    if (options.profile) {
+        user.profile = options.profile;
+    }
+
+    const wechatUnionId = _.get(user, 'services.wechat.unionId') || _.get(user, 'services.webwechat.unionId');
+    if (wechatUnionId) {
+        _.set(user, 'services.wechat.id', wechatUnionId);
+        _.set(user, 'services.webwechat.id', wechatUnionId);
+    }
+
+    return user;
+});
+
