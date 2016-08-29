@@ -22,12 +22,19 @@ Accounts.onCreateUser(function (options, user) {
         user.profile = options.profile;
     }
 
-    const wechatUnionId = _.get(user, 'services.wechat.unionId') || _.get(user, 'services.webwechat.unionId');
-    if (wechatUnionId) {
-        _.set(user, 'services.wechat.id', wechatUnionId);
-        _.set(user, 'services.webwechat.id', wechatUnionId);
+    if(user.services.wechat || user.services.webwechat){
+        var unionId = user.services.wechat || user.services.webwechat;
+        var wechatoldUser = Meteor.users.findOne({"services.wechat:" : unionId});
+        var webwechatoldUser = Meteor.users.findOne({"services.webwechat:" : unionId});
+        if (wechatoldUser ){ 
+          return wechatoldUser;
+        }else if(webwechatoldUser){
+          return webwechatoldUser;
+        }else{
+          return user;
+        }
     }
-
+    
     return user;
 });
 
