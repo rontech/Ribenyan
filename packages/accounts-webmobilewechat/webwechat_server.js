@@ -102,34 +102,34 @@ var getIdentity = function (accessToken, openId) {
 
 
 // register OAuth service
-// OAuth.registerService(serviceName, serviceVersion, serviceUrls, serviceHandler);
+OAuth.registerService("webwechat", serviceVersion, serviceUrls, serviceHandler);
 
 // retrieve credential
 MeteorWebWeChat.retrieveCredential = function(credentialToken, credentialSecret) {
   return OAuth.retrieveCredential(credentialToken, credentialSecret);
 };
 
-// Meteor.methods({
-//   handleWeChatOauthRequest: function(query) {
-//     // allow the client with 3rd party authorization code to directly ask server to handle it
-//     check(query.code, String);
-//     var oauthResult = serviceHandler(query);
-//     var credentialSecret = Random.secret();
+Meteor.methods({
+  handleWebWeChatOauthRequest: function(query) {
+    // allow the client with 3rd party authorization code to directly ask server to handle it
+    check(query.code, String);
+    var oauthResult = serviceHandler(query);
+    var credentialSecret = Random.secret();
 
-//     //var credentialToken = OAuth._credentialTokenFromQuery(query);
-//     var credentialToken = query.state;
-//     // Store the login result so it can be retrieved in another
-//     // browser tab by the result handler
-//     OAuth._storePendingCredential(credentialToken, {
-//       serviceName: serviceName,
-//       serviceData: oauthResult.serviceData,
-//       options: oauthResult.options
-//     }, credentialSecret);
+    //var credentialToken = OAuth._credentialTokenFromQuery(query);
+    var credentialToken = query.state;
+    // Store the login result so it can be retrieved in another
+    // browser tab by the result handler
+    OAuth._storePendingCredential(credentialToken, {
+      serviceName: serviceName,
+      serviceData: oauthResult.serviceData,
+      options: oauthResult.options
+    }, credentialSecret);
 
-//     // return the credentialToken and credentialSecret back to client
-//     return {
-//       'credentialToken': credentialToken,
-//       'credentialSecret': credentialSecret
-//     };
-//   }
-// });
+    // return the credentialToken and credentialSecret back to client
+    return {
+      'credentialToken': credentialToken,
+      'credentialSecret': credentialSecret
+    };
+  }
+});
