@@ -22,24 +22,32 @@ Accounts.onCreateUser(function (options, user) {
         user.profile = options.profile;
     }
 
-    
-    if(user.services.hasOwnProperty("webwechat") || user.services.hasOwnProperty("webwechat")){
-        if(user.services.hasOwnProperty("webwechat")){
-          unionId = user.services.webwechat.unionId; 
-        }else{
-          unionId = user.services.wechat.unionId;
-        }
-        var wechatoldUser = Meteor.users.findOne({"services.wechat:" : unionId});
-        var webwechatoldUser = Meteor.users.findOne({"services.webwechat:" : unionId});
-        if (wechatoldUser ){ 
-          return wechatoldUser;
-        }else if(webwechatoldUser){
-          return webwechatoldUser;
-        }else{
-          return user;
-        }
-    }
 
-    return user;
+    // if(user.services.hasOwnProperty("webwechat") || user.services.hasOwnProperty("webwechat")){
+    //     // if(user.services.hasOwnProperty("webwechat")){
+    //     //   unionId = user.services.webwechat.unionId; 
+    //     // }else{
+    //     //   unionId = user.services.wechat.unionId;
+    //     // }
+    //     // var wechatoldUser = Meteor.users.findOne({"services.wechat.unionId" : unionId});
+    //     // var webwechatoldUser = Meteor.users.findOne({"services.webwechat.unionId" : unionId});
+    //     // if (wechatoldUser ){ 
+    //     //   wechatoldUser.services.webwechat = wechatoldUser.services.wechat;
+    //     //   return wechatoldUser;
+    //     // }else if(webwechatoldUser){
+    //     //   webwechatoldUser.services.wechat = webwechatoldUser.services.webwechat;
+    //     //   return webwechatoldUser;
+    //     // }else{
+    //     //   return user;
+    //     // }
+    //   }
+
+    if(user.services.hasOwnProperty("webwechat")){
+      user.services.wechat = user.services.webwechat;
+    }else if (user.services.hasOwnProperty("webwechat")){
+      user.services.wechat = user.services.webwechat;
+    }else {
+      return user;
+    }
 });
 
