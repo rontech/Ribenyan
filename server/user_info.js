@@ -22,8 +22,13 @@ Accounts.onCreateUser(function (options, user) {
         user.profile = options.profile;
     }
 
-    if(user.services.wechat || user.services.webwechat){
-        var unionId = user.services.wechat || user.services.webwechat;
+    
+    if(user.services.hasOwnProperty("webwechat") || user.services.hasOwnProperty("webwechat")){
+        if(user.services.hasOwnProperty("webwechat")){
+          unionId = user.services.webwechat.unionId; 
+        }else{
+          unionId = user.services.wechat.unionId;
+        }
         var wechatoldUser = Meteor.users.findOne({"services.wechat:" : unionId});
         var webwechatoldUser = Meteor.users.findOne({"services.webwechat:" : unionId});
         if (wechatoldUser ){ 
@@ -34,7 +39,7 @@ Accounts.onCreateUser(function (options, user) {
           return user;
         }
     }
-    
+
     return user;
 });
 
