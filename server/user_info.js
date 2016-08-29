@@ -10,10 +10,10 @@ Meteor.methods({
       subject: subject,
       text: text
     });
-  },
-  wechatWebLogin:function(code){
-    var result = WechatWebApi.wechatLogin(code);
-
   }
+  // wechatWebLogin:function(code){
+  //   var result = WechatWebApi.wechatLogin(code);
+
+  // }
 });
 

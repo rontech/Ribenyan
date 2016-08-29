@@ -25,7 +25,7 @@ MeteorWebWeChat.requestCredential = function (options, credentialRequestComplete
   var credentialToken = Random.secret();
   var scope = (options && options.requestPermissions) || ['snsapi_login'];
   scope = _.map(scope, encodeURIComponent).join(',');
-  var loginStyle = OAuth._loginStyle('wechat', config, options);
+  var loginStyle = OAuth._loginStyle('webwechat', config, options);
   var state = OAuth._stateParam(loginStyle, credentialToken);
 
   var loginUrl =
@@ -33,7 +33,7 @@ MeteorWebWeChat.requestCredential = function (options, credentialRequestComplete
       '?appid=' + config.appId +
       '&response_type=code' +
       '&scope=' + scope +
-      '&redirect_uri=' + OAuth._redirectUri('wechat', config) +
+      '&redirect_uri=' + OAuth._redirectUri('webwechat', config) +
       '&state=' + state;
 
   OAuth.launchLogin({

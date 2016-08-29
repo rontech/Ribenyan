@@ -102,7 +102,7 @@ var getIdentity = function (accessToken, openId) {
 
 
 // register OAuth service
-OAuth.registerService(serviceName, serviceVersion, serviceUrls, serviceHandler);
+// OAuth.registerService(serviceName, serviceVersion, serviceUrls, serviceHandler);
 
 // retrieve credential
 MeteorWebWeChat.retrieveCredential = function(credentialToken, credentialSecret) {

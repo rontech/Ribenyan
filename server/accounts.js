@@ -1,13 +1,16 @@
   ServiceConfiguration.configurations.remove({
-    service: "wechat"
+    service: "webwechat"
   });
   ServiceConfiguration.configurations.insert({
     service: "webwechat",
     appId: "wx25a4726b89792eda",
-    scope:['snsapi_login','basic'],
+    scope: 'basic',
     secret: "7a8d26c1f5de1315486de7fe48d4951d"
   });
 
+  ServiceConfiguration.configurations.remove({
+    service: "wechat"
+  });
   ServiceConfiguration.configurations.update(
       { "service": "wechat" },
       {
