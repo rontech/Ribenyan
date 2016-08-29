@@ -1,3 +1,4 @@
+Accounts.oauth.registerService('webwechat');
 MeteorWebWeChat = {};
 MeteorWebWeChat.whitelistedFields = ['nickname', 'sex', 'province', 'city', 'country',
   'headimgurl', 'privilege'];
