@@ -31,9 +31,9 @@ Package.onUse(function(api) {
   api.export('MeteorWebWeChat');
 
   api.addFiles('webwechat_server.js', 'server');
-  api.addFiles('webwechat_browser.js','web.browser');
   api.addFiles('webwechat.js','client');
-});
+  api.addFiles('webwechat_browser.js','web.browser');
+ });
 
 // Package.onTest(function(api) {
 //   api.use('ecmascript');
