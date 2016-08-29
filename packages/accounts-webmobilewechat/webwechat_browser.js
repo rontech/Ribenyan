@@ -26,7 +26,7 @@ MeteorWebWeChat.requestCredential = function (options, credentialRequestComplete
   var scope = (options && options.requestPermissions) || ['snsapi_login'];
   scope = _.map(scope, encodeURIComponent).join(',');
   var loginStyle = OAuth._loginStyle('wechat', config, options);
-  var state = OAuth._stateParam(loginStyle, credsudoentialToken);
+  var state = OAuth._stateParam(loginStyle, credentialToken);
 
   var loginUrl =
     'https://open.weixin.qq.com/connect/qrconnect' +
