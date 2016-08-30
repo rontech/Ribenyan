@@ -34,6 +34,10 @@ Package.onUse(function(api) {
 
 });
 
+Cordova.depends({
+  'cordova-plugin-wechat': '1.1.2'
+});
+
 // Package.onTest(function(api) {
 //   api.use('ecmascript');
 //   api.use('tinytest');
