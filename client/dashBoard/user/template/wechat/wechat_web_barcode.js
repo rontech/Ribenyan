@@ -5,7 +5,7 @@ Template.wechatWebBarCode.events({
     // App打包时使用 loginWithWeChat
     // 
     if(Meteor.isCordova){
-      alert("mobile_server");
+      // alert("mobile_server");
       Meteor.loginWithWeChat(function (err, res) {
           if (err) {
             console.log('success ' + res);
@@ -15,7 +15,7 @@ Template.wechatWebBarCode.events({
           }
       });
     }else{
-      alert("web_server");
+      // alert("web_server");
       Meteor.loginWithWebWeChat(function (err, res) {
           if (err) {
             console.log('success ' + res);
