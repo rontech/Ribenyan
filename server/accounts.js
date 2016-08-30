@@ -5,6 +5,7 @@
     service: "webwechat",
     appId: "wx25a4726b89792eda",
     scope: 'basic',
+    loginStyle: 'redirect',
     secret: "7a8d26c1f5de1315486de7fe48d4951d"
   });
 
