@@ -5,7 +5,7 @@ Template.wechatWebBarCode.events({
     // 网页版使用 loginWithWebWeChat
     // App打包时使用 loginWithWeChat
     // 
-  		Meteor.loginWithWeChat(function (err, res) {
+  		Meteor.loginWithWebWeChat(function (err, res) {
           if (err) {
             console.log('success ' + res);
           }

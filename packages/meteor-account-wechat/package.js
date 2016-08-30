@@ -25,14 +25,14 @@ Package.onUse(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
 
-  //api.export('MeteorWeChat');//
+  api.export('MeteorWeChat');
   api.export('MeteorWebWeChat');
 
   api.addFiles('webwechat_server.js', 'server');
   api.addFiles('webwechat_browser.js','web.browser');
  
-  // api.addFiles('wechat_cordova.js', 'web.cordova');
-  // api.addFiles('wechat_server.js','server');
+  api.addFiles('wechat_cordova.js', 'web.cordova');
+  api.addFiles('wechat_server.js','server');
   
   api.addFiles('wechat.js','client');
  
@@ -41,9 +41,9 @@ Package.onUse(function(api) {
 
 });
 
-Cordova.depends({
-  'cordova-plugin-wechat': '1.1.2'
-});
+// Cordova.depends({
+//   'cordova-plugin-wechat': '1.1.2'
+// });
 
 // Package.onTest(function(api) {
 //   api.use('ecmascript');
