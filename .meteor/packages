@@ -37,4 +37,5 @@ mystor:device-detection
 mrt:nprogress
 service-configuration@1.0.10
 shell-server
-xunyangjian:meteor-account-wechat
+boxfish:accounts-wechat
+xunyangjian:accounts-webmobilewechat
