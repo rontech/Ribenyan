@@ -29,11 +29,14 @@ Package.onUse(function(api) {
   api.export('MeteorWebWeChat');
 
   api.addFiles('webwechat_server.js', 'server');
-  api.addFiles('wechat.js','client');
   api.addFiles('webwechat_browser.js','web.browser');
+ 
   api.addFiles('wechat_cordova.js', 'web.cordova');
-
-   api.addFiles(['wechat_configure.html'], 'client');
+  api.addFiles('wechat_server.js','server');
+  
+  api.addFiles('wechat.js','client');
+ 
+  api.addFiles(['wechat_configure.html'], 'client');
   // api.mainModule('meteor-account-wechat.js');
 
 });
