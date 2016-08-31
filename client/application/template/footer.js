@@ -91,9 +91,9 @@ Template.footer.events({
             media: {
                 type: Wechat.Type.WEBPAGE,
                 webpageUrl: Meteor.absoluteUrl + this._id._str
-            },
-            scene: Wechat.Scene.TIMELINE,   // share to Timeline,
-          }
+            }  // share to Timeline,
+          },
+          scene: Wechat.Scene.TIMELINE, 
         }, function () {
          //alert("Success");
          alert("分享成功");

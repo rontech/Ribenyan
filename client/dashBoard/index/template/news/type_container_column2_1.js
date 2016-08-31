@@ -69,6 +69,7 @@ Template.typeContainerColumn21.events({
   },
   "click li.js-wechatshare" : function(e){
   	if(Meteor.isCordova){
+  		alert("");
   		Wechat.share({
         	message: {
          		title: this.title,
@@ -79,9 +80,9 @@ Template.typeContainerColumn21.events({
          		media: {
 		            type: Wechat.Type.WEBPAGE,
 		            webpageUrl: Meteor.absoluteUrl + this._id._str
-		        },
+		        }
+       	    },
        	    scene: Wechat.Scene.TIMELINE,   // share to Timeline,
-      		}
     	}, function () {
 	     //alert("Success");
 	     alert("分享成功");
