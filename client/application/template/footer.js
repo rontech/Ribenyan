@@ -81,28 +81,26 @@ Template.footer.events({
     
     "click #share-timeline" : function(e){
       if(Meteor.isCordova){
-        alert("mobile share");
         Wechat.share({
-         text: this.title + "标题",
-         scene: Wechat.Scene.TIMELINE,   // share to Timeline,
-         media: {
-            type: Wechat.Type.WEBPAGE,
-            webpageUrl: Meteor.absoluteUrl + this._id._str
+         message: {
+             text: this.title,
+             media: {
+                type: Wechat.Type.WEBPAGE,
+                webpageUrl: Meteor.absoluteUrl + this._id._str
+              },
+             scene: Wechat.Scene.TIMELINE,   // share to Timeline,
           }
         }, function () {
          //alert("Success");
          alert("分享成功");
         }, function (reason) {
-         alert("Failed: " + "分享失败");
+         alert("分享失败");
         });
       }else{//web端分享
-        alert("web share");
-        //微信分享按钮event
-        $("#share-timeline").on('click', function() {
+          //微信分享按钮event
           $(".js_qrcode_wrap.on").removeClass('on');
           $(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
           $(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
-        });
       }     
     },
 

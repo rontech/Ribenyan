@@ -18,11 +18,11 @@ Template.typeContainerColumn21.onRendered(function(){
 			$(this).parent().addClass("culture");
 	});
 	//微信分享按钮event
-	$(".onWeChat").on('click', function() {
-		$(".js_qrcode_wrap.on").removeClass('on');
-		$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
-		$(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
-	});
+	// $(".onWeChat").on('click', function() {
+	// 	$(".js_qrcode_wrap.on").removeClass('on');
+	// 	$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+	// 	$(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
+	// });
 	$(".share-close").on('click', function() {
 		$(this).parents(".js_qrcode_wrap.on").removeClass('on');
 	});
@@ -67,20 +67,29 @@ Template.typeContainerColumn21.events({
       Modal.show('CommonModal', { title: '警告', message: PRAISE_HAS_SUBMIT });
     }
   },
-  "click li.js-appwechatshare" : function(e){
-      Wechat.share({
-         text: this.title + "标题",
-         scene: Wechat.Scene.TIMELINE,   // share to Timeline,
-         media: {
-            type: Wechat.Type.WEBPAGE,
-            webpageUrl: Meteor.absoluteUrl + this._id._str
-        }
-      }, function () {
-         //alert("Success");
-         alert("分享成功");
-      }, function (reason) {
-         alert("Failed: " + "分享失败");
-      });
+  "click li.js-wechatshare" : function(e){
+  	if(Meteor.isCordova){
+  		Wechat.share({
+        	message: {
+         		text: this.title,
+         		media: {
+		            type: Wechat.Type.WEBPAGE,
+		            webpageUrl: Meteor.absoluteUrl + this._id._str
+		          },
+       	    scene: Wechat.Scene.TIMELINE,   // share to Timeline,
+      		}
+    	}, function () {
+	     //alert("Success");
+	     alert("分享成功");
+	    }, function (reason) {
+	     alert("分享失败");
+	    });
+
+	}else{
+		$(".js_qrcode_wrap.on").removeClass('on');
+		$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+		$(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
+  	}
   }
 });
 
