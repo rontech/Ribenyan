@@ -73,10 +73,6 @@ Template.typeContainerColumn21.events({
   		Wechat.share({
         	message: {
          		title: this.title,
-        		description: "This is description.",
-        		thumb: "www/img/web-logo.png",
-        		mediaTagName: "TEST-TAG-001",
-        		messageExt: "这是第三方带的测试字段",
          		media: {
 		            type: Wechat.Type.WEBPAGE,
 		            webpageUrl: Meteor.absoluteUrl + this._id._str
