@@ -1,6 +1,5 @@
-Accounts.oauth.registerService('webwechat');
-Accounts.oauth.registerService('wechat');
-
+ Accounts.oauth.registerService('webwechat');
+ Accounts.oauth.registerService('wechat');
 if (Meteor.isClient) {
   //web wechat login 
   Meteor.loginWithWebWeChat = function(options, callback) {

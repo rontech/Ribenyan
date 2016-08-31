@@ -1,8 +1,7 @@
 // web wechat login 
 Template.wechatWebBarCode.events({
 	"click li.js-ga-login" : function(e){//wechat login div 
-		Session.set("counter", Session.get("counter") + 1);
-    // 网页版使用 loginWithWebWeChat
+		// 网页版使用 loginWithWebWeChat
     // App打包时使用 loginWithWeChat
     if(Meteor.isCordova){
       Meteor.loginWithWeChat(function (err, res) {
@@ -23,6 +22,5 @@ Template.wechatWebBarCode.events({
           }
       });
     }
-  		
-   }
+  }
 });

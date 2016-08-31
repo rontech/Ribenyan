@@ -1,6 +1,6 @@
 Package.describe({
   name: 'xunyangjian:meteor-account-wechat',
-  version: '0.0.1',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'meteor accout login by wechat on mobile and web',
   // URL to the Git repository containing the source code for this package.
@@ -25,7 +25,7 @@ Package.onUse(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
 
-  api.export('MeteorWeChat');//
+  api.export('MeteorWeChat');
   api.export('MeteorWebWeChat');
 
   api.addFiles('webwechat_server.js', 'server');
