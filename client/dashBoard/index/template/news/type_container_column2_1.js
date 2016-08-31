@@ -67,6 +67,21 @@ Template.typeContainerColumn21.events({
       Modal.show('CommonModal', { title: '警告', message: PRAISE_HAS_SUBMIT });
     }
   },
+  "click li.js-appwechatshare" : function(e){
+      Wechat.share({
+         text: this.title + "标题",
+         scene: Wechat.Scene.TIMELINE,   // share to Timeline,
+         media: {
+            type: Wechat.Type.WEBPAGE,
+            webpageUrl: Meteor.absoluteUrl + this._id._str
+        }
+      }, function () {
+         //alert("Success");
+         alert("分享成功");
+      }, function (reason) {
+         alert("Failed: " + "分享失败");
+      });
+  }
 });
 
 Template.qrCode.onRendered(function(){

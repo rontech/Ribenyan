@@ -80,17 +80,30 @@ Template.footer.events({
     },
     
     "click #share-timeline" : function(e){
-       console.log("click #share-timeline");
-       WeixinJSBridge.invoke('shareTimeline',{
-                            "img_url": "http://ribenyan.net/ufs/files/sPuFBkZ5wFQrSaY68/img_news.jpeg",
-                            "img_width": "640",
-                            "img_height": "640",
-                            "link": "http://www.ribenyan.com",
-                            "desc": "京都汉字博物馆29日开幕",
-                            "title": "test"
-                            }, function(res) {
-                            _report('timeline', res.err_msg);
-                            });
+      if(Meteor.isCordova){
+        alert("mobile share");
+        Wechat.share({
+         text: this.title + "标题",
+         scene: Wechat.Scene.TIMELINE,   // share to Timeline,
+         media: {
+            type: Wechat.Type.WEBPAGE,
+            webpageUrl: Meteor.absoluteUrl + this._id._str
+          }
+        }, function () {
+         //alert("Success");
+         alert("分享成功");
+        }, function (reason) {
+         alert("Failed: " + "分享失败");
+        });
+      }else{//web端分享
+        alert("web share");
+        //微信分享按钮event
+        $("#share-timeline").on('click', function() {
+          $(".js_qrcode_wrap.on").removeClass('on');
+          $(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+          $(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
+        });
+      }     
     },
 
     "click #footer-like-icon" : function(e){
@@ -131,6 +144,20 @@ Template.footer.events({
        Modal.show('CommonModal', { title: '警告', message: PRAISE_HAS_SUBMIT });
      }
    },
+});
+
+Template.footer.onRendered(function(){
+
+  //微信分享按钮event
+  // $("#share-timeline").on('click', function() {
+  //   $(".js_qrcode_wrap.on").removeClass('on');
+  //   $(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+  //   $(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
+  // });
+  $(".share-close").on('click', function() {
+    $(this).parents(".js_qrcode_wrap.on").removeClass('on');
+  });
+
 });
 
 

@@ -45,7 +45,6 @@
 							{{>qrCode}}
 
 							<div class="share finan">
-								
 								<ul>
                                     <li class="" data-newsid="{{_id._str}}" data-click="true" id="top-like-icon">
                                     	<div class="header-icon-like-prompt">
@@ -58,9 +57,16 @@
 											<i class="fa fa-commenting" style="font-size: 20px;color: #CCA640"></i>{{discussNum}}
 										</a>	
 									</li>
+									{{#if isCordova}}
+									<li class="WeChat js-appwechatshare">
+										<a href="javascript:;" class="onWeChat" ><i></i></a>
+									</li>
+									{{else}}
 									<li class="WeChat">
 										<a href="javascript:;" class="onWeChat" ><i></i></a>
 									</li>
+									{{/if}}
+									
 									<!--<li class="webo"><a href="javascript:;" onclick="shareToSinaWB(event)" name="" data-original= "img/info2.jpg"><i></i></a></li>-->
 									<li class="new"><a href="#"><i>实事</i></a></li>
 								</ul>
