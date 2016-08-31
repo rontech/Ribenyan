@@ -81,12 +81,13 @@ Template.footer.events({
     
     "click #share-timeline" : function(e){
       if(Meteor.isCordova){
+        var url = Meteor.absoluteUrl() + this._id._str;
         Wechat.share({
          message: {
             title: this.title,
             media: {
                 type: Wechat.Type.WEBPAGE,
-                webpageUrl: Meteor.absoluteUrl() + this._id._str
+                webpageUrl: url
             }  // share to Timeline,
           },
           scene: Wechat.Scene.TIMELINE, 

@@ -69,13 +69,13 @@ Template.typeContainerColumn21.events({
   },
   "click a.js-wechatshare" : function(e){
   	if(Meteor.isCordova){
-  		alert("");
+  		var url = Meteor.absoluteUrl() + this._id._str;
   		Wechat.share({
         	message: {
          		title: this.title,
          		media: {
 		            type: Wechat.Type.WEBPAGE,
-		            webpageUrl: Meteor.absoluteUrl() + this._id._str
+		            webpageUrl: url
 		        }
        	    },
        	    scene: Wechat.Scene.TIMELINE,   // share to Timeline,
