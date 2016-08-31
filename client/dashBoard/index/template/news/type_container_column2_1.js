@@ -18,11 +18,11 @@ Template.typeContainerColumn21.onRendered(function(){
 			$(this).parent().addClass("culture");
 	});
 	//微信分享按钮event
-	$(".onWeChat").on('click', function() {
-		$(".js_qrcode_wrap.on").removeClass('on');
-		$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
-		$(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
-	});
+	// $(".onWeChat").on('click', function() {
+	// 	$(".js_qrcode_wrap.on").removeClass('on');
+	// 	$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+	// 	$(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
+	// });
 	$(".share-close").on('click', function() {
 		$(this).parents(".js_qrcode_wrap.on").removeClass('on');
 	});
@@ -67,6 +67,33 @@ Template.typeContainerColumn21.events({
       Modal.show('CommonModal', { title: '警告', message: PRAISE_HAS_SUBMIT });
     }
   },
+  "click a.js-wechatshare" : function(e){
+  	if(Meteor.isCordova){
+  		var url = Meteor.absoluteUrl() +  "news/detail/" + this._id._str;
+  		// alert(url);
+  		Wechat.share({
+        	message: {
+         		title: this.title,
+         		media: {
+		            type: Wechat.Type.WEBPAGE,
+		            webpageUrl: url
+		        }
+       	    },
+       	    scene: Wechat.Scene.TIMELINE,   // share to Timeline,
+    	}, function () {
+	     //alert("Success");
+	     alert("分享成功");
+	    }, function (reason) {
+	     alert("分享失败");
+	    });
+
+	}else{
+		console.log("click mobile");
+		$(".js_qrcode_wrap.on").removeClass('on');
+		$(this).parents('.card').find(".js_qrcode_wrap").addClass('on');
+		$(this).parents('.content-info').find(".js_qrcode_wrap").addClass('on');
+  	}
+  }
 });
 
 Template.qrCode.onRendered(function(){
