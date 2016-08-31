@@ -69,8 +69,8 @@ Template.typeContainerColumn21.events({
   },
   "click a.js-wechatshare" : function(e){
   	if(Meteor.isCordova){
-  		var url = Meteor.absoluteUrl() + this._id._str;
-  		alert(url);
+  		var url = Meteor.absoluteUrl() +  "news/detail/" + this._id._str;
+  		// alert(url);
   		Wechat.share({
         	message: {
          		title: this.title,
