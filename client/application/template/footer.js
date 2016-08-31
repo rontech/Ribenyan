@@ -86,7 +86,7 @@ Template.footer.events({
             title: this.title,
             media: {
                 type: Wechat.Type.WEBPAGE,
-                webpageUrl: "www.baidu.com"
+                webpageUrl: Meteor.absoluteUrl() + this._id._str
             }  // share to Timeline,
           },
           scene: Wechat.Scene.TIMELINE, 

@@ -75,7 +75,7 @@ Template.typeContainerColumn21.events({
          		title: this.title,
          		media: {
 		            type: Wechat.Type.WEBPAGE,
-		            webpageUrl: Meteor.absoluteUrl + this._id._str
+		            webpageUrl: Meteor.absoluteUrl() + this._id._str
 		        }
        	    },
        	    scene: Wechat.Scene.TIMELINE,   // share to Timeline,
