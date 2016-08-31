@@ -67,7 +67,7 @@ Template.typeContainerColumn21.events({
       Modal.show('CommonModal', { title: '警告', message: PRAISE_HAS_SUBMIT });
     }
   },
-  "click li.js-wechatshare" : function(e){
+  "click a.js-wechatshare" : function(e){
   	if(Meteor.isCordova){
   		alert("");
   		Wechat.share({
