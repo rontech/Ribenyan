@@ -1,4 +1,5 @@
- Accounts.oauth.registerService('webwechat');
+Accounts.oauth.registerService('webwechat');
+Accounts.oauth.registerService('wechat');
 
 if (Meteor.isClient) {
   //web wechat login 

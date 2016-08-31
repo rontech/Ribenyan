@@ -4,8 +4,8 @@ Template.wechatWebBarCode.events({
 		Session.set("counter", Session.get("counter") + 1);
     // 网页版使用 loginWithWebWeChat
     // App打包时使用 loginWithWeChat
-    // 
-  		Meteor.loginWithWebWeChat(function (err, res) {
+    if(Meteor.isCordova){
+      Meteor.loginWithWeChat(function (err, res) {
           if (err) {
             console.log('success ' + res);
           }
@@ -13,5 +13,16 @@ Template.wechatWebBarCode.events({
             console.log('login failed ' + err);
           }
       });
+    }else{
+      Meteor.loginWithWebWeChat(function (err, res) {
+          if (err) {
+            console.log('success ' + res);
+          }
+          else {
+            console.log('login failed ' + err);
+          }
+      });
+    }
+  		
    }
 });
