@@ -8,3 +8,6 @@
 #Ignore .demeteorized
 .demeteorized
 .meteor/dev_bundle
+
+#Ignore node_modules 
+node_modules
