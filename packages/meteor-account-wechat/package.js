@@ -1,10 +1,10 @@
 Package.describe({
-  name: 'xunyangjian:meteor-account-wechat',
+  name: 'rontech:meteor-account-wechat',
   version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'meteor accout login by wechat on mobile and web',
   // URL to the Git repository containing the source code for this package.
-  git: 'https://github.com/xunyangjian/meteor-account-wechat',
+  git: 'https://github.com/rontech/meteor-account-wechat',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'

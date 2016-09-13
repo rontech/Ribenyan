@@ -37,5 +37,5 @@ mystor:device-detection
 mrt:nprogress
 service-configuration@1.0.10
 shell-server
-xunyangjian:meteor-account-wechat
+rontech:meteor-account-wechat
 npm-bcrypt@0.8.7
