@@ -2,7 +2,7 @@
 // the entire section is optional.
 App.info({
   id: 'co.jp.rontech.ribenyan',
-  name: 'MeteorNews',
+  name: '日本眼',
   description: '不同视角看日本',
   author: 'Rontech',
   email: 'dev@rontech.co.jp',
