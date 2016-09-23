@@ -786,3 +786,10 @@ ul.m-footer-menu li a {
 @media screen and (max-width: 768px) {
   .bx-wrapper{display: none; }
 }
+
+/* for share bar */
+.share.bar ul li.look a i,.share.bar ul li.WeChat a i,.share.bar ul li.webo a i{ background-color: #CCA640;}
+.share.bar ul li a{ padding: 5px 0px;}
+.share.bar ul li.new {padding: 5px 0px; font-weight: bold; font-style: italic; color: #EA553A;}
+.info .title {font-weight: bold; font-size: 16px;}
+.info .desc {font-size: 12px;}
